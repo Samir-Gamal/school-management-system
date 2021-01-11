@@ -1,0 +1,318 @@
+// NOTE: This file contains button SCSS.
+
+button {
+  @include transition (all, 0.5s, ease);
+  &:focus { 
+	  outline: 0;
+   }
+} 
+
+.button { 
+	background: $theme-color;
+	padding: 10px 20px;
+	font-size: $font-base; 
+	letter-spacing: 1px;
+	border: 0;
+	color: $white;
+	text-transform: uppercase;
+	font-weight: $font-medium;
+	display: inline-block;
+	border-radius: 3px;
+	text-align: center;
+	border:2px solid $theme-color;
+	cursor: pointer;
+	@include transition (all, 0.5s, ease);
+	&:hover {
+	 background: $dark-gray;
+	 color: $white; 
+	 border-color: $border-color;
+	}
+	&:focus {
+	 background: $dark-gray;
+	 color: $white; 
+	 border-color: $border-color;
+	}
+}
+
+.button + .button {
+	margin-left: 5px;
+	margin-bottom:5px;
+}
+
+.button.black { 
+  	background: $dark-gray; 
+  	color: $white; 
+  	border:2px solid $dark-gray;
+
+  	&:hover {
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+  	 }
+  	&:active {
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+  	 }
+  	 &:focus {
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+  	 }
+  }
+ 
+
+.button.gray {
+    background: $border-color; 
+    color: $dark-gray;
+    border:2px solid $border-color; 
+
+    &:hover { 
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+     }
+     &:focus { 
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+     }
+     &:active { 
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+     }
+}
+
+.button.white {
+     background: $white; 
+     color: $theme-color;
+      border-color: $white; 
+
+    &:hover { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+     &:focus { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+     &:active { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+}
+
+.button.button-border {
+     background: transparent; 
+     border: 2px solid $theme-color; 
+     color: $theme-color;
+
+    &:hover { 
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+     }
+     &:focus { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+     &:active { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+}
+
+.button.button-border.gray {
+     background: transparent; 
+     border: 2px solid $border-color; 
+     color: $light-gray; 
+
+    &:hover { 
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+     }
+     &:focus { 
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+     }
+     &:active { 
+		background: $theme-color; 
+		color: $white; 
+		border-color: $theme-color;
+     }
+}
+
+.button.button-border.black {
+      background: transparent; 
+      border: 2px solid $dark-gray; 
+      color: $dark-gray;
+
+    &:hover { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+     &:focus { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+     &:active { 
+		background: $dark-gray; 
+		color: $white; 
+		border-color: $dark-gray;
+     }
+}
+
+.button.button-border.white {
+     background: transparent; 
+     border: 2px solid $white; 
+     color: $white;
+
+    &:hover { 
+		background: $white; 
+		color: $theme-color; 
+		border-color: $white;
+     }
+     &:focus { 
+		background: $white; 
+		color: $theme-color; 
+		border-color: $white;
+     }
+     &:active { 
+		background: $white; 
+		color: $theme-color; 
+		border-color: $white;
+     }
+}
+
+.button.icon { 
+	 i { margin-left: 10px; }
+}
+
+.button.arrow { 
+	 background: transparent; 
+	 border: none; 
+	 color: $theme-color; 
+	 padding: 0; 
+	 font-weight: $font-bold;
+
+	 i { 
+	 	padding-left: 10px; 
+	 	font-size: $font-base; 
+	 }
+
+	 &:hover { 
+		 color: $dark-gray;
+	  }
+ }	
+
+.button.arrow.white { 
+	 color: $white; 
+	 border: none; 
+	 &:hover { 
+		 color: $lightest-gray; 
+		 background: transparent;
+	  }
+ }
+ 
+.button.icon-color { 
+	background: none; 
+	border: none; 
+	color: $theme-color; 
+	padding: 0;
+
+	&:hover { 
+		color: $dark-gray; 
+		background: transparent;
+	 }
+
+	 i { 
+	 	border: 1px solid $theme-color; 
+	 	border-radius: 50%; 
+	 	height: 22px; 
+	 	width: 22px; 
+	 	line-height: $line-base;  
+	 	margin-left: 10px; 
+	 	transform: translateX(0px); 
+	 	transition: all 0.5s cubic-bezier(0.76, 0.46, 0.22, 1) 0s;
+
+	 	&:hover { 
+		 background: $dark-gray; 
+		 border-color: $border-color; 
+		 color: $white; 
+		 transform: translateX(3px);
+	 	 }
+	 }
+ }
+
+ 
+ .button.icon-color.white { 
+	&:hover { 
+	 color: $white; 
+	 border:none; 
+	 background: none;
+	 i { 
+		background: $white; 
+		color: $theme-color; 
+		border-color: $white;
+	  }
+ 	 }
+}
+
+.bg-dark {
+	 .button.icon-color { 
+	 	color: $white;
+
+	 	i { 
+	 		border-color: $white;
+	 		&:hover { 
+	 		background: $white; color: $theme-color; 
+	 	   }
+	 	 }
+
+	 	 &:hover {
+	 	 	color: $theme-color;
+	 	 }
+	  }
+
+}
+
+.big-button { 
+	padding: 28px 26px; 
+	font-size: $font-lg;
+	span { 
+		display: block; 
+		font-size: $font-base; 
+		margin-top: 6px;
+	}
+ }
+
+.button.x-small { 
+	padding: 8px 14px; 
+	font-size: $font-base; 
+}
+.button.small { 
+	padding: 10px 18px; 
+	font-size: $font-base; 
+}
+.button.medium { 
+	padding: 12px 20px; 
+	font-size: $font-base; 
+}
+.button.large { 
+	padding: 14px 20px; 
+	font-size: $font-base; 
+}
+.button + .button.btn-block  { 
+	margin-left: 0; 
+}
+ 

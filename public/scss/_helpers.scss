@@ -1,0 +1,596 @@
+// NOTE: This file contains helpers SCSS.
+
+/*Background colors*/
+ .theme-bg { 
+   background: $theme-color;
+  }
+ 
+/*text color*/
+.theme-color { 
+   color: $theme-color;
+  }
+
+.bg {
+    background-size:cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow:hidden;
+}
+.bg:before {
+    content: '';
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 0;
+}
+.no-overlay:before {
+    content: '';
+    background: rgba(0,0,0,0);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0; 
+    z-index: 0;
+}
+.bg-primary-overlay:before {
+    content: '';
+    @include hex-rgba($theme-color, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 0;
+}
+
+/*Social Icons Backgrounds*/
+.bg-facebook {
+    background: $facebook !important;
+}
+.bg-twitter {
+    background: $twitter !important;
+}
+.bg-linkedin {
+    background: $linkedin !important;
+}
+.bg-pinterest {
+    background: $pinterest !important;
+}
+.bg-instagram {
+    background: $instagram !important;
+}
+.bg-dribbble {
+    background: $dribbble !important;
+}
+.bg-googleplus {
+    background: $googleplus !important;
+}
+.bg-pinterest {
+    background: $pinterest !important;
+}
+.bg-dropbox {
+    background: $dropbox !important;
+}
+.bg-flickr {
+    background: $flickr !important;
+}
+.bg-tumblr {
+    background: $tumblr !important;
+}
+.bg-skype {
+    background: $skype !important;
+}
+.bg-youtube {
+    background: $youtube !important;
+}
+.bg-github {
+    background: $github !important;
+}
+
+/*Labels*/
+.label {
+    display: inline;
+    padding:  .2em .4em;
+    font-size: 75%;
+    font-weight: $font-regular;
+    line-height: 1;
+    color: $white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+  
+
+/*Social Icons Text*/
+.text-facebook {
+    color: $facebook;
+}
+.text-twitter {
+    color: $twitter;
+}
+.text-linkedin {
+    color: $linkedin;
+}
+.text-dribbble {
+    color: $dribbble;
+}
+.text-googleplus {
+    color: $googleplus;
+}
+.text-instagram {
+    color: $instagram;
+}
+.text-pinterest {
+    color: $pinterest;
+}
+.text-dropbox {
+    color: $dropbox;
+}
+.text-flickr {
+    color: $flickr;
+}
+.text-tumblr {
+    color: $tumblr;
+}
+.text-skype {
+    color: $skype;
+}
+.text-youtube {
+    color: $youtube;
+}
+.text-github {
+    color: $github;
+}
+ 
+/*Font sizes*/
+.font-xs {
+  font-size: $font-xs;
+  line-height: $line-xs;
+}
+.font-xxl {
+	font-size: $font-xxl;
+	line-height: $line-xxl;
+}
+.f-30 {
+    font-size:  2.143rem;
+    line-height:  2.143rem;
+}
+.f-50 {
+    font-size:  3.571rem;
+    line-height:  3.571rem;
+}
+.f-70 {
+    font-size:  5.271rem;
+    line-height:  5.271rem;
+}
+.f-100 {
+    font-size:  7.125rem;
+    line-height:  7.125rem;
+}
+.f-150 {
+    font-size:  11.125rem;
+    line-height:  11.125rem;
+}
+.f-200 {
+    font-size:  14.125rem;
+    line-height:  14.125rem;
+}
+
+/*Font weights*/
+.font-light {
+	font-weight: $font-light;
+}
+.font-regular {
+	font-weight: $font-regular;
+}
+.font-medium {
+	font-weight: $font-medium;
+}
+.font-bold {
+	font-weight: $font-bold;
+}
+
+/*Margins */
+.m {
+    &t-0 {
+        margin-top: 0 !important;
+    }
+    &t-10 {
+        margin-top: 0.7143rem !important;
+    }
+    &t-15 {
+        margin-top: 1.100rem !important;
+    }
+    &t-20 {
+        margin-top: 1.429rem !important;
+    }
+    &t-30 {
+        margin-top: 2.143rem !important;
+    }
+    &t-40 {
+        margin-top: 2.857rem !important;
+    }
+    &t-50 {
+        margin-top: 3.571rem !important;
+    }
+    &t-60 {
+        margin-top: 4.286rem !important;
+    }
+    &t-70 {
+        margin-top: 5rem !important;
+    }
+    &t-80 {
+        margin-top: 5.714rem !important;
+    }
+    &t-90 {
+        margin-top: 6.429rem !important;
+    }
+    &t-100 {
+        margin-top: 7.143rem !important;
+    }
+}
+/*Margin bottom*/
+.m {
+    &b-0 {
+        margin-bottom: 0 !important;
+    }
+    &b-10 {
+        margin-bottom: 0.7143rem !important;
+    }
+    &b-15 {
+        margin-bottom: 1.100rem !important;
+    }
+    &b-20 {
+        margin-bottom: 1.429rem !important;
+    }
+    &b-30 {
+        margin-bottom: 2.143rem !important;
+    }
+    &b-40 {
+        margin-bottom: 2.857rem !important;
+    }
+    &b-50 {
+        margin-bottom: 3.571rem !important;
+    }
+    &b-60 {
+        margin-bottom: 4.286rem !important;
+    }
+    &b-70 {
+        margin-bottom: 5rem !important;
+    }
+    &b-80 {
+        margin-bottom: 5.714rem !important;
+    }
+    &b-90 {
+        margin-bottom: 6.429rem !important;
+    }
+    &b-100 {
+        margin-bottom: 7.143rem !important;
+    }
+}
+
+/*Margin left*/
+.m {
+    &l-0 {
+        margin-left: 0 !important;
+    }
+    &l-15 {
+        margin-left: 1.100rem !important;
+    }
+    &l-10 {
+        margin-left: 0.7143rem !important;
+    }
+    &l-20 {
+        margin-left: 1.429rem !important;
+    }
+    &l-30 {
+        margin-left: 2.143rem !important;
+    }
+    &l-40 {
+        margin-left: 2.857rem !important;
+    }
+    &l-50 {
+        margin-left: 3.571rem !important;
+    }
+    &l-60 {
+        margin-left: 4.286rem !important;
+    }
+    &l-70 {
+        margin-left: 5rem !important;
+    }
+    &l-80 {
+        margin-left: 5.714rem !important;
+    }
+    &l-90 {
+        margin-left: 6.429rem !important;
+    }
+    &l-100 {
+        margin-left: 7.143rem !important;
+    }
+}
+/*Margin right*/
+.m {
+    &r-0 {
+        margin-right: 0 !important;
+    }
+    &r-10 {
+        margin-right: 0.7143rem !important;
+    }
+    &r-15 {
+        margin-right: 1.100rem !important;
+    }
+    &r-20 {
+        margin-right: 1.429rem !important;
+    }
+    &r-30 {
+        margin-right: 2.143rem !important;
+    }
+    &r-40 {
+        margin-right: 2.857rem !important;
+    }
+    &r-50 {
+        margin-right: 3.571rem !important;
+    }
+    &r-60 {
+        margin-right: 4.286rem !important;
+    }
+    &r-70 {
+        margin-right: 5rem !important;
+    }
+    &r-80 {
+        margin-right: 5.714rem !important;
+    }
+    &r-90 {
+        margin-right: 6.429rem !important;
+    }
+    &r-100 {
+        margin-right: 7.143rem !important;
+    }
+}
+/*padding*/
+.p{
+    &-0 {
+    padding: 0 !important;
+    }
+    &-05 {
+    padding: 0.3543rem !important;
+    }
+    &-10 {
+    padding: 0.7143rem !important;
+    }
+    &-15 {
+    padding: 1.0443rem !important;
+    }
+    &-20 {
+    padding: 1.429rem !important;
+    }
+    &-30 {
+    padding: 2.143rem !important;
+    }
+    &-40 {
+    padding: 2.857rem !important;
+    }
+    &-50 {
+    padding: 3.571rem !important;
+    }
+}
+/*Padding left*/
+.p{
+    &l-0 {
+    padding-left: 0 !important;
+    }
+    &l-10 {
+    padding-left: 0.7143rem !important;
+    }
+    &l-15 {
+    padding-left: 1.100rem !important;
+    }
+    &l-20 {
+    padding-left: 1.429rem !important;
+    }
+    &l-30 {
+    padding-left: 2.143rem !important;
+    }
+    &l-40 {
+    padding-left: 2.857rem !important;
+    }
+    &l-50 {
+    padding-left: 3.571rem !important;
+    }
+}
+/*Padding right*/
+.p{
+    &r-0 {
+    padding-right: 0 !important;
+    }
+    &r-10 {
+    padding-right: 0.7143rem !important;
+    }
+    &r-15 {
+    padding-right: 1.100rem !important;
+    }
+    &r-20 {
+    padding-right: 1.429rem !important;
+    }
+    &r-30 {
+    padding-right: 2.143rem !important;
+    }
+    &r-40 {
+    padding-right: 2.857rem !important;
+    }
+    &r-50 {
+    padding-right: 3.571rem !important;
+    }
+}
+/*Padding top*/
+.p{
+    &t-0 {
+    padding-top: 0 !important;
+    }
+    &t-10 {
+    padding-top: 0.7143rem !important;
+    }
+    &t-15 {
+    padding-top: 1.100rem !important;
+    }
+    &t-20 {
+    padding-top: 1.429rem !important;
+    }
+    &t-30 {
+    padding-top: 2.143rem !important;
+    }
+    &t-40 {
+    padding-top: 2.857rem !important;
+    }
+    &t-50 {
+    padding-top: 3.571rem !important;
+    }
+}
+/*Padding bottom*/
+.p{
+    &b-0 {
+    padding-bottom: 0 !important;
+    }
+    &b-10 {
+    padding-bottom: 0.7143rem !important;
+    }
+    &b-15 {
+    padding-bottom: 1.100rem !important;
+    }
+    &b-20 {
+    padding-bottom: 1.429rem !important;
+    }
+    &b-30 {
+    padding-bottom: 2.143rem !important;
+    }
+    &b-40 {
+    padding-bottom: 2.857rem !important;
+    }
+    &b-50 {
+    padding-bottom: 3.571rem !important;
+    }
+}
+ 
+/*Min heights*/
+.min-h {
+    &-200 {
+        min-height: 200px;
+    }
+    &-230 {
+        min-height: 230px;
+    }
+    &-260 {
+        min-height: 260px;
+    }
+    &-320 {
+        min-height: 320px;
+    }
+    &-350 {
+        min-height: 350px;
+    }
+    &-380 {
+        min-height: 380px;
+    }
+    &-410 {
+        min-height: 410px;
+    }
+    &-440 {
+        min-height: 440px;
+    }
+    &-470 {
+        min-height: 470px;
+    }
+    &-500 {
+        min-height: 500px;
+    }
+    &-550 {
+        min-height: 550px;
+    }
+    &-600 {
+        min-height: 600px;
+    }
+}
+ /*Max heights*/
+.max-h {
+    &-200 {
+        max-height: 200px;
+    }
+    &-230 {
+        max-height: 230px;
+    }
+    &-260 {
+        max-height: 260px;
+    }
+    &-320 {
+        max-height: 320px;
+    }
+    &-350 {
+        max-height: 350px;
+    }
+    &-380 {
+        max-height: 380px;
+    }
+    &-410 {
+        max-height: 410px;
+    }
+    &-440 {
+        max-height: 440px;
+    }
+    &-470 {
+        max-height: 470px;
+    }
+    &-500 {
+        max-height: 500px;
+    }
+    &-550 {
+        max-height: 550px;
+    }
+    &-600 {
+        max-height: 600px;
+    }
+}
+ 
+/*Overflow */
+.overflow {
+    &-x {
+        overflow-x: auto;
+    }
+    &-y {
+        overflow-y: auto;
+    }
+    &-auto {
+        overflow: auto;
+    }
+}
+
+.border-top {
+    border-top:1px solid #eeeeee !important;
+}
+.border-bottom {
+    border-bottom:1px solid #eeeeee !important;
+}
+.border-right {
+    border-right:1px solid #eeeeee !important;
+}
+.border-left {
+    border-left:1px solid #eeeeee !important;
+}
+.border-white {
+    border-color:#fff !important;
+}
+.badge-absolute {
+    position: absolute;
+    right:20px;
+    top:20px;
+}
+.nav-tabs-custom {
+    position:absolute;
+    right:0;
+    top:0;
+}
