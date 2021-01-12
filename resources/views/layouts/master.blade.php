@@ -13,7 +13,7 @@
 
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper" style="font-family: 'Cairo', sans-serif">
 
         <!--=================================
  preloader -->
@@ -26,7 +26,6 @@
  preloader -->
 
         @include('layouts.main-header')
-
         @include('layouts.main-sidebar')
 
         <!--=================================
@@ -35,6 +34,19 @@
         <div class="content-wrapper">
 
             @yield('page-header')
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4 class="mb-0">@yield('PageTitle')</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
+                            <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
+                            <li class="breadcrumb-item active">@yield('PageTitle')</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
 
             @yield('content')
 
