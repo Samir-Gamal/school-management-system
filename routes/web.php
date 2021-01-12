@@ -25,15 +25,8 @@ Route::group(
     {
         return view('dashboard');
     });
+
+
+    Route::resource('grade', 'GradeController');
+
 });
-
-
-
-
-
-
-
-
-
-
-
