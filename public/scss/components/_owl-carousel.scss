@@ -1,0 +1,112 @@
+// NOTE: This file contains owl-carousel SCSS.
+
+.owl-carousel { 
+	.owl-item {
+		img { width: auto; }
+	}
+
+	.owl-nav {  
+		cursor: pointer; 
+		z-index: 999; 
+		width: 100%; 
+			
+	.owl-prev {
+		text-indent: inherit; 
+		width: auto; 
+		cursor: pointer; 
+	    @include transition (all, 0.2s, ease);
+	    left:10px;  
+	    display: block; 
+	    position: absolute; 
+	    text-indent: inherit; 
+	    top: 50%; 
+	    transform: translateY(-50%); 
+	    -webkit-transform: translateY(-50%); 
+	    -o-transform: translateY(-50%); 
+	    -ms-transform: translateY(-50%); 
+	    -moz-transform: translateY(-50%);
+	    margin: 0 !important;
+	 }	
+	 .owl-next {
+		display: block; 
+		position: absolute; 
+		text-indent: inherit; 
+		width: auto; 
+		cursor: pointer; 
+	    @include transition (all, 0.2s, ease);
+	    right:10px; 
+	    text-indent: inherit; 
+	    top: 50%; 
+	    transform: translateY(-50%); 
+	    -webkit-transform: translateY(-50%); 
+	    -o-transform: translateY(-50%); 
+	    -ms-transform: translateY(-50%); 
+	    -moz-transform: translateY(-50%);
+	    margin: 0 !important;
+	 }	
+
+	 i { 
+	 	font-size: $font-xl; 
+	 	width:36px; 
+	 	height:36px; 
+	 	line-height: $line-xxxl; 
+	 	display: inline-block; 
+	 	color:$white; 
+	 	border-radius: 3px; 
+	 	background:$theme-color; 
+	 	border:0px solid $light-gray; 
+	 	font-weight:normal; 
+	 	text-align: center; 
+	 	@include transition (all, 0.2s, ease);
+
+	 	&::hover { 
+	 		background: $dark-gray; 
+	 		color: $white; 
+	 	}
+	  }
+
+	}
+ }
+ 
+/* Dots */ 
+.owl-carousel {
+
+	.owl-controls {
+		.owl-dot { 
+			margin: 0; 
+			display: inline-block; 
+			margin-top: 20px; 
+			text-indent: inherit;
+			width: 100%;
+			cursor: pointer; 
+			text-align: center;
+			margin: 14px 2px 0;
+
+			span { 
+				background: $lightest-gray; 
+				display: inline-block; 
+				width: 12px; 
+				min-height: 12px; 
+				margin-top: 5px; 
+				border-radius: 3px; 
+				@include transition (all, 0.5s, ease);
+				cursor: pointer; 
+			}
+			&:hover { 
+				span { 
+					background:$theme-color; 
+					min-height: 17px; 
+					margin-top: 0; 
+				}
+			 }
+		}
+		.owl-dot.active {
+			span { 
+				background:$theme-color; 
+				min-height: 17px; 
+				margin-top: 0; 
+			}
+		}
+
+	}
+}

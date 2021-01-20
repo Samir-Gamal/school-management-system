@@ -1,0 +1,128 @@
+// NOTE: This file contains pricing-table SCSS.
+
+.pricing-top { 
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); 
+	padding: 30px; 
+	border-top: 8px solid $dark-gray; 
+	border-radius: 6px; 
+}
+
+.pricing-prize { 
+   margin: 30px 0;
+	h2 { 
+	  span { font-size: 18px; }
+	 }
+ }
+
+.pricing-content { 
+	width: 70%; 
+	margin: 40px auto 0; 
+
+	.pricing-table-list  { 
+		ul { 
+			li { 
+				line-height: 56px; 
+				font-weight: 600;
+
+				i { 
+				   width: 25px; 
+				   display: inline-block; 
+				   color: $theme-color;
+				 }
+
+				 i.fa-times { 
+				 	color: red; 
+				 }
+
+				 span { 
+				 	margin-top: 16px; 
+				 	text-align: center; 
+				 	font-size: 14px; 
+				 	line-height: 24px; 
+				 	@include box-shadow(0, 6px, 14px, rgba(0, 0, 0, 0.09)); 
+				 	width: 24px; 
+				 	height: 24px; 
+				 	background: transparent; 
+				 	border-radius: 50%; 
+				 	i { 
+					  padding-right: 0;
+				 	 }
+				 }
+			 }
+		 }
+	
+	 }
+}
+
+.pricing-table.active { 
+	margin-top: -7px;  
+	.pricing-top { 
+		border-top: 16px solid $theme-color; 
+		@include box-shadow(0, 0, 50px, rgba(0, 0, 0, 0.05)); 
+		padding-bottom: 30px; 
+
+		a.button { 
+			padding: 12px 60px; 
+			font-size: 20px; 
+		}
+	}
+	.pricing-prize { 
+		margin: 30px 0 20px; 
+	}
+}
+
+ 
+
+/*style-2*/
+.pricing-table.boxed {  
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); 
+	padding: 30px; 
+	border-top: 8px solid $dark-gray; 
+	border-radius: 6px;  
+	.pricing-top { 
+		box-shadow: none; 
+		border: 0; 
+		padding: inherit; 
+		border-radius: inherit; 
+		padding: 0; 
+	}
+	.pricing-content { 
+		width: inherit; 
+		margin:0; 
+		margin-top: 20px; 
+	}
+}
+.pricing-table.active.boxed { 
+	border-top: 16px solid $theme-color; 
+	@include box-shadow(0, 0, 50px, rgba(0, 0, 0, 0.05)); 
+}
+ 
+/*price simple*/
+.price { 
+	list-style-type: none; 
+	border: 1px solid $lightest-gray; 
+	margin: 0; 
+	padding: 0; 
+	@include transition (all, 0.3s, ease); border:0; 
+
+	&:hover {  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05); }
+
+	.header { 
+		background-color: $dark-gray; 
+		color: $white; 
+		font-size: 25px; 
+	}
+	li { 
+		border-bottom: 1px solid $lightest-gray; 
+		padding: 20px; 
+		text-align: center; 
+	}
+	.grey { 
+		background-color: $lightest-gray; 
+		font-size: 20px; 
+	}
+}
+
+.price.active .header { 
+	background: $theme-color; 
+}  

@@ -1,0 +1,100 @@
+// NOTE: This file contains list style SCSS.
+
+ul.list { 
+	padding:0;
+	margin:0;  
+	li { 
+		margin:5px 0; 
+		padding-left:40px; 
+		position: relative; 
+		line-height: $line-lg; 
+	}
+	i { 
+		position: absolute; 
+		left: 0; 
+		top: 5px; 
+		font-size: $font-md; 
+	}
+}
+
+ul.list {
+	 li { 
+	 	color: $dark-gray;
+		i { color: $theme-color; }
+
+		&:after { 
+			content:""; 
+			font-family: 'FontAwesome'; 
+			position:absolute; 
+			color:$theme-color; 
+			left:0; 
+			top:0;
+		 }
+	  }
+}
+
+/* Ul List Mark */
+ul.list-mark { 
+	padding:0; 
+	margin:0;
+
+	li { 
+		list-style-type:none; 
+		padding-left:25px; 
+		position:relative;
+		&:after {
+		 content:"\f00c";
+		}
+	}
+}
+
+ul.list-arrow { 
+	padding:0; 
+	margin:0;
+
+	li { 
+		list-style-type:none; 
+		padding-left:25px; 
+		position:relative;
+
+		&:after {
+		 content:"\f105";
+		 font-size:$font-md;
+		}
+	}
+}
+
+ul.list-hand { 
+	padding:0; 
+	margin:0;
+
+	li { 
+		list-style-type:none; 
+		padding-left:25px; 
+		position:relative;
+
+		&:after {
+		 content:"\f0a4";
+		}
+	}
+}
+
+ul.list-edit { 
+	padding:0; 
+	margin:0;
+
+	li { 
+		list-style-type:none; 
+		padding-left:25px; 
+		position:relative;
+
+		&:after {
+		 content:"\f040";
+		}
+	}
+}
+ul.list-unstyled {
+	li {
+		margin-top:2px;
+	}
+}

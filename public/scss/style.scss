@@ -1,0 +1,69 @@
+/*
+Template:  Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template
+Author: potenzaglobalsolutions.com
+Design and Developed by: potenzaglobalsolutions.com
+Version : 1.0
+
+NOTE: This file includes all admin Template plugins and Shortcodes. If you don't want to use any plugins from below. You can simply remove that line from this file.
+*/
+
+/*================================================
+[  Table of contents  ]
+================================================
+
+1. Plugins (all the plugins css)
+2. Variables
+3. Mixins
+4. Helpers
+5. Typography
+6. Components
+	- Accordion
+	- Button
+	- Lists
+	- Nice Select
+	- Pricing
+	- Social Icon
+	- Tabs
+	- Owl Carousel
+7. Sidebar
+8. Layout
+9. Responsive
+
+======================================
+[ End table content ]
+======================================*/
+
+@import "plugins/bootstrap";
+@import "plugins/bootstrap-colorpicker";
+@import "plugins/bootstrap-touchspin";
+@import "plugins/fullcalendar";
+@import "plugins/jquery-jvectormap";
+@import "plugins/simplemde";
+@import "plugins/summernote";
+@import "plugins/weather-icons";
+@import "plugins/themify-icons";
+@import "plugins/font-awesome";
+@import "plugins/toastr";
+@import "plugins/bootstrap-datepicker";
+@import "plugins/jquery.steps";
+@import "plugins/dataTables.bootstrap4";
+@import "plugins/lobilist";
+@import "plugins/semantic";
+
+@import "variables";
+@import "mixins";
+@import "helpers";
+@import "typography";
+
+@import "components/accordion";
+@import "components/button";
+@import "components/list-style";
+@import "components/nice-select";
+@import "components/pricing";
+@import "components/social-icon";
+@import "components/tabs";
+@import "components/owl-carousel";
+
+@import "sidebar";
+@import "layout";
+@import "responsive"; 
