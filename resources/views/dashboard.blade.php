@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@section('title')
+{{trans('main_trans.Main_title')}}
+@stop
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +22,9 @@
         <!--=================================
  preloader -->
 
-        <div id="pre-loader">
-            <img src="assets/images/pre-loader/loader-01.svg" alt="">
-        </div>
+ <div id="pre-loader">
+     <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
+ </div>
 
         <!--=================================
  preloader -->

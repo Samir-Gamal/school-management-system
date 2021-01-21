@@ -12,15 +12,15 @@ NOTE: This file contains all scripts for the actual Template.
 [  Table of contents  ]
 ================================================
 
-:: Predefined Variables 
+:: Predefined Variables
 :: Tooltip
 :: Preloader
-:: PHP Contact Form 
+:: PHP Contact Form
 :: Counter
 :: Back to top
 :: NiceScroll
 :: Mailchimp
-:: PieChart 
+:: PieChart
 :: DataTable
 :: Wow animation on scroll
 :: Select
@@ -37,19 +37,19 @@ NOTE: This file contains all scripts for the actual Template.
 :: Calendar List View
 :: Repeater form
 :: Wizard form
- 
+
 ======================================
 [ End table content ]
 ======================================*/
 //POTENZA var
- 
+
  (function($){
   "use strict";
   var POTENZA = {};
 
   /*************************
   Predefined Variables
-*************************/ 
+*************************/
 var $window = $(window),
     $document = $(document),
     $body = $('body'),
@@ -68,32 +68,32 @@ var $window = $(window),
 *************************/
   $('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover()
-  
+
 /*************************
         Preloader
-*************************/  
+*************************/
   POTENZA.preloader = function () {
        $("#load").fadeOut();
        $('#pre-loader').delay(0).fadeOut('slow');
-   };   
+   };
 
-  
+
  /*************************
        counter
-*************************/  
+*************************/
  POTENZA.counters = function () {
   var counter = jQuery(".counter");
-  if(counter.length > 0) {  
+  if(counter.length > 0) {
       loadScript(plugin_path + 'counter/jquery.countTo.js', function() {
         $counter.each(function () {
-         var $elem = $(this);                 
+         var $elem = $(this);
            $elem.appear(function () {
              $elem.find('.timer').countTo();
-          });                  
+          });
         });
       });
     }
-  };   
+  };
 
 /*************************
      Back to top
@@ -110,11 +110,11 @@ var $window = $(window),
         return false;
     });
   }
-  
+
 /*************************
         NiceScroll
-*************************/ 
-    POTENZA.pniceScroll = function () { 
+*************************/
+    POTENZA.pniceScroll = function () {
         loadScript(plugin_path + 'nicescroll/jquery.nicescroll.js', function() {
         $(".scrollbar").niceScroll({
           scrollspeed: 150,
@@ -145,7 +145,7 @@ var $window = $(window),
           verticalenabled: false,
           cursorborderradius: 0,
         });
-       });  
+       });
     }
 
 /*************************
@@ -153,33 +153,33 @@ var $window = $(window),
 *************************/
   POTENZA.mailchimp = function () {
          $(document).on('click','#mc-embedded-subscribe',function(event){
-          event.preventDefault();       
+          event.preventDefault();
           var email_id = $('#mce-EMAIL').val();
-          var val_email_id = validateEmail(email_id);        
+          var val_email_id = validateEmail(email_id);
           if (email_id != "" && val_email_id === true) {
               var failure_message = 'Whoops, looks like there was a problem. Please try again later.';
               var memberid=email_id.toLowerCase();
               var url = memberid;
-              
+
               $.ajax({
                  type: 'POST',
                  url: 'php/mailchimp-action.php',
                  data: {url:url},
                  dataType: 'json',
                  success: function(data){
-                      $('#msg').html(data);           
+                      $('#msg').html(data);
                  },
               });
           } else {
-              $('#msg').html('<p style="color: #EA4335">Enter the E-mail id</p>'); 
-              return false;    
+              $('#msg').html('<p style="color: #EA4335">Enter the E-mail id</p>');
+              return false;
           }
           return false;
       });
       function validateEmail(email) {
           var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
           return re.test(email);
-      }             
+      }
    }
 
 /****************************************************
@@ -218,13 +218,13 @@ var $window = $(window),
          });
       }
     }
- 
+
 
 /*************************
       DataTable
-*************************/  
+*************************/
 POTENZA.datatables = function () {
-   if ($('#datatable').exists()) {
+   if ($('#datatable22').exists()) {
        loadScript(plugin_path + 'bootstrap-datatables/jquery.dataTables.min.js', function() {
        loadScript(plugin_path + 'bootstrap-datatables/dataTables.bootstrap4.min.js', function() {
       $('#datatable').DataTable();
@@ -245,20 +245,20 @@ POTENZA.wowanimation = function () {
         });
        wow.init();
      }
-  } 
-  
+  }
+
 
 /*************************
       select
-*************************/ 
+*************************/
 POTENZA.fancyselect = function () {
   if ($('.fancyselect').exists()) {
     loadScript(plugin_path + 'jquery-nice-select/jquery-nice-select.js', function() {
-       $('select.fancyselect:not(.ignore)').niceSelect();      
+       $('select.fancyselect:not(.ignore)').niceSelect();
       });
-    }     
+    }
 };
- 
+
   /*************************
       Accordion
 *************************/
@@ -284,11 +284,11 @@ POTENZA.fancyselect = function () {
             return false;
         });
       });
-  } 
+  }
 
 /*************************
        Search
-*************************/ 
+*************************/
 POTENZA.searchbox = function () {
    if (jQuery('.search').exists()) {
       jQuery('.search-btn').on("click", function () {
@@ -302,12 +302,12 @@ POTENZA.searchbox = function () {
          }
      });
     }
-}     
+}
 
 /*************************
     Sidebarnav
-*************************/ 
-POTENZA.Sidebarnav = function () { 
+*************************/
+POTENZA.Sidebarnav = function () {
   /*Sidebar Navigation*/
     $(document).on('click', '#button-toggle', function (e) {
       $(".dropdown.open > .dropdown-toggle").dropdown("toggle");
@@ -320,29 +320,29 @@ POTENZA.Sidebarnav = function () {
 
     $(document).on("mouseenter mouseleave",".wrapper > .side-menu-fixed", function(e) {
       if (e.type == "mouseenter") {
-        $wrapper.addClass("sidebar-hover"); 
+        $wrapper.addClass("sidebar-hover");
       }
-      else { 
-        $wrapper.removeClass("sidebar-hover");  
+      else {
+        $wrapper.removeClass("sidebar-hover");
       }
       return false;
     });
     $(document).on("mouseenter mouseleave",".wrapper > .side-menu-fixed", function(e) {
       if (e.type == "mouseenter") {
-        $wrapper.addClass("sidebar-hover"); 
+        $wrapper.addClass("sidebar-hover");
       }
-      else { 
-        $wrapper.removeClass("sidebar-hover");  
+      else {
+        $wrapper.removeClass("sidebar-hover");
       }
       return false;
     });
-    
+
     $(document).on("mouseenter mouseleave",".wrapper > .setting-panel", function(e) {
       if (e.type == "mouseenter") {
-        $wrapper.addClass("no-transition"); 
+        $wrapper.addClass("no-transition");
       }
-      else { 
-        $wrapper.removeClass("no-transition");  
+      else {
+        $wrapper.removeClass("no-transition");
       }
       return false;
     });
@@ -350,9 +350,9 @@ POTENZA.Sidebarnav = function () {
 
 /*************************
     Fullscreenwindow
-*************************/ 
+*************************/
 
-POTENZA.Fullscreenwindow = function () { 
+POTENZA.Fullscreenwindow = function () {
     if ($('#btnFullscreen').exists()) {
    function toggleFullscreen(elem) {
     elem = elem || document.documentElement;
@@ -387,9 +387,9 @@ POTENZA.Fullscreenwindow = function () {
 
 /*************************
     Today date and time
-*************************/ 
+*************************/
 
-POTENZA.todatdayandtime = function () { 
+POTENZA.todatdayandtime = function () {
       var d = new Date();
       var weekday = new Array(7);
       weekday[0] = "Sunday";
@@ -400,19 +400,19 @@ POTENZA.todatdayandtime = function () {
       weekday[5] = "Friday";
       weekday[6] = "Saturday";
       var n = weekday[d.getDay()];
-      $('.today-day').html(n);  
+      $('.today-day').html(n);
       var n =  new Date();
       var y = n.getFullYear();
       var m = n.getMonth() + 1;
       var d = n.getDate();
-      $('.today-date').html(m + " / " + d + " / " + y); 
+      $('.today-date').html(m + " / " + d + " / " + y);
     }
 
 /*************************
     Summernote
-*************************/ 
+*************************/
 
-POTENZA.summernoteeditor = function () { 
+POTENZA.summernoteeditor = function () {
  if ($('#summernote').exists()) {
         $('#summernote').summernote({
         height: 300,                 // set editor height
@@ -425,9 +425,9 @@ POTENZA.summernoteeditor = function () {
 
 /*************************
     Colorpicker
-*************************/ 
+*************************/
 
-POTENZA.colorpicker = function () { 
+POTENZA.colorpicker = function () {
   if ($('#cp1, #cp2, #cp3, #cp4, #cp5, #cp6, #cp17, #cp8, #cp9, #cp10, #cp11, #cp12, #cp13').exists()) {
     $('#cp1').colorpicker();
     $('#cp2, #cp3a, #cp3b').colorpicker();
@@ -463,9 +463,9 @@ POTENZA.colorpicker = function () {
 
 /*************************
     Touchspin
-*************************/ 
+*************************/
 
- POTENZA.ptTouchSpin = function () { 
+ POTENZA.ptTouchSpin = function () {
    if ($('input.touchspin-input').exists()) {
       $("input[name='demo1'].touchspin-input").TouchSpin({
             min: 0,
@@ -509,9 +509,9 @@ POTENZA.colorpicker = function () {
 
 /*************************
     Editormarkdown
-*************************/ 
+*************************/
 
-POTENZA.editormarkdown = function () { 
+POTENZA.editormarkdown = function () {
   if ($('#editor-markdown-01, #editor-markdown-02, #editor-markdown-03').exists()) {
     new SimpleMDE({
       element: document.getElementById("editor-markdown-01"),
@@ -537,9 +537,9 @@ POTENZA.editormarkdown = function () {
 
 /*************************
     Rating
-*************************/ 
+*************************/
 
-POTENZA.ptrating = function () { 
+POTENZA.ptrating = function () {
         $('#default').raty({
             starOff: 'fa fa-star-o text-muted',
             starOn: 'fa fa-star text-warning'
@@ -683,7 +683,7 @@ POTENZA.ptrating = function () {
             targetFormat: 'Rating: {score}',
             starOff: 'fa fa-star-o text-muted',
             starOn: 'fa fa-star text-danger'
-        }); 
+        });
         $('#mouseover').raty({
             mouseover: function (score, evt) {
                 alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt.type);
@@ -700,9 +700,9 @@ POTENZA.ptrating = function () {
 
 /*************************
     Calendar List View
-*************************/ 
+*************************/
 
-POTENZA.calendarlist = function () { 
+POTENZA.calendarlist = function () {
   if ($('#calendar-list').exists()) {
      $('#calendar-list').fullCalendar({
       header: {
@@ -784,9 +784,9 @@ POTENZA.calendarlist = function () {
 
 /*************************
    repeater form
-*************************/ 
+*************************/
 
-POTENZA.repeaterform = function () { 
+POTENZA.repeaterform = function () {
   if ($('.repeater, .repeater-file, .repeater-add').exists()) {
     $('.repeater, .repeater-file, .repeater-add').repeater({
           show: function () {
@@ -799,9 +799,9 @@ POTENZA.repeaterform = function () {
 
 /*************************
    wizard form
-*************************/ 
+*************************/
 
-POTENZA.wizardform = function () { 
+POTENZA.wizardform = function () {
  if ($('#example-form, #example-basic, #example-manipulation, #example-vertical').exists()) {
    var form = $("#example-form");
       form.validate({
@@ -830,7 +830,7 @@ POTENZA.wizardform = function () {
         {
             alert("Submitted!");
         }
-     }); 
+     });
 
      $("#example-basic").steps({
       headerTag: "h3",
@@ -857,12 +857,12 @@ POTENZA.wizardform = function () {
 
 /*************************
    Dynamic active menu
-*************************/ 
+*************************/
 
-POTENZA.navactivation = function () { 
+POTENZA.navactivation = function () {
     var path = window.location.pathname.split("/").pop();
     var target = $('.side-menu-fixed .navbar-nav a[href="'+path+'"]');
-    target.parent().addClass('active');        
+    target.parent().addClass('active');
     $('.side-menu-fixed .navbar-nav li.active').parents('li').addClass('active');
 }
 
@@ -921,9 +921,3 @@ var _arr  = {};
         POTENZA.Fullscreenwindow();
     });
 })(jQuery);
-
-
-
-
-
-

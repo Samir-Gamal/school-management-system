@@ -2,12 +2,12 @@
 
 return [
 
-    'title_page' => 'title_page',
+    'title_page' => 'Grades',
     'List_Grade' => 'List_Grade',
-    'add_Grade' => 'add_Grade',
+    'add_Grade' => 'Add Grade',
     'edit_Grade'=> 'edit_Grade',
     'delete_Grade'=> 'delete_Grade',
-    'Warning_Grade'=> 'هل انت متاكد من عملية الحذف ؟',
+    'Warning_Grade'=> 'Are Sure Of The Deleting Process ?',
     'stage_name_ar' => 'stage_name_ar',
     'stage_name_en' => 'stage_name_en',
     'Notes' => 'Notes',
@@ -17,7 +17,5 @@ return [
     'Edit'=>'Edit',
     'Delete'=>'Delete',
     'Close' => 'Close',
-
-
 
 ];

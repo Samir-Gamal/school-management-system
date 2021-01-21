@@ -1,14 +1,14 @@
- <svg 
-  version="1.1" 
-  id="dc-spinner" 
-  xmlns="http://www.w3.org/2000/svg" 
+ <svg
+  version="1.1"
+  id="dc-spinner"
+  xmlns="http://www.w3.org/2000/svg"
   x="0px" y="0px"
  width="150" height="150"
-  viewBox="0 0 38 38" 
+  viewBox="0 0 38 38"
   preserveAspectRatio="xMinYMin meet"
   >
-   <text x="12" y="21" font-family="arial" font-size="3px" style="letter-spacing:0.6" fill="#323232">Loading...
-     <animate 
+   <text x="12" y="21" font-family="arial" font-size="3px" style="letter-spacing:0.6" fill="#323232">MoraSoft...
+     <animate
        attributeName="opacity"
        values="0;1;0" dur="1.8s"
        repeatCount="indefinite"/>
@@ -34,7 +34,7 @@
         keySplines="0.4, 0, 0.2, 1"
         keyTimes="0;1"
         dur="2s"
-        repeatCount="indefinite" />      
+        repeatCount="indefinite" />
    </path>
 
   <path fill="#859900" stroke="#508100" stroke-width="0.7" stroke-miterlimit="10" d="M7.078,20
@@ -45,7 +45,7 @@
       type="rotate"
       from="0 20 20"
       to="360 20 20"
-      dur="1.8s"  
+      dur="1.8s"
       repeatCount="indefinite" />
     </path>
   </svg>
