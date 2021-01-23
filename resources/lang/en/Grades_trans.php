@@ -15,6 +15,7 @@ return [
     'Name'=>'Name',
     'Processes'=>'Processes',
     'Edit'=>'Edit',
+    'exists'=>'This field already exists',
     'Delete'=>'Delete',
     'Close' => 'Close',
 

@@ -24,7 +24,18 @@ class StoreGrades extends FormRequest
     public function rules()
     {
         return [
-            'Name' => 'required',
+            //'Name' => 'required',
+            //'Name' => 'required|unique:grades|max:255',
+
+
+        'Name.*' => [
+            'required',
+            'unique:grades,Name',
+            'distinct',
+        ],
+        
+
+            
         ];
     }
 
