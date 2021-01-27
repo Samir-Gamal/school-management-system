@@ -52,7 +52,7 @@
                             <tr>
                                 <?php $i++; ?>
                                 <td>{{ $i }}</td>
-                                <td>{{ $My_Class->Name }}</td>
+                                <td>{{ $My_Class->Name_Class }}</td>
                                 <td>{{ $My_Class->Grades->Name }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
@@ -187,19 +187,17 @@
 
                 <form class=" row mb-30" action="{{ route('Classrooms.store') }}" method="POST">
                     @csrf
-
                     <div class="card-body">
                         <div class="repeater">
                             <div data-repeater-list="List_Classes">
                                 <div data-repeater-item>
-
                                     <div class="row">
 
                                         <div class="col">
                                             <label for="Name"
                                                 class="mr-sm-2">{{ trans('My_Classes_trans.Name_class') }}
                                                 :</label>
-                                            <input class="form-control" type="text" name="Name" required />
+                                            <input class="form-control" type="text" name="Name" />
                                         </div>
 
 
@@ -207,7 +205,7 @@
                                             <label for="Name"
                                                 class="mr-sm-2">{{ trans('My_Classes_trans.Name_class_en') }}
                                                 :</label>
-                                            <input class="form-control" type="text" name="Name_class_en" required />
+                                            <input class="form-control" type="text" name="Name_class_en" />
                                         </div>
 
 

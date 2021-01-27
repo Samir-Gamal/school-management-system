@@ -9,7 +9,7 @@ return [
     'delete_class'=> 'حذف صف',
     'Warning_Grade'=> 'هل انت متاكد من عملية الحذف ؟',
     'submit' => 'submit',
-    'Name_class'=>'Name_class_ar',
+    'Name_class'=>'Name_class_en',
     'Name_class_en'=>'Name class en',
     'Name_Grade'=>'Name Grade',
     'add_row'=>'add row',
