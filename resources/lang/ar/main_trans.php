@@ -12,6 +12,7 @@ return [
     'classes'=>'الصفوف',
     'List_classes'=>'قائمة الصفوف الدراسية',
     'sections'=>'الاقسام',
+    'List_sections'=>'قائمة الاقسام الدراسية',
     'students'=>'الطلاب',
     'Teachers'=>'المعلمين',
     'Parents'=>'اولياء الامور',
