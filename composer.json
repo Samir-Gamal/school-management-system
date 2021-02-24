@@ -16,6 +16,7 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
+        "livewire/livewire": "^2.3",
         "mcamara/laravel-localization": "^1.6",
         "spatie/laravel-translatable": "^4.6",
         "yoeunes/toastr": "^1.2"
