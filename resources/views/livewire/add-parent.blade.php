@@ -6,6 +6,13 @@
         </div>
     @endif
 
+        @if ($catchError)
+            <div class="alert alert-danger" id="success-danger">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ $catchError }}
+            </div>
+        @endif
+
 
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
