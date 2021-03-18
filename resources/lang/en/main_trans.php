@@ -19,6 +19,7 @@ return [
     'Students_upgrade'=>'Students Upgrade',
     'Graduate_students'=>'Graduate Students',
     'Teachers'=>'Teachers',
+    'List_Teachers' => 'List Teachers',
     'Parents'=>'Parents',
     'Add_Parent'=>'Add Parent',
     'List_Parents'=>'List Parents',
@@ -31,5 +32,6 @@ return [
     'Users'=>'Users',
     'Copyright' => 'Copyright',
     'Name_Programer' => 'SamirGamal MoraSoft All Rights Reserved'
+
 
 ];
