@@ -15,6 +15,7 @@ return [
     'submit' => 'submit',
     'Name_Section'=>'Name Section',
     'Name_Class'=>'Name Class',
+    'Name_Teacher'=>'Name Teacher',
     'Status'=>'Status',
     'Status_Section_AC'=>'Active',
     'Status_Section_No'=>'Not Active',

@@ -18,16 +18,11 @@ class SectionController extends Controller
    */
   public function index()
   {
-      $teachers = Teacher::findOrFail(2);
-
-     return $teachers->Sections;
-
-      /*
     $Grades = Grade::with(['Sections'])->get();
     $list_Grades = Grade::all();
     $teachers = Teacher::all();
     return view('pages.Sections.Sections',compact('Grades','list_Grades','teachers'));
-*/
+
   }
 
   /**
@@ -82,6 +77,15 @@ class SectionController extends Controller
       } else {
         $Sections->Status = 2;
       }
+
+
+       // update pivot tABLE
+        if (isset($request->teacher_id)) {
+            $Sections->teachers()->sync($request->teacher_id);
+        } else {
+            $Sections->teachers()->sync(array());
+        }
+
 
       $Sections->save();
       toastr()->success(trans('messages.Update'));
