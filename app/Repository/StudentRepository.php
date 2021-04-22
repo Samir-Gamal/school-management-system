@@ -14,7 +14,50 @@ use Illuminate\Support\Facades\Hash;
 
 class StudentRepository implements StudentRepositoryInterface{
 
-   public function Create_Student(){
+
+    public function Get_Student()
+    {
+        $students = Student::all();
+        return view('pages.Students.index',compact('students'));
+    }
+
+    public function Edit_Student($id)
+    {
+        $data['Grades'] = Grade::all();
+        $data['parents'] = My_Parent::all();
+        $data['Genders'] = Gender::all();
+        $data['nationals'] = Nationalitie::all();
+        $data['bloods'] = Type_Blood::all();
+        $Students =  Student::findOrFail($id);
+        return view('pages.Students.edit',$data,compact('Students'));
+    }
+
+    public function Update_Student($request)
+    {
+        try {
+            $Edit_Students = Student::findorfail($request->id);
+            $Edit_Students->name = ['ar' => $request->name_ar, 'en' => $request->name_en];
+            $Edit_Students->email = $request->email;
+            $Edit_Students->password = Hash::make($request->password);
+            $Edit_Students->gender_id = $request->gender_id;
+            $Edit_Students->nationalitie_id = $request->nationalitie_id;
+            $Edit_Students->blood_id = $request->blood_id;
+            $Edit_Students->Date_Birth = $request->Date_Birth;
+            $Edit_Students->Grade_id = $request->Grade_id;
+            $Edit_Students->Classroom_id = $request->Classroom_id;
+            $Edit_Students->section_id = $request->section_id;
+            $Edit_Students->parent_id = $request->parent_id;
+            $Edit_Students->academic_year = $request->academic_year;
+            $Edit_Students->save();
+            toastr()->success(trans('messages.Update'));
+            return redirect()->route('Students.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+
+    public function Create_Student(){
 
        $data['my_classes'] = Grade::all();
        $data['parents'] = My_Parent::all();
@@ -66,6 +109,13 @@ class StudentRepository implements StudentRepositoryInterface{
 
     }
 
+    public function Delete_Student($request)
+    {
+
+        Student::destroy($request->id);
+        toastr()->error(trans('messages.Delete'));
+        return redirect()->route('Students.index');
+    }
 
 
 }

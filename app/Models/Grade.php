@@ -16,7 +16,6 @@ class Grade extends Model
     public $timestamps = true;
 
     // علاقة المراحل الدراسية لجلب الاقسام المتعلقة بكل مرحلة
-
     public function Sections()
     {
         return $this->hasMany('App\Models\Section', 'Grade_id');
