@@ -40,4 +40,11 @@ class Student extends Model
         return $this->belongsTo('App\Models\Section', 'section_id');
     }
 
+
+    // علاقة بين الطلاب والصور لجلب اسم الصور  في جدول الطلاب
+    public function images()
+    {
+        return $this->morphMany('App\Models\Image', 'imageable');
+    }
+
 }
