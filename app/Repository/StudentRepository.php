@@ -12,6 +12,7 @@ use App\Models\Student;
 use App\Models\Type_Blood;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 
 class StudentRepository implements StudentRepositoryInterface{
@@ -69,6 +70,13 @@ class StudentRepository implements StudentRepositoryInterface{
        return view('pages.Students.add',$data);
 
     }
+
+    public function Show_Student($id)
+    {
+        $Student = Student::findorfail($id);
+        return view('pages.Students.show',compact('Student'));
+    }
+
 
     public function Get_classrooms($id){
 
@@ -140,6 +148,40 @@ class StudentRepository implements StudentRepositoryInterface{
         Student::destroy($request->id);
         toastr()->error(trans('messages.Delete'));
         return redirect()->route('Students.index');
+    }
+
+    public function Upload_attachment($request)
+    {
+        foreach($request->file('photos') as $file)
+        {
+            $name = $file->getClientOriginalName();
+            $file->storeAs('attachments/students/'.$request->student_name, $file->getClientOriginalName(),'upload_attachments');
+
+            // insert in image_table
+            $images= new image();
+            $images->filename=$name;
+            $images->imageable_id = $request->student_id;
+            $images->imageable_type = 'App\Models\Student';
+            $images->save();
+        }
+        toastr()->success(trans('messages.success'));
+        return redirect()->route('Students.show',$request->student_id);
+    }
+
+    public function Download_attachment($studentsname, $filename)
+    {
+        return response()->download(public_path('attachments/students/'.$studentsname.'/'.$filename));
+    }
+
+    public function Delete_attachment($request)
+    {
+        // Delete img in server disk
+        Storage::disk('upload_attachments')->delete('attachments/students/'.$request->student_name.'/'.$request->filename);
+
+        // Delete in data
+        image::where('id',$request->id)->where('filename',$request->filename)->delete();
+        toastr()->error(trans('messages.Delete'));
+        return redirect()->route('Students.show',$request->student_id);
     }
 
 
