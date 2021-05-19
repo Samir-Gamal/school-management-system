@@ -57,6 +57,24 @@
 
                                 </select>
                             </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="academic_year">{{trans('Students_trans.academic_year')}} : <span class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="academic_year">
+                                        <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
+                                        @php
+                                            $current_year = date("Y");
+                                        @endphp
+                                        @for($year=$current_year; $year<=$current_year +1 ;$year++)
+                                            <option value="{{ $year}}">{{ $year }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+
+
+
                         </div>
                         <br><h6 style="color: red;font-family: Cairo">المرحلة الدراسية الجديدة</h6><br>
 
@@ -83,6 +101,23 @@
 
                                 </select>
                             </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="academic_year">{{trans('Students_trans.academic_year')}} : <span class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="academic_year_new">
+                                        <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
+                                        @php
+                                            $current_year = date("Y");
+                                        @endphp
+                                        @for($year=$current_year; $year<=$current_year +1 ;$year++)
+                                            <option value="{{ $year}}">{{ $year }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+
+
                         </div>
                         <button type="submit" class="btn btn-primary">تاكيد</button>
                     </form>
