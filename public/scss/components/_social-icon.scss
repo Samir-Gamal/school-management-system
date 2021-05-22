@@ -1,0 +1,131 @@
+// NOTE: This file contains social-icons SCSS.
+
+.social-icons li { 
+	display: inline-block; 
+	list-style:none; 
+	padding:0; 
+	margin:0 8px 8px 0;
+
+	&:last-child { 
+		margin-right: 0; 
+	}
+	a { 
+		display: block; 
+		height: 32px; 
+		width: 32px; 
+		line-height: $line-xxxl; 
+		font-size: $font-md; 
+		text-align: center; 
+		margin:0; 
+		border-radius: 4px; 
+		border: 0; 
+		background: transparent; 
+		color: $dark-gray;
+		overflow: hidden; 
+		-webkit-transition: all .3s ease; 
+		-o-transition: all .3s ease; transition: all .3s ease; 
+	}
+	&:hover { 
+		i { 
+			-webkit-animation: toTopFromBottom 0.3s forwards; 
+			-moz-animation: toTopFromBottom 0.3s forwards; 
+			animation: toTopFromBottom 0.3s forwards;
+		 }
+	 }
+}
+
+.text-white { 
+ .social-icons li { 
+ 	a { 
+	 i { color: $white; }
+   }
+  }
+ }
+
+@-webkit-keyframes toTopFromBottom {
+    49% {-webkit-transform: translateY(-100%);}
+    50% {opacity: 0; -webkit-transform: translateY(100%);}
+    51% {opacity: 1;}
+}
+@-moz-keyframes toTopFromBottom {
+    49% {-moz-transform: translateY(-100%);}
+    50% {opacity: 0; -moz-transform: translateY(100%);}
+    51% {opacity: 1;}
+}
+@keyframes toTopFromBottom {
+    49% {transform: translateY(-100%);}
+    50% {opacity: 0; transform: translateY(100%);}
+    51% {opacity: 1;}
+}
+ 
+/*icon */
+.social-icons.color-icon { 
+    a { 
+    	color: $theme-color; 
+    }
+}
+.social-icons.color-icon .social-facebook { 
+	a { 
+		color:$facebook;
+	}
+ }
+.social-icons.color-icon .social-twitter { 
+	a { 
+		color: $twitter; 
+	}
+ }
+.social-icons.color-icon .social-linkedin { 
+	a { 
+		color: $linkedin; 
+	}
+ }
+.social-icons.color-icon .social-dribbble { 
+	a { 
+		color: $dribbble; 
+	}
+ }
+.social-icons.color-icon .social-googleplus { 
+	a { 
+		color: $googleplus; 
+	}
+ }
+.social-icons.color-icon .social-instagram { 
+	a { 
+		color: $instagram; 
+	}
+ }
+.social-icons.color-icon .social-pinterest { 
+	a { 
+		color: $pinterest; 
+	}
+ }
+.social-icons.color-icon .social-dropbox { 
+	a { 
+		color: $dropbox; 
+	}
+ }
+.social-icons.color-icon .social-flickr { 
+	a { 
+		color: $flickr; 
+	}
+ }
+.social-icons.color-icon .social-tumblr { 
+	a { 
+		color: $tumblr; 
+	}
+ }
+.social-icons.color-icon .social-skype { 
+	a { 
+		color: $skype; 
+	}
+ }
+.social-icons.color-icon .social-youtube { 
+	a { 
+		color: $youtube; 
+	}
+ }
+.social-icons.color-icon .social-github { 
+	a { 
+		color: $github; 
+	}
+ }

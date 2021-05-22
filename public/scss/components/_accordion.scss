@@ -1,0 +1,189 @@
+// NOTE: This file contains Accordion SCSS.
+
+.accordion { 
+  .acd-group { 
+	.acd-heading { 
+		font-weight: $font-medium; 
+		font-size: $font-md; 
+		position: relative; 
+		padding: 12px 0; 
+		color: $dark-gray; 
+		line-height: normal; 
+		cursor: pointer; 
+		background-color: transparent; 
+		margin-bottom: 0px; 
+		display: block; 
+		border-radius: 3px;
+
+		&:before { 
+			font-family: fontawesome;
+			cursor: pointer; 
+			position: absolute; 
+			top: 12px; 
+			right: 20px; 
+			display: block; 
+			padding: 3px 6px 2px; 
+			content: "\f105"; 
+			font-size: $font-md; 
+			line-height: $line-md ;
+		 }
+		 &:hover { 
+		 	color: $theme-color;
+		 }
+		 }
+	 .acd-des { 
+	 	   padding: 0 20px 20px 0;
+	   }
+	  }
+	 .acd-active { 
+	  .acd-heading {
+	    	color: $theme-color;
+
+	    &:before { 
+	        content: "\f107";
+	     }	
+	 	}
+	   }
+	}
+
+/*plus-icon*/
+.accordion.plus-icon { 
+
+ .acd-group.acd-active { 
+	
+	.acd-heading { 
+		
+		&:before { 
+			 content: "\f068"; 
+			 font-size:  $font-md;
+		 }
+	    }
+	 }
+	 .acd-group  { 
+		.acd-heading { 
+				
+			&:before { 
+				content: "\f067"; 
+				font-size:  $font-md; 
+			 }
+			
+		 }
+	  }
+ }
+
+/*plus-icon.round*/
+.accordion.plus-icon.round { 
+	.acd-group.acd-active { 
+		.acd-heading { 
+			&:before { 
+				content: "\f056"; 
+				font-size:  $font-md;
+			 }
+		 }
+	 }	
+
+	 .acd-group { 
+		.acd-heading{
+			&:before { 
+				content: "\f055"; 
+				font-size: $font-md;
+			}
+		}
+	  }
+ }
+
+/*gray*/
+.accordion.gray {
+	.acd-heading { 
+		background-color: $lightest-gray;
+		margin-bottom: 20px; 
+		padding: 12px 24px;
+
+		&:hover { 
+			   color: $white;	
+			   background: $theme-color;	
+			 }
+	 }	
+	 .acd-des { 
+	 	padding: 0 30px 20px; 
+	 }
+
+	 .acd-group.acd-active { 
+			.acd-heading { 
+			   color: $white;	
+			   background: $theme-color;	
+			 }
+	  }
+}
+ 
+/*shadow*/
+.accordion.shadow { 
+	  .acd-heading { 
+	 	background: $white;
+	 	@include box-shadow(0px, 5px, 10px, rgba(0, 0, 0, 0.1));
+	 	margin-bottom: 20px;
+	 	padding: 12px 24px;
+	  }
+
+	  .acd-des  { 
+	  	padding: 0 30px 20px; 
+	  }
+
+	  .acd-group.acd-active {
+		.acd-heading { 
+			color: $white;	
+			background: $theme-color;
+		 }
+	  }
+
+	  .acd-group {
+	   .acd-heading { 
+
+	   	&:hover { 
+	    	color: $white;	
+			background: $theme-color;
+		  }
+	    }
+	 }	
+}
+
+
+/*border*/
+.accordion.accordion-border { 
+	  .acd-heading { 
+	 	background: transparent; 
+	 	border:1px solid $border-color; 
+	 	box-shadow: none;
+	 	margin-bottom: 20px;
+	 	padding: 12px 24px;
+	  }
+	  .acd-des  { 
+	  	padding: 0 30px 20px; 
+	  }
+
+	  .acd-group.acd-active {
+		.acd-heading { 
+			color: $white;	
+			background: $theme-color;
+		 }
+	  }
+
+	  .acd-group {
+	   .acd-heading { 
+
+	   	&:hover { 
+	    	color: $white;	
+			background: $theme-color;
+		  }
+	    }
+	 }	
+}
+
+/*no-radius*/
+.accordion.no-radius { 
+	.acd-heading { 
+		border-radius: 0; 
+	}	
+}
+ 
+ 

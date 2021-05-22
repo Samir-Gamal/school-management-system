@@ -1,0 +1,32 @@
+// NOTE: This file contains mixins SCSS.
+
+/* Mixins */
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+@mixin button-shadow($top, $left, $bottom, $blur, $hexcolor, $opacity) {
+  -webkit-box-shadow: $top $left $bottom $blur  rgba($hexcolor, $opacity);
+  -moz-box-shadow: $top $left $bottom $blur rgba($hexcolor, $opacity);
+  box-shadow: $top $left $bottom $blur rgba($hexcolor, $opacity);
+}
+@mixin hex-rgba($hexcolor, $opacity) {
+    background: $hexcolor;
+    background: rgba($hexcolor, $opacity) !important;
+}
+
+@mixin transition($what: all, $time: 0.5s, $how: ease-in-out) {
+    -webkit-transition: $what $time $how;
+    -moz-transition:    $what $time $how;
+    -ms-transition:     $what $time $how;
+    -o-transition:      $what $time $how;
+    transition:         $what $time $how;
+}
+  

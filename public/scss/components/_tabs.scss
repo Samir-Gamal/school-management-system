@@ -1,0 +1,293 @@
+// NOTE: This file contains tabs SCSS.
+
+.tab .nav.nav-tabs { 
+	border: none; 
+	margin-bottom: 20px; 
+
+	li { 
+		margin-bottom: 0px; 
+		float: none; 
+		display: inline-block; 
+
+		a { 
+			border: none; 
+			line-height: normal; 
+			border-radius: 0px; 
+			padding: 12px 30px; 
+			background: $lightest-gray;
+			color: $dark-gray; 
+			border:1px solid $border-color;
+
+			i { 
+				padding-right: 5px;
+			 } 
+		}
+		a.active { 
+			background: $theme-color; 
+			color: $white; 
+			border-color:transparent;
+			
+			&:focus { 
+				 background: $theme-color; 
+				 color: $white; 
+				 border-color:transparent;
+			 }
+			 &:hover { 
+				 background: $theme-color; 
+				 color: $white; 
+				 border-color:transparent;
+			 }
+
+		  }
+	}
+}
+
+/*nav-border*/
+.nav-border {
+  .nav.nav-tabs {
+	li {
+		a { margin-right: 0; border:1px solid $border-color; background: transparent; }
+	 } 
+ 		a.active { 
+ 			color: $white;  
+ 			background: $theme-color;  
+ 			border-color:$theme-color; 
+			
+			&:hover { 
+				color: $white;  
+	 			background: $theme-color;  
+	 			border-color:$theme-color;
+			 }
+
+			&:focus { 
+				color: $white;  
+	 			background: $theme-color;  
+	 			border-color:$theme-color;
+			 }
+
+ 		}
+
+	}
+ }
+ 
+
+
+
+/*tab-border*/
+.tab-border {
+  .nav.nav-tabs { 
+	margin-bottom: 0; 
+
+	li { 
+    	a.active { 
+ 			color: $theme-color;  
+ 			background: $white !important;  
+ 			border-color:$border-color; 
+ 			border-bottom:1px solid $white;
+			
+			&:hover { 
+				color: $theme-color;  
+	 			background: $white !important;  
+	 			border-color:$border-color; 
+	 			border-bottom:1px solid $white;
+			 }
+
+			&:focus { 
+				color: $theme-color;  
+	 			background: $white !important;  
+	 			border-color:$border-color; 
+	 			border-bottom:1px solid $white;
+			 }
+
+ 		}
+	 }
+ }
+ .tab-content { 
+ 	padding: 20px; 
+ 	border:1px solid $border-color; 
+ 	margin-top: -1px; 
+ }
+}
+
+/*nav-center*/
+.nav-center { 
+	.nav.nav-tabs {
+	text-align: center; 
+	display: block; 
+	}
+ }
+ .nav-right {
+	 .nav.nav-tabs { 
+	 	text-align: right; 
+	 	display: block; 
+	 }
+ }
+.nav-right {
+	.tab-content { 
+		text-align: right; 
+	}
+}
+
+/*round*/
+.round { 
+	.nav.nav-tabs { 
+	  li { 
+		 a { 
+		  border: none; 
+		  line-height: normal; 
+		  margin-right: 10px; 
+		  border-radius: 90px;
+		   padding: 12px 30px; 
+		   background: $lightest-gray; 
+		   color: $dark-gray;
+		  }
+	   }
+	 }
+ }
+
+
+.shadow { 
+  .nav.nav-tabs { 
+		li { 
+			a.active { 
+				color: $theme-color;  
+				background: $white !important;  
+				border-color:$border-color; 
+				border-bottom: 0;
+				@include box-shadow(0px, 3px, 10px, rgba(0, 0, 0, 0.1));
+
+			&:focus { 
+				color: $theme-color;  
+				background: $white !important;  
+				border-color:$border-color; 
+				border-bottom: 0; 
+				@include box-shadow(0px, 3px, 10px, rgba(0, 0, 0, 0.1));
+			 }
+			 &:hover { 
+				color: $theme-color;  
+				background: $white !important;  
+				border-color:$border-color; 
+				border-bottom: 0; 
+				@include box-shadow(0px, 3px, 10px, rgba(0, 0, 0, 0.1));
+			 }
+			}
+		 }
+   }
+ }
+ 
+
+/*tab-vertical*/
+.tab-vertical { 
+	.nav-tabs { 
+		float: left; 
+		width: 25%; 
+	}
+ }
+
+
+.tab-vertical { 
+.nav.nav-tabs { 
+	li {  
+		display: block; 
+		width: 100%; 
+	}
+ }
+}
+
+
+.tab-vertical { 
+	.nav.nav-tabs { 
+	li { 
+	a { 
+		border-right: 0;
+		border-top: 0;
+		padding: 14px 30px; 
+	}
+
+	&:first-child { 
+	a { 
+		border-top: 1px solid $border-color; 
+	 }
+	 }
+
+	 a.active { 
+	 	border-bottom: 1px solid $border-color;
+
+	 	&:focus{ 
+			border-bottom: 1px solid $border-color;
+	 	 }
+	 	 &:hover{ 
+			border-bottom: 1px solid $border-color;
+	 	 }
+	  }
+	 }
+	}
+
+.tab-content { 
+	background-color: $white; 
+	border: 1px solid $border-color; 
+	padding: 40px 30px; 
+	margin-left: 25%; 
+	line-height: 30px; 
+	margin-top: 0; 
+
+	p { 
+		line-height: 30px;
+	 }
+  }
+ }
+ 
+/* dropdown */
+.tab-dropdown { 
+     .tab-content { 
+     	margin-top: 30px; 
+     }
+ }
+
+.nav-pills { 
+	li{ 
+		a { 
+		 .active { 
+			background: $theme-color; 
+			color: $white;
+			&:hover { 
+				background: $theme-color; 
+				color: $white;
+			 }
+			 &:focus { 
+				background: $theme-color; 
+				color: $white;
+			 }
+		  }
+		 }
+	 }	
+ }
+
+/* nav border top */
+.tab.nav-bt  { 
+	.nav {
+		li { 
+			a { 
+				margin-right:0px !important; 
+				border-top: 2px solid transparent; 
+				border-left: 0; 
+				border-right: 0; 
+				border-bottom: 0;
+			}
+			a.active { 
+				background: transparent; 
+				border-color: transparent; 
+				color: $dark-gray; 
+				border-top: 2px solid $theme-color; 
+
+				&:focus {
+				 background: transparent; 
+				 border-top: 2px solid $theme-color; 
+				 color: $dark-gray; 
+				}
+			}
+		 }
+	}
+ }
+
+ 
