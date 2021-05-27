@@ -71,6 +71,8 @@ Route::group(
     //==============================Students============================
     Route::group(['namespace' => 'Students'], function () {
         Route::resource('Students', 'StudentController');
+        Route::resource('Graduated', 'GraduatedController');
+        Route::resource('Promotion', 'PromotionController');
         Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
         Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
         Route::post('Upload_attachment', 'StudentController@Upload_attachment')->name('Upload_attachment');
@@ -78,10 +80,6 @@ Route::group(
         Route::post('Delete_attachment', 'StudentController@Delete_attachment')->name('Delete_attachment');
     });
 
-    //==============================Promotion Students ============================
-    Route::group(['namespace' => 'Students'], function () {
-        Route::resource('Promotion', 'PromotionController');
-    });
 
 
 });
