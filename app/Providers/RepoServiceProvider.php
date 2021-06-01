@@ -13,8 +13,7 @@ class RepoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            'App\Repository\TeacherRepositoryInterface',
+        $this->app->bind('App\Repository\TeacherRepositoryInterface',
             'App\Repository\TeacherRepository');
 
         $this->app->bind(
@@ -28,6 +27,10 @@ class RepoServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repository\StudentGraduatedRepositoryInterface',
             'App\Repository\StudentGraduatedRepository');
+
+        $this->app->bind(
+            'App\Repository\FeesRepositoryInterface',
+            'App\Repository\FeesRepository');
     }
 
     /**

@@ -73,6 +73,7 @@ Route::group(
         Route::resource('Students', 'StudentController');
         Route::resource('Graduated', 'GraduatedController');
         Route::resource('Promotion', 'PromotionController');
+        Route::resource('Fees', 'FeesController');
         Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
         Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
         Route::post('Upload_attachment', 'StudentController@Upload_attachment')->name('Upload_attachment');
