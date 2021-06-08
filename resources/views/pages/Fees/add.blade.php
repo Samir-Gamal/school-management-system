@@ -47,7 +47,6 @@
                                 <label for="inputEmail4">المبلغ</label>
                                 <input type="number" value="{{ old('amount') }}" name="amount" class="form-control">
                             </div>
-
                         </div>
 
 
@@ -79,6 +78,14 @@
                                     @for($year=$current_year; $year<=$current_year +1 ;$year++)
                                         <option value="{{ $year}}">{{ $year }}</option>
                                     @endfor
+                                </select>
+                            </div>
+
+                            <div class="form-group col">
+                                <label for="inputZip">نوع الرسوم</label>
+                                <select class="custom-select mr-sm-2" name="Fee_type">
+                                    <option value="1">رسوم دراسية</option>
+                                    <option value="2">رسوم باص</option>
                                 </select>
                             </div>
                         </div>

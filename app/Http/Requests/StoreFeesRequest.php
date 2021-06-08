@@ -28,7 +28,7 @@ class StoreFeesRequest extends FormRequest
             'title_en' => 'required',
             'amount' => 'required|numeric',
             'Grade_id' => 'required|integer',
-            'Classroom_id' => 'required|integer|unique:fees,Classroom_id,'.$this->id,
+            'Classroom_id' => 'required|integer',
             'year' => 'required',
         ];
     }
