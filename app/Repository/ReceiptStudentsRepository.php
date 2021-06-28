@@ -4,7 +4,8 @@
 namespace App\Repository;
 
 
-use App\FundAccount;
+
+use App\Models\FundAccount;
 use App\Models\ReceiptStudent;
 use App\Models\Student;
 use App\Models\StudentAccount;
