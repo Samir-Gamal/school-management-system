@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user',[AuthRouteAPIController::class,'authRouteAPI']);
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('user',[AuthRouteAPIController::class,'authRouteAPI']);
+});
