@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthRouteAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['guest']], function () {
 
-    Route::get('/', function () {
-        return view('auth.login');
-    });
+    Route::get('/', [AuthRouteAPIController::class, 'login']);
 
 });
 
