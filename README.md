@@ -50,6 +50,9 @@ John Doe
 ## ما الجديد في هذا الفرع
 
 ###حل مشاكل
+- حل مشكلة دعم php 8 عن طريق سماح لمكتبة laravel/ui بتحديث لتوافق مع الاصدار الجديد
+[ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/798db7d49dffeac3c4c1cb7a33b57b588c39f272
+).
 
 ###تعديلات
 
