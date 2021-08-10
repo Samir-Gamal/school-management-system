@@ -56,6 +56,16 @@ John Doe
 - حل مشكلة دعم بي اش بي 8 عن طريق سماح لمكتبة لارفيل يو أي بتحديث لتوافق مع الاصدار الجديد
 [ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/798db7d49dffeac3c4c1cb7a33b57b588c39f272
 )
+- [ بسبب عدم حساسيته للاحرف](https://stackoverflow.com/questions/26560376/base-table-or-view-not-found-error-in-web-hosting-pdo-mysql
+  )حل مشكة المايقريشن والسيد لا تعمل في سيرفر الينكس ولكن تعمل بشكل جيد في سيرفر المحلي  
+- اصلاح مشكلة عدم التمكن من تنفيذ امر الميقريشن ريفرش و الميقريشن رول باك 
+ ```sh
+php artisan migrate:refresh --force --seed
+or
+php artisan migrate:rollback
+ ```
+[ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/d6cec40ce2db6aa2ce3d67c1239dc7aa658cc4e7
+)
 
 ### تعديلات
 
