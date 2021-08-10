@@ -1,3 +1,4 @@
+ <div dir="rtl">
 <a href="#"><img src="https://i.ibb.co/r203QFc/school-management-erp-1558416373-4916185.png" alt="school-management-erp-1558416373-4916185" border="0" /></a>
 <p align="center">
 
@@ -108,3 +109,4 @@ php artisan migrate:rollback
 تعتبر رخصة ام اي تي رخصة متساهلة، بمعنى أنها تسمح باستخدامها مع البرمجيات الاحتكارية بشرط أن تكون الرخصة موزعة معها، وهي أيضاً متكاملة مع رخصة جنو العمومية، بمعنى أن رخصة جنو العمومية تسمح بجمعها ونشرها مع البرمجيات التي تستخدم رخصة أم أي تي.
 
 [ كل شئ عن الترخيص مفتوح المصدر MIT](https://opensource.org/licenses/MIT).
+</div>
