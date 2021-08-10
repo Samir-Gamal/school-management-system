@@ -32,7 +32,7 @@ cd $DEPLOYPATH
 
 php composer.phar install --no-interaction --prefer-dist --optimize-autoloader
 php artisan optimize
-yes|php artisan migrate --force --seed
+yes|php artisan migrate:refresh --force --seed
 yes|php artisan key:generate --force
 # stop maintenance mode
 php artisan up
