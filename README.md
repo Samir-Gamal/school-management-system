@@ -14,27 +14,27 @@
 
 ## طريقة تشغيل المشروع للمطورين
 1. Clone the repo تحميل المستودع
-  ```sh
-    git clone git@github.com:Samir-Gamal/school-management-system.git
-  ```
+ ```sh
+   git clone git@github.com:Samir-Gamal/school-management-system.git
+ ```
 2. Install dependencies  تنصيب الارتباطات
-  ```sh
-    composer install
-  ```
+ ```sh
+   composer install
+ ```
 3.  App Settings in dotenv file  اعدادات التطبيق
-  ```sh
-    قم بنسخ ملف محتوى ملف .env.example
+ ```sh
+   قم بنسخ ملف محتوى ملف .env.example
 الى ملف جديد باسم env.
 مع تغيير الإعدادات الخاصة بك من الاتصال بقواعد البيانات الخ
-  ```
+ ```
 4. Migrate and seed Database انشاء جداول قواعد البيانات واضافة بيانات لتجربة البرنامج
-  ```sh
-    php artisan migrate:refresh --force --seed
-  ```
+ ```sh
+   php artisan migrate:refresh --force --seed
+ ```
 5. تشغيل المشروع
-  ```sh
-    php artisan serve
-  ```
+ ```sh
+   php artisan serve
+ ```
 ## تم فتح هذا التشعب بواسطة
 
 - [@fh32000](https://fb.com/fh32000).
@@ -52,14 +52,22 @@ John Doe
 
 ## ما الجديد في هذا التشعب Fork
 
-### حل المشاكل 
+### حل المشاكل
 - حل مشكلة دعم بي اش بي 8 عن طريق سماح لمكتبة لارفيل يو أي بتحديث لتوافق مع الاصدار الجديد
 [ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/798db7d49dffeac3c4c1cb7a33b57b588c39f272
 )
 
-### تعديلات 
+### تعديلات
 
 ### إضافة مميزات جديدة
+- امكانية عمل كاش لجميع الراوتر باستخدام الأمر التالي
+ ```sh
+      php artisan route:trans:cache
+ ```
+
+ [ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/69102432adcf0b6f526a7e8076d68839d7cc4875)
+
+   [لماذا نحتاج عمل كاش الراوتر خصوصا في البرودكشن ؟](https://voltagead.com/laravel-route-caching-for-improved-performance/)
 
 ###  اتباع نظام Laravel Naming Conventions
 
