@@ -20,7 +20,7 @@ cd $REPO_PATH
 echo "copy main project to DEPLOYPATH"
 yes | cp -rf  * $DEPLOYPATH #copy all to root
 echo "copy public for sms project to public_html/sms subdomain"
-yes | cp -rf  ./public/. $PUBLIC_PATH #copy public files to public_html/sms
+#yes | cp -rf  ./public/. $PUBLIC_PATH #copy public files to public_html/sms
 
 sync
 
