@@ -5,9 +5,13 @@ git pull
 echo "Starting deployment "
 echo "exporting paths"
 export DEPLOYPATH=/home/g72bht5yrxxn/sms_app
-export PUBLIC_PATH=$DEPLOYPATH/public_html/sms
+export PUBLIC_PATH=/home/g72bht5yrxxn/public_html/sms
 export REPO_PATH=/home/g72bht5yrxxn/repositories/school-management-system
 export ENV_SECRET_PATH=/home/g72bht5yrxxn/secret
+
+mkdir -p $DEPLOYPATH
+
+mkdir -p $PUBLIC_PATH
 
 cd $DEPLOYPATH
 # activate maintenance mode
@@ -27,13 +31,13 @@ echo "install composer"
 cd $DEPLOYPATH
 
 php composer.phar install --no-interaction --prefer-dist --optimize-autoloader
+php artisan optimize
 yes|php artisan migrate --force --seed
 yes|php artisan key:generate --force
-php artisan optimize
 # stop maintenance mode
 php artisan up
 php artisan optimize
-
+php artisan route:trans:cache
 
 #Cron Jobs
 #/usr/local/bin/php /home/g72bht5yrxxn/artisan queue:work --queue=high,default >> /dev/null 2>&1
