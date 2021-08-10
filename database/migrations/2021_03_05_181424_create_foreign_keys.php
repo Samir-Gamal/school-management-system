@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class CreateForeignKeys extends Migration {
 
-	public function up()
-	{
-		Schema::table('Classrooms', function(Blueprint $table) {
-			$table->foreign('Grade_id')->references('id')->on('Grades')
-						->onDelete('cascade');
-		});
+    public function up()
+    {
+        Schema::table('Classrooms', function(Blueprint $table) {
+            $table->foreign('Grade_id')->references('id')->on('Grades')
+                ->onDelete('cascade');
+        });
 
         Schema::table('sections', function(Blueprint $table) {
             $table->foreign('Grade_id')->references('id')->on('Grades')
@@ -31,18 +31,26 @@ class CreateForeignKeys extends Migration {
             $table->foreign('parent_id')->references('id')->on('my__parents');
         });
 
-	}
+    }
 
-	public function down()
-	{
-		Schema::table('Classrooms', function(Blueprint $table) {
-			$table->dropForeign('Classrooms_Grade_id_foreign');
-		});
+    public function down()
+    {
+        Schema::table('Classrooms', function(Blueprint $table) {
+            $table->dropForeign('Classrooms_Grade_id_foreign');
+        });
         Schema::table('sections', function(Blueprint $table) {
             $table->dropForeign('sections_Grade_id_foreign');
         });
-        Schema::table('sections', function(Blueprint $table) {
-            $table->dropForeign('sections_Class_id_foreign');
+        Schema::table('my__parents', function(Blueprint $table) {
+            $table->dropForeign('my__parents_Religion_Mother_id_foreign');
+            $table->dropForeign('my__parents_Blood_Type_Mother_id_foreign');
+            $table->dropForeign('my__parents_Nationality_Mother_id_foreign');
+            $table->dropForeign('my__parents_Religion_Father_id_foreign');
+            $table->dropForeign('my__parents_Blood_Type_Father_id_foreign');
+            $table->dropForeign('my__parents_Nationality_Father_id_foreign');
         });
-	}
+        Schema::table('parent_attachments', function(Blueprint $table) {
+            $table->dropForeign('parent_attachments_parent_id_foreign');
+        });
+    }
 }
