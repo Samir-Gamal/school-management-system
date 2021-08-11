@@ -8,7 +8,7 @@
     <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>{{__('main_trans.Main_title')}}</title>
+    <title>{{__('main_trans.title')}}</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
@@ -40,30 +40,29 @@
  login-->
 
         <section class="height-100vh d-flex align-items-center page-section-ptb login"
-            style="background-image: url(assets/images/login-bg.jpg);">
+            style="background-image: url(assets/images/login-background.jpg); bgcolor:#800000;">
             <div class="container">
                 <div class="row justify-content-center no-gutters vertical-align">
                     <div class="col-lg-4 col-md-6 login-fancy-bg bg"
                         style="background-image: url(images/login-inner-bg.jpg);">
                         <div class="login-fancy">
-                            <h2 class="text-white mb-20">Hello world!</h2>
-                            <p class="mb-20 text-white">Create tailor-cut websites with the exclusive multi-purpose
-                                responsive template along with powerful features.</p>
+                            <h3 class="text-white mb-12">{{__('main_trans.title')}}</h3>
+                            <p class="mb-20 m-4 text-white">{{__('main_trans.description')}}</p>
                             <ul class="list-unstyled  pos-bot pb-30">
-                                <li class="list-inline-item"><a class="text-white" href="#"> Terms of Use</a> </li>
-                                <li class="list-inline-item"><a class="text-white" href="#"> Privacy Policy</a></li>
+                                <li class="list-inline-item"><a class="text-white" href="#">{{__('main_trans.terms_of_use')}}</a> </li>
+                                <li class="list-inline-item"><a class="text-white" href="#">{{__('main_trans.privacy_policy')}}</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 bg-white">
                         <div class="login-fancy pb-40 clearfix">
-                            <h3 class="mb-30">تسجيل الدخول</h3>
+                            <h3 class="mb-30">{{__('auth.login')}}</h3>
 
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
                                 <div class="section-field mb-20">
-                                    <label class="mb-10" for="name">البريدالالكتروني*</label>
+                                    <label class="mb-10" for="name">{{__('validation.attributes.email')}}*</label>
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -76,7 +75,7 @@
                                 </div>
 
                                 <div class="section-field mb-20">
-                                    <label class="mb-10" for="Password">كلمة المرور * </label>
+                                    <label class="mb-10" for="Password">{{__('validation.attributes.password')}} * </label>
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
@@ -91,11 +90,11 @@
                                 <div class="section-field">
                                     <div class="remember-checkbox mb-30">
                                         <input type="checkbox" class="form-control" name="two" id="two" />
-                                        <label for="two"> تذكرني</label>
-                                        <a href="#" class="float-right">هل نسيت كلمةالمرور ؟</a>
+                                        <label for="two">{{__('validation.attributes.remember_me')}}</label>
+                                        <a href="#" class="float-right">{{__('main_trans.forgot_password')}}</a>
                                     </div>
                                 </div>
-                                <button class="button"><span>دخول</span><i class="fa fa-check"></i></button>
+                                <button class="button"><span>{{__('main_trans.enter')}}</span><i class="fa fa-check"></i></button>
                             </form>
                         </div>
                     </div>

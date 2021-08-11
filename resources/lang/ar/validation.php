@@ -146,6 +146,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => 'البريد الالكتروني',
+        'password' => 'كلمة السر',
+        'remember_me' => 'ذكرني',
+    ],
 
 ];
