@@ -13,7 +13,6 @@ class GradeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Grades')->delete();
         $grades = [
             ['en'=> 'Primary stage', 'ar'=> 'المرحلة الابتدائية'],
             ['en'=> 'middle School', 'ar'=> 'المرحلة الاعدادية'],
@@ -21,7 +20,7 @@ class GradeSeeder extends Seeder
         ];
 
         foreach ($grades as $grade) {
-            Grade::create(['Name' => $grade]);
+            Grade::create(['name' => $grade]);
         }
 
     }

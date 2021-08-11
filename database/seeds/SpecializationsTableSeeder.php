@@ -13,7 +13,6 @@ class SpecializationsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('specializations')->delete();
         $specializations = [
             ['en'=> 'Arabic', 'ar'=> 'عربي'],
             ['en'=> 'Sciences', 'ar'=> 'علوم'],
@@ -21,7 +20,7 @@ class SpecializationsTableSeeder extends Seeder
             ['en'=> 'English', 'ar'=> 'انجليزي'],
         ];
         foreach ($specializations as $S) {
-            Specialization::create(['Name' => $S]);
+            Specialization::create(['name' => $S]);
         }
     }
 }

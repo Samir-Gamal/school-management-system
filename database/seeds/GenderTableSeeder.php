@@ -13,7 +13,6 @@ class GenderTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('genders')->delete();
 
         $genders = [
             ['en'=> 'Male', 'ar'=> 'ذكر'],
@@ -21,7 +20,7 @@ class GenderTableSeeder extends Seeder
 
         ];
         foreach ($genders as $ge) {
-            Gender::create(['Name' => $ge]);
+            Gender::create(['name' => $ge]);
         }
     }
 }
