@@ -17,7 +17,7 @@ class CreateReceiptStudentsTable extends Migration
             $table->id();
             $table->date('date');
             $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->decimal('Debit',8,2)->nullable();
+            $table->decimal('debit',8,2)->nullable();
             $table->string('description');
             $table->timestamps();
         });

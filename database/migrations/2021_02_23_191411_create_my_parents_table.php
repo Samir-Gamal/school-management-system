@@ -13,21 +13,21 @@ class CreateMyParentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('my__parents', function (Blueprint $table) {
+        Schema::create('my_parents', function (Blueprint $table) {
             $table->id();
-            $table->string('Email')->unique();
-            $table->string('Password');
+            $table->string('email')->unique();
+            $table->string('password');
 
             //Fatherinformation
-            $table->string('Name_Father');
-            $table->string('National_ID_Father');
-            $table->string('Passport_ID_Father');
-            $table->string('Phone_Father');
-            $table->string('Job_Father');
-            $table->bigInteger('Nationality_Father_id')->unsigned();
-            $table->bigInteger('Blood_Type_Father_id')->unsigned();
-            $table->bigInteger('Religion_Father_id')->unsigned();
-            $table->string('Address_Father');
+            $table->string('name_father');
+            $table->string('national_id_father');
+            $table->string('passport_id_father');
+            $table->string('phone_father');
+            $table->string('job_father');
+            $table->bigInteger('nationality_father_id')->unsigned();
+            $table->bigInteger('blood_type_father_id')->unsigned();
+            $table->bigInteger('religion_father_id')->unsigned();
+            $table->string('address_father');
 
             //Mother information
             $table->string('Name_Mother');
@@ -51,6 +51,6 @@ class CreateMyParentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('my__parents');
+        Schema::dropIfExists('my_parents');
     }
 }
