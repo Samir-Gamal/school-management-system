@@ -4,7 +4,8 @@ return [
 
     'Dashboard'=>'Dashboard',
     'Dashboard_page'=>'Dashboard',
-    'Main_title' => 'School Management System',
+    'title' => 'School Management System',
+    'description' => 'Improve the functioning of your school and make it fully paperless by consolidating data based on different locations, departments, classes, sections & subjects. ',
     'change_language'=>'language',
     'Grades'=>'Grades',
     'Grades_list'=>'Grades List',
@@ -32,7 +33,10 @@ return [
     'Settings'=>'Settings',
     'Users'=>'Users',
     'Copyright' => 'Copyright',
-    'Name_Programer' => 'SamirGamal MoraSoft All Rights Reserved'
-
+    'Name_Programer' => 'SamirGamal MoraSoft All Rights Reserved',
+    'forgot_password' => 'Forgot password ?',
+    'enter'=>'Enter',
+    'terms_of_use'=>'Terms of Use',
+    'privacy_policy'=>'Privacy Policy',
 
 ];
