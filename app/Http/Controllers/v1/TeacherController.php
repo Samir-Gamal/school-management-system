@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teachers;
+namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTeachers;
 use App\Models\Gender;
