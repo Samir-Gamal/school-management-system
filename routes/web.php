@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-
-
 //==============================Translate all pages============================
 Route::group(
     [
@@ -39,45 +37,43 @@ Route::group(
         [
             'middleware' => ['auth']
         ], function () {
-        //==============================dashboard============================
-        Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
+        //==============================parents============================
+
+        Route::view('add_parent', 'livewire.show_Form');
         //==============================dashboard============================
-        Route::group(['namespace' => 'Grades'], function () {
+        Route::group(['namespace' => 'v1'], function () {
+            Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+            //==============================dashboard============================
+
             Route::resource('Grades', 'GradeController');
-        });
 
-        //==============================Classrooms============================
-        Route::group(['namespace' => 'Classrooms'], function () {
+
+            //==============================Classrooms============================
             Route::resource('Classrooms', 'ClassroomController');
             Route::post('delete_all', 'ClassroomController@delete_all')->name('delete_all');
 
             Route::post('Filter_Classes', 'ClassroomController@Filter_Classes')->name('Filter_Classes');
 
-        });
 
+            //==============================Sections============================
 
-        //==============================Sections============================
-
-        Route::group(['namespace' => 'Sections'], function () {
 
             Route::resource('Sections', 'SectionController');
 
             Route::get('/classes/{id}', 'SectionController@getclasses');
 
-        });
 
-        //==============================parents============================
 
-        Route::view('add_parent', 'livewire.show_Form');
 
-        //==============================Teachers============================
-        Route::group(['namespace' => 'Teachers'], function () {
+            //==============================Teachers============================
+
             Route::resource('Teachers', 'TeacherController');
-        });
 
-        //==============================Students============================
-        Route::group(['namespace' => 'Students'], function () {
+
+            //==============================Students============================
+
             Route::resource('Students', 'StudentController');
             Route::resource('Graduated', 'GraduatedController');
             Route::resource('Promotion', 'PromotionController');
@@ -92,15 +88,15 @@ Route::group(
             Route::post('Upload_attachment', 'StudentController@Upload_attachment')->name('Upload_attachment');
             Route::get('Download_attachment/{studentsname}/{filename}', 'StudentController@Download_attachment')->name('Download_attachment');
             Route::post('Delete_attachment', 'StudentController@Delete_attachment')->name('Delete_attachment');
-        });
 
-        //==============================subjects============================
-        Route::group(['namespace' => 'Subjects'], function () {
+
+            //==============================subjects============================
+
             Route::resource('subjects', 'SubjectController');
-        });
 
-        //==============================Exams============================
-        Route::group(['namespace' => 'Exams'], function () {
+
+            //==============================Exams============================
+
             Route::resource('Exams', 'ExamController');
         });
     });
