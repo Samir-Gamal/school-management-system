@@ -26,7 +26,7 @@
 ## طريقة تشغيل المشروع للمطورين
 1. Clone the repo تحميل المستودع
 ```sh
-  git clone git@github.com:Samir-Gamal/school-management-system.git
+  git clone git@github.com:fh32000/school-management-system.git
 ```
 2. Install dependencies  تنصيب الارتباطات
 ```sh

@@ -62,7 +62,7 @@ class Student extends Model
 
     public function myparent()
     {
-        return $this->belongsTo('App\Models\My_Parent', 'parent_id');
+        return $this->belongsTo('App\Models\Guardian', 'parent_id');
     }
 
     // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي

@@ -18,7 +18,7 @@ class CreateForeignKeys extends Migration {
                 ->onDelete('cascade');
         });
 
-        Schema::table('my_parents', function(Blueprint $table) {
+        Schema::table('guardians', function(Blueprint $table) {
             $table->foreign('nationality_father_id')->references('id')->on('nationalities');
             $table->foreign('blood_type_father_id')->references('id')->on('type_bloods');
             $table->foreign('religion_father_id')->references('id')->on('religions');
@@ -28,7 +28,7 @@ class CreateForeignKeys extends Migration {
         });
 
         Schema::table('parent_attachments', function(Blueprint $table) {
-            $table->foreign('parent_id')->references('id')->on('my_parents');
+            $table->foreign('parent_id')->references('id')->on('guardians');
         });
 
     }
@@ -41,13 +41,13 @@ class CreateForeignKeys extends Migration {
         Schema::table('sections', function(Blueprint $table) {
             $table->dropForeign('sections_grade_id_foreign');
         });
-        Schema::table('my_parents', function(Blueprint $table) {
-            $table->dropForeign('my_parents_religion_mother_id_foreign');
-            $table->dropForeign('my_parents_blood_type_mother_id_foreign');
-            $table->dropForeign('my_parents_nationality_mother_id_foreign');
-            $table->dropForeign('my_parents_religion_father_id_foreign');
-            $table->dropForeign('my_parents_blood_type_father_id_foreign');
-            $table->dropForeign('my_parents_nationality_father_id_foreign');
+        Schema::table('guardians', function(Blueprint $table) {
+            $table->dropForeign('guardians_religion_mother_id_foreign');
+            $table->dropForeign('guardians_blood_type_mother_id_foreign');
+            $table->dropForeign('guardians_nationality_mother_id_foreign');
+            $table->dropForeign('guardians_religion_father_id_foreign');
+            $table->dropForeign('guardians_blood_type_father_id_foreign');
+            $table->dropForeign('guardians_nationality_father_id_foreign');
         });
         Schema::table('parent_attachments', function(Blueprint $table) {
             $table->dropForeign('parent_attachments_parent_id_foreign');

@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Grade;
-use App\Models\My_Parent;
+use App\Models\Guardian;
 use App\Models\Nationalitie;
 use App\Models\ParentAttachment;
 use App\Models\Religion;
-use App\Models\Type_Blood;
+use App\Models\BloodType;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -56,9 +55,9 @@ class AddParent extends Component
     {
         return view('livewire.add-parent', [
             'Nationalities' => Nationalitie::all(),
-            'Type_Bloods' => Type_Blood::all(),
+            'Type_Bloods' => BloodType::all(),
             'Religions' => Religion::all(),
-            'my_parents' => My_Parent::all(),
+            'my_parents' => Guardian::all(),
         ]);
 
     }
@@ -115,7 +114,7 @@ class AddParent extends Component
     public function submitForm(){
 
         try {
-            $My_Parent = new My_Parent();
+            $My_Parent = new Guardian();
             // Father_INPUTS
             $My_Parent->Email = $this->Email;
             $My_Parent->Password = Hash::make($this->Password);
@@ -148,7 +147,7 @@ class AddParent extends Component
                     $photo->storeAs($this->National_ID_Father, $photo->getClientOriginalName(), $disk = 'parent_attachments');
                     ParentAttachment::create([
                         'file_name' => $photo->getClientOriginalName(),
-                        'parent_id' => My_Parent::latest()->first()->id,
+                        'parent_id' => Guardian::latest()->first()->id,
                     ]);
                 }
             }
@@ -168,7 +167,7 @@ class AddParent extends Component
     {
         $this->show_table = false;
         $this->updateMode = true;
-        $My_Parent = My_Parent::where('id',$id)->first();
+        $My_Parent = Guardian::where('id',$id)->first();
         $this->Parent_id = $id;
         $this->Email = $My_Parent->Email;
         $this->Password = $My_Parent->Password;
@@ -216,7 +215,7 @@ class AddParent extends Component
     public function submitForm_edit(){
 
         if ($this->Parent_id){
-            $parent = My_Parent::find($this->Parent_id);
+            $parent = Guardian::find($this->Parent_id);
             $parent->update([
                 'Passport_ID_Father' => $this->Passport_ID_Father,
                 'National_ID_Father' => $this->National_ID_Father,
@@ -228,7 +227,7 @@ class AddParent extends Component
     }
 
     public function delete($id){
-        My_Parent::findOrFail($id)->delete();
+        Guardian::findOrFail($id)->delete();
         return redirect()->to('/add_parent');
     }
 

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repository\FeeInvoicesRepositoryInterface;
 use Illuminate\Http\Request;
 
-class FeesInvoicesController extends Controller
+class InvoiceController extends Controller
 {
 
     protected $Fees_Invoices;

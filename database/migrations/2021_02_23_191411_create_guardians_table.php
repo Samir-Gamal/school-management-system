@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMyParentsTable extends Migration
+class CreateGuardiansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMyParentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('my_parents', function (Blueprint $table) {
+        Schema::create('guardians', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
@@ -51,6 +51,6 @@ class CreateMyParentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('my_parents');
+        Schema::dropIfExists('guardians');
     }
 }

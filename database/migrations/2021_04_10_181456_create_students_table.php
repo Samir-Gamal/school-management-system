@@ -32,7 +32,7 @@ class CreateStudentsTable extends Migration
             $table->bigInteger('section_id')->unsigned();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->bigInteger('parent_id')->unsigned();
-            $table->foreign('parent_id')->references('id')->on('my_parents')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('guardians')->onDelete('cascade');
             $table->string('academic_year');
             $table->softDeletes();
             $table->timestamps();

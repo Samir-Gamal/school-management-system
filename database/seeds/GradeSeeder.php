@@ -2,7 +2,6 @@
 
 use App\Models\Grade;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class GradeSeeder extends Seeder
 {

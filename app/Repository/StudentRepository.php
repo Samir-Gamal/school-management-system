@@ -5,11 +5,11 @@ use App\Models\Classroom;
 use App\Models\Gender;
 use App\Models\Grade;
 use App\Models\Image;
-use App\Models\My_Parent;
+use App\Models\Guardian;
 use App\Models\Nationalitie;
 use App\Models\Section;
 use App\Models\Student;
-use App\Models\Type_Blood;
+use App\Models\BloodType;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -27,10 +27,10 @@ class StudentRepository implements StudentRepositoryInterface{
     public function Edit_Student($id)
     {
         $data['Grades'] = Grade::all();
-        $data['parents'] = My_Parent::all();
+        $data['parents'] = Guardian::all();
         $data['Genders'] = Gender::all();
         $data['nationals'] = Nationalitie::all();
-        $data['bloods'] = Type_Blood::all();
+        $data['bloods'] = BloodType::all();
         $Students =  Student::findOrFail($id);
         return view('pages.Students.edit',$data,compact('Students'));
     }
@@ -63,10 +63,10 @@ class StudentRepository implements StudentRepositoryInterface{
     public function Create_Student(){
 
        $data['my_classes'] = Grade::all();
-       $data['parents'] = My_Parent::all();
+       $data['parents'] = Guardian::all();
        $data['Genders'] = Gender::all();
        $data['nationals'] = Nationalitie::all();
-       $data['bloods'] = Type_Blood::all();
+       $data['bloods'] = BloodType::all();
        return view('pages.Students.add',$data);
 
     }

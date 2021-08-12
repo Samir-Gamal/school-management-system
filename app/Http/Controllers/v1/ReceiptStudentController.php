@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repository\ReceiptStudentsRepositoryInterface;
 use Illuminate\Http\Request;
 
-class ReceiptStudentsController extends Controller
+class ReceiptStudentController extends Controller
 {
     protected $Receipt;
 

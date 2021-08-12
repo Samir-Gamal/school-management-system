@@ -5,7 +5,7 @@ namespace App\Repository;
 
 
 use App\Models\Fee;
-use App\Models\Fee_invoice;
+use App\Models\Invoice;
 use App\Models\Grade;
 use App\Models\Student;
 use App\Models\StudentAccount;
@@ -16,7 +16,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
 
     public function index()
     {
-        $Fee_invoices = Fee_invoice::all();
+        $Fee_invoices = Invoice::all();
         $Grades = Grade::all();
         return view('pages.Fees_Invoices.index',compact('Fee_invoices','Grades'));
     }
@@ -30,7 +30,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
 
     public function edit($id)
     {
-        $fee_invoices = Fee_invoice::findorfail($id);
+        $fee_invoices = Invoice::findorfail($id);
         $fees = Fee::where('class_room_id',$fee_invoices->Classroom_id)->get();
         return view('pages.Fees_Invoices.edit',compact('fee_invoices','fees'));
     }
@@ -45,7 +45,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
 
             foreach ($List_Fees as $List_Fee) {
                 // حفظ البيانات في جدول فواتير الرسوم الدراسية
-                $Fees = new Fee_invoice();
+                $Fees = new Invoice();
                 $Fees->invoice_date = date('Y-m-d');
                 $Fees->student_id = $List_Fee['student_id'];
                 $Fees->grade_id = $request->Grade_id;
@@ -82,7 +82,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
         DB::beginTransaction();
         try {
             // تعديل البيانات في جدول فواتير الرسوم الدراسية
-            $Fees = Fee_invoice::findorfail($request->id);
+            $Fees = Invoice::findorfail($request->id);
             $Fees->fee_id = $request->fee_id;
             $Fees->amount = $request->amount;
             $Fees->description = $request->description;
@@ -106,7 +106,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
     public function destroy($request)
     {
         try {
-            Fee_invoice::destroy($request->id);
+            Invoice::destroy($request->id);
             toastr()->error(trans('messages.Delete'));
             return redirect()->back();
         }
