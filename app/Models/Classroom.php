@@ -12,7 +12,7 @@ class Classroom extends Model
     public $translatable = ['name'];
 
 
-    protected $table = 'class_rooms';
+    protected $table = 'classrooms';
     public $timestamps = true;
     protected $fillable=['name','grade_id'];
 

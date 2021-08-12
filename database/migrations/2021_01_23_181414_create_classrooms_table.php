@@ -7,7 +7,7 @@ class CreateClassroomsTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('class_rooms', function(Blueprint $table) {
+		Schema::create('classrooms', function(Blueprint $table) {
 			$table->id();
 			$table->string('name');
 			$table->bigInteger('grade_id')->unsigned();
@@ -17,6 +17,6 @@ class CreateClassroomsTable extends Migration {
 
 	public function down()
 	{
-		Schema::dropIfExists('class_rooms');
+		Schema::dropIfExists('classrooms');
 	}
 }

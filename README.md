@@ -1,7 +1,7 @@
 <div dir="rtl">
-<a href="#"><img src="https://i.ibb.co/r203QFc/school-management-erp-1558416373-4916185.png" alt="school-management-erp-1558416373-4916185" border="0" /></a>
 <p align="center">
-
+<a href="#"><img src="https://i.ibb.co/r203QFc/school-management-erp-1558416373-4916185.png" alt="school-management-erp-1558416373-4916185" border="0" /></a>
+</p>
 # عن نظام إدارات المدارس
 
 نظام إدارة المدارس المتكامل، يهتم بالنظام الإداري من حيث إدارة المعلمين والصفوف والطلاب والرسوم والمكتبة و الامتحانات وغيرها من العمليات.

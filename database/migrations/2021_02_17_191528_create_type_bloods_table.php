@@ -13,7 +13,7 @@ class CreateTypeBloodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_bloods', function (Blueprint $table) {
+        Schema::create('blood_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateTypeBloodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_bloods');
+        Schema::dropIfExists('blood_types');
     }
 }
