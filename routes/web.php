@@ -16,6 +16,7 @@ use App\Http\Controllers\v1\ReceiptStudentsController;
 use App\Http\Controllers\v1\SectionController;
 use App\Http\Controllers\v1\StudentController;
 use App\Http\Controllers\v1\SubjectController;
+use App\Http\Controllers\v1\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
+    Auth::routes();
+});
 
-Auth::routes();
 
 
 //==============================Translate all pages============================
