@@ -20,10 +20,10 @@ class CreateForeignKeys extends Migration {
 
         Schema::table('guardians', function(Blueprint $table) {
             $table->foreign('nationality_father_id')->references('id')->on('nationalities');
-            $table->foreign('blood_type_father_id')->references('id')->on('type_bloods');
+            $table->foreign('blood_type_father_id')->references('id')->on('blood_types');
             $table->foreign('religion_father_id')->references('id')->on('religions');
             $table->foreign('nationality_mother_id')->references('id')->on('nationalities');
-            $table->foreign('blood_type_mother_id')->references('id')->on('type_bloods');
+            $table->foreign('blood_type_mother_id')->references('id')->on('blood_types');
             $table->foreign('religion_mother_id')->references('id')->on('religions');
         });
 

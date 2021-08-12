@@ -14,14 +14,14 @@ class SubjectRepository implements SubjectRepositoryInterface
     public function index()
     {
         $subjects = Subject::get();
-        return view('pages.Subjects.index',compact('subjects'));
+        return view('pages.subjects.index',compact('subjects'));
     }
 
     public function create()
     {
         $grades = Grade::get();
         $teachers = Teacher::get();
-        return view('pages.Subjects.create',compact('grades','teachers'));
+        return view('pages.subjects.create',compact('grades','teachers'));
     }
 
 
@@ -48,7 +48,7 @@ class SubjectRepository implements SubjectRepositoryInterface
         $subject =Subject::findorfail($id);
         $grades = Grade::get();
         $teachers = Teacher::get();
-        return view('pages.Subjects.edit',compact('subject','grades','teachers'));
+        return view('pages.subjects.edit',compact('subject','grades','teachers'));
 
     }
 

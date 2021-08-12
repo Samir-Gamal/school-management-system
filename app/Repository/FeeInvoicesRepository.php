@@ -18,21 +18,21 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
     {
         $Fee_invoices = Invoice::all();
         $Grades = Grade::all();
-        return view('pages.Fees_Invoices.index',compact('Fee_invoices','Grades'));
+        return view('pages.invoices.index',compact('Fee_invoices','Grades'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
         $fees = Fee::where('class_room_id',$student->Classroom_id)->get();
-        return view('pages.Fees_Invoices.add',compact('student','fees'));
+        return view('pages.invoices.add',compact('student','fees'));
     }
 
     public function edit($id)
     {
         $fee_invoices = Invoice::findorfail($id);
         $fees = Fee::where('class_room_id',$fee_invoices->Classroom_id)->get();
-        return view('pages.Fees_Invoices.edit',compact('fee_invoices','fees'));
+        return view('pages.invoices.edit',compact('fee_invoices','fees'));
     }
 
     public function store($request)

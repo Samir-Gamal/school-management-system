@@ -22,14 +22,14 @@ class TeacherController extends Controller
     {
         $Teachers = $this->Teacher->getAllTeachers();
         //$Teachers = Teacher::all();
-        return view('pages.Teachers.Teachers',compact('Teachers'));
+        return view('pages.teachers.teachers',compact('Teachers'));
     }
 
     public function create()
     {
          $specializations = $this->Teacher->Getspecialization();
          $genders = $this->Teacher->GetGender();
-         return view('pages.Teachers.create',compact('specializations','genders'));
+         return view('pages.teachers.create',compact('specializations','genders'));
     }
 
 
@@ -50,7 +50,7 @@ class TeacherController extends Controller
         $Teachers = $this->Teacher->editTeachers($id);
         $specializations = $this->Teacher->Getspecialization();
         $genders = $this->Teacher->GetGender();
-        return view('pages.Teachers.edit',compact('Teachers','specializations','genders'));
+        return view('pages.teachers.edit',compact('Teachers','specializations','genders'));
     }
 
 

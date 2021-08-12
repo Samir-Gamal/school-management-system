@@ -17,7 +17,7 @@ class GradeController extends Controller
   public function index()
   {
       $Grades = Grade::all();
-    return view('pages.Grades.Grades',compact('Grades'));
+    return view('pages.grades.grades',compact('Grades'));
   }
 
 

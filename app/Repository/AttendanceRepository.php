@@ -17,13 +17,13 @@ class AttendanceRepository implements AttendanceRepositoryInterface
         $Grades = Grade::with(['Sections'])->get();
         $list_Grades = Grade::all();
         $teachers = Teacher::all();
-        return view('pages.Attendance.Sections',compact('Grades','list_Grades','teachers'));
+        return view('pages.attendance.sections',compact('Grades','list_Grades','teachers'));
     }
 
     public function show($id)
     {
         $students = Student::with('attendance')->where('section_id',$id)->get();
-        return view('pages.Attendance.index',compact('students'));
+        return view('pages.attendance.index',compact('students'));
     }
 
     public function store($request)

@@ -11,12 +11,12 @@ class ExamRepository implements ExamRepositoryInterface
     public function index()
     {
         $exams = Exam::get();
-        return view('pages.Exams.index', compact('exams'));
+        return view('pages.exams.index', compact('exams'));
     }
 
     public function create()
     {
-        return view('pages.Exams.create');
+        return view('pages.exams.create');
     }
 
     public function store($request)
@@ -37,7 +37,7 @@ class ExamRepository implements ExamRepositoryInterface
     public function edit($id)
     {
         $exam = Exam::findorFail($id);
-        return view('pages.Exams.edit', compact('exam'));
+        return view('pages.exams.edit', compact('exam'));
     }
 
     public function update($request)

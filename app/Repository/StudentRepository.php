@@ -21,7 +21,7 @@ class StudentRepository implements StudentRepositoryInterface{
     public function Get_Student()
     {
         $students = Student::all();
-        return view('pages.Students.index',compact('students'));
+        return view('pages.students.index',compact('students'));
     }
 
     public function Edit_Student($id)
@@ -32,7 +32,7 @@ class StudentRepository implements StudentRepositoryInterface{
         $data['nationals'] = Nationalitie::all();
         $data['bloods'] = BloodType::all();
         $Students =  Student::findOrFail($id);
-        return view('pages.Students.edit',$data,compact('Students'));
+        return view('pages.students.edit',$data,compact('Students'));
     }
 
     public function Update_Student($request)
@@ -67,14 +67,14 @@ class StudentRepository implements StudentRepositoryInterface{
        $data['Genders'] = Gender::all();
        $data['nationals'] = Nationalitie::all();
        $data['bloods'] = BloodType::all();
-       return view('pages.Students.add',$data);
+       return view('pages.students.add',$data);
 
     }
 
     public function Show_Student($id)
     {
         $Student = Student::findorfail($id);
-        return view('pages.Students.show',compact('Student'));
+        return view('pages.students.show',compact('Student'));
     }
 
 

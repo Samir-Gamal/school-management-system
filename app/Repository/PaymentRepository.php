@@ -16,19 +16,19 @@ class PaymentRepository implements PaymentRepositoryInterface
     public function index()
     {
         $payment_students = PaymentStudent::all();
-        return view('pages.Payment.index',compact('payment_students'));
+        return view('pages.payment.index',compact('payment_students'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.Payment.add',compact('student'));
+        return view('pages.payment.add',compact('student'));
     }
 
     public function edit($id)
     {
         $payment_student = PaymentStudent::findorfail($id);
-        return view('pages.Payment.edit',compact('payment_student'));
+        return view('pages.payment.edit',compact('payment_student'));
     }
 
     public function store($request)

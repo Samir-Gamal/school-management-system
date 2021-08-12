@@ -66,7 +66,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @include('pages.Students.Delete')
+                                        @include('pages.students.delete')
                                         @endforeach
                                     </table>
                                 </div>

@@ -53,8 +53,8 @@
 
                                                 </td>
                                             </tr>
-                                        @include('pages.Students.Graduated.return')
-                                        @include('pages.Students.Graduated.Delete')
+                                        @include('pages.students.graduated.return')
+                                        @include('pages.students.graduated.delete')
                                         @endforeach
                                     </table>
                                 </div>

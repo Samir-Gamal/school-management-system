@@ -14,21 +14,21 @@ class FeesRepository implements FeesRepositoryInterface
 
         $fees = Fee::all();
         $Grades = Grade::all();
-        return view('pages.Fees.index',compact('fees','Grades'));
+        return view('pages.fees.index',compact('fees','Grades'));
 
     }
 
     public function create(){
 
         $Grades = Grade::all();
-        return view('pages.Fees.add',compact('Grades'));
+        return view('pages.fees.add',compact('Grades'));
     }
 
     public function edit($id){
 
         $fee = Fee::findorfail($id);
         $Grades = Grade::all();
-        return view('pages.Fees.edit',compact('fee','Grades'));
+        return view('pages.fees.edit',compact('fee','Grades'));
 
     }
 

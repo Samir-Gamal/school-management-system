@@ -18,20 +18,20 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
     public function index()
     {
         $receipt_students = ReceiptStudent::all();
-        return view('pages.Receipt.index',compact('receipt_students'));
+        return view('pages.receipt.index',compact('receipt_students'));
 
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.Receipt.add',compact('student'));
+        return view('pages.receipt.add',compact('student'));
     }
 
     public function edit($id)
     {
         $receipt_student = ReceiptStudent::findorfail($id);
-        return view('pages.Receipt.edit',compact('receipt_student'));
+        return view('pages.receipt.edit',compact('receipt_student'));
     }
 
     public function store($request)

@@ -13,13 +13,13 @@ class StudentGraduatedRepository implements StudentGraduatedRepositoryInterface
     public function index()
     {
         $students = Student::onlyTrashed()->get();
-        return view('pages.Students.Graduated.index',compact('students'));
+        return view('pages.students.graduated.index',compact('students'));
     }
 
     public function create()
     {
         $Grades = Grade::all();
-        return view('pages.Students.Graduated.create',compact('Grades'));
+        return view('pages.students.graduated.create',compact('Grades'));
     }
 
     public function SoftDelete($request)

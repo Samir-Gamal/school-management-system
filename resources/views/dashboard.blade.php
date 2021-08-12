@@ -29,9 +29,9 @@
         <!--=================================
  preloader -->
 
-        @include('layouts.main-header')
+        @include('layouts.main_header')
 
-        @include('layouts.main-sidebar')
+        @include('layouts.main_sidebar')
 
         <!--=================================
  Main content -->
@@ -683,7 +683,7 @@
     <!--=================================
  footer -->
 
-    @include('layouts.footer-scripts')
+    @include('layouts.footer_scripts')
 
 </body>
 

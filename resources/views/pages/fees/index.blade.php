@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @include('Site.layouts.head')
+    @include('layouts.head')
 </head>
 
 <body data-spy="scroll" data-target=".navigation_area" style="font-family: 'Cairo', sans-serif;">
@@ -309,8 +309,8 @@
 </div>
 <!--~~/. end site wrapper ~~-->
 
-@include('Site.layouts.footer')
-@include('Site.layouts.footer-scripts')
+@include('layouts.footer')
+@include('layouts.footer_scripts')
 
 </body>
 

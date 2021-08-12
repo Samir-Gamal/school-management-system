@@ -16,19 +16,19 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
     public function index()
     {
         $ProcessingFees = ProcessingFee::all();
-        return view('pages.ProcessingFee.index',compact('ProcessingFees'));
+        return view('pages.processing_fee.index',compact('ProcessingFees'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.ProcessingFee.add',compact('student'));
+        return view('pages.processing_fee.add',compact('student'));
     }
 
     public function edit($id)
     {
         $ProcessingFee = ProcessingFee::findorfail($id);
-        return view('pages.ProcessingFee.edit',compact('ProcessingFee'));
+        return view('pages.processing_fee.edit',compact('ProcessingFee'));
     }
 
     public function store($request)

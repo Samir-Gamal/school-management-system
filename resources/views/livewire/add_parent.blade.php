@@ -15,7 +15,7 @@
 
 
         @if($show_table)
-            @include('livewire.Parent_Table')
+            @include('livewire.parent_table')
         @else
             <div class="stepwizard">
                 <div class="stepwizard-row setup-panel">
@@ -38,9 +38,9 @@
                 </div>
             </div>
 
-    @include('livewire.Father_Form')
+    @include('livewire.father_form')
 
-    @include('livewire.Mother_Form')
+    @include('livewire.mother_form')
 
 
         <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="step-3">
