@@ -37,10 +37,10 @@ class SectionController extends Controller
 
       $validated = $request->validated();
       $Sections = new Section();
-      $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
-      $Sections->Grade_id = $request->Grade_id;
-      $Sections->Class_id = $request->Class_id;
-      $Sections->Status = 1;
+      $Sections->name = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+      $Sections->grade_id = $request->Grade_id;
+      $Sections->class_room_id = $request->Class_id;
+      $Sections->status = 1;
       $Sections->save();
       $Sections->teachers()->attach($request->teacher_id);
       toastr()->success(trans('messages.success'));
@@ -68,14 +68,14 @@ class SectionController extends Controller
       $validated = $request->validated();
       $Sections = Section::findOrFail($request->id);
 
-      $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
-      $Sections->Grade_id = $request->Grade_id;
-      $Sections->Class_id = $request->Class_id;
+      $Sections->name = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+      $Sections->grade_id = $request->Grade_id;
+      $Sections->class_id = $request->Class_id;
 
       if(isset($request->Status)) {
-        $Sections->Status = 1;
+        $Sections->status = 1;
       } else {
-        $Sections->Status = 2;
+        $Sections->status = 2;
       }
 
 
@@ -116,7 +116,7 @@ class SectionController extends Controller
 
   public function getclasses($id)
     {
-        $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
+        $list_classes = Classroom::where("grade_id", $id)->pluck("Name_Class", "id");
 
         return $list_classes;
     }

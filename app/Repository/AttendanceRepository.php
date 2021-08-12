@@ -41,7 +41,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
                 Attendance::create([
                     'student_id'=> $studentid,
                     'grade_id'=> $request->grade_id,
-                    'classroom_id'=> $request->classroom_id,
+                    'class_room_id'=> $request->classroom_id,
                     'section_id'=> $request->section_id,
                     'teacher_id'=> 1,
                     'attendence_date'=> date('Y-m-d'),

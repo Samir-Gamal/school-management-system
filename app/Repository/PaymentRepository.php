@@ -62,7 +62,7 @@ class PaymentRepository implements PaymentRepositoryInterface
             $students_accounts->type = 'payment';
             $students_accounts->student_id = $request->student_id;
             $students_accounts->payment_id = $payment_students->id;
-            $students_accounts->Debit = $request->Debit;
+            $students_accounts->debit = $request->Debit;
             $students_accounts->credit = 0.00;
             $students_accounts->description = $request->description;
             $students_accounts->save();
@@ -95,7 +95,7 @@ class PaymentRepository implements PaymentRepositoryInterface
             $fund_accounts = FundAccount::where('payment_id',$request->id)->first();
             $fund_accounts->date = date('Y-m-d');
             $fund_accounts->payment_id = $payment_students->id;
-            $fund_accounts->Debit = 0.00;
+            $fund_accounts->debit = 0.00;
             $fund_accounts->credit = $request->Debit;
             $fund_accounts->description = $request->description;
             $fund_accounts->save();

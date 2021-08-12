@@ -45,9 +45,9 @@ class StudentRepository implements StudentRepositoryInterface{
             $Edit_Students->gender_id = $request->gender_id;
             $Edit_Students->nationalitie_id = $request->nationalitie_id;
             $Edit_Students->blood_id = $request->blood_id;
-            $Edit_Students->Date_Birth = $request->Date_Birth;
-            $Edit_Students->Grade_id = $request->Grade_id;
-            $Edit_Students->Classroom_id = $request->Classroom_id;
+            $Edit_Students->date_birth = $request->Date_Birth;
+            $Edit_Students->grade_id = $request->Grade_id;
+            $Edit_Students->class_room_id = $request->Classroom_id;
             $Edit_Students->section_id = $request->section_id;
             $Edit_Students->parent_id = $request->parent_id;
             $Edit_Students->academic_year = $request->academic_year;
@@ -80,7 +80,7 @@ class StudentRepository implements StudentRepositoryInterface{
 
     public function Get_classrooms($id){
 
-        $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
+        $list_classes = Classroom::where("grade_id", $id)->pluck("name", "id");
         return $list_classes;
 
     }
@@ -88,7 +88,7 @@ class StudentRepository implements StudentRepositoryInterface{
     //Get Sections
     public function Get_Sections($id){
 
-        $list_sections = Section::where("Class_id", $id)->pluck("Name_Section", "id");
+        $list_sections = Section::where("class_id", $id)->pluck("name", "id");
         return $list_sections;
     }
 
@@ -105,9 +105,9 @@ class StudentRepository implements StudentRepositoryInterface{
             $students->gender_id = $request->gender_id;
             $students->nationalitie_id = $request->nationalitie_id;
             $students->blood_id = $request->blood_id;
-            $students->Date_Birth = $request->Date_Birth;
-            $students->Grade_id = $request->Grade_id;
-            $students->Classroom_id = $request->Classroom_id;
+            $students->date_birth = $request->Date_Birth;
+            $students->grade_id = $request->Grade_id;
+            $students->class_room_id = $request->Classroom_id;
             $students->section_id = $request->section_id;
             $students->parent_id = $request->parent_id;
             $students->academic_year = $request->academic_year;

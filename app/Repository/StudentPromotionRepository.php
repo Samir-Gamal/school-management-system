@@ -31,7 +31,7 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
 
         try {
 
-            $students = student::where('Grade_id',$request->Grade_id)->where('Classroom_id',$request->Classroom_id)->where('section_id',$request->section_id)->where('academic_year',$request->academic_year)->get();
+            $students = student::where('grade_id',$request->Grade_id)->where('class_room_id',$request->Classroom_id)->where('section_id',$request->section_id)->where('academic_year',$request->academic_year)->get();
 
             if($students->count() < 1){
                 return redirect()->back()->with('error_promotions', __('لاتوجد بيانات في جدول الطلاب'));
@@ -43,8 +43,8 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 $ids = explode(',',$student->id);
                 student::whereIn('id', $ids)
                     ->update([
-                        'Grade_id'=>$request->Grade_id_new,
-                        'Classroom_id'=>$request->Classroom_id_new,
+                        'grade_id'=>$request->Grade_id_new,
+                        'class_room_id'=>$request->Classroom_id_new,
                         'section_id'=>$request->section_id_new,
                         'academic_year'=>$request->academic_year_new,
                     ]);
@@ -53,10 +53,10 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 Promotion::updateOrCreate([
                     'student_id'=>$student->id,
                     'from_grade'=>$request->Grade_id,
-                    'from_Classroom'=>$request->Classroom_id,
+                    'from_class_room'=>$request->Classroom_id,
                     'from_section'=>$request->section_id,
                     'to_grade'=>$request->Grade_id_new,
-                    'to_Classroom'=>$request->Classroom_id_new,
+                    'to_class_room'=>$request->Classroom_id_new,
                     'to_section'=>$request->section_id_new,
                     'academic_year'=>$request->academic_year,
                     'academic_year_new'=>$request->academic_year_new,
@@ -90,8 +90,8 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                  $ids = explode(',',$Promotion->student_id);
                  student::whereIn('id', $ids)
                  ->update([
-                 'Grade_id'=>$Promotion->from_grade,
-                 'Classroom_id'=>$Promotion->from_Classroom,
+                 'grade_id'=>$Promotion->from_grade,
+                 'class_room_id'=>$Promotion->from_Classroom,
                  'section_id'=> $Promotion->from_section,
                  'academic_year'=>$Promotion->academic_year,
                ]);
@@ -111,8 +111,8 @@ class StudentPromotionRepository implements StudentPromotionRepositoryInterface
                 $Promotion = Promotion::findorfail($request->id);
                 student::where('id', $Promotion->student_id)
                     ->update([
-                        'Grade_id'=>$Promotion->from_grade,
-                        'Classroom_id'=>$Promotion->from_Classroom,
+                        'grade_id'=>$Promotion->from_grade,
+                        'class_room_id'=>$Promotion->from_Classroom,
                         'section_id'=> $Promotion->from_section,
                         'academic_year'=>$Promotion->academic_year,
                     ]);

@@ -53,9 +53,9 @@ class ClassroomController extends Controller
 
                 $My_Classes = new Classroom();
 
-                $My_Classes->Name_Class = ['en' => $List_Class['Name_class_en'], 'ar' => $List_Class['Name']];
+                $My_Classes->name = ['en' => $List_Class['Name_class_en'], 'ar' => $List_Class['Name']];
 
-                $My_Classes->Grade_id = $List_Class['Grade_id'];
+                $My_Classes->grade_id = $List_Class['Grade_id'];
 
                 $My_Classes->save();
 
@@ -113,8 +113,8 @@ class ClassroomController extends Controller
 
             $Classrooms->update([
 
-                $Classrooms->Name_Class = ['ar' => $request->Name, 'en' => $request->Name_en],
-                $Classrooms->Grade_id = $request->Grade_id,
+                $Classrooms->name = ['ar' => $request->Name, 'en' => $request->Name_en],
+                $Classrooms->grade_id = $request->Grade_id,
             ]);
             toastr()->success(trans('messages.Update'));
             return redirect()->route('Classrooms.index');

@@ -31,7 +31,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             $subjects = new Subject();
             $subjects->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $subjects->grade_id = $request->Grade_id;
-            $subjects->classroom_id = $request->Class_id;
+            $subjects->class_room_id = $request->Class_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
             toastr()->success(trans('messages.success'));
@@ -58,7 +58,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             $subjects =  Subject::findorfail($request->id);
             $subjects->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $subjects->grade_id = $request->Grade_id;
-            $subjects->classroom_id = $request->Class_id;
+            $subjects->class_room_id = $request->Class_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
             toastr()->success(trans('messages.Update'));

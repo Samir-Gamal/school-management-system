@@ -172,10 +172,10 @@ class AddParent extends Component
         $this->Parent_id = $id;
         $this->Email = $My_Parent->Email;
         $this->Password = $My_Parent->Password;
-        $this->Name_Father = $My_Parent->getTranslation('Name_Father', 'ar');
-        $this->Name_Father_en = $My_Parent->getTranslation('Name_Father', 'en');
-        $this->Job_Father = $My_Parent->getTranslation('Job_Father', 'ar');;
-        $this->Job_Father_en = $My_Parent->getTranslation('Job_Father', 'en');
+        $this->Name_Father = $My_Parent->getTranslation('name_father', 'ar');
+        $this->Name_Father_en = $My_Parent->getTranslation('name_father', 'en');
+        $this->Job_Father = $My_Parent->getTranslation('job_father', 'ar');;
+        $this->Job_Father_en = $My_Parent->getTranslation('job_father', 'en');
         $this->National_ID_Father =$My_Parent->National_ID_Father;
         $this->Passport_ID_Father = $My_Parent->Passport_ID_Father;
         $this->Phone_Father = $My_Parent->Phone_Father;
@@ -184,10 +184,10 @@ class AddParent extends Component
         $this->Address_Father =$My_Parent->Address_Father;
         $this->Religion_Father_id =$My_Parent->Religion_Father_id;
 
-        $this->Name_Mother = $My_Parent->getTranslation('Name_Mother', 'ar');
-        $this->Name_Mother_en = $My_Parent->getTranslation('Name_Father', 'en');
-        $this->Job_Mother = $My_Parent->getTranslation('Job_Mother', 'ar');;
-        $this->Job_Mother_en = $My_Parent->getTranslation('Job_Mother', 'en');
+        $this->Name_Mother = $My_Parent->getTranslation('name_mother', 'ar');
+        $this->Name_Mother_en = $My_Parent->getTranslation('name_father', 'en');
+        $this->Job_Mother = $My_Parent->getTranslation('job_mother', 'ar');;
+        $this->Job_Mother_en = $My_Parent->getTranslation('job_mother', 'en');
         $this->National_ID_Mother =$My_Parent->National_ID_Mother;
         $this->Passport_ID_Mother = $My_Parent->Passport_ID_Mother;
         $this->Phone_Mother = $My_Parent->Phone_Mother;

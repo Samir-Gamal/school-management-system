@@ -24,14 +24,14 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
     public function show($id)
     {
         $student = Student::findorfail($id);
-        $fees = Fee::where('Classroom_id',$student->Classroom_id)->get();
+        $fees = Fee::where('class_room_id',$student->Classroom_id)->get();
         return view('pages.Fees_Invoices.add',compact('student','fees'));
     }
 
     public function edit($id)
     {
         $fee_invoices = Fee_invoice::findorfail($id);
-        $fees = Fee::where('Classroom_id',$fee_invoices->Classroom_id)->get();
+        $fees = Fee::where('class_room_id',$fee_invoices->Classroom_id)->get();
         return view('pages.Fees_Invoices.edit',compact('fee_invoices','fees'));
     }
 
@@ -48,8 +48,8 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
                 $Fees = new Fee_invoice();
                 $Fees->invoice_date = date('Y-m-d');
                 $Fees->student_id = $List_Fee['student_id'];
-                $Fees->Grade_id = $request->Grade_id;
-                $Fees->Classroom_id = $request->Classroom_id;;
+                $Fees->grade_id = $request->Grade_id;
+                $Fees->class_room_id = $request->Classroom_id;;
                 $Fees->fee_id = $List_Fee['fee_id'];
                 $Fees->amount = $List_Fee['amount'];
                 $Fees->description = $List_Fee['description'];
@@ -61,7 +61,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
                 $StudentAccount->type = 'invoice';
                 $StudentAccount->fee_invoice_id = $Fees->id;
                 $StudentAccount->student_id = $List_Fee['student_id'];
-                $StudentAccount->Debit = $List_Fee['amount'];
+                $StudentAccount->debit = $List_Fee['amount'];
                 $StudentAccount->credit = 0.00;
                 $StudentAccount->description = $List_Fee['description'];
                 $StudentAccount->save();
@@ -90,7 +90,7 @@ class FeeInvoicesRepository implements FeeInvoicesRepositoryInterface
 
             // تعديل البيانات في جدول حسابات الطلاب
             $StudentAccount = StudentAccount::where('fee_invoice_id',$request->id)->first();
-            $StudentAccount->Debit = $request->amount;
+            $StudentAccount->debit = $request->amount;
             $StudentAccount->description = $request->description;
             $StudentAccount->save();
             DB::commit();
