@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Subjects;
+namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Repository\SubjectRepositoryInterface;
 use Illuminate\Http\Request;

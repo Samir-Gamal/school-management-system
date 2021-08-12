@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Sections;
+namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Classroom;
 use App\Models\Grade;

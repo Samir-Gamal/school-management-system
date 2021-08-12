@@ -1,11 +1,7 @@
 <?php
-
-
-namespace App\Http\Controllers\Grades;
+namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Classroom;
-use CodeZero\UniqueTranslation\UniqueTranslationRule;
-
 use App\Http\Requests\StoreGrades;
 use App\Models\Grade;
 use Illuminate\Http\Request;
