@@ -8,6 +8,6 @@ use Spatie\Translatable\HasTranslations;
 class Religion extends Model
 {
     use HasTranslations;
-    public $translatable = ['Name'];
-    protected $fillable =['Name'];
+    public $translatable = ['name'];
+    protected $fillable =['name'];
 }

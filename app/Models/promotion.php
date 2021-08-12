@@ -25,7 +25,7 @@ class promotion extends Model
 
     public function f_classroom()
     {
-        return $this->belongsTo('App\Models\Classroom', 'from_Classroom');
+        return $this->belongsTo('App\Models\Classroom', 'from_class_room');
     }
 
     // علاقة بين الترقيات الاقسام الدراسية لجلب اسم القسم  في جدول الترقيات
@@ -47,7 +47,7 @@ class promotion extends Model
 
     public function t_classroom()
     {
-        return $this->belongsTo('App\Models\Classroom', 'to_Classroom');
+        return $this->belongsTo('App\Models\Classroom', 'to_class_room');
     }
 
     // علاقة بين الترقيات الاقسام الدراسية لجلب اسم القسم  في جدول الترقيات

@@ -9,19 +9,19 @@ class Classroom extends Model
 {
 
     use HasTranslations;
-    public $translatable = ['Name_Class'];
+    public $translatable = ['name'];
 
 
-    protected $table = 'Classrooms';
+    protected $table = 'class_rooms';
     public $timestamps = true;
-    protected $fillable=['Name_Class','Grade_id'];
+    protected $fillable=['name','grade_id'];
 
 
     // علاقة بين الصفوف المراحل الدراسية لجلب اسم المرحلة في جدول الصفوف
 
     public function Grades()
     {
-        return $this->belongsTo('App\Models\Grade', 'Grade_id');
+        return $this->belongsTo('App\Models\Grade', 'grade_id');
     }
 
 }
