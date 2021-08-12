@@ -88,8 +88,8 @@
                                             <input class="button" data-repeater-create type="button" value="{{ trans('My_Classes_trans.add_row') }}"/>
                                         </div>
                                     </div><br>
-                                    <input type="hidden" name="Grade_id" value="{{$student->Grade_id}}">
-                                    <input type="hidden" name="Classroom_id" value="{{$student->Classroom_id}}">
+                                    <input type="hidden" name="Grade_id" value="{{$student->grade_id}}">
+                                    <input type="hidden" name="Classroom_id" value="{{$student->class_room_id}}">
 
                                     <button type="submit" class="btn btn-primary">تاكيد البيانات</button>
                                 </div>

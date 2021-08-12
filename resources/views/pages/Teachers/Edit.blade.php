@@ -37,7 +37,7 @@
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Email')}}</label>
                                     <input type="hidden" value="{{$Teachers->id}}" name="id">
-                                    <input type="email" name="Email" value="{{$Teachers->Email}}" class="form-control">
+                                    <input type="email" name="Email" value="{{$Teachers->email}}" class="form-control">
                                     @error('Email')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -56,14 +56,14 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Name_ar')}}</label>
-                                    <input type="text" name="Name_ar" value="{{ $Teachers->getTranslation('Name', 'ar') }}" class="form-control">
+                                    <input type="text" name="Name_ar" value="{{ $Teachers->getTranslation('name', 'ar') }}" class="form-control">
                                     @error('Name_ar')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Name_en')}}</label>
-                                    <input type="text" name="Name_en" value="{{ $Teachers->getTranslation('Name', 'en') }}" class="form-control">
+                                    <input type="text" name="Name_en" value="{{ $Teachers->getTranslation('name', 'en') }}" class="form-control">
                                     @error('Name_en')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

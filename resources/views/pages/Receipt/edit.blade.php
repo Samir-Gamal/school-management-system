@@ -37,7 +37,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>المبلغ : <span class="text-danger">*</span></label>
-                                        <input  class="form-control" name="Debit" value="{{$receipt_student->Debit}}" type="number" >
+                                        <input  class="form-control" name="Debit" value="{{$receipt_student->debit}}" type="number" >
                                         <input  type="hidden" name="student_id" value="{{$receipt_student->student->id}}" class="form-control">
                                         <input  type="hidden" name="id"  value="{{$receipt_student->id}}" class="form-control">
                                     </div>

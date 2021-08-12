@@ -42,7 +42,7 @@
                             @foreach ($Grades as $Grade)
 
                                 <div class="acd-group">
-                                    <a href="#" class="acd-heading">{{ $Grade->Name }}</a>
+                                    <a href="#" class="acd-heading">{{ $Grade->name }}</a>
                                     <div class="acd-des">
 
                                         <div class="row">
@@ -71,10 +71,10 @@
                                                                     <tr>
                                                                         <?php $i++; ?>
                                                                         <td>{{ $i }}</td>
-                                                                        <td>{{ $list_Sections->Name_Section }}</td>
-                                                                        <td>{{ $list_Sections->My_classs->Name_Class }}</td>
+                                                                        <td>{{ $list_Sections->name }}</td>
+                                                                        <td>{{ $list_Sections->My_classs->name }}</td>
                                                                         <td>
-                                                                            <label class="badge badge-{{$list_Sections->Status == 1 ? 'success':'danger'}}">{{$list_Sections->Status == 1 ? 'نشط':'غير نشط'}}</label>
+                                                                            <label class="badge badge-{{$list_Sections->status == 1 ? 'success':'danger'}}">{{$list_Sections->status == 1 ? 'نشط':'غير نشط'}}</label>
                                                                         </td>
 
                                                                         <td>

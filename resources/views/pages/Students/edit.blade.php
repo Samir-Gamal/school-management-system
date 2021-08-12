@@ -72,7 +72,7 @@
                                     <select class="custom-select mr-sm-2" name="gender_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                         @foreach($Genders as $Gender)
-                                            <option value="{{$Gender->id}}" {{$Gender->id == $Students->gender_id ? 'selected' : ""}}>{{ $Gender->Name }}</option>
+                                            <option value="{{$Gender->id}}" {{$Gender->id == $Students->gender_id ? 'selected' : ""}}>{{ $Gender->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -84,7 +84,7 @@
                                     <select class="custom-select mr-sm-2" name="nationalitie_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                         @foreach($nationals as $nal)
-                                            <option value="{{ $nal->id }}" {{$nal->id == $Students->nationalitie_id ? 'selected' : ""}}>{{ $nal->Name }}</option>
+                                            <option value="{{ $nal->id }}" {{$nal->id == $Students->nationalitie_id ? 'selected' : ""}}>{{ $nal->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -96,7 +96,7 @@
                                     <select class="custom-select mr-sm-2" name="blood_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                         @foreach($bloods as $bg)
-                                            <option value="{{ $bg->id }}" {{$bg->id == $Students->blood_id ? 'selected' : ""}}>{{ $bg->Name }}</option>
+                                            <option value="{{ $bg->id }}" {{$bg->id == $Students->blood_id ? 'selected' : ""}}>{{ $bg->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -105,7 +105,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>{{trans('Students_trans.Date_of_Birth')}}  :</label>
-                                    <input class="form-control" type="text" value="{{$Students->Date_Birth}}" id="datepicker-action" name="Date_Birth" data-date-format="yyyy-mm-dd">
+                                    <input class="form-control" type="text" value="{{$Students->date_birth}}" id="datepicker-action" name="Date_Birth" data-date-format="yyyy-mm-dd">
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
                                     <select class="custom-select mr-sm-2" name="Grade_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                         @foreach($Grades as $Grade)
-                                            <option value="{{ $Grade->id }}" {{$Grade->id == $Students->Grade_id ? 'selected' : ""}}>{{ $Grade->Name }}</option>
+                                            <option value="{{ $Grade->id }}" {{$Grade->id == $Students->grade_id ? 'selected' : ""}}>{{ $Grade->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -129,7 +129,7 @@
                                 <div class="form-group">
                                     <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="Classroom_id">
-                                        <option value="{{$Students->Classroom_id}}">{{$Students->classroom->Name_Class}}</option>
+                                        <option value="{{$Students->class_room_id}}">{{$Students->classroom->name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@
                                 <div class="form-group">
                                     <label for="section_id">{{trans('Students_trans.section')}} : </label>
                                     <select class="custom-select mr-sm-2" name="section_id">
-                                        <option value="{{$Students->section_id}}"> {{$Students->section->Name_Section}}</option>
+                                        <option value="{{$Students->section_id}}"> {{$Students->section->name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                     <select class="custom-select mr-sm-2" name="parent_id">
                                         <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
                                        @foreach($parents as $parent)
-                                            <option value="{{ $parent->id }}" {{ $parent->id == $Students->parent_id ? 'selected' : ""}}>{{ $parent->Name_Father }}</option>
+                                            <option value="{{ $parent->id }}" {{ $parent->id == $Students->parent_id ? 'selected' : ""}}>{{ $parent->name_father }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -59,10 +59,10 @@
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->email }}</td>
-                    <td>{{ $student->gender->Name }}</td>
-                    <td>{{ $student->grade->Name }}</td>
-                    <td>{{ $student->classroom->Name_Class }}</td>
-                    <td>{{ $student->section->Name_Section }}</td>
+                    <td>{{ $student->gender->name }}</td>
+                    <td>{{ $student->grade->name }}</td>
+                    <td>{{ $student->classroom->name }}</td>
+                    <td>{{ $student->section->name }}</td>
                     <td>
 
                         @if(isset($student->attendance()->where('attendence_date',date('Y-m-d'))->first()->student_id))
@@ -98,8 +98,8 @@
                         @endif
 
                         <input type="hidden" name="student_id[]" value="{{ $student->id }}">
-                        <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">
-                        <input type="hidden" name="classroom_id" value="{{ $student->Classroom_id }}">
+                        <input type="hidden" name="grade_id" value="{{ $student->grade_id }}">
+                        <input type="hidden" name="classroom_id" value="{{ $student->class_room_id }}">
                         <input type="hidden" name="section_id" value="{{ $student->section_id }}">
 
                     </td>

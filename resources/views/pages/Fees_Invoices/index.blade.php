@@ -45,7 +45,7 @@
                                             <td>{{$Fee_invoice->fees->title}}</td>
                                             <td>{{ number_format($Fee_invoice->amount, 2) }}</td>
                                             <td>{{$Fee_invoice->grade->Name}}</td>
-                                            <td>{{$Fee_invoice->classroom->Name_Class}}</td>
+                                            <td>{{$Fee_invoice->classroom->name}}</td>
                                             <td>{{$Fee_invoice->description}}</td>
                                                 <td>
                                                     <a href="{{route('Fees_Invoices.edit',$Fee_invoice->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>

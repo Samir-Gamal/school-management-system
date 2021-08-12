@@ -52,14 +52,14 @@
                                             <tr>
                                                 <td>{{ $loop->index+1 }}</td>
                                                 <td>{{$promotion->student->name}}</td>
-                                                <td>{{$promotion->f_grade->Name}}</td>
+                                                <td>{{$promotion->f_grade->name}}</td>
                                                 <td>{{$promotion->academic_year}}</td>
-                                                <td>{{$promotion->f_classroom->Name_Class}}</td>
-                                                <td>{{$promotion->f_section->Name_Section}}</td>
-                                                <td>{{$promotion->t_grade->Name}}</td>
+                                                <td>{{$promotion->f_classroom->name}}</td>
+                                                <td>{{$promotion->f_section->name}}</td>
+                                                <td>{{$promotion->t_grade->name}}</td>
                                                 <td>{{$promotion->academic_year_new}}</td>
-                                                <td>{{$promotion->t_classroom->Name_Class}}</td>
-                                                <td>{{$promotion->t_section->Name_Section}}</td>
+                                                <td>{{$promotion->t_classroom->name}}</td>
+                                                <td>{{$promotion->t_section->name}}</td>
                                                 <td>
 
                                                     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#Delete_one{{$promotion->id}}">ارجاع الطالب</button>

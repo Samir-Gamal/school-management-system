@@ -49,7 +49,7 @@
                             onchange="this.form.submit()">
                         <option value="" selected disabled>{{ trans('My_Classes_trans.Search_By_Grade') }}</option>
                         @foreach ($Grades as $Grade)
-                            <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
+                            <option value="{{ $Grade->id }}">{{ $Grade->name }}</option>
                         @endforeach
                     </select>
                 </form>
@@ -85,8 +85,8 @@
                                 <?php $i++; ?>
                                 <td><input type="checkbox"  value="{{ $My_Class->id }}" class="box1" ></td>
                                 <td>{{ $i }}</td>
-                                <td>{{ $My_Class->Name_Class }}</td>
-                                <td>{{ $My_Class->Grades->Name }}</td>
+                                <td>{{ $My_Class->name }}</td>
+                                <td>{{ $My_Class->Grades->name }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $My_Class->id }}"
@@ -125,7 +125,7 @@
                                                             :</label>
                                                         <input id="Name" type="text" name="Name"
                                                                class="form-control"
-                                                               value="{{ $My_Class->getTranslation('Name_Class', 'ar') }}"
+                                                               value="{{ $My_Class->getTranslation('name', 'ar') }}"
                                                                required>
                                                         <input id="id" type="hidden" name="id" class="form-control"
                                                                value="{{ $My_Class->id }}">
@@ -135,7 +135,7 @@
                                                                class="mr-sm-2">{{ trans('My_Classes_trans.Name_class_en') }}
                                                             :</label>
                                                         <input type="text" class="form-control"
-                                                               value="{{ $My_Class->getTranslation('Name_Class', 'en') }}"
+                                                               value="{{ $My_Class->getTranslation('name', 'en') }}"
                                                                name="Name_en" required>
                                                     </div>
                                                 </div><br>
@@ -146,11 +146,11 @@
                                                     <select class="form-control form-control-lg"
                                                             id="exampleFormControlSelect1" name="Grade_id">
                                                         <option value="{{ $My_Class->Grades->id }}">
-                                                            {{ $My_Class->Grades->Name }}
+                                                            {{ $My_Class->Grades->name }}
                                                         </option>
                                                         @foreach ($Grades as $Grade)
                                                             <option value="{{ $Grade->id }}">
-                                                                {{ $Grade->Name }}
+                                                                {{ $Grade->name }}
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -261,7 +261,7 @@
                                             <div class="box">
                                                 <select class="fancyselect" name="Grade_id">
                                                     @foreach ($Grades as $Grade)
-                                                        <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
+                                                        <option value="{{ $Grade->id }}">{{ $Grade->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

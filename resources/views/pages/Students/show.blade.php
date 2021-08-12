@@ -43,25 +43,25 @@
                                             <th scope="row">{{trans('Students_trans.email')}}</th>
                                             <td>{{$Student->email}}</td>
                                             <th scope="row">{{trans('Students_trans.gender')}}</th>
-                                            <td>{{$Student->gender->Name}}</td>
+                                            <td>{{$Student->gender->name}}</td>
                                             <th scope="row">{{trans('Students_trans.Nationality')}}</th>
-                                            <td>{{$Student->Nationality->Name}}</td>
+                                            <td>{{$Student->Nationality->name}}</td>
                                         </tr>
 
                                         <tr>
                                             <th scope="row">{{trans('Students_trans.Grade')}}</th>
-                                            <td>{{ $Student->grade->Name }}</td>
+                                            <td>{{ $Student->grade->name }}</td>
                                             <th scope="row">{{trans('Students_trans.classrooms')}}</th>
-                                            <td>{{$Student->classroom->Name_Class}}</td>
+                                            <td>{{$Student->classroom->name}}</td>
                                             <th scope="row">{{trans('Students_trans.section')}}</th>
-                                            <td>{{$Student->section->Name_Section}}</td>
+                                            <td>{{$Student->section->name}}</td>
                                             <th scope="row">{{trans('Students_trans.Date_of_Birth')}}</th>
-                                            <td>{{ $Student->Date_Birth}}</td>
+                                            <td>{{ $Student->date_birth}}</td>
                                         </tr>
 
                                         <tr>
                                             <th scope="row">{{trans('Students_trans.parent')}}</th>
-                                            <td>{{ $Student->myparent->Name_Father}}</td>
+                                            <td>{{ $Student->myparent->name_father}}</td>
                                             <th scope="row">{{trans('Students_trans.academic_year')}}</th>
                                             <td>{{ $Student->academic_year }}</td>
                                             <th scope="row"></th>

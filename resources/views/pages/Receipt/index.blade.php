@@ -39,7 +39,7 @@
                                             <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{$receipt_student->student->name}}</td>
-                                            <td>{{ number_format($receipt_student->Debit, 2) }}</td>
+                                            <td>{{ number_format($receipt_student->debit, 2) }}</td>
                                             <td>{{$receipt_student->description}}</td>
                                                 <td>
                                                     <a href="{{route('receipt_students.edit',$receipt_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>

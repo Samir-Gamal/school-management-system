@@ -59,8 +59,8 @@
                             <tr>
                                 <?php $i++; ?>
                                 <td>{{ $i }}</td>
-                                <td>{{ $Grade->Name }}</td>
-                                <td>{{ $Grade->Notes }}</td>
+                                <td>{{ $Grade->name }}</td>
+                                <td>{{ $Grade->notes }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $Grade->id }}"
@@ -99,7 +99,7 @@
                                                             :</label>
                                                         <input id="Name" type="text" name="Name"
                                                             class="form-control"
-                                                            value="{{ $Grade->getTranslation('Name', 'ar') }}"
+                                                            value="{{ $Grade->getTranslation('name', 'ar') }}"
                                                             required>
                                                         <input id="id" type="hidden" name="id" class="form-control"
                                                             value="{{ $Grade->id }}">
@@ -109,7 +109,7 @@
                                                             class="mr-sm-2">{{ trans('Grades_trans.stage_name_en') }}
                                                             :</label>
                                                         <input type="text" class="form-control"
-                                                            value="{{ $Grade->getTranslation('Name', 'en') }}"
+                                                            value="{{ $Grade->getTranslation('name', 'en') }}"
                                                             name="Name_en" required>
                                                     </div>
                                                 </div>
@@ -119,7 +119,7 @@
                                                         :</label>
                                                     <textarea class="form-control" name="Notes"
                                                         id="exampleFormControlTextarea1"
-                                                        rows="3">{{ $Grade->Notes }}</textarea>
+                                                        rows="3">{{ $Grade->notes }}</textarea>
                                                 </div>
                                                 <br><br>
 
