@@ -3,40 +3,54 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Grade;
+use App\Models\Student;
 use App\Repository\StudentGraduatedRepositoryInterface;
 use Illuminate\Http\Request;
 
 class GraduatedController extends Controller
 {
-    protected $Graduated;
-
-    public function __construct(StudentGraduatedRepositoryInterface $Graduated)
-    {
-        $this->Graduated = $Graduated;
-    }
-
     public function index()
     {
-       return $this->Graduated->index();
+        $students = Student::onlyTrashed()->get();
+        return view('pages.students.graduated.index',compact('students'));
     }
 
     public function create()
     {
-        return $this->Graduated->create();
+        $Grades = Grade::all();
+        return view('pages.students.graduated.create',compact('Grades'));
     }
 
-    public function store(Request $request)
+    public function SoftDelete($request)
     {
-        return $this->Graduated->SoftDelete($request);
+        $students = student::where('grade_id',$request->Grade_id)->where('class_room_id',$request->Classroom_id)->where('section_id',$request->section_id)->get();
+
+        if($students->count() < 1){
+            return redirect()->back()->with('error_Graduated', __('لاتوجد بيانات في جدول الطلاب'));
+        }
+
+        foreach ($students as $student){
+            $ids = explode(',',$student->id);
+            student::whereIn('id', $ids)->Delete();
+        }
+
+        toastr()->success(trans('messages.success'));
+        return redirect()->route('Graduated.index');
     }
 
-    public function update(Request $request)
+    public function ReturnData($request)
     {
-        return $this->Graduated->ReturnData($request);
+        student::onlyTrashed()->where('id', $request->id)->first()->restore();
+        toastr()->success(trans('messages.success'));
+        return redirect()->back();
     }
 
-    public function destroy(Request $request)
+    public function destroy($request)
     {
-       return $this->Graduated->destroy($request);
+        student::onlyTrashed()->where('id', $request->id)->first()->forceDelete();
+        toastr()->error(trans('messages.Delete'));
+        return redirect()->back();
     }
+
 }

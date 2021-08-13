@@ -1,56 +1,81 @@
 <?php
 
 namespace App\Http\Controllers\v1;
+
 use App\Http\Controllers\Controller;
-use App\Repository\SubjectRepositoryInterface;
+use App\Models\Grade;
+use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
 
-    protected $Subject;
-
-    public function __construct(SubjectRepositoryInterface $Subject)
-    {
-        $this->Subject = $Subject;
-    }
-
     public function index()
     {
-        return $this->Subject->index();
+        $subjects = Subject::get();
+        return view('pages.subjects.index', compact('subjects'));
     }
-
 
     public function create()
     {
-        return $this->Subject->create();
+        $grades = Grade::get();
+        $teachers = Teacher::get();
+        return view('pages.subjects.create', compact('grades', 'teachers'));
     }
 
 
     public function store(Request $request)
     {
-        return $this->Subject->store($request);
-    }
-
-
-    public function show($id)
-    {
-        //
+        try {
+            $subjects = new Subject();
+            $subjects->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $subjects->grade_id = $request->Grade_id;
+            $subjects->class_room_id = $request->Class_id;
+            $subjects->teacher_id = $request->teacher_id;
+            $subjects->save();
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('subjects.create');
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 
 
     public function edit($id)
     {
-        return $this->Subject->edit($id);
+
+        $subject = Subject::findorfail($id);
+        $grades = Grade::get();
+        $teachers = Teacher::get();
+        return view('pages.subjects.edit', compact('subject', 'grades', 'teachers'));
+
     }
 
-    public function update(Request $request)
+    public function update($request)
     {
-        return $this->Subject->update($request);
+        try {
+            $subjects = Subject::findorfail($request->id);
+            $subjects->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $subjects->grade_id = $request->Grade_id;
+            $subjects->class_room_id = $request->Class_id;
+            $subjects->teacher_id = $request->teacher_id;
+            $subjects->save();
+            toastr()->success(trans('messages.Update'));
+            return redirect()->route('subjects.create');
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 
-    public function destroy(Request $request)
+    public function destroy($request)
     {
-        return $this->Subject->destroy($request);
+        try {
+            Subject::destroy($request->id);
+            toastr()->error(trans('messages.Delete'));
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 }

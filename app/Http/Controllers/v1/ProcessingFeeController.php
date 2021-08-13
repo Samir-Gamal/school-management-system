@@ -3,57 +3,113 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProcessingFee;
+use App\Models\Student;
+use App\Models\StudentAccount;
 use App\Repository\ProcessingFeeRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProcessingFeeController extends Controller
 {
 
-    protected $Processing;
-
-    public function __construct(ProcessingFeeRepositoryInterface $Processing)
-    {
-        $this->Processing = $Processing;
-    }
-
     public function index()
     {
-        return $this->Processing->index();
+        $ProcessingFees = ProcessingFee::all();
+        return view('pages.processing_fee.index',compact('ProcessingFees'));
     }
-
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        return $this->Processing->store($request);
-    }
-
 
     public function show($id)
     {
-        return $this->Processing->show($id);
+        $student = Student::findorfail($id);
+        return view('pages.processing_fee.add',compact('student'));
     }
-
 
     public function edit($id)
     {
-        return $this->Processing->edit($id);
+        $ProcessingFee = ProcessingFee::findorfail($id);
+        return view('pages.processing_fee.edit',compact('ProcessingFee'));
     }
 
-
-    public function update(Request $request)
+    public function store($request)
     {
-        return $this->Processing->update($request);
+        DB::beginTransaction();
+
+        try {
+            // حفظ البيانات في جدول معالجة الرسوم
+            $ProcessingFee = new ProcessingFee();
+            $ProcessingFee->date = date('Y-m-d');
+            $ProcessingFee->student_id = $request->student_id;
+            $ProcessingFee->amount = $request->Debit;
+            $ProcessingFee->description = $request->description;
+            $ProcessingFee->save();
+
+
+            // حفظ البيانات في جدول حساب الطلاب
+            $students_accounts = new StudentAccount();
+            $students_accounts->date = date('Y-m-d');
+            $students_accounts->type = 'ProcessingFee';
+            $students_accounts->student_id = $request->student_id;
+            $students_accounts->processing_id = $ProcessingFee->id;
+            $students_accounts->debit = 0.00;
+            $students_accounts->credit = $request->Debit;
+            $students_accounts->description = $request->description;
+            $students_accounts->save();
+
+
+            DB::commit();
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('ProcessingFee.index');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
-
-    public function destroy(Request $request)
+    public function update($request)
     {
-        return $this->Processing->destroy($request);
+        DB::beginTransaction();
+
+        try {
+            // تعديل البيانات في جدول معالجة الرسوم
+            $ProcessingFee = ProcessingFee::findorfail($request->id);;
+            $ProcessingFee->date = date('Y-m-d');
+            $ProcessingFee->student_id = $request->student_id;
+            $ProcessingFee->amount = $request->Debit;
+            $ProcessingFee->description = $request->description;
+            $ProcessingFee->save();
+
+            // تعديل البيانات في جدول حساب الطلاب
+            $students_accounts = StudentAccount::where('processing_id',$request->id)->first();;
+            $students_accounts->date = date('Y-m-d');
+            $students_accounts->type = 'ProcessingFee';
+            $students_accounts->student_id = $request->student_id;
+            $students_accounts->processing_id = $ProcessingFee->id;
+            $students_accounts->debit = 0.00;
+            $students_accounts->credit = $request->Debit;
+            $students_accounts->description = $request->description;
+            $students_accounts->save();
+
+
+            DB::commit();
+            toastr()->success(trans('messages.Update'));
+            return redirect()->route('ProcessingFee.index');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function destroy($request)
+    {
+        try {
+            ProcessingFee::destroy($request->id);
+            toastr()->error(trans('messages.Delete'));
+            return redirect()->back();
+        }
+
+        catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 }

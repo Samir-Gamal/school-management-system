@@ -3,52 +3,69 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
-use App\Repository\ExamRepositoryInterface;
+use App\Models\Exam;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
 {
 
-    protected $Exam;
-
-    public function __construct(ExamRepositoryInterface $Exam)
-    {
-        $this->Exam =$Exam;
-    }
 
     public function index()
     {
-        return $this->Exam->index();
+        $exams = Exam::get();
+        return view('pages.exams.index', compact('exams'));
     }
 
     public function create()
     {
-        return $this->Exam->create();
+        return view('pages.exams.create');
     }
 
 
     public function store(Request $request)
     {
-        return $this->Exam->store($request);
-    }
-
-    public function show($id)
-    {
-        //
+        try {
+            $exams = new Exam();
+            $exams->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $exams->term = $request->term;
+            $exams->academic_year = $request->academic_year;
+            $exams->save();
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('Exams.create');
+        } catch (Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 
     public function edit($id)
     {
-        return $this->Exam->edit($id);
+        $exam = Exam::findorFail($id);
+        return view('pages.exams.edit', compact('exam'));
     }
 
     public function update(Request $request)
     {
-        return $this->Exam->update($request);
+        try {
+            $exam = Exam::findorFail($request->id);
+            $exam->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $exam->term = $request->term;
+            $exam->academic_year = $request->academic_year;
+            $exam->save();
+            toastr()->success(trans('messages.Update'));
+            return redirect()->route('Exams.index');
+        } catch (Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 
     public function destroy(Request $request)
     {
-        return $this->Exam->destroy($request);
+        try {
+            Exam::destroy($request->id);
+            toastr()->error(trans('messages.Delete'));
+            return redirect()->back();
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 }
