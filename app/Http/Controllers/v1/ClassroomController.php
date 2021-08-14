@@ -116,7 +116,7 @@ class ClassroomController extends Controller
                 $Classrooms->name = ['ar' => $request->Name, 'en' => $request->Name_en],
                 $Classrooms->grade_id = $request->Grade_id,
             ]);
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('classrooms.index');
         }
 
@@ -138,7 +138,7 @@ class ClassroomController extends Controller
     {
 
         $Classrooms = Classroom::findOrFail($request->id)->delete();
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('messages.delete'));
         return redirect()->route('classrooms.index');
 
     }
@@ -149,7 +149,7 @@ class ClassroomController extends Controller
         $delete_all_id = explode(",", $request->delete_all_id);
 
         Classroom::whereIn('id', $delete_all_id)->Delete();
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('messages.delete'));
         return redirect()->route('classrooms.index');
     }
 

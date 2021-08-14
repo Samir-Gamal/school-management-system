@@ -58,11 +58,11 @@
                                                                 <thead>
                                                                 <tr class="text-dark">
                                                                     <th>#</th>
-                                                                    <th>{{ trans('section.Name_Section') }}
+                                                                    <th>{{ trans('section.name_section') }}
                                                                     </th>
-                                                                    <th>{{ trans('section.Name_Class') }}</th>
-                                                                    <th>{{ trans('section.Status') }}</th>
-                                                                    <th>{{ trans('section.Processes') }}</th>
+                                                                    <th>{{ trans('section.name_class') }}</th>
+                                                                    <th>{{ trans('section.status') }}</th>
+                                                                    <th>{{ trans('section.processes') }}</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>

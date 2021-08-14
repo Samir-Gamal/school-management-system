@@ -47,10 +47,10 @@
                 <th class="alert-success">{{ trans('student.name') }}</th>
                 <th class="alert-success">{{ trans('student.email') }}</th>
                 <th class="alert-success">{{ trans('student.gender') }}</th>
-                <th class="alert-success">{{ trans('student.Grade') }}</th>
+                <th class="alert-success">{{ trans('student.grade') }}</th>
                 <th class="alert-success">{{ trans('student.classrooms') }}</th>
                 <th class="alert-success">{{ trans('student.section') }}</th>
-                <th class="alert-success">{{ trans('student.Processes') }}</th>
+                <th class="alert-success">{{ trans('student.processes') }}</th>
             </tr>
             </thead>
             <tbody>

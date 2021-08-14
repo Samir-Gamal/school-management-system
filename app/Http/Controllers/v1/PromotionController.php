@@ -101,7 +101,7 @@ class PromotionController extends Controller
 
                 }
                 DB::commit();
-                toastr()->error(trans('messages.Delete'));
+                toastr()->error(trans('messages.delete'));
                 return redirect()->back();
 
             }
@@ -120,7 +120,7 @@ class PromotionController extends Controller
 
                 Promotion::destroy($request->id);
                 DB::commit();
-                toastr()->error(trans('messages.Delete'));
+                toastr()->error(trans('messages.delete'));
                 return redirect()->back();
 
             }

@@ -49,7 +49,7 @@ class GraduatedController extends Controller
     public function destroy($request)
     {
         student::onlyTrashed()->where('id', $request->id)->first()->forceDelete();
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('messages.delete'));
         return redirect()->back();
     }
 

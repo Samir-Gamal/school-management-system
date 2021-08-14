@@ -5,13 +5,13 @@
         <thead>
         <tr class="table-success">
             <th>#</th>
-            <th>{{ trans('parent.Email') }}</th>
-            <th>{{ trans('parent.Name_Father') }}</th>
-            <th>{{ trans('parent.National_ID_Father') }}</th>
-            <th>{{ trans('parent.Passport_ID_Father') }}</th>
-            <th>{{ trans('parent.Phone_Father') }}</th>
-            <th>{{ trans('parent.Job_Father') }}</th>
-            <th>{{ trans('parent.Processes') }}</th>
+            <th>{{ trans('parent.email') }}</th>
+            <th>{{ trans('parent.father_name') }}</th>
+            <th>{{ trans('parent.father_national_id') }}</th>
+            <th>{{ trans('parent.father_passport_id') }}</th>
+            <th>{{ trans('parent.father_phone') }}</th>
+            <th>{{ trans('parent.father_job') }}</th>
+            <th>{{ trans('parent.processes') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -27,9 +27,9 @@
                 <td>{{ $my_parent->Phone_Father }}</td>
                 <td>{{ $my_parent->Job_Father }}</td>
                 <td>
-                    <button wire:click="edit({{ $my_parent->id }})" title="{{ trans('grade.Edit') }}"
+                    <button wire:click="edit({{ $my_parent->id }})" title="{{ trans('grade.edit') }}"
                             class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm" wire:click="delete({{ $my_parent->id }})" title="{{ trans('grade.Delete') }}"><i class="fa fa-trash"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" wire:click="delete({{ $my_parent->id }})" title="{{ trans('grade.delete') }}"><i class="fa fa-trash"></i></button>
                 </td>
             </tr>
         @endforeach

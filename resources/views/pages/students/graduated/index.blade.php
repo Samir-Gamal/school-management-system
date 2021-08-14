@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main.list_Graduate')}}
+    {{trans('main.list_graduate')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main.list_Graduate')}} <i class="fas fa-user-graduate"></i>
+    {{trans('main.list_graduate')}} <i class="fas fa-user-graduate"></i>
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -34,7 +34,7 @@
                                             <th>{{trans('student.Grade')}}</th>
                                             <th>{{trans('student.classrooms')}}</th>
                                             <th>{{trans('student.section')}}</th>
-                                            <th>{{trans('student.Processes')}}</th>
+                                            <th>{{trans('student.processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -48,8 +48,8 @@
                                             <td>{{$student->classroom->name}}</td>
                                             <td>{{$student->section->name}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Return_Student{{ $student->id }}" title="{{ trans('grade.Delete') }}">ارجاع الطالب</button>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ trans('grade.Delete') }}">حذف الطالب</button>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Return_Student{{ $student->id }}" title="{{ trans('grade.delete') }}">ارجاع الطالب</button>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ trans('grade.delete') }}">حذف الطالب</button>
 
                                                 </td>
                                             </tr>

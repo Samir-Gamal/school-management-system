@@ -16,7 +16,7 @@
                     <input type="hidden" name="page_id" value="1">
                     <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاك من عملية تراجع كافة الطلاب ؟</h5>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('student.Close')}}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('student.close')}}</button>
                         <button  class="btn btn-danger">{{trans('student.submit')}}</button>
                     </div>
                 </form>

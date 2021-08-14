@@ -77,7 +77,7 @@
                                                 </div>
 
                                                 <div class="col">
-                                                    <label for="Name_en" class="mr-sm-2">{{ trans('class.Processes') }}:</label>
+                                                    <label for="Name_en" class="mr-sm-2">{{ trans('class.processes') }}:</label>
                                                     <input class="btn btn-danger btn-block" data-repeater-delete type="button" value="{{ trans('class.delete_row') }}" />
                                                 </div>
                                             </div>

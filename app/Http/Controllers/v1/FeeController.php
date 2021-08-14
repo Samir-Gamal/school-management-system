@@ -68,7 +68,7 @@ class FeeController extends Controller
             $fees->year  =$request->year;
             $fees->fee_type  =$request->Fee_type;
             $fees->save();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('fees.index');
         }
 
@@ -81,7 +81,7 @@ class FeeController extends Controller
     {
         try {
             Fee::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('messages.delete'));
             return redirect()->back();
         }
 

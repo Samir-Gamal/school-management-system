@@ -70,7 +70,7 @@ class GradeController extends Controller
          $Grades->name = ['ar' => $request->Name, 'en' => $request->Name_en],
          $Grades->notes = $request->Notes,
        ]);
-       toastr()->success(trans('messages.Update'));
+       toastr()->success(trans('messages.update'));
        return redirect()->route('grades.index');
    }
    catch
@@ -92,7 +92,7 @@ class GradeController extends Controller
       if($MyClass_id->count() == 0){
 
           $Grades = Grade::findOrFail($request->id)->delete();
-          toastr()->error(trans('messages.Delete'));
+          toastr()->error(trans('messages.delete'));
           return redirect()->route('grades.index');
       }
 

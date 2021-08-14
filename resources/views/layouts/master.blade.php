@@ -41,7 +41,7 @@
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}" class="default-color">{{trans('main.Dashboard')}}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}" class="default-color">{{trans('main.dashboard')}}</a></li>
                 <li class="breadcrumb-item active">@yield('PageTitle')</li>
             </ol>
         </div>

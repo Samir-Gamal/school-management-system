@@ -8,7 +8,7 @@
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle')
-{{ trans('main.Grades') }}
+{{ trans('main.grades') }}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -50,7 +50,7 @@
                             <th>#</th>
                             <th>{{ trans('grade.Name') }}</th>
                             <th>{{ trans('grade.Notes') }}</th>
-                            <th>{{ trans('grade.Processes') }}</th>
+                            <th>{{ trans('grade.processes') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,10 +64,10 @@
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $Grade->id }}"
-                                        title="{{ trans('grade.Edit') }}"><i class="fa fa-edit"></i></button>
+                                        title="{{ trans('grade.edit') }}"><i class="fa fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                         data-target="#delete{{ $Grade->id }}"
-                                        title="{{ trans('grade.Delete') }}"><i
+                                        title="{{ trans('grade.delete') }}"><i
                                             class="fa fa-trash"></i></button>
                                 </td>
                             </tr>

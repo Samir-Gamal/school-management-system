@@ -61,7 +61,7 @@ class SubjectController extends Controller
             $subjects->class_room_id = $request->Class_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('subjects.create');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -72,7 +72,7 @@ class SubjectController extends Controller
     {
         try {
             Subject::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('messages.delete'));
             return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

@@ -92,7 +92,7 @@ class ProcessingFeeController extends Controller
 
 
             DB::commit();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('processing-fee.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -104,7 +104,7 @@ class ProcessingFeeController extends Controller
     {
         try {
             ProcessingFee::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('messages.delete'));
             return redirect()->back();
         }
 

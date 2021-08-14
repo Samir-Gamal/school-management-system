@@ -96,7 +96,7 @@ class InvoiceController extends Controller
             $StudentAccount->save();
             DB::commit();
 
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('invoices.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -108,7 +108,7 @@ class InvoiceController extends Controller
     {
         try {
             Invoice::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('messages.delete'));
             return redirect()->back();
         }
 

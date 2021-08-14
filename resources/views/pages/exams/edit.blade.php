@@ -58,7 +58,7 @@
                                     <div class="form-group col">
                                         <label for="academic_year">{{trans('student.academic_year')}} : <span class="text-danger">*</span></label>
                                         <select class="custom-select mr-sm-2" name="academic_year">
-                                            <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                            <option selected disabled>{{trans('parent.choose')}}...</option>
                                             @php
                                                 $current_year = date("Y");
                                             @endphp

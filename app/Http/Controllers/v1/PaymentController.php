@@ -112,7 +112,7 @@ class PaymentController extends Controller
             $students_accounts->description = $request->description;
             $students_accounts->save();
             DB::commit();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('payment-students.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -124,7 +124,7 @@ class PaymentController extends Controller
     {
         try {
             PaymentStudent::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('messages.delete'));
             return redirect()->back();
         }
 

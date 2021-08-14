@@ -54,7 +54,7 @@
                                     <div class="form-group col">
                                         <label for="inputState">المرحلة الدراسية</label>
                                         <select class="custom-select my-1 mr-sm-2" name="Grade_id">
-                                            <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                            <option selected disabled>{{trans('parent.choose')}}...</option>
                                             @foreach($grades as $grade)
                                                 <option
                                                     value="{{$grade->id}}" {{$grade->id == $subject->grade_id ?'selected':''}}>{{$grade->name }}</option>
@@ -74,7 +74,7 @@
                                     <div class="form-group col">
                                         <label for="inputState">اسم المعلم</label>
                                         <select class="custom-select my-1 mr-sm-2" name="teacher_id">
-                                            <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                            <option selected disabled>{{trans('parent.choose')}}...</option>
                                             @foreach($teachers as $teacher)
                                                 <option
                                                     value="{{$teacher->id}}" {{$teacher->id == $subject->teacher_id ?'selected':''}}>{{$teacher->name}}</option>

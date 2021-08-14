@@ -115,7 +115,7 @@ class ReceiptStudentController extends Controller
 
 
             DB::commit();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('receipt-students.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -127,7 +127,7 @@ class ReceiptStudentController extends Controller
     {
         try {
             ReceiptStudent::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
+            toastr()->error(trans('messages.delete'));
             return redirect()->back();
         }
 

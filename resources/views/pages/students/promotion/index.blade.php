@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main.Students_Promotions')}}
+    {{trans('main.students_promotions')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main.Students_Promotions')}}
+    {{trans('main.students_promotions')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -35,9 +35,9 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputState">{{trans('student.Grade')}}</label>
+                                <label for="inputState">{{trans('student.grade')}}</label>
                                 <select class="custom-select mr-sm-2" name="Grade_id" required>
-                                    <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                    <option selected disabled>{{trans('parent.choose')}}...</option>
                                     @foreach($Grades as $Grade)
                                         <option value="{{$Grade->id}}">{{$Grade->name}}</option>
                                     @endforeach
@@ -62,7 +62,7 @@
                                 <div class="form-group">
                                     <label for="academic_year">{{trans('student.academic_year')}} : <span class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="academic_year">
-                                        <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                        <option selected disabled>{{trans('parent.choose')}}...</option>
                                         @php
                                             $current_year = date("Y");
                                         @endphp
@@ -80,9 +80,9 @@
 
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputState">{{trans('student.Grade')}}</label>
+                                <label for="inputState">{{trans('student.grade')}}</label>
                                 <select class="custom-select mr-sm-2" name="Grade_id_new" >
-                                    <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                    <option selected disabled>{{trans('parent.choose')}}...</option>
                                     @foreach($Grades as $Grade)
                                         <option value="{{$Grade->id}}">{{$Grade->name}}</option>
                                     @endforeach
@@ -106,7 +106,7 @@
                                 <div class="form-group">
                                     <label for="academic_year">{{trans('student.academic_year')}} : <span class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="academic_year_new">
-                                        <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                        <option selected disabled>{{trans('parent.choose')}}...</option>
                                         @php
                                             $current_year = date("Y");
                                         @endphp

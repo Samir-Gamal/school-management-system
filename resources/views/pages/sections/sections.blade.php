@@ -58,11 +58,11 @@
                                                                 <thead>
                                                                 <tr class="text-dark">
                                                                     <th>#</th>
-                                                                    <th>{{ trans('section.Name_Section') }}
+                                                                    <th>{{ trans('section.name_section') }}
                                                                     </th>
-                                                                    <th>{{ trans('section.Name_Class') }}</th>
-                                                                    <th>{{ trans('section.Status') }}</th>
-                                                                    <th>{{ trans('section.Processes') }}</th>
+                                                                    <th>{{ trans('section.name_class') }}</th>
+                                                                    <th>{{ trans('section.status') }}</th>
+                                                                    <th>{{ trans('section.processes') }}</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -77,10 +77,10 @@
                                                                         <td>
                                                                             @if ($list_Sections->status === 1)
                                                                                 <label
-                                                                                    class="badge badge-success">{{ trans('section.Status_Section_AC') }}</label>
+                                                                                    class="badge badge-success">{{ trans('section.status_section_ac') }}</label>
                                                                             @else
                                                                                 <label
-                                                                                    class="badge badge-danger">{{ trans('section.Status_Section_No') }}</label>
+                                                                                    class="badge badge-danger">{{ trans('section.status_section_no') }}</label>
                                                                             @endif
 
                                                                         </td>
@@ -89,11 +89,11 @@
                                                                             <a href="#"
                                                                                class="btn btn-outline-info btn-sm"
                                                                                data-toggle="modal"
-                                                                               data-target="#edit{{ $list_Sections->id }}">{{ trans('section.Edit') }}</a>
+                                                                               data-target="#edit{{ $list_Sections->id }}">{{ trans('section.edit') }}</a>
                                                                             <a href="#"
                                                                                class="btn btn-outline-danger btn-sm"
                                                                                data-toggle="modal"
-                                                                               data-target="#delete{{ $list_Sections->id }}">{{ trans('section.Delete') }}</a>
+                                                                               data-target="#delete{{ $list_Sections->id }}">{{ trans('section.delete') }}</a>
                                                                         </td>
                                                                     </tr>
 
@@ -110,7 +110,7 @@
                                                                                     <h5 class="modal-title"
                                                                                         style="font-family: 'Cairo', sans-serif;"
                                                                                         id="exampleModalLabel">
-                                                                                        {{ trans('section.edit_Section') }}
+                                                                                        {{ trans('section.edit_section') }}
                                                                                     </h5>
                                                                                     <button type="button" class="close"
                                                                                             data-dismiss="modal"
@@ -152,7 +152,7 @@
 
                                                                                         <div class="col">
                                                                                             <label for="inputName"
-                                                                                                   class="control-label">{{ trans('section.Name_Grade') }}</label>
+                                                                                                   class="control-label">{{ trans('section.name_grade') }}</label>
                                                                                             <select name="Grade_id"
                                                                                                     class="custom-select"
                                                                                                     onclick="console.log($(this).val())">
@@ -173,7 +173,7 @@
 
                                                                                         <div class="col">
                                                                                             <label for="inputName"
-                                                                                                   class="control-label">{{ trans('section.Name_Class') }}</label>
+                                                                                                   class="control-label">{{ trans('section.name_class') }}</label>
                                                                                             <select name="Class_id"
                                                                                                     class="custom-select">
                                                                                                 <option
@@ -203,10 +203,10 @@
                                                                                                 @endif
                                                                                                 <label
                                                                                                     class="form-check-label"
-                                                                                                    for="exampleCheck1">{{ trans('section.Status') }}</label><br>
+                                                                                                    for="exampleCheck1">{{ trans('section.status') }}</label><br>
 
                                                                                                     <div class="col">
-                                                                                                        <label for="inputName" class="control-label">{{ trans('section.Name_Teacher') }}</label>
+                                                                                                        <label for="inputName" class="control-label">{{ trans('section.name_teacher') }}</label>
                                                                                                         <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
                                                                                                             @foreach($list_Sections->teachers as $teacher)
                                                                                                                 <option selected value="{{$teacher['id']}}">{{$teacher['name']}}</option>
@@ -225,7 +225,7 @@
                                                                                 <div class="modal-footer">
                                                                                     <button type="button"
                                                                                             class="btn btn-secondary"
-                                                                                            data-dismiss="modal">{{ trans('section.Close') }}</button>
+                                                                                            data-dismiss="modal">{{ trans('section.close') }}</button>
                                                                                     <button type="submit"
                                                                                             class="btn btn-danger">{{ trans('section.submit') }}</button>
                                                                                 </div>
@@ -247,7 +247,7 @@
                                                                                     <h5 style="font-family: 'Cairo', sans-serif;"
                                                                                         class="modal-title"
                                                                                         id="exampleModalLabel">
-                                                                                        {{ trans('section.delete_Section') }}
+                                                                                        {{ trans('section.delete_section') }}
                                                                                     </h5>
                                                                                     <button type="button" class="close"
                                                                                             data-dismiss="modal"
@@ -262,7 +262,7 @@
                                                                                         method="post">
                                                                                         {{ method_field('Delete') }}
                                                                                         @csrf
-                                                                                        {{ trans('section.Warning_Section') }}
+                                                                                        {{ trans('section.warning_section') }}
                                                                                         <input id="id" type="hidden"
                                                                                                name="id"
                                                                                                class="form-control"
@@ -270,7 +270,7 @@
                                                                                         <div class="modal-footer">
                                                                                             <button type="button"
                                                                                                     class="btn btn-secondary"
-                                                                                                    data-dismiss="modal">{{ trans('section.Close') }}</button>
+                                                                                                    data-dismiss="modal">{{ trans('section.close') }}</button>
                                                                                             <button type="submit"
                                                                                                     class="btn btn-danger">{{ trans('section.submit') }}</button>
                                                                                         </div>
@@ -318,12 +318,12 @@
                                         <div class="row">
                                             <div class="col">
                                                 <input type="text" name="Name_Section_Ar" class="form-control"
-                                                       placeholder="{{ trans('section.Section_name_ar') }}">
+                                                       placeholder="{{ trans('section.section_name_ar') }}">
                                             </div>
 
                                             <div class="col">
                                                 <input type="text" name="Name_Section_En" class="form-control"
-                                                       placeholder="{{ trans('section.Section_name_en') }}">
+                                                       placeholder="{{ trans('section.section_name_en') }}">
                                             </div>
 
                                         </div>
@@ -332,12 +332,12 @@
 
                                         <div class="col">
                                             <label for="inputName"
-                                                   class="control-label">{{ trans('section.Name_Grade') }}</label>
+                                                   class="control-label">{{ trans('section.name_grade') }}</label>
                                             <select name="Grade_id" class="custom-select"
                                                     onchange="console.log($(this).val())">
                                                 <!--placeholder-->
                                                 <option value="" selected
-                                                        disabled>{{ trans('section.Select_Grade') }}
+                                                        disabled>{{ trans('section.select_grade') }}
                                                 </option>
                                                 @foreach ($list_Grades as $list_Grade)
                                                     <option value="{{ $list_Grade->id }}"> {{ $list_Grade->name }}
@@ -349,7 +349,7 @@
 
                                         <div class="col">
                                             <label for="inputName"
-                                                   class="control-label">{{ trans('section.Name_Class') }}</label>
+                                                   class="control-label">{{ trans('section.name_class') }}</label>
                                             <select name="Class_id" class="custom-select">
                                                 @foreach($list_Grades as $list_Grade)
                                                     <option value="{{$list_Grade->id}}">{{$list_Grade->name}}</option>
@@ -357,7 +357,7 @@
                                             </select>
                                         </div><br>
                                         <div class="col">
-                                            <label for="inputName" class="control-label">{{ trans('section.Name_Teacher') }}</label>
+                                            <label for="inputName" class="control-label">{{ trans('section.name_teacher') }}</label>
                                             <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
                                                 @foreach($teachers as $teacher)
                                                     <option value="{{$teacher->id}}">{{$teacher->name}}</option>
@@ -369,7 +369,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">{{ trans('section.Close') }}</button>
+                                            data-dismiss="modal">{{ trans('section.close') }}</button>
                                     <button type="submit"
                                             class="btn btn-danger">{{ trans('section.submit') }}</button>
                                 </div>

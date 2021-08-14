@@ -44,7 +44,7 @@
                                             <th class="alert-success">السنة الدراسية الحالية</th>
                                             <th class="alert-success">الصف الدراسي الحالي</th>
                                             <th class="alert-success">القسم الدراسي الحالي</th>
-                                            <th>{{trans('student.Processes')}}</th>
+                                            <th>{{trans('student.processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

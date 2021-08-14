@@ -33,10 +33,10 @@
                                             <th>{{trans('student.name')}}</th>
                                             <th>{{trans('student.email')}}</th>
                                             <th>{{trans('student.gender')}}</th>
-                                            <th>{{trans('student.Grade')}}</th>
+                                            <th>{{trans('student.grade')}}</th>
                                             <th>{{trans('student.classrooms')}}</th>
                                             <th>{{trans('student.section')}}</th>
-                                            <th>{{trans('student.Processes')}}</th>
+                                            <th>{{trans('student.processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

@@ -88,7 +88,7 @@ class SectionController extends Controller
 
 
       $Sections->save();
-      toastr()->success(trans('messages.Update'));
+      toastr()->success(trans('messages.update'));
 
       return redirect()->route('sections.index');
   }
@@ -109,7 +109,7 @@ class SectionController extends Controller
   {
 
     Section::findOrFail($request->id)->delete();
-    toastr()->error(trans('messages.Delete'));
+    toastr()->error(trans('messages.delete'));
     return redirect()->route('sections.index');
 
   }

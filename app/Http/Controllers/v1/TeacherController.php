@@ -77,7 +77,7 @@ class TeacherController extends Controller
             $Teachers->joining_date = $request->Joining_Date;
             $Teachers->address = $request->Address;
             $Teachers->save();
-            toastr()->success(trans('messages.Update'));
+            toastr()->success(trans('messages.update'));
             return redirect()->route('teachers.index');
         }
         catch (Exception $e) {
@@ -89,7 +89,7 @@ class TeacherController extends Controller
     public function destroy(Request $request)
     {
         Teacher::findOrFail($request->id)->delete();
-        toastr()->error(trans('messages.Delete'));
+        toastr()->error(trans('messages.delete'));
         return redirect()->route('teachers.index');
     }
 }

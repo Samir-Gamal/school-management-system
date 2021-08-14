@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main.add_Graduate')}}
+    {{trans('main.add_graduate')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main.add_Graduate')}}
+    {{trans('main.add_graduate')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -35,7 +35,7 @@
                             <div class="form-group col">
                                 <label for="inputState">{{trans('student.Grade')}}</label>
                                 <select class="custom-select mr-sm-2" name="Grade_id" required>
-                                    <option selected disabled>{{trans('parent.Choose')}}...</option>
+                                    <option selected disabled>{{trans('parent.choose')}}...</option>
                                     @foreach($Grades as $Grade)
                                         <option value="{{$Grade->id}}">{{$Grade->name}}</option>
                                     @endforeach
