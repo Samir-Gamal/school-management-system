@@ -37,7 +37,7 @@ class TeacherController extends Controller
             $Teachers->address = $request->Address;
             $Teachers->save();
             toastr()->success(trans('messages.success'));
-            return redirect()->route('Teachers.create');
+            return redirect()->route('teachers.create');
         }
         catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -78,7 +78,7 @@ class TeacherController extends Controller
             $Teachers->address = $request->Address;
             $Teachers->save();
             toastr()->success(trans('messages.Update'));
-            return redirect()->route('Teachers.index');
+            return redirect()->route('teachers.index');
         }
         catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -90,6 +90,6 @@ class TeacherController extends Controller
     {
         Teacher::findOrFail($request->id)->delete();
         toastr()->error(trans('messages.Delete'));
-        return redirect()->route('Teachers.index');
+        return redirect()->route('teachers.index');
     }
 }

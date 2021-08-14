@@ -21,7 +21,7 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('Exams.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('exams.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">اضافة امتحان جديد</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -42,7 +42,7 @@
                                                 <td>{{$exam->name}}</td>
                                                 <td>{{$exam->term}}</td>
                                                 <td>
-                                                    <a href="{{route('Exams.edit',$exam->id)}}"
+                                                    <a href="{{route('exams.edit',$exam->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
@@ -55,7 +55,7 @@
                                             <div class="modal fade" id="delete_exam{{$exam->id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('Exams.destroy','test')}}" method="post">
+                                                    <form action="{{route('exams.destroy','test')}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                         <div class="modal-content">

@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                                <form action="{{route('Exams.update','test')}}" method="post">
+                                <form action="{{route('exams.update','test')}}" method="post">
                                     {{ method_field('patch') }}
                                 @csrf
                                 <div class="form-row">

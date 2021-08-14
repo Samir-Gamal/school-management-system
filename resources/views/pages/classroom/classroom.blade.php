@@ -43,7 +43,7 @@
 
             <br><br>
 
-                <form action="{{ route('Filter_Classes') }}" method="POST">
+                <form action="{{ route('filter-classes') }}" method="POST">
                     {{ csrf_field() }}
                     <select class="selectpicker" data-style="btn-info" name="Grade_id" required
                             onchange="this.form.submit()">
@@ -115,7 +115,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <!-- edit_form -->
-                                            <form action="{{ route('Classrooms.update', 'test') }}" method="post">
+                                            <form action="{{ route('classrooms.update', 'test') }}" method="post">
                                                 {{ method_field('patch') }}
                                                 @csrf
                                                 <div class="row">
@@ -188,7 +188,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('Classrooms.destroy', 'test') }}"
+                                            <form action="{{ route('classrooms.destroy', 'test') }}"
                                                   method="post">
                                                 {{ method_field('Delete') }}
                                                 @csrf
@@ -229,7 +229,7 @@
             </div>
             <div class="modal-body">
 
-                <form class=" row mb-30" action="{{ route('Classrooms.store') }}" method="POST">
+                <form class=" row mb-30" action="{{ route('classrooms.store') }}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="repeater">
@@ -322,7 +322,7 @@
                 </button>
             </div>
 
-            <form action="{{ route('delete_all') }}" method="POST">
+            <form action="{{ route('delete-all') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     {{ trans('My_Classes_trans.Warning_Grade') }}

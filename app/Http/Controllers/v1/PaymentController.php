@@ -69,7 +69,7 @@ class PaymentController extends Controller
 
             DB::commit();
             toastr()->success(trans('messages.success'));
-            return redirect()->route('Payment_students.index');
+            return redirect()->route('payment-students.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -113,7 +113,7 @@ class PaymentController extends Controller
             $students_accounts->save();
             DB::commit();
             toastr()->success(trans('messages.Update'));
-            return redirect()->route('Payment_students.index');
+            return redirect()->route('payment-students.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

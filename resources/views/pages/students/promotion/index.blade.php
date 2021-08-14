@@ -31,7 +31,7 @@
 
                         <h6 style="color: red;font-family: Cairo">المرحلة الدراسية القديمة</h6><br>
 
-                    <form method="post" action="{{ route('Promotion.store') }}">
+                    <form method="post" action="{{ route('promotions.store') }}">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">

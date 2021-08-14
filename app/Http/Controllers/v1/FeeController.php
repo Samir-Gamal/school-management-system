@@ -47,7 +47,7 @@ class FeeController extends Controller
             $fees->fee_type  =$request->Fee_type;
             $fees->save();
             toastr()->success(trans('messages.success'));
-            return redirect()->route('Fees.create');
+            return redirect()->route('fees.create');
 
         }
 
@@ -69,7 +69,7 @@ class FeeController extends Controller
             $fees->fee_type  =$request->Fee_type;
             $fees->save();
             toastr()->success(trans('messages.Update'));
-            return redirect()->route('Fees.index');
+            return redirect()->route('fees.index');
         }
 
         catch (\Exception $e) {

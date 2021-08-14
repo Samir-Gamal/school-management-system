@@ -116,7 +116,7 @@ class ReceiptStudentController extends Controller
 
             DB::commit();
             toastr()->success(trans('messages.Update'));
-            return redirect()->route('receipt_students.index');
+            return redirect()->route('receipt-students.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

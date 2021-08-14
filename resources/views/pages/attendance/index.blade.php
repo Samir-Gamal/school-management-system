@@ -36,7 +36,7 @@
 
 
     <h5 style="font-family: 'Cairo', sans-serif;color: red"> تاريخ اليوم : {{ date('Y-m-d') }}</h5>
-    <form method="post" action="{{ route('attendance.store') }}">
+    <form method="post" action="{{ route('attendances.store') }}">
 
         @csrf
         <table id="datatable" class="table  table-hover table-sm table-bordered p-0" data-page-length="50"

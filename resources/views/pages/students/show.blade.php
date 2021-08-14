@@ -77,7 +77,7 @@
                                      aria-labelledby="profile-02-tab">
                                     <div class="card card-statistics">
                                         <div class="card-body">
-                                            <form method="post" action="{{route('Upload_attachment')}}" enctype="multipart/form-data">
+                                            <form method="post" action="{{route('upload-attachments')}}" enctype="multipart/form-data">
                                                 {{ csrf_field() }}
                                                 <div class="col-md-3">
                                                     <div class="form-group">
@@ -114,7 +114,7 @@
                                                     <td>{{$attachment->created_at->diffForHumans()}}</td>
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
-                                                           href="{{url('Download_attachment')}}/{{ $attachment->imageable->name }}/{{$attachment->filename}}"
+                                                           href="{{url('download-attachments')}}/{{ $attachment->imageable->name }}/{{$attachment->filename}}"
                                                            role="button"><i class="fas fa-download"></i>&nbsp; {{trans('Students_trans.Download')}}</a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"

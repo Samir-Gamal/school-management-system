@@ -223,12 +223,12 @@ class AddParent extends Component
 
         }
 
-        return redirect()->to('/add_parent');
+        return redirect()->to('/guardians');
     }
 
     public function delete($id){
         Guardian::findOrFail($id)->delete();
-        return redirect()->to('/add_parent');
+        return redirect()->to('/guardians');
     }
 
 

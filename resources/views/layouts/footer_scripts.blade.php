@@ -70,7 +70,7 @@
             var Grade_id = $(this).val();
             if (Grade_id) {
                 $.ajax({
-                    url: "{{ URL::to('Get_classrooms') }}/" + Grade_id,
+                    url: "{{ URL::to('get-classrooms') }}/" + Grade_id,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -98,7 +98,7 @@
             var Classroom_id = $(this).val();
             if (Classroom_id) {
                 $.ajax({
-                    url: "{{ URL::to('Get_Sections') }}/" + Classroom_id,
+                    url: "{{ URL::to('get-sections') }}/" + Classroom_id,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -128,7 +128,7 @@
             var Grade_id = $(this).val();
             if (Grade_id) {
                 $.ajax({
-                    url: "{{ URL::to('Get_classrooms') }}/" + Grade_id,
+                    url: "{{ URL::to('get-classrooms') }}/" + Grade_id,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {
@@ -156,7 +156,7 @@
             var Classroom_id = $(this).val();
             if (Classroom_id) {
                 $.ajax({
-                    url: "{{ URL::to('Get_Sections') }}/" + Classroom_id,
+                    url: "{{ URL::to('get-sections') }}/" + Classroom_id,
                     type: "GET",
                     dataType: "json",
                     success: function (data) {

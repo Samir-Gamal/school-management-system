@@ -31,7 +31,7 @@ class ExamController extends Controller
             $exams->academic_year = $request->academic_year;
             $exams->save();
             toastr()->success(trans('messages.success'));
-            return redirect()->route('Exams.create');
+            return redirect()->route('exams.create');
         } catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
@@ -52,7 +52,7 @@ class ExamController extends Controller
             $exam->academic_year = $request->academic_year;
             $exam->save();
             toastr()->success(trans('messages.Update'));
-            return redirect()->route('Exams.index');
+            return redirect()->route('exams.index');
         } catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }

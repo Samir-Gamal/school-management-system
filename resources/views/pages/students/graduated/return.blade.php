@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('Graduated.update','test')}}" method="post" autocomplete="off">
+                <form action="{{route('graduates.update','test')}}" method="post" autocomplete="off">
                     @method('PUT')
                     @csrf
                     <input type="hidden" name="id" value="{{$student->id}}">

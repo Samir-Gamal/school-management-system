@@ -57,7 +57,7 @@ class StudentController extends Controller
             $Edit_Students->academic_year = $request->academic_year;
             $Edit_Students->save();
             toastr()->success(trans('messages.Update'));
-            return redirect()->route('Students.index');
+            return redirect()->route('students.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -135,7 +135,7 @@ class StudentController extends Controller
             }
             DB::commit(); // insert data
             toastr()->success(trans('messages.success'));
-            return redirect()->route('Students.create');
+            return redirect()->route('students.create');
 
         }
 
@@ -151,7 +151,7 @@ class StudentController extends Controller
 
         Student::destroy($request->id);
         toastr()->error(trans('messages.Delete'));
-        return redirect()->route('Students.index');
+        return redirect()->route('students.index');
     }
 
     public function Upload_attachment($request)
@@ -169,7 +169,7 @@ class StudentController extends Controller
             $images->save();
         }
         toastr()->success(trans('messages.success'));
-        return redirect()->route('Students.show',$request->student_id);
+        return redirect()->route('students.show',$request->student_id);
     }
 
     public function Download_attachment($studentsname, $filename)
@@ -185,7 +185,7 @@ class StudentController extends Controller
         // Delete in data
         image::where('id',$request->id)->where('filename',$request->filename)->delete();
         toastr()->error(trans('messages.Delete'));
-        return redirect()->route('Students.show',$request->student_id);
+        return redirect()->route('students.show',$request->student_id);
     }
 
 }

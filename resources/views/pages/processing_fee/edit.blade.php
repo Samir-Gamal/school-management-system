@@ -29,7 +29,7 @@
                         </div>
                     @endif
 
-                            <form action="{{route('ProcessingFee.update','test')}}" method="post" autocomplete="off">
+                            <form action="{{route('processing-fees.update','test')}}" method="post" autocomplete="off">
                                 @method('PUT')
                                 @csrf
                             @csrf

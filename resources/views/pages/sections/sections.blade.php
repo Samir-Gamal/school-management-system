@@ -122,7 +122,7 @@
                                                                                 <div class="modal-body">
 
                                                                                     <form
-                                                                                        action="{{ route('Sections.update', 'test') }}"
+                                                                                        action="{{ route('sections.update', 'test') }}"
                                                                                         method="POST">
                                                                                         {{ method_field('patch') }}
                                                                                         {{ csrf_field() }}
@@ -258,7 +258,7 @@
                                                                                 </div>
                                                                                 <div class="modal-body">
                                                                                     <form
-                                                                                        action="{{ route('Sections.destroy', 'test') }}"
+                                                                                        action="{{ route('sections.destroy', 'test') }}"
                                                                                         method="post">
                                                                                         {{ method_field('Delete') }}
                                                                                         @csrf
@@ -313,7 +313,7 @@
                                 </div>
                                 <div class="modal-body">
 
-                                    <form action="{{ route('Sections.store') }}" method="POST">
+                                    <form action="{{ route('sections.store') }}" method="POST">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col">

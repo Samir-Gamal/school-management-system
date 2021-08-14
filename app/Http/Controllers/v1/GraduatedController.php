@@ -36,7 +36,7 @@ class GraduatedController extends Controller
         }
 
         toastr()->success(trans('messages.success'));
-        return redirect()->route('Graduated.index');
+        return redirect()->route('graduates.index');
     }
 
     public function ReturnData($request)

@@ -23,7 +23,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Grades-menu" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('Grades.index')}}">{{trans('main_trans.Grades_list')}}</a></li>
+                            <li><a href="{{route('grades.index')}}">{{trans('main_trans.Grades_list')}}</a></li>
 
                         </ul>
                     </li>
@@ -36,7 +36,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="classes-menu" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('Classrooms.index')}}">{{trans('main_trans.List_classes')}}</a></li>
+                            <li><a href="{{route('classrooms.index')}}">{{trans('main_trans.List_classes')}}</a></li>
                         </ul>
                     </li>
 
@@ -50,7 +50,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('Sections.index')}}">{{trans('main_trans.List_sections')}}</a></li>
+                            <li><a href="{{route('sections.index')}}">{{trans('main_trans.List_sections')}}</a></li>
                         </ul>
                     </li>
 
@@ -62,24 +62,24 @@
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#Student_information">{{trans('main_trans.Student_information')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
                                 <ul id="Student_information" class="collapse">
-                                    <li> <a href="{{route('Students.create')}}">{{trans('main_trans.add_student')}}</a></li>
-                                    <li> <a href="{{route('Students.index')}}">{{trans('main_trans.list_students')}}</a></li>
+                                    <li> <a href="{{route('students.create')}}">{{trans('main_trans.add_student')}}</a></li>
+                                    <li> <a href="{{route('students.index')}}">{{trans('main_trans.list_students')}}</a></li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#Students_upgrade">{{trans('main_trans.Students_Promotions')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
                                 <ul id="Students_upgrade" class="collapse">
-                                    <li> <a href="{{route('Promotion.index')}}">{{trans('main_trans.add_Promotion')}}</a></li>
-                                    <li> <a href="{{route('Promotion.create')}}">{{trans('main_trans.list_Promotions')}}</a> </li>
+                                    <li> <a href="{{route('promotions.index')}}">{{trans('main_trans.add_Promotion')}}</a></li>
+                                    <li> <a href="{{route('promotions.create')}}">{{trans('main_trans.list_Promotions')}}</a> </li>
                                 </ul>
                             </li>
 
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#Graduate students">{{trans('main_trans.Graduate_students')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
                                 <ul id="Graduate students" class="collapse">
-                                    <li> <a href="{{route('Graduated.create')}}">{{trans('main_trans.add_Graduate')}}</a> </li>
-                                    <li> <a href="{{route('Graduated.index')}}">{{trans('main_trans.list_Graduate')}}</a> </li>
+                                    <li> <a href="{{route('graduates.create')}}">{{trans('main_trans.add_Graduate')}}</a> </li>
+                                    <li> <a href="{{route('graduates.index')}}">{{trans('main_trans.list_Graduate')}}</a> </li>
                                 </ul>
                             </li>
                         </ul>
@@ -96,7 +96,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Teachers-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('Teachers.index')}}">{{trans('main_trans.List_Teachers')}}</a> </li>
+                            <li> <a href="{{route('teachers.index')}}">{{trans('main_trans.List_Teachers')}}</a> </li>
                         </ul>
                     </li>
 
@@ -110,7 +110,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Parents-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{url('add_parent')}}">{{trans('main_trans.List_Parents')}}</a> </li>
+                            <li> <a href="{{url('guardians')}}">{{trans('main_trans.List_Parents')}}</a> </li>
                         </ul>
                     </li>
 
@@ -123,11 +123,11 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('Fees.index')}}">الرسوم الدراسية</a> </li>
-                            <li> <a href="{{route('Fees_Invoices.index')}}">الفواتير</a> </li>
-                            <li> <a href="{{route('receipt_students.index')}}">سندات القبض</a> </li>
-                            <li> <a href="{{route('ProcessingFee.index')}}">استبعاد رسوم</a> </li>
-                            <li> <a href="{{route('Payment_students.index')}}">سندت الصرف</a> </li>
+                            <li> <a href="{{route('fees.index')}}">الرسوم الدراسية</a> </li>
+                            <li> <a href="{{route('invoices.index')}}">الفواتير</a> </li>
+                            <li> <a href="{{route('receipt-students.index')}}">سندات القبض</a> </li>
+                            <li> <a href="{{route('processing-fees.index')}}">استبعاد رسوم</a> </li>
+                            <li> <a href="{{route('payment-students.index')}}">سندت الصرف</a> </li>
                         </ul>
                     </li>
 
@@ -139,7 +139,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Attendance-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('Attendance.index')}}">قائمة الطلاب</a> </li>
+                            <li> <a href="{{route('attendances.index')}}">قائمة الطلاب</a> </li>
                         </ul>
                     </li>
 
@@ -163,7 +163,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('Exams.index')}}">قائمة الامتحانات</a> </li>
+                            <li> <a href="{{route('exams.index')}}">قائمة الامتحانات</a> </li>
                         </ul>
                     </li>
 
