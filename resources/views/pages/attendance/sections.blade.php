@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{ trans('Sections_trans.title_page') }}: الحضور والغياب
+    {{ trans('section.title_page') }}: الحضور والغياب
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{ trans('Sections_trans.title_page') }}: الحضور والغياب
+    {{ trans('section.title_page') }}: الحضور والغياب
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -19,7 +19,7 @@
             <div class="card card-statistics h-100">
                 <div class="card-body">
                     <a class="button x-small" href="#" data-toggle="modal" data-target="#exampleModal">
-                        {{ trans('Sections_trans.add_section') }}</a>
+                        {{ trans('section.add_section') }}</a>
                 </div>
 
                 @if ($errors->any())
@@ -58,11 +58,11 @@
                                                                 <thead>
                                                                 <tr class="text-dark">
                                                                     <th>#</th>
-                                                                    <th>{{ trans('Sections_trans.Name_Section') }}
+                                                                    <th>{{ trans('section.Name_Section') }}
                                                                     </th>
-                                                                    <th>{{ trans('Sections_trans.Name_Class') }}</th>
-                                                                    <th>{{ trans('Sections_trans.Status') }}</th>
-                                                                    <th>{{ trans('Sections_trans.Processes') }}</th>
+                                                                    <th>{{ trans('section.Name_Class') }}</th>
+                                                                    <th>{{ trans('section.Status') }}</th>
+                                                                    <th>{{ trans('section.Processes') }}</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>

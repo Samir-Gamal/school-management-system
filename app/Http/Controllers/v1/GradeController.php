@@ -98,7 +98,7 @@ class GradeController extends Controller
 
       else{
 
-          toastr()->error(trans('Grades_trans.delete_Grade_Error'));
+          toastr()->error(trans('grade.delete_Grade_Error'));
           return redirect()->route('grades.index');
 
       }

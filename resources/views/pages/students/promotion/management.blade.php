@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main_trans.list_students')}}
+    {{trans('main.list_students')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main_trans.list_students')}}
+    {{trans('main.list_students')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -35,7 +35,7 @@
                                         <thead>
                                         <tr>
                                             <th class="alert-info">#</th>
-                                            <th class="alert-info">{{trans('Students_trans.name')}}</th>
+                                            <th class="alert-info">{{trans('student.name')}}</th>
                                             <th class="alert-danger">المرحلة الدراسية السابقة</th>
                                             <th class="alert-danger">السنة الدراسية</th>
                                             <th class="alert-danger">الصف الدراسي السابق</th>
@@ -44,7 +44,7 @@
                                             <th class="alert-success">السنة الدراسية الحالية</th>
                                             <th class="alert-success">الصف الدراسي الحالي</th>
                                             <th class="alert-success">القسم الدراسي الحالي</th>
-                                            <th>{{trans('Students_trans.Processes')}}</th>
+                                            <th>{{trans('student.Processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

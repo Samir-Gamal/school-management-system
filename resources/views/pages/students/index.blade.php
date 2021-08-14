@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main_trans.list_students')}}
+    {{trans('main.list_students')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main_trans.list_students')}}
+    {{trans('main.list_students')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -22,7 +22,7 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <a href="{{route('students.create')}}" class="btn btn-success btn-sm" role="button"
-                                   aria-pressed="true">{{trans('main_trans.add_student')}}</a><br><br>
+                                   aria-pressed="true">{{trans('main.add_student')}}</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -30,13 +30,13 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{trans('Students_trans.name')}}</th>
-                                            <th>{{trans('Students_trans.email')}}</th>
-                                            <th>{{trans('Students_trans.gender')}}</th>
-                                            <th>{{trans('Students_trans.Grade')}}</th>
-                                            <th>{{trans('Students_trans.classrooms')}}</th>
-                                            <th>{{trans('Students_trans.section')}}</th>
-                                            <th>{{trans('Students_trans.Processes')}}</th>
+                                            <th>{{trans('student.name')}}</th>
+                                            <th>{{trans('student.email')}}</th>
+                                            <th>{{trans('student.gender')}}</th>
+                                            <th>{{trans('student.Grade')}}</th>
+                                            <th>{{trans('student.classrooms')}}</th>
+                                            <th>{{trans('student.section')}}</th>
+                                            <th>{{trans('student.Processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

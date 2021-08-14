@@ -44,13 +44,13 @@
             <thead>
             <tr>
                 <th class="alert-success">#</th>
-                <th class="alert-success">{{ trans('Students_trans.name') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.email') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.gender') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.Grade') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.classrooms') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.section') }}</th>
-                <th class="alert-success">{{ trans('Students_trans.Processes') }}</th>
+                <th class="alert-success">{{ trans('student.name') }}</th>
+                <th class="alert-success">{{ trans('student.email') }}</th>
+                <th class="alert-success">{{ trans('student.gender') }}</th>
+                <th class="alert-success">{{ trans('student.Grade') }}</th>
+                <th class="alert-success">{{ trans('student.classrooms') }}</th>
+                <th class="alert-success">{{ trans('student.section') }}</th>
+                <th class="alert-success">{{ trans('student.Processes') }}</th>
             </tr>
             </thead>
             <tbody>
@@ -108,7 +108,7 @@
             </tbody>
         </table>
         <P>
-            <button class="btn btn-success" type="submit">{{ trans('Students_trans.submit') }}</button>
+            <button class="btn btn-success" type="submit">{{ trans('student.submit') }}</button>
         </P>
     </form><br>
     <!-- row closed -->

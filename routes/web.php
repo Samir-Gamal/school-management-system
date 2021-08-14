@@ -66,7 +66,7 @@ Route::group(
         Route::resource('classrooms', ClassroomController::class);
         Route::post('delete-all', [ClassroomController::class, 'delete_all'])->name('delete_all');
 
-        Route::post('filter-classes', [ClassroomController::class, 'delete_all'])->name('Filter_Classes');
+        Route::post('filterclasses', [ClassroomController::class, 'Filter_Classes']);
 
 
         //==============================Sections============================

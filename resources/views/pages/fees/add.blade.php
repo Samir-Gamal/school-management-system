@@ -55,7 +55,7 @@
                             <div class="form-group col">
                                 <label for="inputState">المرحلة الدراسية</label>
                                 <select class="custom-select mr-sm-2" name="Grade_id">
-                                    <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
+                                    <option selected disabled>{{trans('parent.Choose')}}...</option>
                                     @foreach($Grades as $Grade)
                                         <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
                                     @endforeach
@@ -71,7 +71,7 @@
                             <div class="form-group col">
                                 <label for="inputZip">السنة الدراسية</label>
                                 <select class="custom-select mr-sm-2" name="year">
-                                    <option selected disabled>{{trans('Parent_trans.Choose')}}...</option>
+                                    <option selected disabled>{{trans('parent.Choose')}}...</option>
                                     @php
                                         $current_year = date("Y")
                                     @endphp

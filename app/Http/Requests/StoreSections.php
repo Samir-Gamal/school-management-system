@@ -36,10 +36,10 @@ class StoreSections extends FormRequest
     public function messages()
     {
         return [
-            'Name_Section_Ar.required' => trans('Sections_trans.required_ar'),
-            'Name_Section_En.required' => trans('Sections_trans.required_en'),
-            'Grade_id.required' => trans('Sections_trans.Grade_id_required'),
-            'Class_id.required' => trans('Sections_trans.Class_id_required'),
+            'Name_Section_Ar.required' => trans('section.required_ar'),
+            'Name_Section_En.required' => trans('section.required_en'),
+            'Grade_id.required' => trans('section.Grade_id_required'),
+            'Class_id.required' => trans('section.Class_id_required'),
         ];
     }
 }

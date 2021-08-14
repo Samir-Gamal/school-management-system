@@ -2,13 +2,13 @@
 @section('css')
 
 @section('title')
-    {{trans('main_trans.Add_Parent')}}
+    {{trans('main.Add_Parent')}}
 @stop
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main_trans.Add_Parent')}}
+    {{trans('main.Add_Parent')}}
 @stop
 <!-- breadcrumb -->
 @endsection

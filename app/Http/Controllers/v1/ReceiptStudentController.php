@@ -69,7 +69,7 @@ class ReceiptStudentController extends Controller
 
             DB::commit();
             toastr()->success(trans('messages.success'));
-            return redirect()->route('receipt_students.index');
+            return redirect()->route('receipt-students.index');
 
         }
 
