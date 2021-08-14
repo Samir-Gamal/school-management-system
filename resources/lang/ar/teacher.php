@@ -1,17 +1,16 @@
 <?php
 
 return [
-    'Name_Teacher'=>'اسم المعلم',
-    'Add_Teacher'=>'اضافة معلم',
-    'Edit_Teacher'=>'تعديل معلم',
-    'Delete_Teacher'=>'حذف معلم',
-    'Email'=>'البريد الالكتروني',
-    'Password'=>'كلمة المرور',
-    'Name_ar'=>'اسم المعلم باللغة العربية',
-    'Name_en'=>'اسم المعلم باللغة الانجليزية',
+    'teacher_name'=>'اسم المعلم',
+    'add_teacher'=>'اضافة معلم',
+    'edit_teacher'=>'تعديل معلم',
+    'delete_teacher'=>'حذف معلم',
+    'email'=>'البريد الالكتروني',
+    'password'=>'كلمة المرور',
+    'name_ar'=>'اسم المعلم باللغة العربية',
+    'name_en'=>'اسم المعلم باللغة الانجليزية',
     'specialization'=>'التخصص',
-    'Gender'=>'النوع',
-    'Joining_Date'=>'تاريخ التعين',
-    'Address'=>'العنوان',
-
+    'gender'=>'النوع',
+    'joining_date'=>'تاريخ التعين',
+    'address'=>'العنوان',
 ];

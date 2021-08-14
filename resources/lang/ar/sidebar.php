@@ -2,7 +2,7 @@
 
 return [
 
-    'Notifications' => 'الاشعارات',
-    'Logoff' => 'تسجيل خروج',
+    'notifications' => 'الاشعارات',
+    'logoff' => 'تسجيل خروج',
 
 ];

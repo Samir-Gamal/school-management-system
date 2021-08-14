@@ -2,8 +2,8 @@
 
 return [
 
-    'Notifications' => 'Notifications',
-    'Logoff' => 'Logoff',
+    'notifications' => 'Notifications',
+    'logoff' => 'Logoff',
 
 
 

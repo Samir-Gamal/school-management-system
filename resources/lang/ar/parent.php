@@ -1,49 +1,36 @@
 <?php
 
 return [
-
     'add_parent' => 'اضافة ولي امر',
     'edit_parent' => 'تعديل ولي امر',
-    'Step1' => 'معلومات الاب',
-    'Step2' => 'معلومات الام',
-    'Step3' => 'المرفقات وتاكيد المعلومات',
-    'Email' => 'البريد الالكتروني',
-    //معلومات الاب
-    'Password' => 'كلمة المرور',
-    'Name_Father' => 'اسم الاب باللغة العربية',
-    'Name_Father_en' => 'اسم الاب  باللغة الانجليزية',
-    'Job_Father' => 'اسم الوظيفة باللغة العربية',
-    'Job_Father_en' => 'اسم الوظيفة باللغة الانجليزية',
-    'National_ID_Father' => 'رقم الهوية',
-    'Passport_ID_Father' => 'رقم جواز السفر',
-    'Phone_Father' => 'رقم الهاتف',
-    'Nationality_Father_id' => 'الجنسية',
-    'Blood_Type_Father_id' => 'فصلية الدم',
-    'Religion_Father_id' => 'الديانة',
-    'Address_Father' => 'عنوان الاب',
-
-     //معلومات الام
-    'Name_Mother' => 'اسم الام باللغة العربية',
-    'Name_Mother_en' => 'اسم الام  باللغة الانجليزية',
-    'Job_Mother' => 'اسم الوظيفة باللغة العربية',
-    'Job_Mother_en' => 'اسم الوظيفة باللغة الانجليزية',
-    'National_ID_Mother' => 'رقم الهوية',
-    'Passport_ID_Mother' => 'رقم جواز السفر',
-    'Phone_Mother' => 'رقم الهاتف',
-    'Address_Mother' => 'عنوان الام',
-
-    'Next' => 'التالي',
-    'Back' => 'السابق',
-    'Finish' => 'تاكيد',
-    'Choose' => 'اختيار من القائمة',
-    'Attachments' => 'المرفقات',
-    'Processes' => 'العمليات',
-
-
-
-
-
-
-
-
+    'step_one' => 'معلومات الاب',
+    'step_tow' => 'معلومات الام',
+    'step_three' => 'المرفقات وتاكيد المعلومات',
+    'email' => 'البريد الالكتروني',
+    'password' => 'كلمة المرور',
+    'father_name' => 'اسم الاب باللغة العربية',
+    'father_name_en' => 'اسم الاب  باللغة الانجليزية',
+    'father_job' => 'اسم الوظيفة باللغة العربية',
+    'father_job_en' => 'اسم الوظيفة باللغة الانجليزية',
+    'father_national_id' => 'رقم الهوية',
+    'father_passport_id' => 'رقم جواز السفر',
+    'father_phone' => 'رقم الهاتف',
+    'father_nationality_id' => 'الجنسية',
+    'type_blood_father_id' => 'فصلية الدم',
+    'father_religion_id' => 'الديانة',
+    'father_address' => 'عنوان الاب',
+    'mother_name' => 'اسم الام باللغة العربية',
+    'mother_name_en' => 'اسم الام  باللغة الانجليزية',
+    'mother_job' => 'اسم الوظيفة باللغة العربية',
+    'mother_job_en' => 'اسم الوظيفة باللغة الانجليزية',
+    'mother_national_id' => 'رقم الهوية',
+    'mother_passport_id' => 'رقم جواز السفر',
+    'mother_phone' => 'رقم الهاتف',
+    'mother_address' => 'عنوان الام',
+    'next' => 'التالي',
+    'back' => 'السابق',
+    'finish' => 'تاكيد',
+    'choose' => 'اختيار من القائمة',
+    'attachments' => 'المرفقات',
+    'processes' => 'العمليات',
 ];
