@@ -64,9 +64,9 @@ Route::group(
         //==============================Classrooms============================
 
         Route::resource('classrooms', ClassroomController::class);
-        Route::post('delete-all', [ClassroomController::class, 'delete_all'])->name('delete_all');
+        Route::post('delete-all', [ClassroomController::class, 'delete_all'])->name('delete-all');
 
-        Route::post('filterclasses', [ClassroomController::class, 'Filter_Classes']);
+        Route::post('filter-classes', [ClassroomController::class, 'Filter_Classes'])->name('filter-classes');
 
 
         //==============================Sections============================
@@ -93,11 +93,11 @@ Route::group(
         Route::resource('processing-fees', ProcessingFeeController::class);
         Route::resource('payment-students', PaymentController::class);
         Route::resource('attendances', AttendanceController::class);
-        Route::get('get-classrooms/{id}', [StudentController::class, 'Get_classrooms']);
+        Route::get('get-classrooms/{id}', [StudentController::class, 'get-classrooms']);
         Route::get('sections/{id}', [StudentController::class, 'Get_Sections']);
-        Route::post('upload-attachments', [StudentController::class, 'Upload_attachment'])->name('Upload_attachment');
-        Route::get('download-attachments/{studentsname}/{filename}', [StudentController::class, 'Download_attachment'])->name('Download_attachment');
-        Route::post('delete-attachments', [StudentController::class, 'Delete_attachment'])->name('Delete_attachment');
+        Route::post('upload-attachments', [StudentController::class, 'Upload_attachment'])->name('upload-attachments');
+        Route::get('download-attachments/{studentsname}/{filename}', [StudentController::class, 'Download_attachment'])->name('download-attachments');
+        Route::post('delete-attachments', [StudentController::class, 'Delete_attachment'])->name('delete-attachments');
 
 
         //==============================subjects============================
