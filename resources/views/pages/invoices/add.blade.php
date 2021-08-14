@@ -77,15 +77,15 @@
                                                 </div>
 
                                                 <div class="col">
-                                                    <label for="Name_en" class="mr-sm-2">{{ trans('class.processes') }}:</label>
-                                                    <input class="btn btn-danger btn-block" data-repeater-delete type="button" value="{{ trans('class.delete_row') }}" />
+                                                    <label for="Name_en" class="mr-sm-2">{{ __('class.processes') }}:</label>
+                                                    <input class="btn btn-danger btn-block" data-repeater-delete type="button" value="{{ __('class.delete_row') }}" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row mt-20">
                                         <div class="col-12">
-                                            <input class="button" data-repeater-create type="button" value="{{ trans('class.add_row') }}"/>
+                                            <input class="button" data-repeater-create type="button" value="{{ __('class.add_row') }}"/>
                                         </div>
                                     </div><br>
                                     <input type="hidden" name="Grade_id" value="{{$student->grade_id}}">

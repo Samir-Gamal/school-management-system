@@ -56,7 +56,7 @@ class StudentController extends Controller
             $Edit_Students->parent_id = $request->parent_id;
             $Edit_Students->academic_year = $request->academic_year;
             $Edit_Students->save();
-            toastr()->success(trans('messages.update'));
+            toastr()->success(__('messages.update'));
             return redirect()->route('students.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -134,7 +134,7 @@ class StudentController extends Controller
                 }
             }
             DB::commit(); // insert data
-            toastr()->success(trans('messages.success'));
+            toastr()->success(__('messages.success'));
             return redirect()->route('students.create');
 
         }
@@ -150,7 +150,7 @@ class StudentController extends Controller
     {
 
         Student::destroy($request->id);
-        toastr()->error(trans('messages.delete'));
+        toastr()->error(__('messages.delete'));
         return redirect()->route('students.index');
     }
 
@@ -168,7 +168,7 @@ class StudentController extends Controller
             $images->imageable_type = 'App\Models\Student';
             $images->save();
         }
-        toastr()->success(trans('messages.success'));
+        toastr()->success(__('messages.success'));
         return redirect()->route('students.show',$request->student_id);
     }
 
@@ -184,7 +184,7 @@ class StudentController extends Controller
 
         // Delete in data
         image::where('id',$request->id)->where('filename',$request->filename)->delete();
-        toastr()->error(trans('messages.delete'));
+        toastr()->error(__('messages.delete'));
         return redirect()->route('students.show',$request->student_id);
     }
 

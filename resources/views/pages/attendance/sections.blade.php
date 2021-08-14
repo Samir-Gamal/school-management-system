@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{ trans('section.title_page') }}: الحضور والغياب
+    {{ __('section.title_page') }}: الحضور والغياب
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{ trans('section.title_page') }}: الحضور والغياب
+    {{ __('section.title_page') }}: الحضور والغياب
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -19,7 +19,7 @@
             <div class="card card-statistics h-100">
                 <div class="card-body">
                     <a class="button x-small" href="#" data-toggle="modal" data-target="#exampleModal">
-                        {{ trans('section.add_section') }}</a>
+                        {{ __('section.add_section') }}</a>
                 </div>
 
                 @if ($errors->any())
@@ -58,11 +58,11 @@
                                                                 <thead>
                                                                 <tr class="text-dark">
                                                                     <th>#</th>
-                                                                    <th>{{ trans('section.name_section') }}
+                                                                    <th>{{ __('section.name_section') }}
                                                                     </th>
-                                                                    <th>{{ trans('section.name_class') }}</th>
-                                                                    <th>{{ trans('section.status') }}</th>
-                                                                    <th>{{ trans('section.processes') }}</th>
+                                                                    <th>{{ __('section.name_class') }}</th>
+                                                                    <th>{{ __('section.status') }}</th>
+                                                                    <th>{{ __('section.processes') }}</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -78,7 +78,7 @@
                                                                         </td>
 
                                                                         <td>
-                                                                            <a href="{{route('attendance.show',$list_Sections->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">قائمة الطلاب</a>
+                                                                            <a href="{{route('attendances.show',$list_Sections->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">قائمة الطلاب</a>
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach

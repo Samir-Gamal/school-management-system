@@ -30,7 +30,7 @@ class ExamController extends Controller
             $exams->term = $request->term;
             $exams->academic_year = $request->academic_year;
             $exams->save();
-            toastr()->success(trans('messages.success'));
+            toastr()->success(__('messages.success'));
             return redirect()->route('exams.create');
         } catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -51,7 +51,7 @@ class ExamController extends Controller
             $exam->term = $request->term;
             $exam->academic_year = $request->academic_year;
             $exam->save();
-            toastr()->success(trans('messages.update'));
+            toastr()->success(__('messages.update'));
             return redirect()->route('exams.index');
         } catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -62,7 +62,7 @@ class ExamController extends Controller
     {
         try {
             Exam::destroy($request->id);
-            toastr()->error(trans('messages.delete'));
+            toastr()->error(__('messages.delete'));
             return redirect()->back();
         } catch (Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

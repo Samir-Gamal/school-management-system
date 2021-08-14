@@ -59,7 +59,7 @@ header start-->
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
                 <div class="dropdown-header notifications">
-                    <strong>{{trans('sidebar.notifications')}}</strong>
+                    <strong>{{__('sidebar.notifications')}}</strong>
                     <span class="badge badge-pill badge-warning">05</span>
                 </div>
                 <div class="dropdown-divider"></div>

@@ -24,22 +24,22 @@ class StoreSections extends FormRequest
     public function rules()
     {
         return [
-            
+
             'Name_Section_Ar' => 'required',
             'Name_Section_En' => 'required',
             'Grade_id' => 'required',
             'Class_id' => 'required',
-           
+
         ];
     }
 
     public function messages()
     {
         return [
-            'Name_Section_Ar.required' => trans('section.required_ar'),
-            'Name_Section_En.required' => trans('section.required_en'),
-            'Grade_id.required' => trans('section.Grade_id_required'),
-            'Class_id.required' => trans('section.Class_id_required'),
+            'Name_Section_Ar.required' => __('section.required_ar'),
+            'Name_Section_En.required' => __('section.required_en'),
+            'Grade_id.required' => __('section.grade_id_required'),
+            'Class_id.required' => __('section.class_id_required'),
         ];
     }
 }

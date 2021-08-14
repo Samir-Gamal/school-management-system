@@ -18,8 +18,8 @@
                     <input type="text" readonly value="{{$student->name}}" class="form-control">
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('student.close')}}</button>
-                        <button  class="btn btn-danger">{{trans('student.submit')}}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('student.close')}}</button>
+                        <button  class="btn btn-danger">{{__('student.submit')}}</button>
                     </div>
                 </form>
             </div>

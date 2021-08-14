@@ -22,18 +22,18 @@
                     <div class="stepwizard-step">
                         <a href="#step-1" type="button"
                            class="btn btn-circle {{ $currentStep != 1 ? 'btn-default' : 'btn-success' }}">1</a>
-                        <p>{{ trans('parent.step_one') }}</p>
+                        <p>{{ __('parent.step_one') }}</p>
                     </div>
                     <div class="stepwizard-step">
                         <a href="#step-2" type="button"
                            class="btn btn-circle {{ $currentStep != 2 ? 'btn-default' : 'btn-success' }}">2</a>
-                        <p>{{ trans('parent.step_tow') }}</p>
+                        <p>{{ __('parent.step_tow') }}</p>
                     </div>
                     <div class="stepwizard-step">
                         <a href="#step-3" type="button"
                            class="btn btn-circle {{ $currentStep != 3 ? 'btn-default' : 'btn-success' }}"
                            disabled="disabled">3</a>
-                        <p>{{ trans('parent.step_three') }}</p>
+                        <p>{{ __('parent.step_three') }}</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
                     <div class="col-xs-12">
                         <div class="col-md-12"><br>
-                            <label style="color: red">{{trans('parent.attachments')}}</label>
+                            <label style="color: red">{{__('parent.attachments')}}</label>
                             <div class="form-group">
                                 <input type="file" wire:model="photos" accept="image/*" multiple>
                             </div>
@@ -59,15 +59,15 @@
                             <input type="hidden" wire:model="Parent_id">
 
                             <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button"
-                                    wire:click="back(2)">{{ trans('parent.back') }}</button>
+                                    wire:click="back(2)">{{ __('parent.back') }}</button>
 
                             @if($updateMode)
                                 <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="submitForm_edit"
-                                        type="button">{{trans('parent.finish')}}
+                                        type="button">{{__('parent.finish')}}
                                 </button>
                             @else
                                 <button class="btn btn-success btn-sm btn-lg pull-right" wire:click="submitForm"
-                                        type="button">{{ trans('parent.finish') }}</button>
+                                        type="button">{{ __('parent.finish') }}</button>
                             @endif
 
                         </div>

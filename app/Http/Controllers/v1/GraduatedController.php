@@ -35,21 +35,21 @@ class GraduatedController extends Controller
             student::whereIn('id', $ids)->Delete();
         }
 
-        toastr()->success(trans('messages.success'));
+        toastr()->success(__('messages.success'));
         return redirect()->route('graduates.index');
     }
 
     public function ReturnData($request)
     {
         student::onlyTrashed()->where('id', $request->id)->first()->restore();
-        toastr()->success(trans('messages.success'));
+        toastr()->success(__('messages.success'));
         return redirect()->back();
     }
 
     public function destroy($request)
     {
         student::onlyTrashed()->where('id', $request->id)->first()->forceDelete();
-        toastr()->error(trans('messages.delete'));
+        toastr()->error(__('messages.delete'));
         return redirect()->back();
     }
 

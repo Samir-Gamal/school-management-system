@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main.list_graduate')}}
+    {{__('main.list_graduate')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main.list_graduate')}} <i class="fas fa-user-graduate"></i>
+    {{__('main.list_graduate')}} <i class="fas fa-user-graduate"></i>
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -28,13 +28,13 @@
                                         <thead>
                                         <tr class="alert-success">
                                             <th>#</th>
-                                            <th>{{trans('student.name')}}</th>
-                                            <th>{{trans('student.email')}}</th>
-                                            <th>{{trans('student.gender')}}</th>
-                                            <th>{{trans('student.Grade')}}</th>
-                                            <th>{{trans('student.classrooms')}}</th>
-                                            <th>{{trans('student.section')}}</th>
-                                            <th>{{trans('student.processes')}}</th>
+                                            <th>{{__('student.name')}}</th>
+                                            <th>{{__('student.email')}}</th>
+                                            <th>{{__('student.gender')}}</th>
+                                            <th>{{__('student.Grade')}}</th>
+                                            <th>{{__('student.classrooms')}}</th>
+                                            <th>{{__('student.section')}}</th>
+                                            <th>{{__('student.processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -48,8 +48,8 @@
                                             <td>{{$student->classroom->name}}</td>
                                             <td>{{$student->section->name}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Return_Student{{ $student->id }}" title="{{ trans('grade.delete') }}">ارجاع الطالب</button>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ trans('grade.delete') }}">حذف الطالب</button>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Return_Student{{ $student->id }}" title="{{ __('grade.delete') }}">ارجاع الطالب</button>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ __('grade.delete') }}">حذف الطالب</button>
 
                                                 </td>
                                             </tr>

@@ -15,8 +15,8 @@
                     <input type="hidden" name="id" value="{{$promotion->id}}">
                     <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من عملية تراجع الطالب ؟ {{$promotion->student->name}}</h5>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('student.close')}}</button>
-                        <button  class="btn btn-danger">{{trans('student.submit')}}</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('student.close')}}</button>
+                        <button  class="btn btn-danger">{{__('student.submit')}}</button>
                     </div>
                 </form>
             </div>

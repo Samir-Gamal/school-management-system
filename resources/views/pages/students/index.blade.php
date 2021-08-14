@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main.list_students')}}
+    {{__('main.list_students')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main.list_students')}}
+    {{__('main.list_students')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -22,7 +22,7 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <a href="{{route('students.create')}}" class="btn btn-success btn-sm" role="button"
-                                   aria-pressed="true">{{trans('main.add_student')}}</a><br><br>
+                                   aria-pressed="true">{{__('main.add_student')}}</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -30,13 +30,13 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>{{trans('student.name')}}</th>
-                                            <th>{{trans('student.email')}}</th>
-                                            <th>{{trans('student.gender')}}</th>
-                                            <th>{{trans('student.grade')}}</th>
-                                            <th>{{trans('student.classrooms')}}</th>
-                                            <th>{{trans('student.section')}}</th>
-                                            <th>{{trans('student.processes')}}</th>
+                                            <th>{{__('student.name')}}</th>
+                                            <th>{{__('student.email')}}</th>
+                                            <th>{{__('student.gender')}}</th>
+                                            <th>{{__('student.grade')}}</th>
+                                            <th>{{__('student.classrooms')}}</th>
+                                            <th>{{__('student.section')}}</th>
+                                            <th>{{__('student.processes')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

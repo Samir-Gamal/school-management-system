@@ -43,7 +43,7 @@ class SectionController extends Controller
       $Sections->status = 1;
       $Sections->save();
       $Sections->teachers()->attach($request->teacher_id);
-      toastr()->success(trans('messages.success'));
+      toastr()->success(__('messages.success'));
 
       return redirect()->route('sections.index');
   }
@@ -88,7 +88,7 @@ class SectionController extends Controller
 
 
       $Sections->save();
-      toastr()->success(trans('messages.update'));
+      toastr()->success(__('messages.update'));
 
       return redirect()->route('sections.index');
   }
@@ -109,7 +109,7 @@ class SectionController extends Controller
   {
 
     Section::findOrFail($request->id)->delete();
-    toastr()->error(trans('messages.delete'));
+    toastr()->error(__('messages.delete'));
     return redirect()->route('sections.index');
 
   }

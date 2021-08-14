@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('student.student_details')}}
+    {{__('student.student_details')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('student.Student_details')}}
+    {{__('student.Student_details')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -24,12 +24,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link active show" id="home-02-tab" data-toggle="tab" href="#home-02"
                                        role="tab" aria-controls="home-02"
-                                       aria-selected="true">{{trans('student.student_details')}}</a>
+                                       aria-selected="true">{{__('student.student_details')}}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-02-tab" data-toggle="tab" href="#profile-02"
                                        role="tab" aria-controls="profile-02"
-                                       aria-selected="false">{{trans('student.attachments')}}</a>
+                                       aria-selected="false">{{__('student.attachments')}}</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -38,31 +38,31 @@
                                     <table class="table table-striped table-hover" style="text-align:center">
                                         <tbody>
                                         <tr>
-                                            <th scope="row">{{trans('student.name')}}</th>
+                                            <th scope="row">{{__('student.name')}}</th>
                                             <td>{{ $Student->name }}</td>
-                                            <th scope="row">{{trans('student.email')}}</th>
+                                            <th scope="row">{{__('student.email')}}</th>
                                             <td>{{$Student->email}}</td>
-                                            <th scope="row">{{trans('student.gender')}}</th>
+                                            <th scope="row">{{__('student.gender')}}</th>
                                             <td>{{$Student->gender->name}}</td>
-                                            <th scope="row">{{trans('student.nationality')}}</th>
+                                            <th scope="row">{{__('student.nationality')}}</th>
                                             <td>{{$Student->Nationality->name}}</td>
                                         </tr>
 
                                         <tr>
-                                            <th scope="row">{{trans('student.grade')}}</th>
+                                            <th scope="row">{{__('student.grade')}}</th>
                                             <td>{{ $Student->grade->name }}</td>
-                                            <th scope="row">{{trans('student.classrooms')}}</th>
+                                            <th scope="row">{{__('student.classrooms')}}</th>
                                             <td>{{$Student->classroom->name}}</td>
-                                            <th scope="row">{{trans('student.section')}}</th>
+                                            <th scope="row">{{__('student.section')}}</th>
                                             <td>{{$Student->section->name}}</td>
-                                            <th scope="row">{{trans('student.date_of_birth')}}</th>
+                                            <th scope="row">{{__('student.date_of_birth')}}</th>
                                             <td>{{ $Student->date_birth}}</td>
                                         </tr>
 
                                         <tr>
-                                            <th scope="row">{{trans('student.parent')}}</th>
+                                            <th scope="row">{{__('student.parent')}}</th>
                                             <td>{{ $Student->myparent->name_father}}</td>
-                                            <th scope="row">{{trans('student.academic_year')}}</th>
+                                            <th scope="row">{{__('student.academic_year')}}</th>
                                             <td>{{ $Student->academic_year }}</td>
                                             <th scope="row"></th>
                                             <td></td>
@@ -82,7 +82,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label
-                                                            for="academic_year">{{trans('student.attachments')}}
+                                                            for="academic_year">{{__('student.attachments')}}
                                                             : <span class="text-danger">*</span></label>
                                                         <input type="file" accept="image/*" name="photos[]" multiple required>
                                                         <input type="hidden" name="student_name" value="{{$Student->name}}">
@@ -91,7 +91,7 @@
                                                 </div>
                                                 <br><br>
                                                 <button type="submit" class="button button-border x-small">
-                                                       {{trans('student.submit')}}
+                                                       {{__('student.submit')}}
                                                 </button>
                                             </form>
                                         </div>
@@ -101,9 +101,9 @@
                                             <thead>
                                             <tr class="table-secondary">
                                                 <th scope="col">#</th>
-                                                <th scope="col">{{trans('student.filename')}}</th>
-                                                <th scope="col">{{trans('student.created_at')}}</th>
-                                                <th scope="col">{{trans('student.processes')}}</th>
+                                                <th scope="col">{{__('student.filename')}}</th>
+                                                <th scope="col">{{__('student.created_at')}}</th>
+                                                <th scope="col">{{__('student.processes')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -115,12 +115,12 @@
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
                                                            href="{{url('download-attachments')}}/{{ $attachment->imageable->name }}/{{$attachment->filename}}"
-                                                           role="button"><i class="fas fa-download"></i>&nbsp; {{trans('student.Download')}}</a>
+                                                           role="button"><i class="fas fa-download"></i>&nbsp; {{__('student.Download')}}</a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
                                                                 data-toggle="modal"
                                                                 data-target="#Delete_img{{ $attachment->id }}"
-                                                                title="{{ trans('grade.delete') }}">{{trans('student.delete')}}
+                                                                title="{{ __('grade.delete') }}">{{__('student.delete')}}
                                                         </button>
 
                                                     </td>

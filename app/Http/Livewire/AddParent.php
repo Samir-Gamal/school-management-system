@@ -151,7 +151,7 @@ class AddParent extends Component
                     ]);
                 }
             }
-            $this->successMessage = trans('messages.success');
+            $this->successMessage = __('messages.success');
             $this->clearForm();
             $this->currentStep = 1;
         }

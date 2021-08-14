@@ -38,7 +38,7 @@ return [
     'settings'=>'الاعدادات',
     'users'=>'المستخدمين',
     'copyright' => 'جميع الحقوق محفوظة ',
-    'name_programmer' => 'سمير جمال مورا سوفت',
+    'developer_name' => 'سمير جمال مورا سوفت',
     'forgot_password' => 'هل نسيت كلمةالمرور ؟',
     'enter'=>'دخول',
     'terms_of_use'=>'شروط الاستخدام',

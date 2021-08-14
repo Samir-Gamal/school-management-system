@@ -49,7 +49,7 @@ class AttendanceController extends Controller
 
             }
 
-            toastr()->success(trans('messages.success'));
+            toastr()->success(__('messages.success'));
             return redirect()->back();
 
         }

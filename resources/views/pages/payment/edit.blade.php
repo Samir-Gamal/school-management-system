@@ -54,7 +54,7 @@
 
                             </div>
 
-                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{trans('student.submit')}}</button>
+                            <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">{{__('student.submit')}}</button>
                         </form>
 
                 </div>

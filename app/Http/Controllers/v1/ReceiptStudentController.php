@@ -68,7 +68,7 @@ class ReceiptStudentController extends Controller
             $fund_accounts->save();
 
             DB::commit();
-            toastr()->success(trans('messages.success'));
+            toastr()->success(__('messages.success'));
             return redirect()->route('receipt-students.index');
 
         }
@@ -115,7 +115,7 @@ class ReceiptStudentController extends Controller
 
 
             DB::commit();
-            toastr()->success(trans('messages.update'));
+            toastr()->success(__('messages.update'));
             return redirect()->route('receipt-students.index');
         } catch (\Exception $e) {
             DB::rollback();
@@ -127,7 +127,7 @@ class ReceiptStudentController extends Controller
     {
         try {
             ReceiptStudent::destroy($request->id);
-            toastr()->error(trans('messages.delete'));
+            toastr()->error(__('messages.delete'));
             return redirect()->back();
         }
 

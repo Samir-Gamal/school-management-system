@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    {{trans('main.add_graduate')}}
+    {{__('main.add_graduate')}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{trans('main.add_graduate')}}
+    {{__('main.add_graduate')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -33,16 +33,16 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputState">{{trans('student.Grade')}}</label>
+                                <label for="inputState">{{__('student.Grade')}}</label>
                                 <select class="custom-select mr-sm-2" name="Grade_id" required>
-                                    <option selected disabled>{{trans('parent.choose')}}...</option>
+                                    <option selected disabled>{{__('parent.choose')}}...</option>
                                     @foreach($Grades as $Grade)
                                         <option value="{{$Grade->id}}">{{$Grade->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group col">
-                                <label for="Classroom_id">{{trans('student.classrooms')}} : <span
+                                <label for="Classroom_id">{{__('student.classrooms')}} : <span
                                         class="text-danger">*</span></label>
                                 <select class="custom-select mr-sm-2" name="Classroom_id" required>
 
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="form-group col">
-                                <label for="section_id">{{trans('student.section')}} : </label>
+                                <label for="section_id">{{__('student.section')}} : </label>
                                 <select class="custom-select mr-sm-2" name="section_id" required>
 
                                 </select>

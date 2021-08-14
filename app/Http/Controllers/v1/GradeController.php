@@ -43,7 +43,7 @@ class GradeController extends Controller
           $Grade->name = ['en' => $request->Name_en, 'ar' => $request->Name];
           $Grade->notes = $request->Notes;
           $Grade->save();
-          toastr()->success(trans('messages.success'));
+          toastr()->success(__('messages.success'));
           return redirect()->route('grades.index');
       }
 
@@ -70,7 +70,7 @@ class GradeController extends Controller
          $Grades->name = ['ar' => $request->Name, 'en' => $request->Name_en],
          $Grades->notes = $request->Notes,
        ]);
-       toastr()->success(trans('messages.update'));
+       toastr()->success(__('messages.update'));
        return redirect()->route('grades.index');
    }
    catch
@@ -92,13 +92,13 @@ class GradeController extends Controller
       if($MyClass_id->count() == 0){
 
           $Grades = Grade::findOrFail($request->id)->delete();
-          toastr()->error(trans('messages.delete'));
+          toastr()->error(__('messages.delete'));
           return redirect()->route('grades.index');
       }
 
       else{
 
-          toastr()->error(trans('grade.delete_Grade_Error'));
+          toastr()->error(__('grade.delete_Grade_Error'));
           return redirect()->route('grades.index');
 
       }

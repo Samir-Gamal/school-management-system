@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @section('title')
-{{trans('main.title')}}
+{{__('main.title')}}
 @stop
 <head>
     <meta charset="utf-8">
@@ -40,7 +40,7 @@
             <div class="page-title" >
                 <div class="row">
                     <div class="col-sm-6" >
-                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{trans('main.dashboard_page')}}</h4>
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{__('main.dashboard_page')}}</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
