@@ -16,8 +16,6 @@ class AuthRouteAPIController extends Controller
     public function login(Request $request){
         return view('auth.login');
     }
-    public function test(Request $request){
-        return ClassRoom::all()->unique()->random()->id;
-    }
+
 
 }

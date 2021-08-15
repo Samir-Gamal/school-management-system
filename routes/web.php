@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\v1\AttendanceController;
 use App\Http\Controllers\Auth\AuthRouteAPIController;
 use App\Http\Controllers\v1\ClassroomController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\v1\SectionController;
 use App\Http\Controllers\v1\StudentController;
 use App\Http\Controllers\v1\SubjectController;
 use App\Http\Controllers\v1\TeacherController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -109,3 +111,9 @@ Route::group(
 
     });
 });
+
+
+if (App::environment('local')) {
+
+    Route::get('test', [TestController::class, 'test']);
+}
