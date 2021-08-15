@@ -41,7 +41,7 @@ class FeeController extends Controller
             $fees->title = ['en' => $request->title_en, 'ar' => $request->title_ar];
             $fees->amount  =$request->amount;
             $fees->grade_id  =$request->Grade_id;
-            $fees->class_room_id  =$request->Classroom_id;
+            $fees->classroom_id  =$request->Classroom_id;
             $fees->description  =$request->description;
             $fees->year  =$request->year;
             $fees->fee_type  =$request->Fee_type;
@@ -63,7 +63,7 @@ class FeeController extends Controller
             $fees->title = ['en' => $request->title_en, 'ar' => $request->title_ar];
             $fees->amount  =$request->amount;
             $fees->grade_id  =$request->Grade_id;
-            $fees->class_room_id  =$request->Classroom_id;
+            $fees->classroom_id  =$request->Classroom_id;
             $fees->description  =$request->description;
             $fees->year  =$request->year;
             $fees->fee_type  =$request->Fee_type;

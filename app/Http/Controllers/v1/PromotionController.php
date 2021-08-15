@@ -31,7 +31,7 @@ class PromotionController extends Controller
 
         try {
 
-            $students = student::where('grade_id',$request->Grade_id)->where('class_room_id',$request->Classroom_id)->where('section_id',$request->section_id)->where('academic_year',$request->academic_year)->get();
+            $students = student::where('grade_id',$request->Grade_id)->where('classroom_id',$request->Classroom_id)->where('section_id',$request->section_id)->where('academic_year',$request->academic_year)->get();
 
             if($students->count() < 1){
                 return redirect()->back()->with('error_promotions', __('لاتوجد بيانات في جدول الطلاب'));
@@ -44,7 +44,7 @@ class PromotionController extends Controller
                 student::whereIn('id', $ids)
                     ->update([
                         'grade_id'=>$request->Grade_id_new,
-                        'class_room_id'=>$request->Classroom_id_new,
+                        'classroom_id'=>$request->Classroom_id_new,
                         'section_id'=>$request->section_id_new,
                         'academic_year'=>$request->academic_year_new,
                     ]);
@@ -53,10 +53,10 @@ class PromotionController extends Controller
                 Promotion::updateOrCreate([
                     'student_id'=>$student->id,
                     'from_grade'=>$request->Grade_id,
-                    'from_class_room'=>$request->Classroom_id,
+                    'from_classroom'=>$request->Classroom_id,
                     'from_section'=>$request->section_id,
                     'to_grade'=>$request->Grade_id_new,
-                    'to_class_room'=>$request->Classroom_id_new,
+                    'to_classroom'=>$request->Classroom_id_new,
                     'to_section'=>$request->section_id_new,
                     'academic_year'=>$request->academic_year,
                     'academic_year_new'=>$request->academic_year_new,
@@ -91,7 +91,7 @@ class PromotionController extends Controller
                     student::whereIn('id', $ids)
                         ->update([
                             'grade_id'=>$Promotion->from_grade,
-                            'class_room_id'=>$Promotion->from_Classroom,
+                            'classroom_id'=>$Promotion->from_Classroom,
                             'section_id'=> $Promotion->from_section,
                             'academic_year'=>$Promotion->academic_year,
                         ]);
@@ -112,7 +112,7 @@ class PromotionController extends Controller
                 student::where('id', $Promotion->student_id)
                     ->update([
                         'grade_id'=>$Promotion->from_grade,
-                        'class_room_id'=>$Promotion->from_Classroom,
+                        'classroom_id'=>$Promotion->from_Classroom,
                         'section_id'=> $Promotion->from_section,
                         'academic_year'=>$Promotion->academic_year,
                     ]);

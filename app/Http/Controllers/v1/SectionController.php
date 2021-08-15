@@ -39,7 +39,7 @@ class SectionController extends Controller
       $Sections = new Section();
       $Sections->name = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
       $Sections->grade_id = $request->Grade_id;
-      $Sections->class_room_id = $request->Class_id;
+      $Sections->classroom_id = $request->Class_id;
       $Sections->status = 1;
       $Sections->save();
       $Sections->teachers()->attach($request->teacher_id);

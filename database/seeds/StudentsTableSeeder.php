@@ -30,7 +30,7 @@ class StudentsTableSeeder extends Seeder
         $students->blood_id =BloodType::all()->unique()->random()->id;
         $students->date_birth = date('1995-01-01');
         $students->grade_id = Grade::all()->unique()->random()->id;
-        $students->class_room_id =Classroom::all()->unique()->random()->id;
+        $students->classroom_id =Classroom::all()->unique()->random()->id;
         $students->section_id = Section::all()->unique()->random()->id;
         $students->parent_id = Guardian::all()->unique()->random()->id;
         $students->academic_year ='2021';

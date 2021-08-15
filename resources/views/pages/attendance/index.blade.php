@@ -99,7 +99,7 @@
 
                         <input type="hidden" name="student_id[]" value="{{ $student->id }}">
                         <input type="hidden" name="grade_id" value="{{ $student->grade_id }}">
-                        <input type="hidden" name="classroom_id" value="{{ $student->class_room_id }}">
+                        <input type="hidden" name="classroom_id" value="{{ $student->classroom_id }}">
                         <input type="hidden" name="section_id" value="{{ $student->section_id }}">
 
                     </td>

@@ -19,26 +19,25 @@ class CreateGuardiansTable extends Migration
             $table->string('password');
 
             //Fatherinformation
-            $table->string('name_father');
-            $table->string('national_id_father');
-            $table->string('passport_id_father');
-            $table->string('phone_father');
-            $table->string('job_father');
-            $table->bigInteger('nationality_father_id')->unsigned();
-            $table->bigInteger('blood_type_father_id')->unsigned();
-            $table->bigInteger('religion_father_id')->unsigned();
-            $table->string('address_father');
+            $table->string('father_name');
+            $table->string('father_passport_id');
+            $table->string('father_phone');
+            $table->string('father_job');
+            $table->bigInteger('father_nationality_id')->unsigned();
+            $table->bigInteger('father_blood_type_id')->unsigned();
+            $table->bigInteger('father_religion_id')->unsigned();
+            $table->string('father_address');
 
             //Mother information
-            $table->string('Name_Mother');
-            $table->string('National_ID_Mother');
-            $table->string('Passport_ID_Mother');
-            $table->string('Phone_Mother');
-            $table->string('Job_Mother');
-            $table->bigInteger('Nationality_Mother_id')->unsigned();
-            $table->bigInteger('Blood_Type_Mother_id')->unsigned();
-            $table->bigInteger('Religion_Mother_id')->unsigned();
-            $table->string('Address_Mother');
+            $table->string('mother_name');
+            $table->string('mother_nationality_id');
+            $table->string('mother_passport_id');
+            $table->string('mother_phone');
+            $table->string('mother_job');
+            $table->bigInteger('mother_nationality_id')->unsigned();
+            $table->bigInteger('mother_blood_type_id')->unsigned();
+            $table->bigInteger('mother_religion_id')->unsigned();
+            $table->string('mother_address');
             $table->timestamps();
 
         });

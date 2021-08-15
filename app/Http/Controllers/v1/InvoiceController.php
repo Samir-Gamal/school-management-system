@@ -25,14 +25,14 @@ class InvoiceController extends Controller
     public function show($id)
     {
         $student = Student::findorfail($id);
-        $fees = Fee::where('class_room_id',$student->Classroom_id)->get();
+        $fees = Fee::where('classroom_id',$student->Classroom_id)->get();
         return view('pages.invoices.add',compact('student','fees'));
     }
 
     public function edit($id)
     {
         $fee_invoices = Invoice::findorfail($id);
-        $fees = Fee::where('class_room_id',$fee_invoices->Classroom_id)->get();
+        $fees = Fee::where('classroom_id',$fee_invoices->Classroom_id)->get();
         return view('pages.invoices.edit',compact('fee_invoices','fees'));
     }
 
@@ -50,7 +50,7 @@ class InvoiceController extends Controller
                 $Fees->invoice_date = date('Y-m-d');
                 $Fees->student_id = $List_Fee['student_id'];
                 $Fees->grade_id = $request->Grade_id;
-                $Fees->class_room_id = $request->Classroom_id;;
+                $Fees->classroom_id = $request->Classroom_id;;
                 $Fees->fee_id = $List_Fee['fee_id'];
                 $Fees->amount = $List_Fee['amount'];
                 $Fees->description = $List_Fee['description'];

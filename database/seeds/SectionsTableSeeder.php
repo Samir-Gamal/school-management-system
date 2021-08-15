@@ -27,7 +27,7 @@ class SectionsTableSeeder extends Seeder
                 'name' => $section,
                 'status' => 1,
                 'grade_id' => Grade::all()->unique()->random()->id,
-                'class_room_id' => ClassRoom::all()->unique()->random()->id
+                'classroom_id' => ClassRoom::all()->unique()->random()->id
             ]);
         }
     }

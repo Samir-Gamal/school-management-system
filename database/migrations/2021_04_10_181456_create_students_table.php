@@ -27,8 +27,8 @@ class CreateStudentsTable extends Migration
             $table->date('date_birth');
             $table->bigInteger('grade_id')->unsigned();
             $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
-            $table->bigInteger('class_room_id')->unsigned();
-            $table->foreign('class_room_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->bigInteger('classroom_id')->unsigned();
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->bigInteger('section_id')->unsigned();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->bigInteger('parent_id')->unsigned();

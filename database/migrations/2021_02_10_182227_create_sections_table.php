@@ -18,7 +18,7 @@ class CreateSectionsTable extends Migration
             $table->string('name');
             $table->integer('status');
             $table->bigInteger('grade_id')->unsigned();
-            $table->bigInteger('class_room_id')->unsigned();
+            $table->bigInteger('classroom_id')->unsigned();
             $table->timestamps();
         });
     }

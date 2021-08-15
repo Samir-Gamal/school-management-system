@@ -51,7 +51,7 @@ class StudentController extends Controller
             $Edit_Students->blood_id = $request->blood_id;
             $Edit_Students->date_birth = $request->Date_Birth;
             $Edit_Students->grade_id = $request->Grade_id;
-            $Edit_Students->class_room_id = $request->Classroom_id;
+            $Edit_Students->classroom_id = $request->Classroom_id;
             $Edit_Students->section_id = $request->section_id;
             $Edit_Students->parent_id = $request->parent_id;
             $Edit_Students->academic_year = $request->academic_year;
@@ -111,7 +111,7 @@ class StudentController extends Controller
             $students->blood_id = $request->blood_id;
             $students->date_birth = $request->Date_Birth;
             $students->grade_id = $request->Grade_id;
-            $students->class_room_id = $request->Classroom_id;
+            $students->classroom_id = $request->Classroom_id;
             $students->section_id = $request->section_id;
             $students->parent_id = $request->parent_id;
             $students->academic_year = $request->academic_year;
