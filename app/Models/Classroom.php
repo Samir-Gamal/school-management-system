@@ -56,7 +56,7 @@ class Classroom extends Model
 
     // علاقة بين الصفوف المراحل الدراسية لجلب اسم المرحلة في جدول الصفوف
 
-    public function grades()
+    public function grade()
     {
         return $this->belongsTo(Gender::class);
     }

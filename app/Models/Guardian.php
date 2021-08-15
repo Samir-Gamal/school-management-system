@@ -21,10 +21,24 @@ class Guardian extends Model
      * @var array
      */
     protected $fillable = [
+        'email',
+        'password',
         'father_name',
+        'father_national_id',
+        'father_passport_id',
         'father_job',
-        'mother_name',
-        'mother_job'
+        'father_nationality_id',
+        'father_blood_type_id',
+        'father_religion_id',
+        'father_address',
+        'mother_national_id',
+        'mother_passport_id',
+        'mother_phone',
+        'mother_job',
+        'mother_nationality_id',
+        'mother_blood_type_id',
+        'mother_religion_id',
+        'mother_address',
     ];
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -47,10 +61,10 @@ class Guardian extends Model
     protected $hidden = [];
 
     public $translatable = [
-        'name_father',
-        'job_father',
-        'name_mother',
-        'job_mother'
+        'father_name',
+        'father_job',
+        'mother_name',
+        'mother_job'
     ];
 
 }

@@ -86,7 +86,7 @@
                                 <td><input type="checkbox"  value="{{ $My_Class->id }}" class="box1" ></td>
                                 <td>{{ $i }}</td>
                                 <td>{{ $My_Class->name }}</td>
-                                <td>{{ $My_Class->Grades->name }}</td>
+                                <td>{{ $My_Class->grade->name }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $My_Class->id }}"
@@ -145,8 +145,8 @@
                                                         :</label>
                                                     <select class="form-control form-control-lg"
                                                             id="exampleFormControlSelect1" name="Grade_id">
-                                                        <option value="{{ $My_Class->Grades->id }}">
-                                                            {{ $My_Class->Grades->name }}
+                                                        <option value="{{ $My_Class->grade->id }}">
+                                                            {{ $My_Class->grade->name }}
                                                         </option>
                                                         @foreach ($Grades as $Grade)
                                                             <option value="{{ $Grade->id }}">

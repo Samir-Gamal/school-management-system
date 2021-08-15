@@ -11,7 +11,7 @@ class Invoice extends Model
      *
      * @var string
      */
-    protected $table = 'nnvoice';
+    protected $table = 'invoices';
     /**
      * The attributes that are mass assignable.
      *
