@@ -6,8 +6,10 @@ namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClassroom;
 use App\Models\Classroom;
+use App\Models\Customer;
 use App\Models\Grade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ClassroomController extends Controller
 {
@@ -43,29 +45,17 @@ class ClassroomController extends Controller
      */
     public function store(StoreClassroom $request)
     {
-
-        $List_Classes = $request->List_Classes;
-
-        try {
-
-            $validated = $request->validated();
-            foreach ($List_Classes as $List_Class) {
-
-                $My_Classes = new Classroom();
-
-                $My_Classes->name = ['en' => $List_Class['Name_class_en'], 'ar' => $List_Class['Name']];
-
-                $My_Classes->grade_id = $List_Class['Grade_id'];
-
-                $My_Classes->save();
-
-            }
-
-            toastr()->success(__('messages.success'));
-            return redirect()->route('classrooms.index');
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        foreach ($request->classrooms as $classroom) {
+            $input[] = [
+                'name' => json_encode(['en' => $classroom['name_en'], 'ar' => $classroom['name_ar']]),
+                'grade_id' => $classroom['grade_id']
+            ];
         }
+
+        $classroom = Classroom::insert($input);
+
+        toastr()->success(__('messages.success'));
+        return redirect()->route('classrooms.index');
 
     }
 
@@ -118,9 +108,7 @@ class ClassroomController extends Controller
             ]);
             toastr()->success(__('messages.update'));
             return redirect()->route('classrooms.index');
-        }
-
-        catch
+        } catch
         (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -137,7 +125,9 @@ class ClassroomController extends Controller
     public function destroy(Request $request)
     {
 
-        $Classrooms = Classroom::findOrFail($request->id)->delete();
+        Log::alert($request);
+        Log::alert($request->ids);
+        Classroom::destroy($request->ids);
         toastr()->error(__('messages.delete'));
         return redirect()->route('classrooms.index');
 
@@ -157,8 +147,8 @@ class ClassroomController extends Controller
     public function Filter_Classes(Request $request)
     {
         $Grades = Grade::all();
-        $Search = Classroom::select('*')->where('Grade_id','=',$request->Grade_id)->get();
-        return view('pages.classroom.classroom',compact('Grades'))->withDetails($Search);
+        $Search = Classroom::select('*')->where('Grade_id', '=', $request->Grade_id)->get();
+        return view('pages.classroom.classroom', compact('Grades'))->withDetails($Search);
 
     }
 

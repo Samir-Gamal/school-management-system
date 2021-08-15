@@ -233,15 +233,15 @@
                     @csrf
                     <div class="card-body">
                         <div class="repeater">
-                            <div data-repeater-list="List_Classes">
+                            <div data-repeater-list="classrooms">
                                 <div data-repeater-item>
                                     <div class="row">
 
                                         <div class="col">
                                             <label for="Name"
-                                                class="mr-sm-2">{{ __('class.name_class') }}
+                                                class="mr-sm-2">{{ __('class.name_class_ar') }}
                                                 :</label>
-                                            <input class="form-control" type="text" name="Name" />
+                                            <input class="form-control" type="text" name="name_en" />
                                         </div>
 
 
@@ -249,7 +249,7 @@
                                             <label for="Name"
                                                 class="mr-sm-2">{{ __('class.name_class_en') }}
                                                 :</label>
-                                            <input class="form-control" type="text" name="Name_class_en" />
+                                            <input class="form-control" type="text" name="name_ar" />
                                         </div>
 
 
@@ -259,7 +259,7 @@
                                                 :</label>
 
                                             <div class="box">
-                                                <select class="fancyselect" name="Grade_id">
+                                                <select class="fancyselect" name="grade_id">
                                                     @foreach ($Grades as $Grade)
                                                         <option value="{{ $Grade->id }}">{{ $Grade->name }}</option>
                                                     @endforeach
@@ -287,7 +287,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
-                                    data-dismiss="modal">{{ __('grade.Close') }}</button>
+                                    data-dismiss="modal">{{ __('grade.close') }}</button>
                                 <button type="submit"
                                     class="btn btn-success">{{ __('grade.submit') }}</button>
                             </div>
