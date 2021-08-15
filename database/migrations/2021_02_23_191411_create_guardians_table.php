@@ -20,6 +20,7 @@ class CreateGuardiansTable extends Migration
 
             //Fatherinformation
             $table->string('father_name');
+            $table->string('father_national_id');
             $table->string('father_passport_id');
             $table->string('father_phone');
             $table->string('father_job');
@@ -30,7 +31,7 @@ class CreateGuardiansTable extends Migration
 
             //Mother information
             $table->string('mother_name');
-            $table->string('mother_nationality_id');
+            $table->string('mother_national_id');
             $table->string('mother_passport_id');
             $table->string('mother_phone');
             $table->string('mother_job');
@@ -40,6 +41,12 @@ class CreateGuardiansTable extends Migration
             $table->string('mother_address');
             $table->timestamps();
 
+            $table->foreign('father_nationality_id')->references('id')->on('nationalities');
+            $table->foreign('father_blood_type_id')->references('id')->on('blood_types');
+            $table->foreign('father_religion_id')->references('id')->on('religions');
+            $table->foreign('mother_nationality_id')->references('id')->on('nationalities');
+            $table->foreign('mother_blood_type_id')->references('id')->on('blood_types');
+            $table->foreign('mother_religion_id')->references('id')->on('religions');
         });
     }
 
