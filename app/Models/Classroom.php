@@ -9,19 +9,55 @@ class Classroom extends Model
 {
 
     use HasTranslations;
-    public $translatable = ['name'];
 
-
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
     protected $table = 'classrooms';
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'grade_id'
+    ];
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
+
+    /**
+     * The database primary key value.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [];
+
+    public $translatable = ['name'];
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
     public $timestamps = true;
-    protected $fillable=['name','grade_id'];
 
 
     // علاقة بين الصفوف المراحل الدراسية لجلب اسم المرحلة في جدول الصفوف
 
-    public function Grades()
+    public function grades()
     {
-        return $this->belongsTo('App\Models\Grade', 'grade_id');
+        return $this->belongsTo(Gender::class);
     }
-
 }
