@@ -72,7 +72,7 @@
                                                                         <?php $i++; ?>
                                                                         <td>{{ $i }}</td>
                                                                         <td>{{ $list_Sections->name }}</td>
-                                                                        <td>{{ $list_Sections->My_classs->name }}</td>
+                                                                        <td>{{ $list_Sections->classroom->name }}</td>
                                                                         <td>
                                                                             <label class="badge badge-{{$list_Sections->status == 1 ? 'success':'danger'}}">{{$list_Sections->status == 1 ? 'نشط':'غير نشط'}}</label>
                                                                         </td>

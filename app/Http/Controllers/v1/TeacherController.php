@@ -19,8 +19,8 @@ class TeacherController extends Controller
     }
     public function create()
     {
-        $specializations = $this->Teacher->Getspecialization();
-        $genders = $this->Teacher->GetGender();
+        $specializations = specialization::all();;
+        $genders =  Gender::all();
         return view('pages.teachers.create',compact('specializations','genders'));
     }
 
@@ -45,13 +45,7 @@ class TeacherController extends Controller
 
     }
 
-    public function Getspecialization(){
-        return specialization::all();
-    }
 
-    public function GetGender(){
-        return Gender::all();
-    }
 
 
 

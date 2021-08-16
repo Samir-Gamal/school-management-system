@@ -39,10 +39,10 @@
                     <div class="card-body">
                         <div class="accordion gray plus-icon round">
 
-                            @foreach ($Grades as $Grade)
+                            @foreach ($grades as $grade)
 
                                 <div class="acd-group">
-                                    <a href="#" class="acd-heading">{{ $Grade->name }}</a>
+                                    <a href="#" class="acd-heading">{{ $grade->name }}</a>
                                     <div class="acd-des">
 
                                         <div class="row">
@@ -67,15 +67,15 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <?php $i = 0; ?>
-                                                                @foreach ($Grade->Sections as $list_Sections)
+                                                                @foreach ($grade->sections as $section)
                                                                     <tr>
                                                                         <?php $i++; ?>
                                                                         <td>{{ $i }}</td>
-                                                                        <td>{{ $list_Sections->name }}</td>
-                                                                        <td>{{ $list_Sections->My_classs->name }}
+                                                                        <td>{{ $section->name }}</td>
+                                                                        <td>{{ $section->classroom->name }}
                                                                         </td>
                                                                         <td>
-                                                                            @if ($list_Sections->status === 1)
+                                                                            @if ($section->status === 1)
                                                                                 <label
                                                                                     class="badge badge-success">{{ __('section.status_section_ac') }}</label>
                                                                             @else
@@ -89,18 +89,18 @@
                                                                             <a href="#"
                                                                                class="btn btn-outline-info btn-sm"
                                                                                data-toggle="modal"
-                                                                               data-target="#edit{{ $list_Sections->id }}">{{ __('section.edit') }}</a>
+                                                                               data-target="#edit{{ $section->id }}">{{ __('section.edit') }}</a>
                                                                             <a href="#"
                                                                                class="btn btn-outline-danger btn-sm"
                                                                                data-toggle="modal"
-                                                                               data-target="#delete{{ $list_Sections->id }}">{{ __('section.delete') }}</a>
+                                                                               data-target="#delete{{ $section->id }}">{{ __('section.delete') }}</a>
                                                                         </td>
                                                                     </tr>
 
 
                                                                     <!--تعديل قسم جديد -->
                                                                     <div class="modal fade"
-                                                                         id="edit{{ $list_Sections->id }}"
+                                                                         id="edit{{ $section->id }}"
                                                                          tabindex="-1" role="dialog"
                                                                          aria-labelledby="exampleModalLabel"
                                                                          aria-hidden="true">
@@ -131,19 +131,19 @@
                                                                                                 <input type="text"
                                                                                                        name="Name_Section_Ar"
                                                                                                        class="form-control"
-                                                                                                       value="{{ $list_Sections->getTranslation('name', 'ar') }}">
+                                                                                                       value="{{ $section->getTranslation('name', 'ar') }}">
                                                                                             </div>
 
                                                                                             <div class="col">
                                                                                                 <input type="text"
                                                                                                        name="Name_Section_En"
                                                                                                        class="form-control"
-                                                                                                       value="{{ $list_Sections->getTranslation('name', 'en') }}">
+                                                                                                       value="{{ $section->getTranslation('name', 'en') }}">
                                                                                                 <input id="id"
                                                                                                        type="hidden"
                                                                                                        name="id"
                                                                                                        class="form-control"
-                                                                                                       value="{{ $list_Sections->id }}">
+                                                                                                       value="{{ $section->id }}">
                                                                                             </div>
 
                                                                                         </div>
@@ -158,13 +158,13 @@
                                                                                                     onclick="console.log($(this).val())">
                                                                                                 <!--placeholder-->
                                                                                                 <option
-                                                                                                    value="{{ $Grade->id }}">
-                                                                                                    {{ $Grade->name }}
+                                                                                                    value="{{ $grade->id }}">
+                                                                                                    {{ $grade->name }}
                                                                                                 </option>
-                                                                                                @foreach ($list_Grades as $list_Grade)
+                                                                                                @foreach ($grades as $grade)
                                                                                                     <option
-                                                                                                        value="{{ $list_Grade->id }}">
-                                                                                                        {{ $list_Grade->name }}
+                                                                                                        value="{{ $grade->id }}">
+                                                                                                        {{ $grade->name }}
                                                                                                     </option>
                                                                                                 @endforeach
                                                                                             </select>
@@ -177,8 +177,8 @@
                                                                                             <select name="Class_id"
                                                                                                     class="custom-select">
                                                                                                 <option
-                                                                                                    value="{{ $list_Sections->My_classs->id }}">
-                                                                                                    {{ $list_Sections->My_classs->name }}
+                                                                                                    value="{{ $section->classroom->id }}">
+                                                                                                    {{ $section->classroom->name }}
                                                                                                 </option>
                                                                                             </select>
                                                                                         </div>
@@ -187,7 +187,7 @@
                                                                                         <div class="col">
                                                                                             <div class="form-check">
 
-                                                                                                @if ($list_Sections->status === 1)
+                                                                                                @if ($section->status === 1)
                                                                                                     <input
                                                                                                         type="checkbox"
                                                                                                         checked
@@ -208,7 +208,7 @@
                                                                                                     <div class="col">
                                                                                                         <label for="inputName" class="control-label">{{ __('section.name_teacher') }}</label>
                                                                                                         <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
-                                                                                                            @foreach($list_Sections->teachers as $teacher)
+                                                                                                            @foreach($section->teachers as $teacher)
                                                                                                                 <option selected value="{{$teacher['id']}}">{{$teacher['name']}}</option>
                                                                                                             @endforeach
 
@@ -237,7 +237,7 @@
 
                                                                     <!-- delete_modal_Grade -->
                                                                     <div class="modal fade"
-                                                                         id="delete{{ $list_Sections->id }}"
+                                                                         id="delete{{ $section->id }}"
                                                                          tabindex="-1" role="dialog"
                                                                          aria-labelledby="exampleModalLabel"
                                                                          aria-hidden="true">
@@ -266,7 +266,7 @@
                                                                                         <input id="id" type="hidden"
                                                                                                name="id"
                                                                                                class="form-control"
-                                                                                               value="{{ $list_Sections->id }}">
+                                                                                               value="{{ $section->id }}">
                                                                                         <div class="modal-footer">
                                                                                             <button type="button"
                                                                                                     class="btn btn-secondary"
@@ -339,8 +339,8 @@
                                                 <option value="" selected
                                                         disabled>{{ __('section.select_grade') }}
                                                 </option>
-                                                @foreach ($list_Grades as $list_Grade)
-                                                    <option value="{{ $list_Grade->id }}"> {{ $list_Grade->name }}
+                                                @foreach ($grades as $grade)
+                                                    <option value="{{ $grade->id }}"> {{ $grade->name }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -351,8 +351,8 @@
                                             <label for="inputName"
                                                    class="control-label">{{ __('section.name_class') }}</label>
                                             <select name="Class_id" class="custom-select">
-                                                @foreach($list_Grades as $list_Grade)
-                                                    <option value="{{$list_Grade->id}}">{{$list_Grade->name}}</option>
+                                                @foreach($grades as $grade)
+                                                    <option value="{{$grade->id}}">{{$grade->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div><br>

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\v1;
+
 use App\Http\Controllers\Controller;
 use App\Models\Classroom;
 use App\Http\Requests\StoreGrades;
@@ -9,101 +11,74 @@ use Illuminate\Http\Request;
 class GradeController extends Controller
 {
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return Response
-   */
-  public function index()
-  {
-      $Grades = Grade::all();
-    return view('pages.grades.grades',compact('Grades'));
-  }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $grades = Grade::all();
+        return view('pages.grades.index', compact('grades'));
+    }
 
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store(StoreGrades $request)
+    {
+        $grade = new Grade();
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store(StoreGrades $request)
-  {
+        $grade->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
+        $grade->notes = $request->notes;
+        $grade->save();
+        toastr()->success(__('messages.success'));
+        return redirect()->route('grades.index');
 
- try {
-          $validated = $request->validated();
-          $Grade = new Grade();
-          /*
-          $translations = [
-              'en' => $request->Name_en,
-              'ar' => $request->Name
-          ];
-          $Grade->setTranslations('Name', $translations);
-          */
-          $Grade->name = ['en' => $request->Name_en, 'ar' => $request->Name];
-          $Grade->notes = $request->Notes;
-          $Grade->save();
-          toastr()->success(__('messages.success'));
-          return redirect()->route('grades.index');
-      }
+    }
 
-      catch (\Exception $e){
-          return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-      }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function update(StoreGrades $request)
+    {
+        $grade = Grade::findOrFail($request->id)->update([
+            'name' => ['ar' => $request->name_ar, 'en' => $request->name_en],
+            'notes' => $request->notes,
+        ]);
 
+        toastr()->success(__('messages.update'));
+        return redirect()->route('grades.index');
 
-  }
+    }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-   public function update(StoreGrades $request)
- {
-   try {
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function destroy(Request $request)
+    {
 
-       $validated = $request->validated();
-       $Grades = Grade::findOrFail($request->id);
-       $Grades->update([
-         $Grades->name = ['ar' => $request->Name, 'en' => $request->Name_en],
-         $Grades->notes = $request->Notes,
-       ]);
-       toastr()->success(__('messages.update'));
-       return redirect()->route('grades.index');
-   }
-   catch
-   (\Exception $e) {
-       return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-   }
- }
+        $grade = Grade::withCount('classrooms')->findOrFail($request->id);
+        if ($grade->classrooms_count == 0) {
+            $grade->delete();
+            toastr()->error(__('messages.delete'));
+            return redirect()->route('grades.index');
+        } else {
+            toastr()->error(__('grade.delete_grade_error'));
+            return redirect()->route('grades.index');
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy(Request $request)
-  {
-      $MyClass_id = Classroom::where('Grade_id',$request->id)->pluck('Grade_id');
-
-      if($MyClass_id->count() == 0){
-
-          $Grades = Grade::findOrFail($request->id)->delete();
-          toastr()->error(__('messages.delete'));
-          return redirect()->route('grades.index');
-      }
-
-      else{
-
-          toastr()->error(__('grade.delete_Grade_Error'));
-          return redirect()->route('grades.index');
-
-      }
+        }
 
 
-  }
+    }
 
 }

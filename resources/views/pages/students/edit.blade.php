@@ -104,18 +104,18 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>{{__('student.Date_of_Birth')}}  :</label>
+                                    <label>{{__('student.date_of_birth')}}  :</label>
                                     <input class="form-control" type="text" value="{{$Students->date_birth}}" id="datepicker-action" name="Date_Birth" data-date-format="yyyy-mm-dd">
                                 </div>
                             </div>
 
                         </div>
 
-                    <h6 style="font-family: 'Cairo', sans-serif;color: blue">{{__('student.Student_information')}}</h6><br>
+                    <h6 style="font-family: 'Cairo', sans-serif;color: blue">{{__('student.student_information')}}</h6><br>
                     <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="Grade_id">{{__('student.Grade')}} : <span class="text-danger">*</span></label>
+                                    <label for="Grade_id">{{__('student.grade')}} : <span class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="Grade_id">
                                         <option selected disabled>{{__('parent.choose')}}...</option>
                                         @foreach($Grades as $Grade)

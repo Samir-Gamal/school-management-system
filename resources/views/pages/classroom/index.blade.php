@@ -45,11 +45,11 @@
 
                 <form action="{{route('filter-classes')}}" method="post">
                     {{ csrf_field() }}
-                    <select class="selectpicker" data-style="btn-info" name="Grade_id" required
+                    <select class="selectpicker" data-style="btn-info" name="grade_id" required
                             onchange="this.form.submit()">
                         <option value="" selected disabled>{{ __('class.search_by_grade') }}</option>
-                        @foreach ($Grades as $Grade)
-                            <option value="{{ $Grade->id }}">{{ $Grade->name }}</option>
+                        @foreach ($grades as $grade)
+                            <option value="{{ $grade->id }}">{{ $grade->name }}</option>
                         @endforeach
                     </select>
                 </form>
@@ -72,34 +72,32 @@
 
                     @if (isset($details))
 
-                        <?php $List_Classes = $details; ?>
-                    @else
+                        <?php $classrooms = $details; ?>
 
-                        <?php $List_Classes = $My_Classes; ?>
                     @endif
 
                         <?php $i = 0; ?>
 
-                        @foreach ($List_Classes as $My_Class)
+                        @foreach ($classrooms as $classroom)
                             <tr>
                                 <?php $i++; ?>
-                                <td><input type="checkbox"  value="{{ $My_Class->id }}" class="box1" ></td>
+                                <td><input type="checkbox"  value="{{ $classroom->id }}" class="box1" ></td>
                                 <td>{{ $i }}</td>
-                                <td>{{ $My_Class->name }}</td>
-                                <td>{{ $My_Class->grade->name }}</td>
+                                <td>{{ $classroom->name }}</td>
+                                <td>{{ $classroom->grade->name }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                        data-target="#edit{{ $My_Class->id }}"
+                                        data-target="#edit{{ $classroom->id }}"
                                         title="{{ __('grade.edit') }}"><i class="fa fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                        data-target="#delete{{ $My_Class->id }}"
+                                        data-target="#delete{{ $classroom->id }}"
                                         title="{{ __('grade.delete') }}"><i
                                             class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
 
                             <!-- edit_modal_Grade -->
-                            <div class="modal fade" id="edit{{ $My_Class->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="edit{{ $classroom->id }}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -123,20 +121,20 @@
                                                         <label for="Name"
                                                                class="mr-sm-2">{{ __('class.name_class') }}
                                                             :</label>
-                                                        <input id="Name" type="text" name="Name"
+                                                        <input id="name_ar" type="text" name="name_ar"
                                                                class="form-control"
-                                                               value="{{ $My_Class->getTranslation('name', 'ar') }}"
+                                                               value="{{ $classroom->getTranslation('name', 'ar') }}"
                                                                required>
                                                         <input id="id" type="hidden" name="id" class="form-control"
-                                                               value="{{ $My_Class->id }}">
+                                                               value="{{ $classroom->id }}">
                                                     </div>
                                                     <div class="col">
-                                                        <label for="Name_en"
+                                                        <label for="name_en"
                                                                class="mr-sm-2">{{ __('class.name_class_en') }}
                                                             :</label>
                                                         <input type="text" class="form-control"
-                                                               value="{{ $My_Class->getTranslation('name', 'en') }}"
-                                                               name="Name_en" required>
+                                                               value="{{ $classroom->getTranslation('name', 'en') }}"
+                                                               name="name_en" required>
                                                     </div>
                                                 </div><br>
                                                 <div class="form-group">
@@ -144,13 +142,13 @@
                                                         for="exampleFormControlTextarea1">{{ __('class.name_grade') }}
                                                         :</label>
                                                     <select class="form-control form-control-lg"
-                                                            id="exampleFormControlSelect1" name="Grade_id">
-                                                        <option value="{{ $My_Class->grade->id }}">
-                                                            {{ $My_Class->grade->name }}
+                                                            id="exampleFormControlSelect1" name="grade_id">
+                                                        <option value="{{ $classroom->grade->id }}">
+                                                            {{ $classroom->grade->name }}
                                                         </option>
-                                                        @foreach ($Grades as $Grade)
-                                                            <option value="{{ $Grade->id }}">
-                                                                {{ $Grade->name }}
+                                                        @foreach ($grades as $grade)
+                                                            <option value="{{ $grade->id }}">
+                                                                {{ $grade->name }}
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -173,7 +171,7 @@
 
 
                             <!-- delete_modal_Grade -->
-                            <div class="modal fade" id="delete{{ $My_Class->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="delete{{ $classroom->id }}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -192,9 +190,9 @@
                                                   method="post">
                                                 {{ method_field('Delete') }}
                                                 @csrf
-                                                {{ __('class.warning_grade') }}
+                                                {{ __('class.warning_class') }}
                                                 <input id="id" type="hidden" name="id" class="form-control"
-                                                       value="{{ $My_Class->id }}">
+                                                       value="{{ $classroom->id }}">
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">{{ __('class.close') }}</button>
@@ -260,8 +258,8 @@
 
                                             <div class="box">
                                                 <select class="fancyselect" name="grade_id">
-                                                    @foreach ($Grades as $Grade)
-                                                        <option value="{{ $Grade->id }}">{{ $Grade->name }}</option>
+                                                    @foreach ($grades as $grade)
+                                                        <option value="{{ $grade->id }}">{{ $grade->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -325,8 +323,8 @@
             <form action="{{ route('delete-all') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="modal-body">
-                    {{ __('class.warning_grade') }}
-                    <input class="text" type="hidden" id="delete_all_id" name="delete_all_id" value=''>
+                    {{ __('class.warning_class') }}
+                    <input class="text" type="hidden" id="delete_all_id" name="ids" value=''>
                 </div>
 
                 <div class="modal-footer">
@@ -361,7 +359,7 @@
 
             if (selected.length > 0) {
                 $('#delete_all').modal('show')
-                $('input[id="delete_all_id"]').val(selected);
+                $('input[id="delete_all_id"]').val(array);
             }
         });
     });

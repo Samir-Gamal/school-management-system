@@ -38,7 +38,7 @@
             @endif
 
             <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
-                {{ __('grade.add_Grade') }}
+                {{ __('grade.add_grade') }}
             </button>
             <br><br>
 
@@ -48,39 +48,39 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ __('grade.Name') }}</th>
-                            <th>{{ __('grade.Notes') }}</th>
+                            <th>{{ __('grade.name') }}</th>
+                            <th>{{ __('grade.notes') }}</th>
                             <th>{{ __('grade.processes') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 0; ?>
-                        @foreach ($Grades as $Grade)
+                        @foreach ($grades as $grade)
                             <tr>
                                 <?php $i++; ?>
                                 <td>{{ $i }}</td>
-                                <td>{{ $Grade->name }}</td>
-                                <td>{{ $Grade->notes }}</td>
+                                <td>{{ $grade->name }}</td>
+                                <td>{{ $grade->notes }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                        data-target="#edit{{ $Grade->id }}"
+                                        data-target="#edit{{ $grade->id }}"
                                         title="{{ __('grade.edit') }}"><i class="fa fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                        data-target="#delete{{ $Grade->id }}"
+                                        data-target="#delete{{ $grade->id }}"
                                         title="{{ __('grade.delete') }}"><i
                                             class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
 
                             <!-- edit_modal_Grade -->
-                            <div class="modal fade" id="edit{{ $Grade->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="edit{{ $grade->id }}" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                 id="exampleModalLabel">
-                                                {{ __('grade.edit_Grade') }}
+                                                {{ __('grade.edit_grade') }}
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal"
                                                 aria-label="Close">
@@ -97,35 +97,35 @@
                                                         <label for="Name"
                                                             class="mr-sm-2">{{ __('grade.stage_name_ar') }}
                                                             :</label>
-                                                        <input id="Name" type="text" name="Name"
+                                                        <input id="Name" type="text" name="name_ar"
                                                             class="form-control"
-                                                            value="{{ $Grade->getTranslation('name', 'ar') }}"
+                                                            value="{{ $grade->getTranslation('name', 'ar') }}"
                                                             required>
                                                         <input id="id" type="hidden" name="id" class="form-control"
-                                                            value="{{ $Grade->id }}">
+                                                            value="{{ $grade->id }}">
                                                     </div>
                                                     <div class="col">
                                                         <label for="Name_en"
                                                             class="mr-sm-2">{{ __('grade.stage_name_en') }}
                                                             :</label>
                                                         <input type="text" class="form-control"
-                                                            value="{{ $Grade->getTranslation('name', 'en') }}"
-                                                            name="Name_en" required>
+                                                            value="{{ $grade->getTranslation('name', 'en') }}"
+                                                            name="name_en" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label
-                                                        for="exampleFormControlTextarea1">{{ __('grade.Notes') }}
+                                                        for="exampleFormControlTextarea1">{{ __('grade.notes') }}
                                                         :</label>
-                                                    <textarea class="form-control" name="Notes"
+                                                    <textarea class="form-control" name="notes"
                                                         id="exampleFormControlTextarea1"
-                                                        rows="3">{{ $Grade->notes }}</textarea>
+                                                        rows="3">{{ $grade->notes }}</textarea>
                                                 </div>
                                                 <br><br>
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">{{ __('grade.Close') }}</button>
+                                                        data-dismiss="modal">{{ __('grade.close') }}</button>
                                                     <button type="submit"
                                                         class="btn btn-success">{{ __('grade.submit') }}</button>
                                                 </div>
@@ -137,14 +137,14 @@
                             </div>
 
                             <!-- delete_modal_Grade -->
-                            <div class="modal fade" id="delete{{ $Grade->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="delete{{ $grade->id }}" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
                                                 id="exampleModalLabel">
-                                                {{ __('grade.delete_Grade') }}
+                                                {{ __('grade.delete_grade') }}
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal"
                                                 aria-label="Close">
@@ -155,12 +155,12 @@
                                             <form action="{{ route('grades.destroy', 'test') }}" method="post">
                                                 {{ method_field('Delete') }}
                                                 @csrf
-                                                {{ __('grade.Warning_Grade') }}
+                                                {{ __('grade.warning_grade') }}
                                                 <input id="id" type="hidden" name="id" class="form-control"
-                                                    value="{{ $Grade->id }}">
+                                                    value="{{ $grade->id }}">
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">{{ __('grade.Close') }}</button>
+                                                        data-dismiss="modal">{{ __('grade.close') }}</button>
                                                     <button type="submit"
                                                         class="btn btn-danger">{{ __('grade.submit') }}</button>
                                                 </div>
@@ -186,7 +186,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                    {{ __('grade.add_Grade') }}
+                    {{ __('grade.add_grade') }}
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -200,25 +200,25 @@
                         <div class="col">
                             <label for="Name" class="mr-sm-2">{{ __('grade.stage_name_ar') }}
                                 :</label>
-                            <input id="Name" type="text" name="Name" class="form-control">
+                            <input id="Name" type="text" name="name_ar" class="form-control">
                         </div>
                         <div class="col">
                             <label for="Name_en" class="mr-sm-2">{{ __('grade.stage_name_en') }}
                                 :</label>
-                            <input type="text" class="form-control" name="Name_en">
+                            <input type="text" class="form-control" name="name_en">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">{{ __('grade.Notes') }}
+                        <label for="exampleFormControlTextarea1">{{ __('grade.notes') }}
                             :</label>
-                        <textarea class="form-control" name="Notes" id="exampleFormControlTextarea1"
+                        <textarea class="form-control" name="notes" id="exampleFormControlTextarea1"
                             rows="3"></textarea>
                     </div>
                     <br><br>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{{ __('grade.Close') }}</button>
+                    data-dismiss="modal">{{ __('grade.close') }}</button>
                 <button type="submit" class="btn btn-success">{{ __('grade.submit') }}</button>
             </div>
             </form>

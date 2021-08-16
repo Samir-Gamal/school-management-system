@@ -54,9 +54,9 @@ class Section extends Model
     public $timestamps = true;
     // علاقة بين الاقسام والصفوف لجلب اسم الصف في جدول الاقسام
 
-    public function My_classs()
+    public function classroom()
     {
-        return $this->belongsTo(Classroom::class, 'classroom_id');
+        return $this->belongsTo(Classroom::class);
     }
 
     // علاقة الاقسام مع المعلمين

@@ -22,9 +22,9 @@ class ClassroomController extends Controller
     public function index()
     {
 
-        $My_Classes = Classroom::all();
-        $Grades = Grade::all();
-        return view('pages.classroom.classroom', compact('My_Classes', 'Grades'));
+        $classrooms = Classroom::all();
+        $grades = Grade::all();
+        return view('pages.classroom.index', compact('classrooms', 'grades'));
 
     }
 
@@ -96,22 +96,14 @@ class ClassroomController extends Controller
      */
     public function update(Request $request)
     {
+        $classroom = Classroom::findOrFail($request->id);
 
-        try {
-
-            $Classrooms = Classroom::findOrFail($request->id);
-
-            $Classrooms->update([
-
-                $Classrooms->name = ['ar' => $request->Name, 'en' => $request->Name_en],
-                $Classrooms->grade_id = $request->Grade_id,
-            ]);
-            toastr()->success(__('messages.update'));
-            return redirect()->route('classrooms.index');
-        } catch
-        (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        $classroom->update([
+            'name' => ['ar' => $request->name_ar, 'en' => $request->name_en],
+            'grade_id' => $request->grade_id,
+        ]);
+        toastr()->success(__('messages.update'));
+        return redirect()->route('classrooms.index');
 
 
     }
@@ -125,16 +117,14 @@ class ClassroomController extends Controller
     public function destroy(Request $request)
     {
 
-        Log::alert($request);
-        Log::alert($request->ids);
-        Classroom::destroy($request->ids);
+        Classroom::destroy($request->id);
         toastr()->error(__('messages.delete'));
         return redirect()->route('classrooms.index');
 
     }
 
 
-    public function delete_all(Request $request)
+    public function deleteAll(Request $request)
     {
         $delete_all_id = explode(",", $request->delete_all_id);
 
@@ -146,9 +136,9 @@ class ClassroomController extends Controller
 
     public function Filter_Classes(Request $request)
     {
-        $Grades = Grade::all();
-        $Search = Classroom::select('*')->where('Grade_id', '=', $request->Grade_id)->get();
-        return view('pages.classroom.classroom', compact('Grades'))->withDetails($Search);
+        $grades = Grade::all();
+        $Search = Classroom::select('*')->where('grade_id', '=', $request->grade_id)->get();
+        return view('pages.classroom.index', compact('grades'))->withDetails($Search);
 
     }
 
