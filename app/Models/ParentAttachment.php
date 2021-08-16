@@ -4,6 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\ParentAttachment
+ *
+ * @property int $id
+ * @property string|null $file_name
+ * @property int $parent_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereFileName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class ParentAttachment extends Model
 {
     /**

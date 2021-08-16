@@ -5,6 +5,61 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * App\Models\Guardian
+ *
+ * @property int $id
+ * @property string $email
+ * @property string $password
+ * @property array $father_name
+ * @property string $father_national_id
+ * @property string $father_passport_id
+ * @property string $father_phone
+ * @property array $father_job
+ * @property int $father_nationality_id
+ * @property int $father_blood_type_id
+ * @property int $father_religion_id
+ * @property string $father_address
+ * @property array $mother_name
+ * @property string $mother_national_id
+ * @property string $mother_passport_id
+ * @property string $mother_phone
+ * @property array $mother_job
+ * @property int $mother_nationality_id
+ * @property int $mother_blood_type_id
+ * @property int $mother_religion_id
+ * @property string $mother_address
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read array $translations
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherBloodTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherJob($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherNationalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherNationalityId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherPassportId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherReligionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherBloodTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherJob($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherNationalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherNationalityId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherPassportId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherReligionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Guardian extends Model
 {
     use HasTranslations;

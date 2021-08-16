@@ -5,6 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * App\Models\Classroom
+ *
+ * @property int $id
+ * @property array $name
+ * @property int $grade_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read array $translations
+ * @property-read \App\Models\Grade $grade
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereGradeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Classroom extends Model
 {
 
@@ -58,6 +78,6 @@ class Classroom extends Model
 
     public function grade()
     {
-        return $this->belongsTo(Gender::class);
+        return $this->belongsTo(Grade::class);
     }
 }

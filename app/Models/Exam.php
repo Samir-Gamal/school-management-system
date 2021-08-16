@@ -5,6 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * App\Models\Exam
+ *
+ * @property int $id
+ * @property array $name
+ * @property int $term
+ * @property string $academic_year
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read array $translations
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam whereAcademicYear($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam whereTerm($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Exam whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Exam extends Model
 {
     use HasTranslations;

@@ -6,6 +6,62 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * App\Models\Student
+ *
+ * @property int $id
+ * @property array $name
+ * @property string $email
+ * @property string $password
+ * @property int $gender_id
+ * @property int $nationalitie_id
+ * @property int $blood_id
+ * @property string $date_birth
+ * @property int $grade_id
+ * @property int $classroom_id
+ * @property int $section_id
+ * @property int $parent_id
+ * @property string $academic_year
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Nationalitie $Nationality
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Attendance[] $attendance
+ * @property-read int|null $attendance_count
+ * @property-read \App\Models\Classroom $classroom
+ * @property-read \App\Models\Gender $gender
+ * @property-read array $translations
+ * @property-read \App\Models\Grade $grade
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Image[] $images
+ * @property-read int|null $images_count
+ * @property-read \App\Models\Guardian $myparent
+ * @property-read \App\Models\Section $section
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\StudentAccount[] $student_account
+ * @property-read int|null $student_account_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Student newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Student onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereAcademicYear($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereBloodId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereClassroomId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereDateBirth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereGenderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereGradeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationalitieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereSectionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Student withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Student withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Student extends Model
 {
     use SoftDeletes;

@@ -4,6 +4,39 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Invoice
+ *
+ * @property int $id
+ * @property string $invoice_date
+ * @property int $student_id
+ * @property int $grade_id
+ * @property int $classroom_id
+ * @property int $fee_id
+ * @property string $amount
+ * @property string|null $description
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Classroom $classroom
+ * @property-read \App\Models\Fee $fees
+ * @property-read \App\Models\Grade $grade
+ * @property-read \App\Models\Section $section
+ * @property-read \App\Models\Student $student
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereClassroomId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereFeeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereGradeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereInvoiceDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereStudentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Invoice extends Model
 {
     /**

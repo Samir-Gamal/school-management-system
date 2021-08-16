@@ -5,6 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
+/**
+ * App\Models\Subject
+ *
+ * @property int $id
+ * @property array $name
+ * @property int $grade_id
+ * @property int $classroom_id
+ * @property int $teacher_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Classroom $classroom
+ * @property-read array $translations
+ * @property-read \App\Models\Grade $grade
+ * @property-read \App\Models\Teacher $teacher
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject whereClassroomId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject whereGradeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject whereTeacherId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Subject whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Subject extends Model
 {
     use HasTranslations;
