@@ -9,7 +9,6 @@ use App\Models\Classroom;
 use App\Models\Customer;
 use App\Models\Grade;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class ClassroomController extends Controller
 {
@@ -28,15 +27,6 @@ class ClassroomController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -60,34 +50,6 @@ class ClassroomController extends Controller
     }
 
 
-    /*
-
-
-    */
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -104,7 +66,6 @@ class ClassroomController extends Controller
         ]);
         toastr()->success(__('messages.update'));
         return redirect()->route('classrooms.index');
-
 
     }
 

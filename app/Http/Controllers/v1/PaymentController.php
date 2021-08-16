@@ -16,19 +16,19 @@ class PaymentController extends Controller
     public function index()
     {
         $payment_students = PaymentStudent::all();
-        return view('pages.payment.index',compact('payment_students'));
+        return view('pages.payment.index', compact('payment_students'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.payment.add',compact('student'));
+        return view('pages.payment.add', compact('student'));
     }
 
     public function edit($id)
     {
         $payment_student = PaymentStudent::findorfail($id);
-        return view('pages.payment.edit',compact('payment_student'));
+        return view('pages.payment.edit', compact('payment_student'));
     }
 
     public function store($request)
@@ -92,7 +92,7 @@ class PaymentController extends Controller
 
 
             // حفظ البيانات في جدول الصندوق
-            $fund_accounts = FundAccount::where('payment_id',$request->id)->first();
+            $fund_accounts = FundAccount::where('payment_id', $request->id)->first();
             $fund_accounts->date = date('Y-m-d');
             $fund_accounts->payment_id = $payment_students->id;
             $fund_accounts->debit = 0.00;
@@ -102,7 +102,7 @@ class PaymentController extends Controller
 
 
             // حفظ البيانات في جدول حساب الطلاب
-            $students_accounts = StudentAccount::where('payment_id',$request->id)->first();
+            $students_accounts = StudentAccount::where('payment_id', $request->id)->first();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'payment';
             $students_accounts->student_id = $request->student_id;
@@ -126,9 +126,7 @@ class PaymentController extends Controller
             PaymentStudent::destroy($request->id);
             toastr()->error(__('messages.delete'));
             return redirect()->back();
-        }
-
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

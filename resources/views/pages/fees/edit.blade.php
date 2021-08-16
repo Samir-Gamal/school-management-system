@@ -50,16 +50,16 @@
 
                             <div class="form-group col">
                                 <label for="inputState">المرحلة الدراسية</label>
-                                <select class="custom-select mr-sm-2" name="Grade_id">
-                                    @foreach($Grades as $Grade)
-                                        <option value="{{ $Grade->id }}" {{$Grade->id == $fee->grade_id ? 'selected' : ""}}>{{ $Grade->name }}</option>
+                                <select class="custom-select mr-sm-2" name="grade_id">
+                                    @foreach($grades as $grade)
+                                        <option value="{{ $grade->id }}" {{$grade->id == $fee->grade_id ? 'selected' : ""}}>{{ $grade->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group col">
                                 <label for="inputZip">الصف الدراسي</label>
-                                <select class="custom-select mr-sm-2" name="Classroom_id">
+                                <select class="custom-select mr-sm-2" name="classroom_id">
                                     <option value="{{$fee->classroom_id}}">{{$fee->classroom->name}}</option>
                                 </select>
                             </div>

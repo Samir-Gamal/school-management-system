@@ -65,20 +65,4 @@ class AttendanceController extends Controller
         return view('pages.attendance.index',compact('students'));
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
-    }
 }

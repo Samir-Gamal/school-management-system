@@ -28,17 +28,17 @@
                                 <div class="form-row">
 
                                     <div class="col">
-                                        <label for="title">اسم الامتحان باللغة العربية</label>
-                                        <input type="text" name="Name_ar" class="form-control">
+                                        <label for="title">{{__('validation.attributes.name_ar')}}</label>
+                                        <input type="text" name="name_ar" class="form-control">
                                     </div>
 
                                     <div class="col">
-                                        <label for="title">اسم الامتحان باللغة الانجليزية</label>
-                                        <input type="text" name="Name_en" class="form-control">
+                                        <label for="title">{{__('validation.attributes.name_en')}}</label>
+                                        <input type="text" name="name_en" class="form-control">
                                     </div>
 
                                     <div class="col">
-                                        <label for="title">الترم</label>
+                                        <label for="title">{{__('validation.attributes.term')}}</label>
                                         <input type="number" name="term" class="form-control">
                                     </div>
 
@@ -47,7 +47,7 @@
 
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label for="academic_year">{{__('student.academic_year')}} : <span class="text-danger">*</span></label>
+                                        <label for="academic_year">{{__('validation.attributes.academic_year')}} : <span class="text-danger">*</span></label>
                                         <select class="custom-select mr-sm-2" name="academic_year">
                                             <option selected disabled>{{__('parent.choose')}}...</option>
                                             @php

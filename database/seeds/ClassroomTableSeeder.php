@@ -3,7 +3,6 @@
 use App\Models\Classroom;
 use App\Models\Grade;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ClassroomTableSeeder extends Seeder
 {

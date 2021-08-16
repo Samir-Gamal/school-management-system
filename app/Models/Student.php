@@ -176,4 +176,14 @@ class Student extends Model
         return $this->hasMany(Attendance::class, 'student_id');
     }
 
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeGraduated($query)
+    {
+        return $query->onlyTrashed();
+    }
 }

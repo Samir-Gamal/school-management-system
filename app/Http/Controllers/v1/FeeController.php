@@ -3,90 +3,70 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreFeesRequest;
+use App\Http\Requests\FeeRequest;
+use App\Models\Classroom;
+use App\Models\Customer;
 use App\Models\Fee;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 
 class FeeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $fees = Fee::all();
-        $Grades = Grade::all();
-        return view('pages.fees.index',compact('fees','Grades'));
+        $grades = Grade::all();
+        return view('pages.fees.index', compact('fees', 'grades'));
 
     }
 
-    public function create(){
+    public function create()
+    {
 
-        $Grades = Grade::all();
-        return view('pages.fees.add',compact('Grades'));
+        $grades = Grade::all();
+        $classrooms = Classroom::all();
+        return view('pages.fees.add', compact('grades', 'classrooms'));
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
 
         $fee = Fee::findorfail($id);
-        $Grades = Grade::all();
-        return view('pages.fees.edit',compact('fee','Grades'));
+        $grades = Grade::all();
+        $classrooms = Classroom::all();
+        return view('pages.fees.edit', compact('fee', 'grades', 'classrooms'));
 
     }
 
 
-    public function store(StoreFeesRequest $request)
+    public function store(FeeRequest $request)
     {
-        try {
+        $input = $request->only((new Fee())->getFillable());
+        $input['title'] = ['en' => $request->title_en, 'ar' => $request->title_ar];
+        $fee = Fee::create($input);
+        toastr()->success(__('messages.success'));
+        return redirect()->route('fees.index');
 
-            $fees = new Fee();
-            $fees->title = ['en' => $request->title_en, 'ar' => $request->title_ar];
-            $fees->amount  =$request->amount;
-            $fees->grade_id  =$request->Grade_id;
-            $fees->classroom_id  =$request->Classroom_id;
-            $fees->description  =$request->description;
-            $fees->year  =$request->year;
-            $fees->fee_type  =$request->Fee_type;
-            $fees->save();
-            toastr()->success(__('messages.success'));
-            return redirect()->route('fees.create');
-
-        }
-
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
     }
 
-    public function update(StoreFeesRequest $request)
+    public function update(FeeRequest $request)
     {
-        try {
-            $fees = Fee::findorfail($request->id);
-            $fees->title = ['en' => $request->title_en, 'ar' => $request->title_ar];
-            $fees->amount  =$request->amount;
-            $fees->grade_id  =$request->Grade_id;
-            $fees->classroom_id  =$request->Classroom_id;
-            $fees->description  =$request->description;
-            $fees->year  =$request->year;
-            $fees->fee_type  =$request->Fee_type;
-            $fees->save();
-            toastr()->success(__('messages.update'));
-            return redirect()->route('fees.index');
-        }
 
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        $fees = Fee::findorfail($request->id);
+        $input = $request->only((new Fee())->getFillable());
+        $input['title'] = ['en' => $request->title_en, 'ar' => $request->title_ar];
+        $fees->update($input);
+        toastr()->success(__('messages.update'));
+        return redirect()->route('fees.index');
+
     }
 
     public function destroy(Request $request)
     {
-        try {
             Fee::destroy($request->id);
             toastr()->error(__('messages.delete'));
             return redirect()->back();
-        }
 
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
     }
 }

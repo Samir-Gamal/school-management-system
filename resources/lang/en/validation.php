@@ -155,6 +155,10 @@ return [
         'name_en' => 'English Name',
         'classrooms.*.name_ar' =>  'Classrooms Arabic Name',
         'classrooms.*.name_en' =>  'Classrooms English Name',
+        'term' =>  'Term',
+        'academic_year' =>  'Academic Year',
+        'classroom_id' =>  'Classroom ID',
+
     ],
 
 ];

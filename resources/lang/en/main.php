@@ -43,4 +43,6 @@ return [
     'enter'=>'Enter',
     'terms_of_use'=>'Terms of Use',
     'privacy_policy'=>'Privacy Policy',
+    'classroom'=>'Classroom',
+    'create'=>'إضافة',
 ];

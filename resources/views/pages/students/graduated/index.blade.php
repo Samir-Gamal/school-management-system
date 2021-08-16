@@ -31,7 +31,7 @@
                                             <th>{{__('student.name')}}</th>
                                             <th>{{__('student.email')}}</th>
                                             <th>{{__('student.gender')}}</th>
-                                            <th>{{__('student.Grade')}}</th>
+                                            <th>{{__('student.grade')}}</th>
                                             <th>{{__('student.classrooms')}}</th>
                                             <th>{{__('student.section')}}</th>
                                             <th>{{__('student.processes')}}</th>
@@ -53,8 +53,8 @@
 
                                                 </td>
                                             </tr>
-                                        @include('pages.students.graduated.return')
-                                        @include('pages.students.graduated.delete')
+                                        @include('pages.students.graduated.restore')
+                                        @include('pages.students.graduated.destroy')
                                         @endforeach
                                     </table>
                                 </div>

@@ -33,26 +33,30 @@
                         @csrf
                         <div class="form-row">
                             <div class="form-group col">
-                                <label for="inputState">{{__('student.Grade')}}</label>
-                                <select class="custom-select mr-sm-2" name="Grade_id" required>
+                                <label for="inputState">{{__('student.grade')}}</label>
+                                <select class="custom-select mr-sm-2" name="grade_id" required>
                                     <option selected disabled>{{__('parent.choose')}}...</option>
-                                    @foreach($Grades as $Grade)
-                                        <option value="{{$Grade->id}}">{{$Grade->name}}</option>
+                                    @foreach($grades as $grade)
+                                        <option value="{{$grade->id}}">{{$grade->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group col">
                                 <label for="Classroom_id">{{__('student.classrooms')}} : <span
                                         class="text-danger">*</span></label>
-                                <select class="custom-select mr-sm-2" name="Classroom_id" required>
-
+                                <select class="custom-select mr-sm-2" name="classroom_id" required>
+                                    @foreach($classrooms as $classroom)
+                                        <option value="{{$classroom->id}}">{{$classroom->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group col">
                                 <label for="section_id">{{__('student.section')}} : </label>
                                 <select class="custom-select mr-sm-2" name="section_id" required>
-
+                                    @foreach($sections as $section)
+                                        <option value="{{$section->id}}">{{$section->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

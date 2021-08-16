@@ -47,18 +47,21 @@
 
                             <div class="form-group col">
                                 <label for="inputState">المرحلة الدراسية</label>
-                                <select class="custom-select mr-sm-2" name="Grade_id">
+                                <select class="custom-select mr-sm-2" name="grade_id">
                                     <option selected disabled>{{__('parent.choose')}}...</option>
-                                    @foreach($Grades as $Grade)
-                                        <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
+                                    @foreach($grades as $grade)
+                                        <option value="{{ $grade->id }}">{{ $grade->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group col">
-                                <label for="inputZip">الصف الدراسي</label>
-                                <select class="custom-select mr-sm-2" name="Classroom_id">
-
+                                <label for="inputZip">{{__('main.classroom')}}</label>
+                                <select class="custom-select mr-sm-2" name="classroom_id">
+                                    <option selected disabled>{{__('parent.choose')}}...</option>
+                                    @foreach($classrooms as $classroom)
+                                        <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col">
@@ -76,7 +79,7 @@
 
                             <div class="form-group col">
                                 <label for="inputZip">نوع الرسوم</label>
-                                <select class="custom-select mr-sm-2" name="Fee_type">
+                                <select class="custom-select mr-sm-2" name="type">
                                     <option value="1">رسوم دراسية</option>
                                     <option value="2">رسوم باص</option>
                                 </select>

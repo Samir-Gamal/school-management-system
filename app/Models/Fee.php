@@ -57,7 +57,7 @@ class Fee extends Model
         'classroom_id',
         'year',
         'description',
-        'fee_type'
+        'type'
     ];
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -83,9 +83,9 @@ class Fee extends Model
 
     // علاقة بين الرسوم الدراسية والمراحل الدراسية لجب اسم المرحلة
 
-    public function grades()
+    public function grade()
     {
-        return $this->belongsTo(Gender::class);
+        return $this->belongsTo(Grade::class);
     }
 
 

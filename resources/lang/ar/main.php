@@ -43,4 +43,6 @@ return [
     'enter'=>'دخول',
     'terms_of_use'=>'شروط الاستخدام',
     'privacy_policy'=>'سياسة الخصوصية',
+    'classroom'=>'الصف الدراسي',
+    'crate'=>'اضافة',
 ];
