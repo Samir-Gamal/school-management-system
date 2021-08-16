@@ -27,15 +27,7 @@
     <div class="card card-statistics h-100">
         <div class="card-body">
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            @include('layouts.error_alert')
 
             <button type="button" class="button x-small" data-toggle="modal" data-target="#exampleModal">
                 {{ __('grade.add_grade') }}

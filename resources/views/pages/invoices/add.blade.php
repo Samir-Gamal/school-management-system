@@ -19,17 +19,10 @@
             <div class="card card-statistics h-100">
                 <div class="card-body">
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('layouts.error_alert')
 
-                        <form class=" row mb-30" action="{{ route('invoices.store') }}" method="POST">
+
+                    <form class=" row mb-30" action="{{ route('invoices.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="repeater">

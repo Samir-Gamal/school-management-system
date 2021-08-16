@@ -19,15 +19,7 @@
         <div class="card card-statistics h-100">
             <div class="card-body">
 
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                @include('layouts.error_alert')
 
                     <form action="{{route('students.update','test')}}" method="post" autocomplete="off">
                         @method('PUT')
