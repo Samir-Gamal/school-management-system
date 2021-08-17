@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -35,10 +36,11 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Fee whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Fee whereYear($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\Grade $grade
  */
 class Fee extends Model
 {
-    use HasTranslations;
+    use HasTranslations,Uuids;
     /**
      * The database table used by the model.
      *

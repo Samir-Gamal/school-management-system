@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
@@ -64,9 +65,7 @@ use Spatie\Translatable\HasTranslations;
  */
 class Student extends Model
 {
-    use SoftDeletes;
-
-    use HasTranslations;
+    use SoftDeletes,HasTranslations,Uuids;
     /**
      * The database table used by the model.
      *

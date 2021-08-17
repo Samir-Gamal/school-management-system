@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -31,7 +32,7 @@ use Spatie\Translatable\HasTranslations;
 class Grade extends Model
 {
 
-    use HasTranslations;
+    use HasTranslations,Uuids;
 
     /**
      * The database table used by the model.

@@ -14,28 +14,31 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->text('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->bigInteger('gender_id')->unsigned();
-            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
-            $table->bigInteger('nationalitie_id')->unsigned();
-            $table->foreign('nationalitie_id')->references('id')->on('nationalities')->onDelete('cascade');
-            $table->bigInteger('blood_id')->unsigned();
-            $table->foreign('blood_id')->references('id')->on('blood_types')->onDelete('cascade');
+            $table->uuid('gender_id');
+            $table->uuid('nationalise_id');
+            $table->uuid('blood_id');
             $table->date('date_birth');
-            $table->bigInteger('grade_id')->unsigned();
-            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
-            $table->bigInteger('classroom_id')->unsigned();
-            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
-            $table->bigInteger('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->bigInteger('parent_id')->unsigned();
-            $table->foreign('parent_id')->references('id')->on('guardians')->onDelete('cascade');
+            $table->uuid('grade_id');
+            $table->uuid('classroom_id');
+            $table->uuid('section_id');
+            $table->uuid('parent_id');
             $table->string('academic_year');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->foreign('nationalise_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->foreign('blood_id')->references('id')->on('blood_types')->onDelete('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreign('parent_id')->references('id')->on('guardians')->onDelete('cascade');
+
         });
     }
 

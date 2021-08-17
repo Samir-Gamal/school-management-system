@@ -14,14 +14,15 @@ class CreatePromotionsTable extends Migration
     public function up()
     {
         Schema::create('promotions', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('from_grade');
-            $table->unsignedBigInteger('from_classroom');
-            $table->unsignedBigInteger('from_section');
-            $table->unsignedBigInteger('to_grade');
-            $table->unsignedBigInteger('to_classroom');
-            $table->unsignedBigInteger('to_section');
+            $table->uuid('id');
+            $table->primary('id');
+            $table->uuid('student_id');
+            $table->uuid('from_grade');
+            $table->uuid('from_classroom');
+            $table->uuid('from_section');
+            $table->uuid('to_grade');
+            $table->uuid('to_classroom');
+            $table->uuid('to_section');
             $table->string('academic_year');
             $table->string('academic_year_new');
             $table->timestamps();

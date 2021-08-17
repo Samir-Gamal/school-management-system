@@ -14,7 +14,8 @@ class CreateGuardiansTable extends Migration
     public function up()
     {
         Schema::create('guardians', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->string('email')->unique();
             $table->string('password');
 
@@ -24,9 +25,9 @@ class CreateGuardiansTable extends Migration
             $table->string('father_passport_id');
             $table->string('father_phone');
             $table->string('father_job');
-            $table->bigInteger('father_nationality_id')->unsigned();
-            $table->bigInteger('father_blood_type_id')->unsigned();
-            $table->bigInteger('father_religion_id')->unsigned();
+            $table->uuid('father_nationality_id');
+            $table->uuid('father_blood_type_id');
+            $table->uuid('father_religion_id');
             $table->string('father_address');
 
             //Mother information
@@ -35,9 +36,9 @@ class CreateGuardiansTable extends Migration
             $table->string('mother_passport_id');
             $table->string('mother_phone');
             $table->string('mother_job');
-            $table->bigInteger('mother_nationality_id')->unsigned();
-            $table->bigInteger('mother_blood_type_id')->unsigned();
-            $table->bigInteger('mother_religion_id')->unsigned();
+            $table->uuid('mother_nationality_id');
+            $table->uuid('mother_blood_type_id');
+            $table->uuid('mother_religion_id');
             $table->string('mother_address');
             $table->timestamps();
 

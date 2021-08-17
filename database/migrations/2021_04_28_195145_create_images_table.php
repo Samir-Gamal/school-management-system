@@ -14,10 +14,10 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->string('filename');
-            $table->integer('imageable_id');
-            $table->string('imageable_type');
+            $table->uuidMorphs('imageable');
             $table->timestamps();
         });
     }

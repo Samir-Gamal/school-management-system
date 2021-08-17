@@ -14,9 +14,10 @@ class CreateTeacherSectionsTable extends Migration
     public function up()
     {
         Schema::create('teacher_sections', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('teacher_id');
-            $table->unsignedBigInteger('section_id');
+            $table->uuid('id');
+            $table->primary('id');
+            $table->uuid('teacher_id');
+            $table->uuid('section_id');
 
             // foreign keys
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
