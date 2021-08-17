@@ -8,7 +8,7 @@
     <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>{{__('main_trans.title')}}</title>
+    <title>{{__('main.title')}}</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
@@ -46,11 +46,11 @@
                     <div class="col-lg-4 col-md-6 login-fancy-bg bg"
                         style="background-image: url(images/login-inner-bg.jpg);">
                         <div class="login-fancy">
-                            <h3 class="text-white mb-12">{{__('main_trans.title')}}</h3>
-                            <p class="mb-20 m-4 text-white">{{__('main_trans.description')}}</p>
+                            <h3 class="text-white mb-12">{{__('main.title')}}</h3>
+                            <p class="mb-20 m-4 text-white">{{__('main.description')}}</p>
                             <ul class="list-unstyled  pos-bot pb-30">
-                                <li class="list-inline-item"><a class="text-white" href="#">{{__('main_trans.terms_of_use')}}</a> </li>
-                                <li class="list-inline-item"><a class="text-white" href="#">{{__('main_trans.privacy_policy')}}</a></li>
+                                <li class="list-inline-item"><a class="text-white" href="#">{{__('main.terms_of_use')}}</a> </li>
+                                <li class="list-inline-item"><a class="text-white" href="#">{{__('main.privacy_policy')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,10 +91,10 @@
                                     <div class="remember-checkbox mb-30">
                                         <input type="checkbox" class="form-control" name="two" id="two" />
                                         <label for="two">{{__('validation.attributes.remember_me')}}</label>
-                                        <a href="#" class="float-right">{{__('main_trans.forgot_password')}}</a>
+                                        <a href="#" class="float-right">{{__('main.forgot_password')}}</a>
                                     </div>
                                 </div>
-                                <button class="button"><span>{{__('main_trans.enter')}}</span><i class="fa fa-check"></i></button>
+                                <button class="button"><span>{{__('main.enter')}}</span><i class="fa fa-check"></i></button>
                             </form>
                         </div>
                     </div>

@@ -15,11 +15,13 @@ class CreateSectionsTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->string('Name_Section');
-            $table->integer('Status');
-            $table->bigInteger('Grade_id')->unsigned();
-            $table->bigInteger('Class_id')->unsigned();
+            $table->string('name');
+            $table->integer('status');
+            $table->bigInteger('grade_id')->unsigned();
+            $table->bigInteger('classroom_id')->unsigned();
             $table->timestamps();
+            $table->foreign('grade_id')->references('id')->on('grades')
+                ->onDelete('cascade');
         });
     }
 

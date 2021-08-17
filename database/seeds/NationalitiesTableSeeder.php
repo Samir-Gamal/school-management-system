@@ -13,7 +13,6 @@ class NationalitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('nationalities')->delete();
 
         $nationals = [
 
@@ -1249,7 +1248,7 @@ class NationalitiesTableSeeder extends Seeder
         ];
 
         foreach ($nationals as $n) {
-            Nationalitie::create(['Name' => $n]);
+            Nationalitie::create(['name' => $n]);
         }
 
     }

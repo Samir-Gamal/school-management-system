@@ -25,8 +25,8 @@
         <!--=================================
  preloader -->
 
-        @include('layouts.main-header')
-        @include('layouts.main-sidebar')
+        @include('layouts.main_header')
+        @include('layouts.main_sidebar')
 
         <!--=================================
  Main content -->
@@ -41,7 +41,7 @@
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}" class="default-color">{{trans('main_trans.Dashboard')}}</a></li>
+                <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}" class="default-color">{{__('main.dashboard')}}</a></li>
                 <li class="breadcrumb-item active">@yield('PageTitle')</li>
             </ol>
         </div>
@@ -64,7 +64,7 @@
     <!--=================================
  footer -->
 
-    @include('layouts.footer-scripts')
+    @include('layouts.footer_scripts')
 
 </body>
 

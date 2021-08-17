@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Grade;
-use App\Models\My_Parent;
+use App\Models\Guardian;
 use App\Models\Nationalitie;
 use App\Models\ParentAttachment;
 use App\Models\Religion;
-use App\Models\Type_Blood;
+use App\Models\BloodType;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -54,11 +53,11 @@ class AddParent extends Component
 
     public function render()
     {
-        return view('livewire.add-parent', [
+        return view('livewire.add_parent', [
             'Nationalities' => Nationalitie::all(),
-            'Type_Bloods' => Type_Blood::all(),
+            'Type_Bloods' => BloodType::all(),
             'Religions' => Religion::all(),
-            'my_parents' => My_Parent::all(),
+            'my_parents' => Guardian::all(),
         ]);
 
     }
@@ -115,7 +114,7 @@ class AddParent extends Component
     public function submitForm(){
 
         try {
-            $My_Parent = new My_Parent();
+            $My_Parent = new Guardian();
             // Father_INPUTS
             $My_Parent->Email = $this->Email;
             $My_Parent->Password = Hash::make($this->Password);
@@ -148,11 +147,11 @@ class AddParent extends Component
                     $photo->storeAs($this->National_ID_Father, $photo->getClientOriginalName(), $disk = 'parent_attachments');
                     ParentAttachment::create([
                         'file_name' => $photo->getClientOriginalName(),
-                        'parent_id' => My_Parent::latest()->first()->id,
+                        'parent_id' => Guardian::latest()->first()->id,
                     ]);
                 }
             }
-            $this->successMessage = trans('messages.success');
+            $this->successMessage = __('messages.success');
             $this->clearForm();
             $this->currentStep = 1;
         }
@@ -168,14 +167,14 @@ class AddParent extends Component
     {
         $this->show_table = false;
         $this->updateMode = true;
-        $My_Parent = My_Parent::where('id',$id)->first();
+        $My_Parent = Guardian::where('id',$id)->first();
         $this->Parent_id = $id;
         $this->Email = $My_Parent->Email;
         $this->Password = $My_Parent->Password;
-        $this->Name_Father = $My_Parent->getTranslation('Name_Father', 'ar');
-        $this->Name_Father_en = $My_Parent->getTranslation('Name_Father', 'en');
-        $this->Job_Father = $My_Parent->getTranslation('Job_Father', 'ar');;
-        $this->Job_Father_en = $My_Parent->getTranslation('Job_Father', 'en');
+        $this->Name_Father = $My_Parent->getTranslation('name_father', 'ar');
+        $this->Name_Father_en = $My_Parent->getTranslation('name_father', 'en');
+        $this->Job_Father = $My_Parent->getTranslation('job_father', 'ar');;
+        $this->Job_Father_en = $My_Parent->getTranslation('job_father', 'en');
         $this->National_ID_Father =$My_Parent->National_ID_Father;
         $this->Passport_ID_Father = $My_Parent->Passport_ID_Father;
         $this->Phone_Father = $My_Parent->Phone_Father;
@@ -184,10 +183,10 @@ class AddParent extends Component
         $this->Address_Father =$My_Parent->Address_Father;
         $this->Religion_Father_id =$My_Parent->Religion_Father_id;
 
-        $this->Name_Mother = $My_Parent->getTranslation('Name_Mother', 'ar');
-        $this->Name_Mother_en = $My_Parent->getTranslation('Name_Father', 'en');
-        $this->Job_Mother = $My_Parent->getTranslation('Job_Mother', 'ar');;
-        $this->Job_Mother_en = $My_Parent->getTranslation('Job_Mother', 'en');
+        $this->Name_Mother = $My_Parent->getTranslation('name_mother', 'ar');
+        $this->Name_Mother_en = $My_Parent->getTranslation('name_father', 'en');
+        $this->Job_Mother = $My_Parent->getTranslation('job_mother', 'ar');;
+        $this->Job_Mother_en = $My_Parent->getTranslation('job_mother', 'en');
         $this->National_ID_Mother =$My_Parent->National_ID_Mother;
         $this->Passport_ID_Mother = $My_Parent->Passport_ID_Mother;
         $this->Phone_Mother = $My_Parent->Phone_Mother;
@@ -216,7 +215,7 @@ class AddParent extends Component
     public function submitForm_edit(){
 
         if ($this->Parent_id){
-            $parent = My_Parent::find($this->Parent_id);
+            $parent = Guardian::find($this->Parent_id);
             $parent->update([
                 'Passport_ID_Father' => $this->Passport_ID_Father,
                 'National_ID_Father' => $this->National_ID_Father,
@@ -224,12 +223,12 @@ class AddParent extends Component
 
         }
 
-        return redirect()->to('/add_parent');
+        return redirect()->to('/guardians');
     }
 
     public function delete($id){
-        My_Parent::findOrFail($id)->delete();
-        return redirect()->to('/add_parent');
+        Guardian::findOrFail($id)->delete();
+        return redirect()->to('/guardians');
     }
 
 

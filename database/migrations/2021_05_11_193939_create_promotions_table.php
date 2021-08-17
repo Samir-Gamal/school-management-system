@@ -17,10 +17,10 @@ class CreatePromotionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('from_grade');
-            $table->unsignedBigInteger('from_Classroom');
+            $table->unsignedBigInteger('from_classroom');
             $table->unsignedBigInteger('from_section');
             $table->unsignedBigInteger('to_grade');
-            $table->unsignedBigInteger('to_Classroom');
+            $table->unsignedBigInteger('to_classroom');
             $table->unsignedBigInteger('to_section');
             $table->string('academic_year');
             $table->string('academic_year_new');
@@ -29,11 +29,11 @@ class CreatePromotionsTable extends Migration
 
         Schema::table('promotions', function (Blueprint $table) {
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->foreign('from_grade')->references('id')->on('Grades')->onDelete('cascade');
-            $table->foreign('from_Classroom')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreign('from_grade')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreign('from_classroom')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreign('from_section')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreign('to_grade')->references('id')->on('Grades')->onDelete('cascade');
-            $table->foreign('to_Classroom')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreign('to_grade')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreign('to_classroom')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreign('to_section')->references('id')->on('sections')->onDelete('cascade');
         });
 
