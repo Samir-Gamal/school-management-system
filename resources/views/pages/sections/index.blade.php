@@ -129,14 +129,14 @@
                                                                                         <div class="row">
                                                                                             <div class="col">
                                                                                                 <input type="text"
-                                                                                                       name="Name_Section_Ar"
+                                                                                                       name="name_ar"
                                                                                                        class="form-control"
                                                                                                        value="{{ $section->getTranslation('name', 'ar') }}">
                                                                                             </div>
 
                                                                                             <div class="col">
                                                                                                 <input type="text"
-                                                                                                       name="Name_Section_En"
+                                                                                                       name="name_en"
                                                                                                        class="form-control"
                                                                                                        value="{{ $section->getTranslation('name', 'en') }}">
                                                                                                 <input id="id"
@@ -317,12 +317,12 @@
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" name="Name_Section_Ar" class="form-control"
+                                                <input type="text" name="name_ar" class="form-control"
                                                        placeholder="{{ __('section.section_name_ar') }}">
                                             </div>
 
                                             <div class="col">
-                                                <input type="text" name="Name_Section_En" class="form-control"
+                                                <input type="text" name="name_en" class="form-control"
                                                        placeholder="{{ __('section.section_name_en') }}">
                                             </div>
 
@@ -333,7 +333,7 @@
                                         <div class="col">
                                             <label for="inputName"
                                                    class="control-label">{{ __('section.name_grade') }}</label>
-                                            <select name="Grade_id" class="custom-select"
+                                            <select name="grade_id" class="custom-select"
                                                     onchange="console.log($(this).val())">
                                                 <!--placeholder-->
                                                 <option value="" selected
@@ -350,7 +350,7 @@
                                         <div class="col">
                                             <label for="inputName"
                                                    class="control-label">{{ __('section.name_class') }}</label>
-                                            <select name="Class_id" class="custom-select">
+                                            <select name="classroom_id" class="custom-select">
                                                 @foreach($grades as $grade)
                                                     <option value="{{$grade->id}}">{{$grade->name}}</option>
                                                 @endforeach
@@ -358,7 +358,7 @@
                                         </div><br>
                                         <div class="col">
                                             <label for="inputName" class="control-label">{{ __('section.name_teacher') }}</label>
-                                            <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
+                                            <select multiple name="teacher_ids[]" class="form-control" id="exampleFormControlSelect2">
                                                 @foreach($teachers as $teacher)
                                                     <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                                 @endforeach

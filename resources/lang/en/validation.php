@@ -158,6 +158,8 @@ return [
         'term' =>  'Term',
         'academic_year' =>  'Academic Year',
         'classroom_id' =>  'Classroom ID',
+        'grade_id' =>  'Grade ID',
+        'teacher_id' =>  'Teacher ID',
 
     ],
 

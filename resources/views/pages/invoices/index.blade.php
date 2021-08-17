@@ -21,6 +21,8 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
+                                <a href="{{route('invoices.create')}}" class="btn btn-success btn-sm" role="button"
+                                   aria-pressed="true">اضافة رسوم جديدة</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -38,18 +40,18 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($Fee_invoices as $Fee_invoice)
+                                        @foreach($invoices as $invoice)
                                             <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{$Fee_invoice->student->name}}</td>
-                                            <td>{{$Fee_invoice->fees->title}}</td>
-                                            <td>{{ number_format($Fee_invoice->amount, 2) }}</td>
-                                            <td>{{$Fee_invoice->grade->Name}}</td>
-                                            <td>{{$Fee_invoice->classroom->name}}</td>
-                                            <td>{{$Fee_invoice->description}}</td>
+                                            <td>{{$invoice->student->name}}</td>
+                                            <td>{{$invoice->fees->title}}</td>
+                                            <td>{{ number_format($invoice->amount, 2) }}</td>
+                                            <td>{{$invoice->grade->Name}}</td>
+                                            <td>{{$invoice->classroom->name}}</td>
+                                            <td>{{$invoice->description}}</td>
                                                 <td>
-                                                    <a href="{{route('Fees_Invoices.edit',$Fee_invoice->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Fee_invoice{{$Fee_invoice->id}}" ><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('Invoices.edit',$invoice->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Fee_invoice{{$invoice->id}}" ><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
                                         @include('pages.invoices.delete')

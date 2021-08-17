@@ -94,7 +94,7 @@ Route::group(
         Route::resource('fees', FeeController::class);
         Route::resource('receipt-students', ReceiptStudentController::class);
         Route::resource('processing-fees', ProcessingFeeController::class);
-        Route::resource('payment-students', PaymentController::class);
+        Route::resource('payments', PaymentController::class);
         Route::resource('attendances', AttendanceController::class);
         Route::get('get-classrooms/{id}', [StudentController::class, 'get-classrooms']);
         Route::get('sections/{id}', [StudentController::class, 'Get_Sections']);

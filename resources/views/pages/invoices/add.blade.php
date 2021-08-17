@@ -31,14 +31,14 @@
                                             <div class="row">
 
                                                 <div class="col">
-                                                    <label for="Name" class="mr-sm-2">اسم الطالب</label>
+                                                    <label for="name" class="mr-sm-2">اسم الطالب</label>
                                                     <select class="fancyselect" name="student_id" required>
                                                             <option value="{{ $student->id }}">{{ $student->name }}</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="col">
-                                                    <label for="Name_en" class="mr-sm-2">نوع الرسوم</label>
+                                                    <label for="name_en" class="mr-sm-2">نوع الرسوم</label>
                                                     <div class="box">
                                                         <select class="fancyselect" name="fee_id" required>
                                                             <option value="">-- اختار من القائمة --</option>
@@ -51,7 +51,7 @@
                                                 </div>
 
                                                 <div class="col">
-                                                    <label for="Name_en" class="mr-sm-2">المبلغ</label>
+                                                    <label for="name_en" class="mr-sm-2">المبلغ</label>
                                                     <div class="box">
                                                         <select class="fancyselect" name="amount" required>
                                                             <option value="">-- اختار من القائمة --</option>
@@ -70,7 +70,7 @@
                                                 </div>
 
                                                 <div class="col">
-                                                    <label for="Name_en" class="mr-sm-2">{{ __('class.processes') }}:</label>
+                                                    <label for="name_en" class="mr-sm-2">{{ __('class.processes') }}:</label>
                                                     <input class="btn btn-danger btn-block" data-repeater-delete type="button" value="{{ __('class.delete_row') }}" />
                                                 </div>
                                             </div>
@@ -81,8 +81,8 @@
                                             <input class="button" data-repeater-create type="button" value="{{ __('class.add_row') }}"/>
                                         </div>
                                     </div><br>
-                                    <input type="hidden" name="Grade_id" value="{{$student->grade_id}}">
-                                    <input type="hidden" name="Classroom_id" value="{{$student->classroom_id}}">
+                                    <input type="hidden" name="grade_id" value="{{$student->grade_id}}">
+                                    <input type="hidden" name="classroom_id" value="{{$student->classroom_id}}">
 
                                     <button type="submit" class="btn btn-primary">تاكيد البيانات</button>
                                 </div>

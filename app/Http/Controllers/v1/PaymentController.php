@@ -4,7 +4,7 @@ namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\FundAccount;
-use App\Models\PaymentStudent;
+use App\Models\Payment;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Repository\PaymentRepositoryInterface;
@@ -15,8 +15,8 @@ class PaymentController extends Controller
 {
     public function index()
     {
-        $payment_students = PaymentStudent::all();
-        return view('pages.payment.index', compact('payment_students'));
+        $payments = Payment::all();
+        return view('pages.payment.index', compact('payments'));
     }
 
     public function show($id)
@@ -27,8 +27,8 @@ class PaymentController extends Controller
 
     public function edit($id)
     {
-        $payment_student = PaymentStudent::findorfail($id);
-        return view('pages.payment.edit', compact('payment_student'));
+        $payment = Payment::findorfail($id);
+        return view('pages.payment.edit', compact('payment'));
     }
 
     public function store($request)
@@ -38,19 +38,19 @@ class PaymentController extends Controller
         try {
 
             // حفظ البيانات في جدول سندات الصرف
-            $payment_students = new PaymentStudent();
-            $payment_students->date = date('Y-m-d');
-            $payment_students->student_id = $request->student_id;
-            $payment_students->amount = $request->Debit;
-            $payment_students->description = $request->description;
-            $payment_students->save();
+            $payments = new Payment();
+            $payments->date = date('Y-m-d');
+            $payments->student_id = $request->student_id;
+            $payments->amount = $request->Debit;
+            $payments->description = $request->description;
+            $payments->save();
 
 
             // حفظ البيانات في جدول الصندوق
             $fund_accounts = new FundAccount();
             $fund_accounts->date = date('Y-m-d');
-            $fund_accounts->payment_id = $payment_students->id;
-            $fund_accounts->Debit = 0.00;
+            $fund_accounts->payment_id = $payments->id;
+            $fund_accounts->debit = 0.00;
             $fund_accounts->credit = $request->Debit;
             $fund_accounts->description = $request->description;
             $fund_accounts->save();
@@ -61,7 +61,7 @@ class PaymentController extends Controller
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'payment';
             $students_accounts->student_id = $request->student_id;
-            $students_accounts->payment_id = $payment_students->id;
+            $students_accounts->payment_id = $payments->id;
             $students_accounts->debit = $request->Debit;
             $students_accounts->credit = 0.00;
             $students_accounts->description = $request->description;
@@ -69,7 +69,7 @@ class PaymentController extends Controller
 
             DB::commit();
             toastr()->success(__('messages.success'));
-            return redirect()->route('payment-students.index');
+            return redirect()->route('payments.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -83,18 +83,18 @@ class PaymentController extends Controller
         try {
 
             // تعديل البيانات في جدول سندات الصرف
-            $payment_students = PaymentStudent::findorfail($request->id);
-            $payment_students->date = date('Y-m-d');
-            $payment_students->student_id = $request->student_id;
-            $payment_students->amount = $request->Debit;
-            $payment_students->description = $request->description;
-            $payment_students->save();
+            $payments = Payment::findorfail($request->id);
+            $payments->date = date('Y-m-d');
+            $payments->student_id = $request->student_id;
+            $payments->amount = $request->Debit;
+            $payments->description = $request->description;
+            $payments->save();
 
 
             // حفظ البيانات في جدول الصندوق
             $fund_accounts = FundAccount::where('payment_id', $request->id)->first();
             $fund_accounts->date = date('Y-m-d');
-            $fund_accounts->payment_id = $payment_students->id;
+            $fund_accounts->payment_id = $payments->id;
             $fund_accounts->debit = 0.00;
             $fund_accounts->credit = $request->Debit;
             $fund_accounts->description = $request->description;
@@ -106,14 +106,14 @@ class PaymentController extends Controller
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'payment';
             $students_accounts->student_id = $request->student_id;
-            $students_accounts->payment_id = $payment_students->id;
+            $students_accounts->payment_id = $payments->id;
             $students_accounts->Debit = $request->Debit;
             $students_accounts->credit = 0.00;
             $students_accounts->description = $request->description;
             $students_accounts->save();
             DB::commit();
             toastr()->success(__('messages.update'));
-            return redirect()->route('payment-students.index');
+            return redirect()->route('payments.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -122,12 +122,9 @@ class PaymentController extends Controller
 
     public function destroy($request)
     {
-        try {
-            PaymentStudent::destroy($request->id);
+
+            Payment::destroy($request->id);
             toastr()->error(__('messages.delete'));
             return redirect()->back();
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
     }
 }

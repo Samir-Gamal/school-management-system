@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\PaymentStudent
+ * App\Models\Payment
  *
  * @property int $id
  * @property string $date
@@ -15,26 +15,26 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Student $student
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent query()
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent whereAmount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent whereDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent whereStudentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PaymentStudent whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereStudentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Payment whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class PaymentStudent extends Model
+class Payment extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'payment_students';
+    protected $table = 'payments';
     /**
      * The attributes that are mass assignable.
      *

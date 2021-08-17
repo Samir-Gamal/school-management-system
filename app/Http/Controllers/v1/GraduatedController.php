@@ -26,9 +26,9 @@ class GraduatedController extends Controller
         return view('pages.students.graduated.create',compact('grades','classrooms','sections'));
     }
 
-    public function SoftDelete($request)
+    public function softDelete($request)
     {
-        $students = student::where('grade_id',$request->Grade_id)->where('classroom_id',$request->Classroom_id)->where('section_id',$request->section_id)->get();
+        $students = student::where('grade_id',$request->grade_id)->where('classroom_id',$request->classroom_id)->where('section_id',$request->section_id)->get();
 
         if($students->count() < 1){
             return redirect()->back()->with('error_Graduated', __('لاتوجد بيانات في جدول الطلاب'));

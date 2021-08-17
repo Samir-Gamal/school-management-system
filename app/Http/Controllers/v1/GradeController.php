@@ -5,6 +5,7 @@ namespace App\Http\Controllers\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Classroom;
 use App\Http\Requests\StoreGrades;
+use App\Models\Exam;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 
@@ -30,11 +31,9 @@ class GradeController extends Controller
      */
     public function store(StoreGrades $request)
     {
-        $grade = new Grade();
-
-        $grade->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
-        $grade->notes = $request->notes;
-        $grade->save();
+        $input = $request->only((new Grade())->getFillable());
+        $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
+        $grade = Grade::create($input);
         toastr()->success(__('messages.success'));
         return redirect()->route('grades.index');
 
@@ -48,11 +47,10 @@ class GradeController extends Controller
      */
     public function update(StoreGrades $request)
     {
-        $grade = Grade::findOrFail($request->id)->update([
-            'name' => ['ar' => $request->name_ar, 'en' => $request->name_en],
-            'notes' => $request->notes,
-        ]);
-
+        $grade = Grade::findOrFail($request->id);
+        $input = $request->only((new Grade())->getFillable());
+        $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
+        $grade->update($input);
         toastr()->success(__('messages.update'));
         return redirect()->route('grades.index');
 

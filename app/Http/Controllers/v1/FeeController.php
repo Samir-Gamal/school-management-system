@@ -53,10 +53,10 @@ class FeeController extends Controller
     public function update(FeeRequest $request)
     {
 
-        $fees = Fee::findorfail($request->id);
+        $fee = Fee::findorfail($request->id);
         $input = $request->only((new Fee())->getFillable());
         $input['title'] = ['en' => $request->title_en, 'ar' => $request->title_ar];
-        $fees->update($input);
+        $fee->update($input);
         toastr()->success(__('messages.update'));
         return redirect()->route('fees.index');
 

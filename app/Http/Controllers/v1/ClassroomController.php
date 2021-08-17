@@ -4,9 +4,11 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClassroomRequest;
 use App\Http\Requests\StoreClassroom;
 use App\Models\Classroom;
 use App\Models\Customer;
+use App\Models\Fee;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 
@@ -33,7 +35,7 @@ class ClassroomController extends Controller
      *
      * @return Response
      */
-    public function store(StoreClassroom $request)
+    public function store(ClassroomRequest $request)
     {
         foreach ($request->classrooms as $classroom) {
             $input[] = [
@@ -42,7 +44,7 @@ class ClassroomController extends Controller
             ];
         }
 
-        $classroom = Classroom::insert($input);
+        $classrooms = Classroom::insert($input);
 
         toastr()->success(__('messages.success'));
         return redirect()->route('classrooms.index');
@@ -56,14 +58,13 @@ class ClassroomController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request)
+    public function update(ClassroomRequest $request)
     {
         $classroom = Classroom::findOrFail($request->id);
+        $input = $request->only((new Classroom())->getFillable());
+        $input['name'] = ['en' => $request->name_ar, 'ar' => $request->name_en];
 
-        $classroom->update([
-            'name' => ['ar' => $request->name_ar, 'en' => $request->name_en],
-            'grade_id' => $request->grade_id,
-        ]);
+        $classroom->update($input);
         toastr()->success(__('messages.update'));
         return redirect()->route('classrooms.index');
 

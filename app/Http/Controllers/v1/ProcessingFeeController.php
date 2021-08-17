@@ -15,8 +15,8 @@ class ProcessingFeeController extends Controller
 
     public function index()
     {
-        $ProcessingFees = ProcessingFee::all();
-        return view('pages.processing_fee.index',compact('ProcessingFees'));
+        $processing_fees = ProcessingFee::all();
+        return view('pages.processing_fee.index',compact('processing_fees'));
     }
 
     public function show($id)
@@ -27,8 +27,8 @@ class ProcessingFeeController extends Controller
 
     public function edit($id)
     {
-        $ProcessingFee = ProcessingFee::findorfail($id);
-        return view('pages.processing_fee.edit',compact('ProcessingFee'));
+        $processing_fee = ProcessingFee::findorfail($id);
+        return view('pages.processing_fee.edit',compact('processing_fee'));
     }
 
     public function store($request)
@@ -102,14 +102,10 @@ class ProcessingFeeController extends Controller
 
     public function destroy($request)
     {
-        try {
+
             ProcessingFee::destroy($request->id);
             toastr()->error(__('messages.delete'));
             return redirect()->back();
-        }
 
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
     }
 }

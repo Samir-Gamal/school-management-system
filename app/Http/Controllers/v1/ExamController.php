@@ -25,12 +25,9 @@ class ExamController extends Controller
 
     public function store(ExamRequest $request)
     {
-
-        $exams = new Exam();
-        $exams->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
-        $exams->term = $request->term;
-        $exams->academic_year = $request->academic_year;
-        $exams->save();
+        $input = $request->only((new Exam())->getFillable());
+        $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
+        $exam = Exam::create($input);
         toastr()->success(__('messages.success'));
         return redirect()->route('exams.index');
 
@@ -46,10 +43,9 @@ class ExamController extends Controller
     {
 
         $exam = Exam::findorFail($request->id);
-        $exam->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-        $exam->term = $request->term;
-        $exam->academic_year = $request->academic_year;
-        $exam->save();
+        $input = $request->only((new Exam())->getFillable());
+        $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
+        $exam->update($input);
         toastr()->success(__('messages.update'));
         return redirect()->route('exams.index');
 
