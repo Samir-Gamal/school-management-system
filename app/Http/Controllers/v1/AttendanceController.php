@@ -17,10 +17,9 @@ class AttendanceController extends Controller
 
     public function index()
     {
-        $Grades = Grade::with(['Sections'])->get();
-        $list_Grades = Grade::all();
+        $grades = Grade::with(['sections','sections.classroom'])->get();
         $teachers = Teacher::all();
-        return view('pages.attendance.sections',compact('Grades','list_Grades','teachers'));
+        return view('pages.attendance.sections',compact('grades','teachers'));
     }
 
 

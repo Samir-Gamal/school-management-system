@@ -39,10 +39,10 @@
                     <div class="card-body">
                         <div class="accordion gray plus-icon round">
 
-                            @foreach ($Grades as $Grade)
+                            @foreach ($grades as $grade)
 
                                 <div class="acd-group">
-                                    <a href="#" class="acd-heading">{{ $Grade->name }}</a>
+                                    <a href="#" class="acd-heading">{{ $grade->name }}</a>
                                     <div class="acd-des">
 
                                         <div class="row">
@@ -67,18 +67,18 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <?php $i = 0; ?>
-                                                                @foreach ($Grade->Sections as $list_Sections)
+                                                                @foreach ($grade->sections as $section)
                                                                     <tr>
                                                                         <?php $i++; ?>
                                                                         <td>{{ $i }}</td>
-                                                                        <td>{{ $list_Sections->name }}</td>
-                                                                        <td>{{ $list_Sections->classroom->name }}</td>
+                                                                        <td>{{ $section->name }}</td>
+                                                                        <td>{{ $section->classroom->name }}</td>
                                                                         <td>
-                                                                            <label class="badge badge-{{$list_Sections->status == 1 ? 'success':'danger'}}">{{$list_Sections->status == 1 ? 'نشط':'غير نشط'}}</label>
+                                                                            <label class="badge badge-{{$section->status == 1 ? 'success':'danger'}}">{{$section->status == 1 ? 'نشط':'غير نشط'}}</label>
                                                                         </td>
 
                                                                         <td>
-                                                                            <a href="{{route('attendances.show',$list_Sections->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">قائمة الطلاب</a>
+                                                                            <a href="{{route('attendances.show',$section->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">قائمة الطلاب</a>
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
