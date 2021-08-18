@@ -20,8 +20,8 @@ namespace App\Models{
  * @property int $classroom_id
  * @property int $section_id
  * @property int $teacher_id
- * @property string $attendence_date
- * @property int $attendence_status
+ * @property string $day
+ * @property int $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Attendance newModelQuery()
@@ -314,7 +314,7 @@ namespace App\Models{
  * App\Models\Invoice
  *
  * @property int $id
- * @property string $invoice_date
+ * @property string $invoice_at
  * @property int $student_id
  * @property int $grade_id
  * @property int $classroom_id
@@ -348,23 +348,23 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\Nationalitie
+ * App\Models\Nationality
  *
  * @property int $id
  * @property array $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read array $translations
- * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie query()
- * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nationality newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Nationality newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Nationality query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Nationality whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nationality whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nationality whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Nationality whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-	class Nationalitie extends \Eloquent {}
+	class Nationality extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -591,7 +591,7 @@ namespace App\Models{
  * @property int $id
  * @property string $date
  * @property string $type
- * @property int|null $fee_invoice_id
+ * @property int|null $invoice_id
  * @property int|null $receipt_id
  * @property int|null $processing_id
  * @property int|null $payment_id
@@ -662,7 +662,7 @@ namespace App\Models{
  * @property array $name
  * @property int $specialization_id
  * @property int $gender_id
- * @property string $joining_date
+ * @property string $joining_at
  * @property string $address
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
