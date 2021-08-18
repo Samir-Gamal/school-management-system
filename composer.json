@@ -45,18 +45,14 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
@@ -75,9 +71,9 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:models",
             "@php artisan ide-helper:meta",
             "@php artisan telescope:publish --ansi"
-
         ]
     }
 }

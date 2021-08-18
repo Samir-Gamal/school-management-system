@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -22,9 +24,9 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Nationalitie whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Nationalitie extends Model
+class Nationality extends Model
 {
-    use HasTranslations;
+    use HasFactory, HasTranslations,Uuids;
     /**
      * The database table used by the model.
      *

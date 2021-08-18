@@ -14,12 +14,13 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->foreignId('grade_id')->references('id')->on('grades')->onDelete('cascade');
-            $table->foreignId('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
-            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->uuid('id');
+            $table->primary('id');
+            $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignUuid('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->date('attendence_date');
             $table->boolean('attendence_status');
             $table->timestamps();

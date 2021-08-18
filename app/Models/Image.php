@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Image extends Model
 {
+    use Uuids;
     /**
      * The database table used by the model.
      *

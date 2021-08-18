@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
@@ -61,12 +63,13 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Query\Builder|Student withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Student withoutTrashed()
  * @mixin \Eloquent
+ * @property string $nationalise_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Student graduated()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationaliseId($value)
  */
 class Student extends Model
 {
-    use SoftDeletes;
-
-    use HasTranslations;
+    use HasFactory, SoftDeletes,HasTranslations,Uuids;
     /**
      * The database table used by the model.
      *
@@ -83,13 +86,13 @@ class Student extends Model
         'email',
         'password',
         'gender_id',
-        'nationalitie_id',
+        'nationality_id',
         'blood_id',
         'date_birth',
         'grade_id',
         'classroom_id',
         'section_id',
-        'parent_id',
+        'guardian_id',
         'academic_year',
     ];
     /**
@@ -161,7 +164,7 @@ class Student extends Model
 
     public function myparent()
     {
-        return $this->belongsTo(Guardian::class, 'parent_id');
+        return $this->belongsTo(Guardian::class, 'guardian_id');
     }
 
     // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي
