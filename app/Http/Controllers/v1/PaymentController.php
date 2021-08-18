@@ -16,19 +16,19 @@ class PaymentController extends Controller
     public function index()
     {
         $payments = Payment::all();
-        return view('pages.payment.index', compact('payments'));
+        return view('pages.payments.index', compact('payments'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.payment.add', compact('student'));
+        return view('pages.payments.add', compact('student'));
     }
 
     public function edit($id)
     {
         $payment = Payment::findorfail($id);
-        return view('pages.payment.edit', compact('payment'));
+        return view('pages.payments.edit', compact('payment'));
     }
 
     public function store($request)
@@ -59,7 +59,7 @@ class PaymentController extends Controller
             // حفظ البيانات في جدول حساب الطلاب
             $students_accounts = new StudentAccount();
             $students_accounts->date = date('Y-m-d');
-            $students_accounts->type = 'payment';
+            $students_accounts->type = 'payments';
             $students_accounts->student_id = $request->student_id;
             $students_accounts->payment_id = $payments->id;
             $students_accounts->debit = $request->Debit;
@@ -104,7 +104,7 @@ class PaymentController extends Controller
             // حفظ البيانات في جدول حساب الطلاب
             $students_accounts = StudentAccount::where('payment_id', $request->id)->first();
             $students_accounts->date = date('Y-m-d');
-            $students_accounts->type = 'payment';
+            $students_accounts->type = 'payments';
             $students_accounts->student_id = $request->student_id;
             $students_accounts->payment_id = $payments->id;
             $students_accounts->Debit = $request->Debit;
