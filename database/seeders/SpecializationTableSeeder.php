@@ -4,7 +4,7 @@ use App\Models\Specialization;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SpecializationsTableSeeder extends Seeder
+class SpecializationTableSeeder extends Seeder
 {
     /**
      * Run the database seeders.
@@ -19,8 +19,17 @@ class SpecializationsTableSeeder extends Seeder
             ['en'=> 'Computer', 'ar'=> 'حاسب الي'],
             ['en'=> 'English', 'ar'=> 'انجليزي'],
         ];
-        foreach ($specializations as $S) {
-            Specialization::create(['name' => $S]);
+        $specializations_data_seed = [];
+        foreach ($specializations as $specialization) {
+
+            $fake_specialization = Specialization::factory()->make([
+                'name' => $specialization
+            ])->toArray();
+            $fake_specialization['name'] = json_encode($fake_specialization['name']);
+            $specializations_data_seed[] = $fake_specialization;
         }
+
+        DB::table('specializations')->insert($specializations_data_seed);
+
     }
 }

@@ -14,10 +14,19 @@ class BloodTableSeeder extends Seeder
     public function run()
     {
 
-        $bgs = ['O-', 'O+', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-'];
+        $blood_types = ['O-', 'O+', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-'];
 
-        foreach($bgs as  $bg){
-            BloodType::create(['name' => $bg]);
+        $blood_types_data_seed = [];
+        foreach ($blood_types as $blood_type) {
+
+            $blood_types_data_seed[] = BloodType::factory()->make([
+                'name' => $blood_type
+            ])->toArray();
+
+
         }
+
+        DB::table('blood_types')->insert($blood_types_data_seed);
+
     }
 }
