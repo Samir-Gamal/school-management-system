@@ -48,7 +48,7 @@ class ReceiptStudent extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

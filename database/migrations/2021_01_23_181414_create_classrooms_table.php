@@ -11,10 +11,9 @@ class CreateClassroomsTable extends Migration {
             $table->uuid('id');
             $table->primary('id');
 			$table->string('name');
-			$table->uuid('grade_id');
+			$table->foreignUuid('grade_id')->references('id')->on('grades')
+                ->onDelete('cascade');;
 			$table->timestamps();
-            $table->foreign('grade_id')->references('id')->on('grades')
-                ->onDelete('cascade');
 		});
 	}
 

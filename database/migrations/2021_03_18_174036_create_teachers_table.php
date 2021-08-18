@@ -19,15 +19,11 @@ class CreateTeachersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('name');
-            $table->uuid('specialization_id');
-            $table->uuid('gender_id');
-            $table->date('joining_date');
+            $table->foreignUuid('specialization_id')->references('id')->on('specializations')->onDelete('cascade');
+            $table->foreignUuid('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->date('joining_at');
             $table->text('address');
             $table->timestamps();
-
-            $table->foreign('specialization_id')->references('id')->on('specializations')->onDelete('cascade');
-            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
-
         });
     }
 

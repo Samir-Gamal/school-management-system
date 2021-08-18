@@ -16,7 +16,7 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->date('invoice_date');
+            $table->date('invoice_at');
             $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');

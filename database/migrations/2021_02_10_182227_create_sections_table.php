@@ -18,11 +18,11 @@ class CreateSectionsTable extends Migration
             $table->primary('id');
             $table->string('name');
             $table->integer('status');
-            $table->uuid('grade_id');
-            $table->uuid('classroom_id');
+            $table->foreignUuid('grade_id')->references('id')->on('grades')
+                ->onDelete('cascade');;
+            $table->foreignUuid('classroom_id')->references('id')->on('classrooms')
+                ->onDelete('cascade');;
             $table->timestamps();
-            $table->foreign('grade_id')->references('id')->on('grades')
-                ->onDelete('cascade');
         });
     }
 

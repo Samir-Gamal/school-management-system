@@ -18,7 +18,7 @@ use Spatie\Translatable\HasTranslations;
  * @property int $gender_id
  * @property int $nationalitie_id
  * @property int $blood_id
- * @property string $date_birth
+ * @property string $birthday
  * @property int $grade_id
  * @property int $classroom_id
  * @property int $section_id
@@ -27,7 +27,7 @@ use Spatie\Translatable\HasTranslations;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Nationalitie $Nationality
+ * @property-read \App\Models\Nationality $Nationality
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Attendance[] $attendance
  * @property-read int|null $attendance_count
  * @property-read \App\Models\Classroom $classroom
@@ -55,7 +55,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereGradeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationalitieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationalityId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereParentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Student wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereSectionId($value)
@@ -66,6 +66,11 @@ use Spatie\Translatable\HasTranslations;
  * @property string $nationalise_id
  * @method static \Illuminate\Database\Eloquent\Builder|Student graduated()
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationaliseId($value)
+ * @property string $nationality_id
+ * @property string $guardian_id
+ * @method static \Database\Factories\StudentFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereBirthday($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereGuardianId($value)
  */
 class Student extends Model
 {
@@ -88,7 +93,7 @@ class Student extends Model
         'gender_id',
         'nationality_id',
         'blood_id',
-        'date_birth',
+        'birthday',
         'grade_id',
         'classroom_id',
         'section_id',
@@ -100,7 +105,7 @@ class Student extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.
@@ -156,7 +161,7 @@ class Student extends Model
 
     public function Nationality()
     {
-        return $this->belongsTo(Nationalitie::class, 'nationalitie_id');
+        return $this->belongsTo(Nationality::class, 'nationalitie_id');
     }
 
 

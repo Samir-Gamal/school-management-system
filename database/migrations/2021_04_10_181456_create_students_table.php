@@ -19,25 +19,18 @@ class CreateStudentsTable extends Migration
             $table->text('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->uuid('gender_id');
-            $table->uuid('nationality_id');
-            $table->uuid('blood_id');
-            $table->date('date_birth');
-            $table->uuid('grade_id');
-            $table->uuid('classroom_id');
-            $table->uuid('section_id');
-            $table->uuid('guardian_id');
+            $table->foreignUuid('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->foreignUuid('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->foreignUuid('blood_id')->references('id')->on('blood_types')->onDelete('cascade');
+            $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignUuid('guardian_id')->references('id')->on('guardians')->onDelete('cascade');
+            $table->date('birthday');
             $table->string('academic_year');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
-            $table->foreign('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
-            $table->foreign('blood_id')->references('id')->on('blood_types')->onDelete('cascade');
-            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
-            $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreign('guardian_id')->references('id')->on('guardians')->onDelete('cascade');
 
         });
     }

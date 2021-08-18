@@ -26,6 +26,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\ClassroomFactory factory(...$parameters)
  */
 class Classroom extends Model
 {
@@ -52,7 +53,7 @@ class Classroom extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

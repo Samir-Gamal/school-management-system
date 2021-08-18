@@ -32,6 +32,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Section whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Section whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\SectionFactory factory(...$parameters)
  */
 class Section extends Model
 {
@@ -58,7 +59,7 @@ class Section extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.
@@ -90,7 +91,7 @@ class Section extends Model
     // علاقة الاقسام مع المعلمين
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class,'teacher_sections');
+        return $this->belongsToMany(Teacher::class,'section_teacher');
     }
 
 }

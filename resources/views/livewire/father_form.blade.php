@@ -85,7 +85,7 @@
                         <label for="inputCity">{{__('parent.father_nationality_id')}}</label>
                         <select class="custom-select my-1 mr-sm-2" wire:model="Nationality_Father_id">
                             <option selected>{{__('parent.choose')}}...</option>
-                            @foreach($Nationalities as $National)
+                            @foreach($Nationalitys as $National)
                                 <option value="{{$National->id}}">{{$National->Name}}</option>
                             @endforeach
                         </select>

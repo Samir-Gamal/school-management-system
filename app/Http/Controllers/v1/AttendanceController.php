@@ -31,9 +31,9 @@ class AttendanceController extends Controller
             foreach ($request->attendences as $studentid => $attendence) {
 
                 if( $attendence == 'presence' ) {
-                    $attendence_status = true;
+                    $status = true;
                 } else if( $attendence == 'absent' ){
-                    $attendence_status = false;
+                    $status = false;
                 }
 
                 Attendance::create([
@@ -42,8 +42,8 @@ class AttendanceController extends Controller
                     'classroom_id'=> $request->classroom_id,
                     'section_id'=> $request->section_id,
                     'teacher_id'=> 1,
-                    'attendence_date'=> date('Y-m-d'),
-                    'attendence_status'=> $attendence_status
+                    'day'=> date('Y-m-d'),
+                    'status'=> $status
                 ]);
 
             }

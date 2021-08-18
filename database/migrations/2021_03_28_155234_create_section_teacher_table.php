@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParentAttachmentsTable extends Migration
+class CreateSectionTeacherTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateParentAttachmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('parent_attachments', function (Blueprint $table) {
+        Schema::create('section_teacher', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->string('file_name')->nullable();
-            $table->foreignUuid('parent_id')->references('id')->on('guardians');
-            $table->timestamps();
+            $table->foreignUuid('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');
+
 
         });
     }
@@ -30,6 +30,6 @@ class CreateParentAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parent_attachments');
+        Schema::dropIfExists('section_teacher');
     }
 }

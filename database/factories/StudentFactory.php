@@ -39,7 +39,7 @@ class StudentFactory extends Factory
             'classroom_id' => null,
             'section_id' => null,
             'guardian_id' => null,
-            'date_birth' => Carbon::now()->subYear(random_int(7, 18)),
+            'birthday' => Carbon::now()->subYear(random_int(7, 18)),
             'academic_year' => Carbon::now()->year,
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date),

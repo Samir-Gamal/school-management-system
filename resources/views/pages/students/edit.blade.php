@@ -97,7 +97,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>{{__('student.date_of_birth')}}  :</label>
-                                    <input class="form-control" type="text" value="{{$Students->date_birth}}" id="datepicker-action" name="Date_Birth" data-date-format="yyyy-mm-dd">
+                                    <input class="form-control" type="text" value="{{$Students->birthday}}" id="datepicker-action" name="Date_Birth" data-date-format="yyyy-mm-dd">
                                 </div>
                             </div>
 

@@ -14,8 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $classroom_id
  * @property int $section_id
  * @property int $teacher_id
- * @property string $attendence_date
- * @property int $attendence_status
+ * @property string $day
+ * @property int $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Attendance newModelQuery()
@@ -32,6 +32,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereTeacherId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereDay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereStatus($value)
  */
 class Attendance extends Model
 {
@@ -54,15 +56,15 @@ class Attendance extends Model
         'classroom_id',
         'section_id',
         'teacher_id',
-        'attendence_date',
-        'attendence_status',
+        'day',
+        'status',
     ];
     /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.
