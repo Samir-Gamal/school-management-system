@@ -26,7 +26,7 @@ class CreateStudentsTable extends Migration
             $table->uuid('grade_id');
             $table->uuid('classroom_id');
             $table->uuid('section_id');
-            $table->uuid('parent_id');
+            $table->uuid('guardian_id');
             $table->string('academic_year');
             $table->softDeletes();
             $table->timestamps();
@@ -37,7 +37,7 @@ class CreateStudentsTable extends Migration
             $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreign('parent_id')->references('id')->on('guardians')->onDelete('cascade');
+            $table->foreign('guardian_id')->references('id')->on('guardians')->onDelete('cascade');
 
         });
     }
