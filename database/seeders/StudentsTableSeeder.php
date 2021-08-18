@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use App\Models\Classroom;
 use App\Models\Gender;
 use App\Models\Grade;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Hash;
 class StudentsTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */

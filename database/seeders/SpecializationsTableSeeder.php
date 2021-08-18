@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use App\Models\Specialization;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class SpecializationsTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */

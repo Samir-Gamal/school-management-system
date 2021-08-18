@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Section;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class SectionsTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */

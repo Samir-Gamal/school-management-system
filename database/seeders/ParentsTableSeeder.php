@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use App\Models\Guardian;
 use App\Models\Nationalitie;
 use App\Models\Religion;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class ParentsTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */

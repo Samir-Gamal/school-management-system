@@ -62,6 +62,9 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Query\Builder|Student withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Student withoutTrashed()
  * @mixin \Eloquent
+ * @property string $nationalise_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Student graduated()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationaliseId($value)
  */
 class Student extends Model
 {

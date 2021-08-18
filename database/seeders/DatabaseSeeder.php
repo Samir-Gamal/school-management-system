@@ -1,5 +1,16 @@
 <?php
 
+use Database\Seeders\BloodTableSeeder;
+use Database\Seeders\ClassroomTableSeeder;
+use Database\Seeders\GenderTableSeeder;
+use Database\Seeders\GradeSeeder;
+use Database\Seeders\NationalitiesTableSeeder;
+use Database\Seeders\ParentsTableSeeder;
+use Database\Seeders\religionTableSeeder;
+use Database\Seeders\SectionsTableSeeder;
+use Database\Seeders\SpecializationsTableSeeder;
+use Database\Seeders\StudentsTableSeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

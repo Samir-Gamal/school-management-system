@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use App\Models\Classroom;
 use App\Models\Grade;
 use Illuminate\Database\Seeder;

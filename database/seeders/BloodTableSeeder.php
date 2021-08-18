@@ -1,5 +1,5 @@
 <?php
-
+namespace Database\Seeders;
 use App\Models\BloodType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class BloodTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */
