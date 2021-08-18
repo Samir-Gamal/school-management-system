@@ -56,7 +56,7 @@
                                             <th scope="row">{{__('student.section')}}</th>
                                             <td>{{$Student->section->name}}</td>
                                             <th scope="row">{{__('student.date_of_birth')}}</th>
-                                            <td>{{ $Student->date_birth}}</td>
+                                            <td>{{ $Student->birthday}}</td>
                                         </tr>
 
                                         <tr>

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -21,10 +23,11 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Religion whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Religion whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\ReligionFactory factory(...$parameters)
  */
 class Religion extends Model
 {
-    use HasTranslations;
+    use HasFactory,HasTranslations,Uuids;
     /**
      * The database table used by the model.
      *
@@ -42,7 +45,7 @@ class Religion extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

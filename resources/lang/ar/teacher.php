@@ -11,6 +11,6 @@ return [
     'name_en'=>'اسم المعلم باللغة الانجليزية',
     'specialization'=>'التخصص',
     'gender'=>'النوع',
-    'joining_date'=>'تاريخ التعين',
+    'joining_at'=>'تاريخ التعين',
     'address'=>'العنوان',
 ];

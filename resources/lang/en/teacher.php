@@ -11,6 +11,6 @@ return [
     'name_en'=>'Name_en',
     'specialization'=>'specialization',
     'gender'=>'Gender',
-    'joining_date'=>'Joining_Date',
+    'joining_at'=>'Joining_Date',
     'address'=>'Address',
 ];

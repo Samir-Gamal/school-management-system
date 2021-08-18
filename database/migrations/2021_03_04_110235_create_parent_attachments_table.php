@@ -14,12 +14,11 @@ class CreateParentAttachmentsTable extends Migration
     public function up()
     {
         Schema::create('parent_attachments', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->string('file_name')->nullable();
-            $table->bigInteger('parent_id')->unsigned();
+            $table->foreignUuid('parent_id')->references('id')->on('guardians');
             $table->timestamps();
-
-            $table->foreign('parent_id')->references('id')->on('guardians');
 
         });
     }

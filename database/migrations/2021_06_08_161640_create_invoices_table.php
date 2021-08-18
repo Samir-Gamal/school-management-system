@@ -14,12 +14,13 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->id();
-            $table->date('invoice_date');
-            $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->foreignId('grade_id')->references('id')->on('grades')->onDelete('cascade');
-            $table->foreignId('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
-            $table->foreignId('fee_id')->references('id')->on('fees')->onDelete('cascade');
+            $table->uuid('id');
+            $table->primary('id');
+            $table->date('invoice_at');
+            $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->foreignUuid('fee_id')->references('id')->on('fees')->onDelete('cascade');
             $table->decimal('amount',8,2);
             $table->string('description')->nullable();
             $table->timestamps();

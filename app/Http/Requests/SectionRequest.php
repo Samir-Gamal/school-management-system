@@ -51,8 +51,8 @@ class SectionRequest extends FormRequest
         $creation_rules = [
             'name_ar' => ['required', 'string', 'min:2'],
             'name_en' => ['required', 'string', 'min:2'],
-            'grade_id' => ['required', 'integer', 'exists:grades,id'],
-            'classroom_id' => ['required', 'integer', 'exists:classrooms,id'],
+            'grade_id' => ['required', 'uuid', 'exists:grades,id'],
+            'classroom_id' => ['required', 'uuid', 'exists:classrooms,id'],
         ];
 
         return $key ? $creation_rules[$key] : $creation_rules;
@@ -64,9 +64,9 @@ class SectionRequest extends FormRequest
         $update_rules = [
             'name_ar' => ['string', 'min:2'],
             'name_en' => ['string', 'min:2'],
-            'grade_id' => ['integer', 'exists:grades,id'],
-            'classroom_id' => ['integer', 'exists:classrooms,id'],
-            'teacher_id' => ['integer', 'exists:teachers,id'],
+            'grade_id' => ['uuid', 'exists:grades,id'],
+            'classroom_id' => ['uuid', 'exists:classrooms,id'],
+            'teacher_id' => ['uuid', 'exists:teachers,id'],
         ];
 
 

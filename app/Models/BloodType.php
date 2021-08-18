@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -19,9 +21,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|BloodType whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BloodType whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\BloodTypeFactory factory(...$parameters)
  */
 class BloodType extends Model
 {
+    use HasFactory, Uuids;
+
     /**
      * The database table used by the model.
      *
@@ -39,7 +44,7 @@ class BloodType extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

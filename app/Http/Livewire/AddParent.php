@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Guardian;
-use App\Models\Nationalitie;
+use App\Models\Nationality;
 use App\Models\ParentAttachment;
 use App\Models\Religion;
 use App\Models\BloodType;
@@ -54,7 +54,7 @@ class AddParent extends Component
     public function render()
     {
         return view('livewire.add_parent', [
-            'Nationalities' => Nationalitie::all(),
+            'Nationalitys' => Nationality::all(),
             'Type_Bloods' => BloodType::all(),
             'Religions' => Religion::all(),
             'my_parents' => Guardian::all(),

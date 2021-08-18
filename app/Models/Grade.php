@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -27,11 +29,12 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Grade whereNotes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Grade whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\GradeFactory factory(...$parameters)
  */
 class Grade extends Model
 {
 
-    use HasTranslations;
+    use HasFactory, HasTranslations,Uuids;
 
     /**
      * The database table used by the model.
@@ -53,7 +56,7 @@ class Grade extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

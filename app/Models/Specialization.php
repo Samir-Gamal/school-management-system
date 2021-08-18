@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+
 
 /**
  * App\Models\Specialization
  *
- * @property int $id
+ * @property string $id
  * @property array $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -21,10 +24,11 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\SpecializationFactory factory(...$parameters)
  */
 class Specialization extends Model
 {
-    use HasTranslations;
+    use HasFactory,HasTranslations,Uuids;
     /**
      * The database table used by the model.
      *
@@ -42,7 +46,7 @@ class Specialization extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

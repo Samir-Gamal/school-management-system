@@ -100,7 +100,7 @@
 
                             <div class="form-row">
                                 <div class="col">
-                                    <label for="title">{{__('teacher.joining_date')}}</label>
+                                    <label for="title">{{__('teacher.joining_at')}}</label>
                                     <div class='input-group date'>
                                         <input class="form-control" type="text"  id="datepicker-action" name="Joining_Date" data-date-format="yyyy-mm-dd"  required>
                                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $date
  * @property string $type
- * @property int|null $fee_invoice_id
+ * @property int|null $invoice_id
  * @property int|null $receipt_id
  * @property int|null $processing_id
  * @property int|null $payment_id
@@ -37,9 +38,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereInvoiceId($value)
  */
 class StudentAccount extends Model
 {
+    use Uuids;
     /**
      * The database table used by the model.
      *
@@ -57,7 +60,7 @@ class StudentAccount extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

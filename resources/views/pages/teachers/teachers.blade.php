@@ -32,7 +32,7 @@
                                             <th>#</th>
                                             <th>{{__('teacher.teacher_name')}}</th>
                                             <th>{{__('teacher.gender')}}</th>
-                                            <th>{{__('teacher.joining_date')}}</th>
+                                            <th>{{__('teacher.joining_at')}}</th>
                                             <th>{{__('teacher.specialization')}}</th>
                                             <th>العمليات</th>
                                         </tr>
@@ -45,7 +45,7 @@
                                             <td>{{ $i }}</td>
                                             <td>{{$Teacher->name}}</td>
                                             <td>{{$Teacher->genders->name}}</td>
-                                            <td>{{$Teacher->joining_date}}</td>
+                                            <td>{{$Teacher->joining_at}}</td>
                                             <td>{{$Teacher->specializations->name}}</td>
                                                 <td>
                                                     <a href="{{route('teachers.edit',$Teacher->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>

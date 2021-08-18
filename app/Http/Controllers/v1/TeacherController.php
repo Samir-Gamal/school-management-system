@@ -33,7 +33,7 @@ class TeacherController extends Controller
             $Teachers->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $Teachers->specialization_id = $request->Specialization_id;
             $Teachers->gender_id = $request->Gender_id;
-            $Teachers->joining_date = $request->Joining_Date;
+            $Teachers->joining_at = $request->Joining_Date;
             $Teachers->address = $request->Address;
             $Teachers->save();
             toastr()->success(__('messages.success'));
@@ -68,7 +68,7 @@ class TeacherController extends Controller
             $Teachers->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
             $Teachers->specialization_id = $request->Specialization_id;
             $Teachers->gender_id = $request->Gender_id;
-            $Teachers->joining_date = $request->Joining_Date;
+            $Teachers->joining_at = $request->Joining_Date;
             $Teachers->address = $request->Address;
             $Teachers->save();
             toastr()->success(__('messages.update'));

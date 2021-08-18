@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GradeRequest;
 use App\Models\Classroom;
 use App\Http\Requests\StoreGrades;
 use App\Models\Exam;
@@ -29,7 +30,7 @@ class GradeController extends Controller
      *
      * @return Response
      */
-    public function store(StoreGrades $request)
+    public function store(GradeRequest $request)
     {
         $input = $request->only((new Grade())->getFillable());
         $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
@@ -45,7 +46,7 @@ class GradeController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(StoreGrades $request)
+    public function update(GradeRequest $request)
     {
         $grade = Grade::findOrFail($request->id);
         $input = $request->only((new Grade())->getFillable());

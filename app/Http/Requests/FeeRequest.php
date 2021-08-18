@@ -51,8 +51,8 @@ class FeeRequest extends FormRequest
             'title_ar' => ['required', 'string', 'min:2'],
             'title_en' => ['required', 'string', 'min:2'],
             'amount' => ['required', 'numeric'],
-            'grade_id' => ['required', 'integer','exists:grades,id'],
-            'classroom_id' => ['required', 'integer', 'exists:classrooms,id'],
+            'grade_id' => ['required', 'uuid','exists:grades,id'],
+            'classroom_id' => ['required', 'uuid', 'exists:classrooms,id'],
             'year' => ['required', 'digits:4', 'integer', 'min:2000'],
         ];
 
@@ -66,8 +66,8 @@ class FeeRequest extends FormRequest
             'title_ar' => [ 'string', 'min:2'],
             'title_en' => [ 'string', 'min:2'],
             'amount' => [ 'numeric'],
-            'grade_id' => ['integer','exists:grades,id'],
-            'classroom_id' => ['integer', 'exists:classrooms,id'],
+            'grade_id' => ['uuid','exists:grades,id'],
+            'classroom_id' => ['uuid', 'exists:classrooms,id'],
             'year' => [ 'digits:4', 'integer', 'min:2000'],
         ];
 
