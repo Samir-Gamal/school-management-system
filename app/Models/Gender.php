@@ -23,6 +23,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Gender whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Gender whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\GenderFactory factory(...$parameters)
  */
 class Gender extends Model
 {
@@ -45,7 +46,7 @@ class Gender extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

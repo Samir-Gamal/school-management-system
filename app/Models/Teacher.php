@@ -15,7 +15,7 @@ use Spatie\Translatable\HasTranslations;
  * @property array $name
  * @property int $specialization_id
  * @property int $gender_id
- * @property string $joining_date
+ * @property string $joining_at
  * @property string $address
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -38,6 +38,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereSpecializationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereJoiningAt($value)
  */
 class Teacher extends Model
 {
@@ -65,7 +66,7 @@ class Teacher extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

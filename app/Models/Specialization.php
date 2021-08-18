@@ -24,6 +24,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\SpecializationFactory factory(...$parameters)
  */
 class Specialization extends Model
 {
@@ -45,7 +46,7 @@ class Specialization extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

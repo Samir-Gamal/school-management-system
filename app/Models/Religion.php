@@ -23,6 +23,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|Religion whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Religion whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\ReligionFactory factory(...$parameters)
  */
 class Religion extends Model
 {
@@ -44,7 +45,7 @@ class Religion extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.

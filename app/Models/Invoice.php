@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * App\Models\Invoice
  *
  * @property int $id
- * @property string $invoice_date
+ * @property string $invoice_at
  * @property int $student_id
  * @property int $grade_id
  * @property int $classroom_id
@@ -37,6 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereStudentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereInvoiceAt($value)
  */
 class Invoice extends Model
 {
@@ -58,7 +59,7 @@ class Invoice extends Model
      *
      * @var bool
      */
-    public $incrementing = true;
+    public $incrementing = false;
 
     /**
      * The database primary key value.
