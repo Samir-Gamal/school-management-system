@@ -10,7 +10,7 @@ use App\Models\Gender;
 use App\Models\Grade;
 use App\Models\Guardian;
 use App\Models\Image;
-use App\Models\Nationalitie;
+use App\Models\Nationality;
 use App\Models\Section;
 use App\Models\Student;
 use App\Repository\StudentRepositoryInterface;
@@ -33,7 +33,7 @@ class StudentController extends Controller
         $data['Grades'] = Grade::all();
         $data['parents'] = Guardian::all();
         $data['Genders'] = Gender::all();
-        $data['nationals'] = Nationalitie::all();
+        $data['nationals'] = Nationality::all();
         $data['bloods'] = BloodType::all();
         $Students =  Student::findOrFail($id);
         return view('pages.students.edit',$data,compact('Students'));
@@ -49,7 +49,7 @@ class StudentController extends Controller
             $Edit_Students->gender_id = $request->gender_id;
             $Edit_Students->nationalitie_id = $request->nationalitie_id;
             $Edit_Students->blood_id = $request->blood_id;
-            $Edit_Students->date_birth = $request->Date_Birth;
+            $Edit_Students->birthday = $request->Date_Birth;
             $Edit_Students->grade_id = $request->Grade_id;
             $Edit_Students->classroom_id = $request->Classroom_id;
             $Edit_Students->section_id = $request->section_id;
@@ -70,7 +70,7 @@ class StudentController extends Controller
         $data['my_classes'] = Grade::all();
         $data['parents'] = Guardian::all();
         $data['Genders'] = Gender::all();
-        $data['nationals'] = Nationalitie::all();
+        $data['nationals'] = Nationality::all();
         $data['bloods'] = BloodType::all();
         return view('pages.students.add',$data);
 
@@ -109,7 +109,7 @@ class StudentController extends Controller
             $students->gender_id = $request->gender_id;
             $students->nationalitie_id = $request->nationalitie_id;
             $students->blood_id = $request->blood_id;
-            $students->date_birth = $request->Date_Birth;
+            $students->birthday = $request->Date_Birth;
             $students->grade_id = $request->Grade_id;
             $students->classroom_id = $request->Classroom_id;
             $students->section_id = $request->section_id;

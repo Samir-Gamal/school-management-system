@@ -11,6 +11,7 @@ use App\Models\Customer;
 use App\Models\Fee;
 use App\Models\Grade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ClassroomController extends Controller
 {
@@ -39,6 +40,7 @@ class ClassroomController extends Controller
     {
         foreach ($request->classrooms as $classroom) {
             $input[] = [
+                'id'=>(string) Str::uuid(),
                 'name' => json_encode(['en' => $classroom['name_en'], 'ar' => $classroom['name_ar']]),
                 'grade_id' => $classroom['grade_id']
             ];

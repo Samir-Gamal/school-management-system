@@ -51,7 +51,7 @@ class ClassroomRequest extends FormRequest
 
             'classrooms.*.name_ar' => ['required', 'string', 'min:2'],
             'classrooms.*.name_en' => ['required', 'string', 'min:2'],
-            'classrooms.*.grade_id' => ['required', 'integer', 'exists:grades,id'],
+            'classrooms.*.grade_id' => ['required', 'uuid', 'exists:grades,id'],
         ];
 
         return $key ? $creation_rules[$key] : $creation_rules;
@@ -63,7 +63,7 @@ class ClassroomRequest extends FormRequest
         $update_rules = [
             'name_ar' => ['string', 'min:2'],
             'name_en' => ['string', 'min:2'],
-            'grade_id' => ['integer', 'exists:grades,id'],
+            'grade_id' => ['uuid', 'exists:grades,id'],
         ];
 
         return $key ? $update_rules[$key] : $update_rules;

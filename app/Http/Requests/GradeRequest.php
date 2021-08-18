@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SectionRequest extends FormRequest
+class GradeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,12 +16,12 @@ class SectionRequest extends FormRequest
         return true;
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-
     public function rules()
     {
         switch ($this->getMethod()) {
@@ -49,10 +49,10 @@ class SectionRequest extends FormRequest
     public static function creationRules($key = null)
     {
         $creation_rules = [
-            'name_ar' => ['required', 'string', 'min:2'],
-            'name_en' => ['required', 'string', 'min:2'],
-            'grade_id' => ['required', 'uuid', 'exists:grades,id'],
-            'classroom_id' => ['required', 'uuid', 'exists:classrooms,id'],
+
+            'name_ar' => 'required|unique:grades,name->ar,',
+            'name_en' => 'required|unique:grades,name->en,'
+
         ];
 
         return $key ? $creation_rules[$key] : $creation_rules;
@@ -62,13 +62,11 @@ class SectionRequest extends FormRequest
     public static function updateRules($key = null, $user_id = null)
     {
         $update_rules = [
-            'name_ar' => ['string', 'min:2'],
-            'name_en' => ['string', 'min:2'],
-            'grade_id' => ['uuid', 'exists:grades,id'],
-            'classroom_id' => ['uuid', 'exists:classrooms,id'],
-            'teacher_id' => ['uuid', 'exists:teachers,id'],
-        ];
 
+            'name_ar' => 'required|unique:grades,name->ar,'.request()->id,
+            'name_en' => 'required|unique:grades,name->en,'.request()->id,
+
+        ];
 
         return $key ? $update_rules[$key] : $update_rules;
 

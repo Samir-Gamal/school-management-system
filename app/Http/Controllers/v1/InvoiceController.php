@@ -53,7 +53,7 @@ class InvoiceController extends Controller
             foreach ($fees as $fee) {
                 // حفظ البيانات في جدول فواتير الرسوم الدراسية
                 $create_fee = new Invoice();
-                $create_fee->invoice_date = date('Y-m-d');
+                $create_fee->invoice_at = date('Y-m-d');
                 $create_fee->student_id = $fee['student_id'];
                 $create_fee->grade_id = $request->grade_id;
                 $create_fee->classroom_id = $request->classroom_id;;
@@ -66,7 +66,7 @@ class InvoiceController extends Controller
                 $StudentAccount = new StudentAccount();
                 $StudentAccount->date = date('Y-m-d');
                 $StudentAccount->type = 'invoice';
-                $StudentAccount->fee_invoice_id = $create_fee->id;
+                $StudentAccount->invoice_id = $create_fee->id;
                 $StudentAccount->student_id = $fee['student_id'];
                 $StudentAccount->debit = $fee['amount'];
                 $StudentAccount->credit = 0.00;
@@ -93,7 +93,7 @@ class InvoiceController extends Controller
             $Fees->save();
 
             // تعديل البيانات في جدول حسابات الطلاب
-            $StudentAccount = StudentAccount::where('fee_invoice_id',$request->id)->first();
+            $StudentAccount = StudentAccount::where('invoice_id',$request->id)->first();
             $StudentAccount->debit = $request->amount;
             $StudentAccount->description = $request->description;
             $StudentAccount->save();
