@@ -19,7 +19,7 @@ class AttendanceController extends Controller
     {
         $grades = Grade::with(['sections','sections.classroom'])->get();
         $teachers = Teacher::all();
-        return view('pages.attendance.sections',compact('grades','teachers'));
+        return view('pages.attendances.sections',compact('grades','teachers'));
     }
 
 
@@ -61,7 +61,7 @@ class AttendanceController extends Controller
     public function show($id)
     {
         $students = Student::with('attendance')->where('section_id',$id)->get();
-        return view('pages.attendance.index',compact('students'));
+        return view('pages.attendances.index',compact('students'));
     }
 
 }
