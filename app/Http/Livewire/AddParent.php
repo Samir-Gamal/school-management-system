@@ -53,7 +53,7 @@ class AddParent extends Component
 
     public function render()
     {
-        return view('livewire.add_parent', [
+        return view('guardians.add_parent', [
             'Nationalitys' => Nationality::all(),
             'Type_Bloods' => BloodType::all(),
             'Religions' => Religion::all(),
