@@ -25,8 +25,8 @@ class StudentsTableSeeder extends Seeder
         $students->name = ['ar' => 'احمد ابراهيم', 'en' => 'Ahmed Ibrahim'];
         $students->email = 'Ahmed_Ibrahim@yahoo.com';
         $students->password = Hash::make('12345678');
-        $students->gender_id = 1;
-        $students->nationalitie_id = Nationalitie::all()->unique()->random()->id;
+        $students->gender_id =  Gender::first()->id;
+        $students->nationality_id = Nationalitie::all()->unique()->random()->id;
         $students->blood_id =BloodType::all()->unique()->random()->id;
         $students->date_birth = date('1995-01-01');
         $students->grade_id = Grade::all()->unique()->random()->id;

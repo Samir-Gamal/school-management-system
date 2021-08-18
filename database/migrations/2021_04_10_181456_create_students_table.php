@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->uuid('gender_id');
-            $table->uuid('nationalise_id');
+            $table->uuid('nationality_id');
             $table->uuid('blood_id');
             $table->date('date_birth');
             $table->uuid('grade_id');
@@ -32,7 +32,7 @@ class CreateStudentsTable extends Migration
             $table->timestamps();
 
             $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
-            $table->foreign('nationalise_id')->references('id')->on('nationalities')->onDelete('cascade');
+            $table->foreign('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
             $table->foreign('blood_id')->references('id')->on('blood_types')->onDelete('cascade');
             $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');

@@ -1,5 +1,7 @@
 <?php
+
 namespace Database\Seeders;
+
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -29,11 +31,6 @@ class UserSeeder extends Seeder
 
         $more_admin_user->push($admin_user);
 
-\Illuminate\Support\Facades\Log::alert($more_admin_user);
-//        DB::table('users')->insert([
-//            'name' => 'admin',
-//            'email' => 'admin@admin.com',
-//            'password' => Hash::make('123456789'),
-//        ]);
+        DB::table('users')->insert($more_admin_user->toArray());
     }
 }
