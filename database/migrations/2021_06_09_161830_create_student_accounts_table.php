@@ -18,7 +18,7 @@ class CreateStudentAccountsTable extends Migration
             $table->primary('id');
             $table->date('date');
             $table->string('type');
-            $table->foreignUuid('fee_invoice_id')->nullable()->references('id')->on('invoices')->onDelete('cascade');
+            $table->foreignUuid('invoice_id')->nullable()->references('id')->on('invoices')->onDelete('cascade');
             $table->foreignUuid('receipt_id')->nullable()->references('id')->on('receipt_students')->onDelete('cascade');
             $table->foreignUuid('processing_id')->nullable()->references('id')->on('processing_fees')->onDelete('cascade');
             $table->foreignUuid('payment_id')->nullable()->references('id')->on('payments')->onDelete('cascade');

@@ -25,9 +25,9 @@ class CreateGuardiansTable extends Migration
             $table->string('father_passport_id');
             $table->string('father_phone');
             $table->string('father_job');
-            $table->uuid('father_nationality_id');
-            $table->uuid('father_blood_type_id');
-            $table->uuid('father_religion_id');
+            $table->foreignUuid('father_nationality_id')->references('id')->on('nationalities');
+            $table->foreignUuid('father_blood_type_id')->references('id')->on('blood_types');
+            $table->foreignUuid('father_religion_id')->references('id')->on('religions');
             $table->string('father_address');
 
             //Mother information
@@ -36,18 +36,11 @@ class CreateGuardiansTable extends Migration
             $table->string('mother_passport_id');
             $table->string('mother_phone');
             $table->string('mother_job');
-            $table->uuid('mother_nationality_id');
-            $table->uuid('mother_blood_type_id');
-            $table->uuid('mother_religion_id');
+            $table->foreignUuid('mother_nationality_id')->references('id')->on('nationalities');
+            $table->foreignUuid('mother_blood_type_id')->references('id')->on('blood_types');
+            $table->foreignUuid('mother_religion_id')->references('id')->on('religions');
             $table->string('mother_address');
             $table->timestamps();
-
-            $table->foreign('father_nationality_id')->references('id')->on('nationalities');
-            $table->foreign('father_blood_type_id')->references('id')->on('blood_types');
-            $table->foreign('father_religion_id')->references('id')->on('religions');
-            $table->foreign('mother_nationality_id')->references('id')->on('nationalities');
-            $table->foreign('mother_blood_type_id')->references('id')->on('blood_types');
-            $table->foreign('mother_religion_id')->references('id')->on('religions');
         });
     }
 
