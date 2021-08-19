@@ -96,7 +96,7 @@ class Invoice extends Model
         return $this->belongsTo(Student::class);
     }
 
-    public function fees()
+    public function fee()
     {
         return $this->belongsTo(Fee::class);
     }
