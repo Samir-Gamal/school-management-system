@@ -16,19 +16,19 @@ class ProcessingFeeController extends Controller
     public function index()
     {
         $processing_fees = ProcessingFee::all();
-        return view('pages.processing_fee.index',compact('processing_fees'));
+        return view('pages.processing_fees.index',compact('processing_fees'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.processing_fee.add',compact('student'));
+        return view('pages.processing_fees.add',compact('student'));
     }
 
     public function edit($id)
     {
         $processing_fee = ProcessingFee::findorfail($id);
-        return view('pages.processing_fee.edit',compact('processing_fee'));
+        return view('pages.processing_fees.edit',compact('processing_fee'));
     }
 
     public function store($request)
