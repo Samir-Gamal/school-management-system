@@ -1,6 +1,7 @@
+<div>
 @if($currentStep != 1)
     <div style="display: none" class="row setup-content" id="step-1">
-        @endif
+@endif
         <div class="col-xs-12">
             <div class="col-md-12">
                 <br>
@@ -56,8 +57,8 @@
 
                     <div class="col">
                         <label for="title">{{__('parent.father_national_id')}}</label>
-                        <input type="text" wire:model="father_nationality_id" class="form-control">
-                        @error('father_nationality_id')
+                        <input type="text" wire:model="father_national_id" class="form-control">
+                        @error('father_national_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -141,3 +142,4 @@
             </div>
         </div>
     </div>
+</div>

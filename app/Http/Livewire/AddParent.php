@@ -17,7 +17,7 @@ class AddParent extends Component
 
     public $successMessage = '';
 
-    public $catchError,$updateMode = false,$photos,$show_table = true,$Parent_id;
+    public $catchError,$updateMode = false,$photos,$show_table = true,$guardian_id;
 
     public $currentStep = 1,
 
@@ -113,16 +113,16 @@ class AddParent extends Component
 
     public function submitForm(){
 
-        try {
+
             $guardian = new Guardian();
             // Father_INPUTS
             $guardian->email = $this->email;
             $guardian->password = Hash::make($this->password);
-            $guardian->father_name = ['en' => $this->father_name_ar_en, 'ar' => $this->father_name_ar];
+            $guardian->father_name = ['en' => $this->father_name_en, 'ar' => $this->father_name_ar];
             $guardian->father_national_id = $this->father_national_id;
             $guardian->father_passport_id = $this->father_passport_id;
             $guardian->father_phone = $this->father_phone;
-            $guardian->father_job = ['en' => $this->Job_Father_en, 'ar' => $this->Job_Father];
+            $guardian->father_job = ['en' => $this->father_job_en, 'ar' => $this->father_job_ar];
             $guardian->father_passport_id = $this->father_passport_id;
             $guardian->father_nationality_id = $this->father_nationality_id;
             $guardian->father_blood_type_id = $this->father_blood_type_id;
@@ -130,7 +130,7 @@ class AddParent extends Component
             $guardian->father_address = $this->father_address;
 
             // Mother_INPUTS
-            
+
             $guardian->mother_name = ['en' => $this->mother_name_en, 'ar' => $this->mother_name_ar];
             $guardian->mother_national_id = $this->mother_national_id;
             $guardian->mother_passport_id = $this->mother_passport_id;
@@ -157,11 +157,8 @@ class AddParent extends Component
             $this->currentStep = 1;
         }
 
-        catch (\Exception $e) {
-            $this->catchError = $e->getMessage();
-        };
 
-    }
+
 
 
     public function edit($id)
@@ -169,7 +166,7 @@ class AddParent extends Component
         $this->show_table = false;
         $this->updateMode = true;
         $guardian = Guardian::where('id',$id)->first();
-        $this->Parent_id = $id;
+        $this->guardian_id = $id;
         $this->email = $guardian->Email;
         $this->password = $guardian->password;
         $this->father_name_ar = $guardian->getTranslation('father_name', 'ar');

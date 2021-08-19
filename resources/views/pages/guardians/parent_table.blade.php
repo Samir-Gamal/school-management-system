@@ -21,7 +21,7 @@
                 <?php $i++; ?>
                 <td>{{ $i }}</td>
                 <td>{{ $guardian->email }}</td>
-                <td>{{ $guardian->name }}</td>
+                <td>{{ $guardian->father_name }}</td>
                 <td>{{ $guardian->father_national_id }}</td>
                 <td>{{ $guardian->father_passport_id }}</td>
                 <td>{{ $guardian->father_phone }}</td>

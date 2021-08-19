@@ -56,7 +56,7 @@
                             </div>
                             <br>
 
-                            <input type="hidden" wire:model="Parent_id">
+                            <input type="hidden" wire:model="guardian_id">
 
                             <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button"
                                     wire:click="back(2)">{{ __('parent.back') }}</button>
