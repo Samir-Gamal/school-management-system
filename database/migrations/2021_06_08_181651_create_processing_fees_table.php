@@ -14,9 +14,10 @@ class CreateProcessingFeesTable extends Migration
     public function up()
     {
         Schema::create('processing_fees', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->date('date');
-            $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->decimal('amount',8,2)->nullable();
             $table->string('description');
             $table->timestamps();

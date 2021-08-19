@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @section('title')
-{{trans('main_trans.Main_title')}}
+{{__('main.title')}}
 @stop
 <head>
     <meta charset="utf-8">
@@ -29,9 +29,9 @@
         <!--=================================
  preloader -->
 
-        @include('layouts.main-header')
+        @include('layouts.main_header')
 
-        @include('layouts.main-sidebar')
+        @include('layouts.main_sidebar')
 
         <!--=================================
  Main content -->
@@ -40,7 +40,7 @@
             <div class="page-title" >
                 <div class="row">
                     <div class="col-sm-6" >
-                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{trans('main_trans.Dashboard_page')}}</h4>
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">{{__('main.dashboard_page')}}</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
@@ -683,7 +683,7 @@
     <!--=================================
  footer -->
 
-    @include('layouts.footer-scripts')
+    @include('layouts.footer_scripts')
 
 </body>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
 
 
@@ -15,5 +16,6 @@ class AuthRouteAPIController extends Controller
     public function login(Request $request){
         return view('auth.login');
     }
+
 
 }

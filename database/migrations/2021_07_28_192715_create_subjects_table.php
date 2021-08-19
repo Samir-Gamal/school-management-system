@@ -14,11 +14,12 @@ class CreateSubjectsTable extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->string('name');
-            $table->foreignId('grade_id')->references('id')->on('Grades')->onDelete('cascade');
-            $table->foreignId('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
-            $table->foreignId('teacher_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->foreignUuid('teacher_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->timestamps();
         });
     }

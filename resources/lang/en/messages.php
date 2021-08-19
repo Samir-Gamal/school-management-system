@@ -2,7 +2,7 @@
 
 return [
     'success'=>'Data has been saved successfully',
-    'Update'=>'Data has been Updated successfully',
-    'Delete'=>'Data has been Deleted successfully',
+    'update'=>'Data has been Updated successfully',
+    'delete'=>'Data has been Deleted successfully',
 
 ];

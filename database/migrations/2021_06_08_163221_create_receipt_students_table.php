@@ -14,10 +14,11 @@ class CreateReceiptStudentsTable extends Migration
     public function up()
     {
         Schema::create('receipt_students', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->date('date');
-            $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->decimal('Debit',8,2)->nullable();
+            $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->decimal('debit',8,2)->nullable();
             $table->string('description');
             $table->timestamps();
         });
