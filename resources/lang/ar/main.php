@@ -45,4 +45,5 @@ return [
     'privacy_policy'=>'سياسة الخصوصية',
     'classroom'=>'الصف الدراسي',
     'crate'=>'اضافة',
+    'test_account'=>'حساب تجريبي',
 ];
