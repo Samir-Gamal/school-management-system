@@ -26,25 +26,25 @@
 ## طريقة تشغيل المشروع للمطورين
 1. Clone the repo تحميل المستودع
 ```sh
-  git clone git@github.com:fh32000/school-management-system.git
+ git clone git@github.com:fh32000/school-management-system.git
 ```
 2. Install dependencies  تنصيب الارتباطات
 ```sh
-  composer install
+ composer install
 ```
 3.  App Settings in dotenv file  اعدادات التطبيق
 ```sh
-  قم بنسخ ملف محتوى ملف .env.example
+ قم بنسخ ملف محتوى ملف .env.example
 الى ملف جديد باسم env.
 مع تغيير الإعدادات الخاصة بك من الاتصال بقواعد البيانات الخ
 ```
 4. Migrate and seed Database انشاء جداول قواعد البيانات واضافة بيانات لتجربة البرنامج
 ```sh
-  php artisan migrate:refresh --force --seed
+ php artisan migrate:refresh --force --seed
 ```
 5. تشغيل المشروع
 ```sh
-  php artisan serve
+ php artisan serve
 ```
 ## تم فتح هذا التشعب بواسطة
 
@@ -68,7 +68,7 @@ John Doe
 [ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/798db7d49dffeac3c4c1cb7a33b57b588c39f272
 )
 - [ بسبب عدم حساسيته للاحرف](https://stackoverflow.com/questions/26560376/base-table-or-view-not-found-error-in-web-hosting-pdo-mysql
- )حل مشكة المايقريشن والسيد لا تعمل في سيرفر الينكس ولكن تعمل بشكل جيد في سيرفر المحلي 
+)حل مشكة المايقريشن والسيد لا تعمل في سيرفر الينكس ولكن تعمل بشكل جيد في سيرفر المحلي
 - إصلاح مشكلة عدم التمكن من تنفيذ أمر الميجريشن ريفرش و الميجريشن رول باك
 ```sh
 php artisan migrate:refresh --force --seed
@@ -79,26 +79,36 @@ php artisan migrate:rollback
 )
 
 ### تعديلات
-
+- تم تعديل حساب الادمن في seed
+- تم تعديل ايقونة الموقع
+- تم حذف الملفات غير المستخدمة
 ### إضافة مميزات جديدة
 - امكانية عمل كاش لجميع الراوتر باستخدام الأمر التالي
 ```sh
-     php artisan route:trans:cache
+    php artisan route:trans:cache
 ```
+- تنصيب مكتبة telescope
+- استخدم uuid  لتخزين بيانات id في قواعد البيانات
+- اضافة وتفعيل ميزة laravel-ide-helper
 
 [ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/69102432adcf0b6f526a7e8076d68839d7cc4875)
 
-  [لماذا نحتاج عمل كاش الراوتر خصوصا في البرودكشن ؟](https://voltagead.com/laravel-route-caching-for-improved-performance/)
+ [لماذا نحتاج عمل كاش الراوتر خصوصا في البرودكشن ؟](https://voltagead.com/laravel-route-caching-for-improved-performance/)
 
 ###  اتباع نظام Laravel Naming Conventions
+تم عمل تحديث كامل لكل اسماء الكلاسات و المجلدات و الملفات بما يتوافق مع نظام التسميات في لارافيل
 
 ###  اتباع أفضل التطبيقات Best Practices
-
+- استخدام Form Request validation
+- استخدام factory's كل في عملية seed
 
 ###  تحسين تنظيمي واتباع نظام solid
 
 ### تحسين السرعة والأداء
-
+- تحديث الفريم ورك لارافيل الى الاصدار v8.55.0
+- دعم الاصدار الاخير من php 8
+- تحسين سرعة الميجريشن
+- تحسين سرعة seed مع زيادة البيانات
 
 
 ## تعلم كيف تطور وتعدل على المشروع
@@ -108,7 +118,7 @@ php artisan migrate:rollback
 ## الاقتراحات و التعاون
 
 ارحب بكل الاقتراحات عن طريق فتح issues في المشروع وسيتم مناقشتها وجدولتها للعمل
-كما أرحب بجميع المطورين لي حابين يضيفوا او يعدلوا أو يحذفوا بما يخدم المجتمع التعاوني ونخرج بمشروع مفتوح المصدر قوي ومحدث
+كما أرحب بجميع المطورين لي حابين يضيفوا او يعدلوا أو يحذفوا بما يخدم المجتمع التعاوني وتحسين مخرجات المشروع مفتوح المصدر قوي ومحدث
 
 
 ##  الترخيص MIT
