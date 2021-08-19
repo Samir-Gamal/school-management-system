@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         <?php $i = 0; ?>
-        @foreach ($my_parents as $guardian)
+        @foreach ($guardians as $guardian)
             <tr>
                 <?php $i++; ?>
                 <td>{{ $i }}</td>

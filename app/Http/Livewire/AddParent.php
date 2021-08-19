@@ -22,31 +22,31 @@ class AddParent extends Component
     public $currentStep = 1,
 
         // Father_INPUTS
-        $Email, $Password,
-        $Name_Father, $Name_Father_en,
-        $National_ID_Father, $Passport_ID_Father,
-        $Phone_Father, $Job_Father, $Job_Father_en,
-        $Nationality_Father_id, $Blood_Type_Father_id,
-        $Address_Father, $Religion_Father_id,
+        $email, $password,
+        $father_name_ar, $father_name_en,
+        $father_national_id, $father_passport_id,
+        $father_phone, $father_job_ar, $father_job_en,
+        $father_nationality_id, $father_blood_type_id,
+        $father_address, $father_religion_id,
 
         // Mother_INPUTS
-        $Name_Mother, $Name_Mother_en,
-        $National_ID_Mother, $Passport_ID_Mother,
-        $Phone_Mother, $Job_Mother, $Job_Mother_en,
-        $Nationality_Mother_id, $Blood_Type_Mother_id,
-        $Address_Mother, $Religion_Mother_id;
+        $mother_name_ar, $mother_name_en,
+        $mother_national_id, $mother_passport_id,
+        $mother_phone, $mother_job_ar, $mother_job_en,
+        $mother_nationality_id, $mother_blood_type_id,
+        $mother_address, $mother_religion_id;
 
 
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName, [
-            'Email' => 'required|email',
-            'National_ID_Father' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
-            'Passport_ID_Father' => 'min:10|max:10',
-            'Phone_Father' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'National_ID_Mother' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
-            'Passport_ID_Mother' => 'min:10|max:10',
-            'Phone_Mother' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
+            'email' => 'required|email',
+            'father_national_id' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
+            'father_passport_id' => 'min:10|max:10',
+            'father_phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'mother_national_id' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
+            'mother_passport_id' => 'min:10|max:10',
+            'mother_phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
         ]);
     }
 
@@ -54,10 +54,10 @@ class AddParent extends Component
     public function render()
     {
         return view('pages.guardians.add_parent', [
-            'Nationalitys' => Nationality::all(),
-            'Type_Bloods' => BloodType::all(),
-            'Religions' => Religion::all(),
-            'my_parents' => Guardian::all(),
+            'nationalises' => Nationality::all(),
+            'blood_types' => BloodType::all(),
+            'religions' => Religion::all(),
+            'guardians' => Guardian::all(),
         ]);
 
     }
@@ -72,19 +72,19 @@ class AddParent extends Component
     public function firstStepSubmit()
     {
        $this->validate([
-            'Email' => 'required|unique:my__parents,Email,'.$this->id,
-            'Password' => 'required',
-            'Name_Father' => 'required',
-            'Name_Father_en' => 'required',
-            'Job_Father' => 'required',
-            'Job_Father_en' => 'required',
-            'National_ID_Father' => 'required|unique:my__parents,National_ID_Father,' . $this->id,
-            'Passport_ID_Father' => 'required|unique:my__parents,Passport_ID_Father,' . $this->id,
-            'Phone_Father' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'Nationality_Father_id' => 'required',
-            'Blood_Type_Father_id' => 'required',
-            'Religion_Father_id' => 'required',
-            'Address_Father' => 'required',
+            'email' => 'required|unique:guardians,email,'.$this->id,
+            'password' => 'required',
+            'father_name_ar' => 'required',
+            'father_name_en' => 'required',
+            'father_job_ar' => 'required',
+            'father_job_en' => 'required',
+            'father_national_id' => 'required|unique:guardians,father_national_id,' . $this->id,
+            'father_passport_id' => 'required|unique:guardians,father_passport_id,' . $this->id,
+            'father_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'father_nationality_id' => 'required',
+            'father_blood_type_id' => 'required',
+            'father_religion_id' => 'required',
+            'father_address' => 'required',
         ]);
 
         $this->currentStep = 2;
@@ -95,17 +95,17 @@ class AddParent extends Component
     {
 
         $this->validate([
-            'Name_Mother' => 'required',
-            'Name_Mother_en' => 'required',
-            'National_ID_Mother' => 'required|unique:my__parents,National_ID_Mother,' . $this->id,
-            'Passport_ID_Mother' => 'required|unique:my__parents,Passport_ID_Mother,' . $this->id,
-            'Phone_Mother' => 'required',
-            'Job_Mother' => 'required',
-            'Job_Mother_en' => 'required',
-            'Nationality_Mother_id' => 'required',
-            'Blood_Type_Mother_id' => 'required',
-            'Religion_Mother_id' => 'required',
-            'Address_Mother' => 'required',
+            'mother_name_ar' => 'required',
+            'mother_name_en' => 'required',
+            'mother_national_id' => 'required|unique:guardians,mother_national_id,' . $this->id,
+            'mother_passport_id' => 'required|unique:guardians,mother_passport_id,' . $this->id,
+            'mother_phone' => 'required',
+            'mother_job_ar' => 'required',
+            'mother_job_en' => 'required',
+            'mother_nationality_id' => 'required',
+            'mother_blood_type_id' => 'required',
+            'mother_religion_id' => 'required',
+            'mother_address' => 'required',
         ]);
 
         $this->currentStep = 3;
@@ -114,37 +114,38 @@ class AddParent extends Component
     public function submitForm(){
 
         try {
-            $My_Parent = new Guardian();
+            $guardian = new Guardian();
             // Father_INPUTS
-            $My_Parent->Email = $this->Email;
-            $My_Parent->Password = Hash::make($this->Password);
-            $My_Parent->Name_Father = ['en' => $this->Name_Father_en, 'ar' => $this->Name_Father];
-            $My_Parent->National_ID_Father = $this->National_ID_Father;
-            $My_Parent->Passport_ID_Father = $this->Passport_ID_Father;
-            $My_Parent->Phone_Father = $this->Phone_Father;
-            $My_Parent->Job_Father = ['en' => $this->Job_Father_en, 'ar' => $this->Job_Father];
-            $My_Parent->Passport_ID_Father = $this->Passport_ID_Father;
-            $My_Parent->Nationality_Father_id = $this->Nationality_Father_id;
-            $My_Parent->Blood_Type_Father_id = $this->Blood_Type_Father_id;
-            $My_Parent->Religion_Father_id = $this->Religion_Father_id;
-            $My_Parent->Address_Father = $this->Address_Father;
+            $guardian->email = $this->email;
+            $guardian->password = Hash::make($this->password);
+            $guardian->father_name = ['en' => $this->father_name_ar_en, 'ar' => $this->father_name_ar];
+            $guardian->father_national_id = $this->father_national_id;
+            $guardian->father_passport_id = $this->father_passport_id;
+            $guardian->father_phone = $this->father_phone;
+            $guardian->father_job = ['en' => $this->Job_Father_en, 'ar' => $this->Job_Father];
+            $guardian->father_passport_id = $this->father_passport_id;
+            $guardian->father_nationality_id = $this->father_nationality_id;
+            $guardian->father_blood_type_id = $this->father_blood_type_id;
+            $guardian->father_religion_id = $this->father_religion_id;
+            $guardian->father_address = $this->father_address;
 
             // Mother_INPUTS
-            $My_Parent->Name_Mother = ['en' => $this->Name_Mother_en, 'ar' => $this->Name_Mother];
-            $My_Parent->National_ID_Mother = $this->National_ID_Mother;
-            $My_Parent->Passport_ID_Mother = $this->Passport_ID_Mother;
-            $My_Parent->Phone_Mother = $this->Phone_Mother;
-            $My_Parent->Job_Mother = ['en' => $this->Job_Mother_en, 'ar' => $this->Job_Mother];
-            $My_Parent->Passport_ID_Mother = $this->Passport_ID_Mother;
-            $My_Parent->Nationality_Mother_id = $this->Nationality_Mother_id;
-            $My_Parent->Blood_Type_Mother_id = $this->Blood_Type_Mother_id;
-            $My_Parent->Religion_Mother_id = $this->Religion_Mother_id;
-            $My_Parent->Address_Mother = $this->Address_Mother;
-            $My_Parent->save();
+            
+            $guardian->mother_name = ['en' => $this->mother_name_en, 'ar' => $this->mother_name_ar];
+            $guardian->mother_national_id = $this->mother_national_id;
+            $guardian->mother_passport_id = $this->mother_passport_id;
+            $guardian->mother_phone = $this->mother_phone;
+            $guardian->mother_job = ['en' => $this->mother_job_en, 'ar' => $this->mother_job_ar];
+            $guardian->mother_passport_id = $this->mother_passport_id;
+            $guardian->mother_nationality_id = $this->mother_nationality_id;
+            $guardian->mother_blood_type_id = $this->mother_blood_type_id;
+            $guardian->mother_religion_id = $this->mother_religion_id;
+            $guardian->mother_address = $this->mother_address;
+            $guardian->save();
 
             if (!empty($this->photos)){
                 foreach ($this->photos as $photo) {
-                    $photo->storeAs($this->National_ID_Father, $photo->getClientOriginalName(), $disk = 'parent_attachments');
+                    $photo->storeAs($this->father_national_id, $photo->getClientOriginalName(), $disk = 'parent_attachments');
                     ParentAttachment::create([
                         'file_name' => $photo->getClientOriginalName(),
                         'parent_id' => Guardian::latest()->first()->id,
@@ -167,33 +168,33 @@ class AddParent extends Component
     {
         $this->show_table = false;
         $this->updateMode = true;
-        $My_Parent = Guardian::where('id',$id)->first();
+        $guardian = Guardian::where('id',$id)->first();
         $this->Parent_id = $id;
-        $this->Email = $My_Parent->Email;
-        $this->Password = $My_Parent->Password;
-        $this->Name_Father = $My_Parent->getTranslation('name_father', 'ar');
-        $this->Name_Father_en = $My_Parent->getTranslation('name_father', 'en');
-        $this->Job_Father = $My_Parent->getTranslation('job_father', 'ar');;
-        $this->Job_Father_en = $My_Parent->getTranslation('job_father', 'en');
-        $this->National_ID_Father =$My_Parent->National_ID_Father;
-        $this->Passport_ID_Father = $My_Parent->Passport_ID_Father;
-        $this->Phone_Father = $My_Parent->Phone_Father;
-        $this->Nationality_Father_id = $My_Parent->Nationality_Father_id;
-        $this->Blood_Type_Father_id = $My_Parent->Blood_Type_Father_id;
-        $this->Address_Father =$My_Parent->Address_Father;
-        $this->Religion_Father_id =$My_Parent->Religion_Father_id;
+        $this->email = $guardian->Email;
+        $this->password = $guardian->password;
+        $this->father_name_ar = $guardian->getTranslation('father_name', 'ar');
+        $this->father_name_en = $guardian->getTranslation('father_name', 'en');
+        $this->father_job_ar = $guardian->getTranslation('job_father', 'ar');;
+        $this->father_job_en = $guardian->getTranslation('job_father', 'en');
+        $this->father_national_id =$guardian->father_national_id;
+        $this->father_passport_id = $guardian->father_passport_id;
+        $this->father_phone = $guardian->father_phone;
+        $this->father_nationality_id = $guardian->father_nationality_id;
+        $this->father_blood_type_id = $guardian->father_blood_type_id;
+        $this->father_address =$guardian->father_address;
+        $this->father_religion_id =$guardian->father_religion_id;
 
-        $this->Name_Mother = $My_Parent->getTranslation('name_mother', 'ar');
-        $this->Name_Mother_en = $My_Parent->getTranslation('name_father', 'en');
-        $this->Job_Mother = $My_Parent->getTranslation('job_mother', 'ar');;
-        $this->Job_Mother_en = $My_Parent->getTranslation('job_mother', 'en');
-        $this->National_ID_Mother =$My_Parent->National_ID_Mother;
-        $this->Passport_ID_Mother = $My_Parent->Passport_ID_Mother;
-        $this->Phone_Mother = $My_Parent->Phone_Mother;
-        $this->Nationality_Mother_id = $My_Parent->Nationality_Mother_id;
-        $this->Blood_Type_Mother_id = $My_Parent->Blood_Type_Mother_id;
-        $this->Address_Mother =$My_Parent->Address_Mother;
-        $this->Religion_Mother_id =$My_Parent->Religion_Mother_id;
+        $this->mother_name_ar = $guardian->getTranslation('mother_name', 'ar');
+        $this->mother_name_en = $guardian->getTranslation('mother_name', 'en');
+        $this->mother_job_ar = $guardian->getTranslation('mother_job', 'ar');;
+        $this->mother_job_en = $guardian->getTranslation('mother_job', 'en');
+        $this->mother_national_id =$guardian->mother_national_id;
+        $this->mother_passport_id = $guardian->mother_passport_id;
+        $this->mother_phone = $guardian->mother_phone;
+        $this->mother_nationality_id = $guardian->mother_nationality_id;
+        $this->mother_blood_type_id = $guardian->mother_blood_type_id;
+        $this->mother_address =$guardian->mother_address;
+        $this->mother_religion_id =$guardian->mother_religion_id;
     }
 
     //firstStepSubmit
@@ -217,8 +218,8 @@ class AddParent extends Component
         if ($this->Parent_id){
             $parent = Guardian::find($this->Parent_id);
             $parent->update([
-                'Passport_ID_Father' => $this->Passport_ID_Father,
-                'National_ID_Father' => $this->National_ID_Father,
+                'father_passport_id' => $this->father_passport_id,
+                'father_national_id' => $this->father_national_id,
             ]);
 
         }
@@ -235,31 +236,31 @@ class AddParent extends Component
     //clearForm
     public function clearForm()
     {
-        $this->Email = '';
-        $this->Password = '';
-        $this->Name_Father = '';
-        $this->Job_Father = '';
-        $this->Job_Father_en = '';
-        $this->Name_Father_en = '';
-        $this->National_ID_Father ='';
-        $this->Passport_ID_Father = '';
-        $this->Phone_Father = '';
-        $this->Nationality_Father_id = '';
-        $this->Blood_Type_Father_id = '';
-        $this->Address_Father ='';
-        $this->Religion_Father_id ='';
+        $this->email = '';
+        $this->password = '';
+        $this->father_name_ar = '';
+        $this->father_job_ar = '';
+        $this->father_job_en = '';
+        $this->father_name_en = '';
+        $this->father_national_id ='';
+        $this->father_passport_id = '';
+        $this->father_phone = '';
+        $this->father_nationality_id = '';
+        $this->father_blood_type_id = '';
+        $this->father_address ='';
+        $this->father_religion_id ='';
 
-        $this->Name_Mother = '';
-        $this->Job_Mother = '';
-        $this->Job_Mother_en = '';
-        $this->Name_Mother_en = '';
-        $this->National_ID_Mother ='';
-        $this->Passport_ID_Mother = '';
-        $this->Phone_Mother = '';
-        $this->Nationality_Mother_id = '';
-        $this->Blood_Type_Mother_id = '';
-        $this->Address_Mother ='';
-        $this->Religion_Mother_id ='';
+        $this->mother_name_ar = '';
+        $this->mother_name_en = '';
+        $this->mother_job_ar = '';
+        $this->mother_job_en = '';
+        $this->mother_national_id ='';
+        $this->mother_passport_id = '';
+        $this->mother_phone = '';
+        $this->mother_nationality_id = '';
+        $this->mother_blood_type_id = '';
+        $this->mother_address ='';
+        $this->mother_religion_id ='';
 
     }
 

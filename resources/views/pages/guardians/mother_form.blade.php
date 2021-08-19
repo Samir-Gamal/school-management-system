@@ -69,8 +69,8 @@
                         <label for="inputCity">{{__('parent.father_nationality_id')}}</label>
                         <select class="custom-select my-1 mr-sm-2" wire:model="Nationality_Mother_id">
                             <option selected>{{__('parent.choose')}}...</option>
-                            @foreach($Nationalitys as $National)
-                                <option value="{{$National->id}}">{{$National->Name}}</option>
+                            @foreach($nationalises as $nationality)
+                                <option value="{{$nationality->id}}">{{$nationality->name}}</option>
                             @endforeach
                         </select>
                         @error('Nationality_Mother_id')
@@ -81,8 +81,8 @@
                         <label for="inputState">{{__('parent.type_blood_father_id')}}</label>
                         <select class="custom-select my-1 mr-sm-2" wire:model="Blood_Type_Mother_id">
                             <option selected>{{__('parent.choose')}}...</option>
-                            @foreach($Type_Bloods as $Type_Blood)
-                                <option value="{{$Type_Blood->id}}">{{$Type_Blood->Name}}</option>
+                            @foreach($blood_types as $blood_type)
+                                <option value="{{$blood_type->id}}">{{$blood_type->name}}</option>
                             @endforeach
                         </select>
                         @error('Blood_Type_Mother_id')
@@ -93,8 +93,8 @@
                         <label for="inputZip">{{__('parent.father_religion_id')}}</label>
                         <select class="custom-select my-1 mr-sm-2" wire:model="Religion_Mother_id">
                             <option selected>{{__('parent.choose')}}...</option>
-                            @foreach($Religions as $Religion)
-                                <option value="{{$Religion->id}}">{{$Religion->Name}}</option>
+                            @foreach($religions as $religion)
+                                <option value="{{$religion->id}}">{{$religion->mame}}</option>
                             @endforeach
                         </select>
                         @error('Religion_Mother_id')
