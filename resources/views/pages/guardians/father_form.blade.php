@@ -14,7 +14,7 @@
                         @enderror
                     </div>
                     <div class="col">
-                        <label for="title">{{__('parent.password')}}</label>
+                        <label for="password">{{__('parent.password')}}</label>
                         <input type="password" wire:model="password" class="form-control" >
                         @error('password')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -57,14 +57,14 @@
 
                     <div class="col">
                         <label for="title">{{__('parent.father_national_id')}}</label>
-                        <input type="text" wire:model="father_national_id" class="form-control">
+                        <input type="number" name="father_national_id" wire:model="father_national_id" class="form-control">
                         @error('father_national_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col">
                         <label for="title">{{__('parent.father_passport_id')}}</label>
-                        <input type="text" wire:model="father_passport_id" class="form-control">
+                        <input type="number" name="father_passport_id" wire:model="father_passport_id" class="form-control">
                         @error('father_passport_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -72,7 +72,7 @@
 
                     <div class="col">
                         <label for="title">{{__('parent.father_phone')}}</label>
-                        <input type="text" wire:model="father_phone" class="form-control">
+                        <input type="number" name="father_phone" wire:model="father_phone" class="form-control">
                         @error('father_phone')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -123,7 +123,7 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">{{__('parent.father_address')}}</label>
-                    <textarea class="form-control" wire:model="father_address" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    <textarea  class="form-control" wire:model="father_address" id="exampleFormControlTextarea1" rows="4"></textarea>
                     @error('father_address')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

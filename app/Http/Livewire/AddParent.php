@@ -42,11 +42,11 @@ class AddParent extends Component
         $this->validateOnly($propertyName, [
             'email' => 'required|email',
             'father_national_id' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
-            'father_passport_id' => 'min:10|max:10',
-            'father_phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'father_passport_id' => 'min:8|max:8',
+            'father_phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
             'mother_national_id' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
-            'mother_passport_id' => 'min:10|max:10',
-            'mother_phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
+            'mother_passport_id' => 'min:8|max:8',
+            'mother_phone' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:9'
         ]);
     }
 
@@ -80,7 +80,7 @@ class AddParent extends Component
             'father_job_en' => 'required',
             'father_national_id' => 'required|unique:guardians,father_national_id,' . $this->id,
             'father_passport_id' => 'required|unique:guardians,father_passport_id,' . $this->id,
-            'father_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'father_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
             'father_nationality_id' => 'required',
             'father_blood_type_id' => 'required',
             'father_religion_id' => 'required',
