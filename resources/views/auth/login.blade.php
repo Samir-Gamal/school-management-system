@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
-
+<html lang="en">
+@section('title')
+    {{__('main.title')}}
+@stop
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +10,30 @@
     <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>{{__('main.title')}}</title>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
-
-    <!-- Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
-
-    <!-- css -->
-    <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    @include('layouts.head')
 </head>
 
 <body>
-
+<div class="btn-group mb-1">
+    <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        @if (App::getLocale() == 'ar')
+            {{ LaravelLocalization::getCurrentLocaleName() }}
+            <img src="{{ URL::asset('assets/images/flags/SA.png') }}" alt="">
+        @else
+            {{ LaravelLocalization::getCurrentLocaleName() }}
+            <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
+        @endif
+    </button>
+    <div class="dropdown-menu">
+        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+            <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                {{ $properties['native'] }}
+            </a>
+        @endforeach
+    </div>
+</div>
     <div class="wrapper">
 
         <!--=================================
