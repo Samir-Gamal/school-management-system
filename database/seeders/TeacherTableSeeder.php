@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Gender;
-use App\Models\Guardian;
 use App\Models\Specialization;
 use App\Models\Teacher;
 use Illuminate\Database\Seeder;

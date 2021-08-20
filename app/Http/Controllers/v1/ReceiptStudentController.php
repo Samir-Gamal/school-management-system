@@ -9,7 +9,6 @@ use App\Models\ReceiptStudent;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Repository\ReceiptStudentsRepositoryInterface;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ReceiptStudentController extends Controller
