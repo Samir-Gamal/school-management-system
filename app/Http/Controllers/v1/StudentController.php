@@ -77,8 +77,8 @@ class StudentController extends Controller
     }
 
     public function show($id){
-        $Student = Student::findorfail($id);
-        return view('pages.students.show',compact('Student'));
+        $student = Student::findorfail($id);
+        return view('pages.students.show',compact('student'));
     }
 
 
