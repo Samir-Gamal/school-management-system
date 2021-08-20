@@ -55,7 +55,6 @@ class Attendance extends Model
         'grade_id',
         'classroom_id',
         'section_id',
-        'teacher_id',
         'day',
         'status',
     ];

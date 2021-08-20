@@ -20,7 +20,6 @@ class CreateAttendancesTable extends Migration
             $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreignUuid('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->date('day');
             $table->boolean('status');
             $table->timestamps();
