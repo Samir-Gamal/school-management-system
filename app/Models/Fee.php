@@ -84,6 +84,17 @@ class Fee extends Model
 
     public $translatable = ['title'];
 
+    public $type_map=[
+        1=>'school_fee',
+        2=>'bus_fee',
+
+    ];
+
+    public function getTypeNameAttribute()
+    {
+        return __('main.'.$this->type_map[$this->type]) ;
+    }
+
     // علاقة بين الرسوم الدراسية والمراحل الدراسية لجب اسم المرحلة
 
     public function grade()
