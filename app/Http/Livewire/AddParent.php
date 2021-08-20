@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\BloodType;
 use App\Models\Guardian;
 use App\Models\Nationality;
 use App\Models\ParentAttachment;
 use App\Models\Religion;
-use App\Models\BloodType;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;

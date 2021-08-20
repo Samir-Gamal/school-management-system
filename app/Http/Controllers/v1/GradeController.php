@@ -4,9 +4,7 @@ namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GradeRequest;
-use App\Models\Classroom;
 use App\Http\Requests\StoreGrades;
-use App\Models\Exam;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 

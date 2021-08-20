@@ -7,7 +7,6 @@ use App\Models\Grade;
 use App\Models\Promotion;
 use App\Models\Student;
 use App\Repository\StudentPromotionRepositoryInterface;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PromotionController extends Controller

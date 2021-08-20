@@ -3,12 +3,12 @@ namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SectionRequest;
+use App\Http\Requests\StoreSections;
 use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Section;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreSections;
 
 class SectionController extends Controller
 {

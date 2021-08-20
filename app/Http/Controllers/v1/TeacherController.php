@@ -6,8 +6,8 @@ use App\Http\Requests\StoreTeachers;
 use App\Models\Gender;
 use App\Models\Specialization;
 use App\Models\Teacher;
-use Illuminate\Http\Request;
 use App\Repository\TeacherRepositoryInterface;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller

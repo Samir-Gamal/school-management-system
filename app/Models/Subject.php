@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -34,7 +35,7 @@ use Spatie\Translatable\HasTranslations;
  */
 class Subject extends Model
 {
-    use HasTranslations,Uuids;
+    use HasFactory, HasTranslations,Uuids;
 
     /**
      * The database table used by the model.
