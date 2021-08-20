@@ -10,6 +10,8 @@ use Database\Seeders\ReligionTableSeeder;
 use Database\Seeders\SectionTableSeeder;
 use Database\Seeders\SpecializationTableSeeder;
 use Database\Seeders\StudentTableSeeder;
+use Database\Seeders\SubjectTableSeeder;
+use Database\Seeders\TeacherTableSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
@@ -31,6 +33,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ReligionTableSeeder::class);
         $this->call(SpecializationTableSeeder::class);
         $this->call(GenderTableSeeder::class);
+        $this->call(TeacherTableSeeder::class);
+        $this->call(SubjectTableSeeder::class);
         $this->call(GuardianTableSeeder::class);
         $this->call(StudentTableSeeder::class);
     }
