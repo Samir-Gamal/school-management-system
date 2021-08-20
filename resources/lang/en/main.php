@@ -45,4 +45,5 @@ return [
     'privacy_policy'=>'Privacy Policy',
     'classroom'=>'Classroom',
     'create'=>'إضافة',
+    'test_account'=>'Test Account',
 ];
