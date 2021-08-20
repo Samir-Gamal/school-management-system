@@ -51,10 +51,10 @@ class TeacherController extends Controller
 
     public function edit($id)
     {
-        $Teachers = Teacher::findOrFail($id);
-        $specializations = $this->Teacher->Getspecialization();
-        $genders = $this->Teacher->GetGender();
-        return view('pages.teachers.edit',compact('Teachers','specializations','genders'));
+        $teacher = Teacher::findOrFail($id);
+        $specializations =specialization::all();
+        $genders = Gender::all();
+        return view('pages.teachers.edit',compact('teacher','specializations','genders'));
     }
 
 

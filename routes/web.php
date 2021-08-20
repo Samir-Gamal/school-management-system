@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthRouteAPIController;
 use App\Http\Controllers\v1\ClassroomController;
 use App\Http\Controllers\v1\ExamController;
 use App\Http\Controllers\v1\FeeController;
+use App\Http\Controllers\v1\GuardianController;
 use App\Http\Controllers\v1\InvoiceController;
 use App\Http\Controllers\v1\GradeController;
 use App\Http\Controllers\v1\GraduatedController;
@@ -79,8 +80,8 @@ Route::group(
         Route::get('/classes/{id}', [SectionController::class, 'getclasses']);
 
 
-        //==============================parents============================
-        Route::view('guardians', 'livewire.show_form');
+        //==============================guardians============================
+        Route::resource('guardians', GuardianController::class);
 
         //==============================Teachers============================
         Route::resource('teachers', TeacherController::class);

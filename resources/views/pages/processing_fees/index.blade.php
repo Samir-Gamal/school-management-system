@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    سندات القبض
+    معالجات الرسوم الدراسية
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-   سندات القبض
+  معالجات الرسوم الدراسية
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -35,18 +35,18 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($receipt_students as $receipt_student)
+                                        @foreach($processing_fees as $processing_fee)
                                             <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{$receipt_student->student->name}}</td>
-                                            <td>{{ number_format($receipt_student->debit, 2) }}</td>
-                                            <td>{{$receipt_student->description}}</td>
+                                            <td>{{$processing_fee->student->name}}</td>
+                                            <td>{{ number_format($processing_fee->amount, 2) }}</td>
+                                            <td>{{$processing_fee->description}}</td>
                                                 <td>
-                                                    <a href="{{route('receipt-students.edit',$receipt_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$receipt_student->id}}" ><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('processing-fees.edit',$processing_fee->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$processing_fee->id}}" ><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
-                                        @include('pages.receipt.delete')
+                                        @include('pages.processing_fees.delete')
                                         @endforeach
                                     </table>
                                 </div>

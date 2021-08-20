@@ -36,11 +36,11 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <label for="title">اسم المادة باللغة العربية</label>
-                                        <input type="text" name="Name_ar" class="form-control">
+                                        <input type="text" name="name_ar" class="form-control">
                                     </div>
                                     <div class="col">
                                         <label for="title">اسم المادة باللغة الانجليزية</label>
-                                        <input type="text" name="Name_en" class="form-control">
+                                        <input type="text" name="name_en" class="form-control">
                                     </div>
                                 </div>
                                 <br>
@@ -48,7 +48,7 @@
                                 <div class="form-row">
                                     <div class="form-group col">
                                         <label for="inputState">المرحلة الدراسية</label>
-                                        <select class="custom-select my-1 mr-sm-2" name="Grade_id">
+                                        <select class="custom-select my-1 mr-sm-2" name="grade_id">
                                             <option selected disabled>{{__('parent.choose')}}...</option>
                                             @foreach($grades as $grade)
                                                 <option value="{{$grade->id}}">{{$grade->name}}</option>
@@ -58,7 +58,12 @@
 
                                     <div class="form-group col">
                                         <label for="inputState">الصف الدراسي</label>
-                                        <select name="Class_id" class="custom-select"></select>
+                                        <select class="custom-select my-1 mr-sm-2" name="classroom_id">
+                                            <option selected disabled>{{__('parent.choose')}}...</option>
+                                            @foreach($classrooms as $classroom)
+                                                <option value="{{$classroom->id}}">{{$classroom->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
 

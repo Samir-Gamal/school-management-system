@@ -17,20 +17,20 @@ class ReceiptStudentController extends Controller
     public function index()
     {
         $receipt_students = ReceiptStudent::all();
-        return view('pages.receipt.index',compact('receipt_students'));
+        return view('pages.receipts.index',compact('receipt_students'));
 
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.receipt.add',compact('student'));
+        return view('pages.receipts.add',compact('student'));
     }
 
     public function edit($id)
     {
         $receipt_student = ReceiptStudent::findorfail($id);
-        return view('pages.receipt.edit',compact('receipt_student'));
+        return view('pages.receipts.edit',compact('receipt_student'));
     }
 
     public function store($request)
@@ -59,7 +59,7 @@ class ReceiptStudentController extends Controller
             // حفظ البيانات في جدول حساب الطالب
             $fund_accounts = new StudentAccount();
             $fund_accounts->date = date('Y-m-d');
-            $fund_accounts->type = 'receipt';
+            $fund_accounts->type = 'receipts';
             $fund_accounts->receipt_id = $receipt_students->id;
             $fund_accounts->student_id = $request->student_id;
             $fund_accounts->debit = 0.00;
@@ -69,7 +69,7 @@ class ReceiptStudentController extends Controller
 
             DB::commit();
             toastr()->success(__('messages.success'));
-            return redirect()->route('receipt-students.index');
+            return redirect()->route('receipts-students.index');
 
         }
 
@@ -105,7 +105,7 @@ class ReceiptStudentController extends Controller
 
             $fund_accounts = StudentAccount::where('receipt_id',$request->id)->first();
             $fund_accounts->date = date('Y-m-d');
-            $fund_accounts->type = 'receipt';
+            $fund_accounts->type = 'receipts';
             $fund_accounts->student_id = $request->student_id;
             $fund_accounts->receipt_id = $receipt_students->id;
             $fund_accounts->debit = 0.00;
@@ -116,7 +116,7 @@ class ReceiptStudentController extends Controller
 
             DB::commit();
             toastr()->success(__('messages.update'));
-            return redirect()->route('receipt-students.index');
+            return redirect()->route('receipts-students.index');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
