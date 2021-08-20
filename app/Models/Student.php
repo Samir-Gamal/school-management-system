@@ -159,17 +159,17 @@ class Student extends Model
 
     // علاقة بين الطلاب والجنسيات  لجلب اسم الجنسية  في جدول الجنسيات
 
-    public function Nationality()
+    public function nationality()
     {
-        return $this->belongsTo(Nationality::class, 'nationalitie_id');
+        return $this->belongsTo(Nationality::class);
     }
 
 
     // علاقة بين الطلاب والاباء لجلب اسم الاب في جدول الاباء
 
-    public function myparent()
+    public function guardian()
     {
-        return $this->belongsTo(Guardian::class, 'guardian_id');
+        return $this->belongsTo(Guardian::class);
     }
 
     // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي

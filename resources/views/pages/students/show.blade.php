@@ -39,31 +39,31 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row">{{__('student.name')}}</th>
-                                            <td>{{ $Student->name }}</td>
+                                            <td>{{ $student->name }}</td>
                                             <th scope="row">{{__('student.email')}}</th>
-                                            <td>{{$Student->email}}</td>
+                                            <td>{{$student->email}}</td>
                                             <th scope="row">{{__('student.gender')}}</th>
-                                            <td>{{$Student->gender->name}}</td>
+                                            <td>{{$student->gender->name}}</td>
                                             <th scope="row">{{__('student.nationality')}}</th>
-                                            <td>{{$Student->Nationality->name}}</td>
+                                            <td>{{$student->nationality->name}}</td>
                                         </tr>
 
                                         <tr>
                                             <th scope="row">{{__('student.grade')}}</th>
-                                            <td>{{ $Student->grade->name }}</td>
+                                            <td>{{ $student->grade->name }}</td>
                                             <th scope="row">{{__('student.classrooms')}}</th>
-                                            <td>{{$Student->classroom->name}}</td>
+                                            <td>{{$student->classroom->name}}</td>
                                             <th scope="row">{{__('student.section')}}</th>
-                                            <td>{{$Student->section->name}}</td>
+                                            <td>{{$student->section->name}}</td>
                                             <th scope="row">{{__('student.date_of_birth')}}</th>
-                                            <td>{{ $Student->birthday}}</td>
+                                            <td>{{ $student->birthday}}</td>
                                         </tr>
 
                                         <tr>
                                             <th scope="row">{{__('student.parent')}}</th>
-                                            <td>{{ $Student->myparent->name_father}}</td>
+                                            <td>{{ $student->guardian->father_name}}</td>
                                             <th scope="row">{{__('student.academic_year')}}</th>
-                                            <td>{{ $Student->academic_year }}</td>
+                                            <td>{{ $student->academic_year }}</td>
                                             <th scope="row"></th>
                                             <td></td>
                                             <th scope="row"></th>
@@ -85,8 +85,8 @@
                                                             for="academic_year">{{__('student.attachments')}}
                                                             : <span class="text-danger">*</span></label>
                                                         <input type="file" accept="image/*" name="photos[]" multiple required>
-                                                        <input type="hidden" name="student_name" value="{{$Student->name}}">
-                                                        <input type="hidden" name="student_id" value="{{$Student->id}}">
+                                                        <input type="hidden" name="student_name" value="{{$student->name}}">
+                                                        <input type="hidden" name="student_id" value="{{$student->id}}">
                                                     </div>
                                                 </div>
                                                 <br><br>
@@ -107,7 +107,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($Student->images as $attachment)
+                                            @foreach($student->images as $attachment)
                                                 <tr style='text-align:center;vertical-align:middle'>
                                                     <td>{{$loop->iteration}}</td>
                                                     <td>{{$attachment->filename}}</td>
