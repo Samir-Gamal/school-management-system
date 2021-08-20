@@ -46,4 +46,6 @@ return [
     'classroom'=>'الصف الدراسي',
     'crate'=>'اضافة',
     'test_account'=>'حساب تجريبي',
+    'school_fee'=>'رسوم دراسية',
+    'bus_fee'=>'رسوم باص',
 ];

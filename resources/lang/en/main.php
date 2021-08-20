@@ -44,6 +44,8 @@ return [
     'terms_of_use'=>'Terms of Use',
     'privacy_policy'=>'Privacy Policy',
     'classroom'=>'Classroom',
-    'create'=>'إضافة',
+    'create'=>'Create',
     'test_account'=>'Test Account',
+    'school_fee'=>'School Fee',
+    'bus_fee'=>'Bus Fee',
 ];
