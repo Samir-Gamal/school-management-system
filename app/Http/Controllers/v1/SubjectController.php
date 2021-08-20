@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\Teacher;
@@ -21,24 +22,21 @@ class SubjectController extends Controller
     {
         $grades = Grade::get();
         $teachers = Teacher::get();
-        return view('pages.subjects.create', compact('grades', 'teachers'));
+        $classrooms = Classroom::get();
+        return view('pages.subjects.create', compact('grades', 'teachers','classrooms'));
     }
 
 
     public function store(Request $request)
     {
-        try {
             $subjects = new Subject();
-            $subjects->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $subjects->grade_id = $request->Grade_id;
-            $subjects->classroom_id = $request->Class_id;
+            $subjects->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
+            $subjects->grade_id = $request->grade_id;
+            $subjects->classroom_id = $request->classroom_id;
             $subjects->teacher_id = $request->teacher_id;
             $subjects->save();
             toastr()->success(__('messages.success'));
             return redirect()->route('subjects.create');
-        } catch (\Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
-        }
     }
 
 
