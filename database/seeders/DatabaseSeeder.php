@@ -2,6 +2,7 @@
 
 use Database\Seeders\BloodTableSeeder;
 use Database\Seeders\ClassroomTableSeeder;
+use Database\Seeders\FeeTableSeeder;
 use Database\Seeders\GenderTableSeeder;
 use Database\Seeders\GradeSeeder;
 use Database\Seeders\GuardianTableSeeder;
@@ -37,5 +38,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SubjectTableSeeder::class);
         $this->call(GuardianTableSeeder::class);
         $this->call(StudentTableSeeder::class);
+        $this->call(FeeTableSeeder::class);
     }
 }
