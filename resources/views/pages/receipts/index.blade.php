@@ -35,15 +35,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($receipt_students as $receipt_student)
+                                        @foreach($receipts as $receipt)
                                             <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{$receipt_student->student->name}}</td>
-                                            <td>{{ number_format($receipt_student->debit, 2) }}</td>
-                                            <td>{{$receipt_student->description}}</td>
+                                            <td>{{$receipt->student->name}}</td>
+                                            <td>{{ number_format($receipt->debit, 2) }}</td>
+                                            <td>{{$receipt->description}}</td>
                                                 <td>
-                                                    <a href="{{route('receipt-students.edit',$receipt_student->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$receipt_student->id}}" ><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('receipts.edit',$receipt->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$receipt->id}}" ><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
                                         @include('pages.receipts.delete')

@@ -36,9 +36,9 @@ class InvoiceController extends Controller
     }
     public function edit($id)
     {
-        $invoices = Invoice::findorfail($id);
-        $fees = Fee::where('classroom_id',$invoices->classroom_id)->get();
-        return view('pages.invoices.edit',compact('invoices','fees'));
+        $invoice = Invoice::findorfail($id);
+        $fees = Fee::where('classroom_id',$invoice->classroom_id)->get();
+        return view('pages.invoices.edit',compact('invoice','fees'));
     }
 
     public function store(InvoiceRequest $request)

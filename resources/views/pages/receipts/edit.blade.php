@@ -8,7 +8,7 @@
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-تعديل سند قبض : <label style="color: red">{{$receipt_student->student->name}}</label>
+تعديل سند قبض : <label style="color: red">{{$receipt->student->name}}</label>
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -21,7 +21,7 @@
 
                     @include('layouts.error_alert')
 
-                            <form action="{{route('receipt-students.update','test')}}" method="post" autocomplete="off">
+                            <form action="{{route('receipts.update','test')}}" method="post" autocomplete="off">
                                 @method('PUT')
                                 @csrf
                             @csrf
@@ -29,9 +29,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>المبلغ : <span class="text-danger">*</span></label>
-                                        <input  class="form-control" name="Debit" value="{{$receipt_student->debit}}" type="number" >
-                                        <input  type="hidden" name="student_id" value="{{$receipt_student->student->id}}" class="form-control">
-                                        <input  type="hidden" name="id"  value="{{$receipt_student->id}}" class="form-control">
+                                        <input  class="form-control" name="Debit" value="{{$receipt->debit}}" type="number" >
+                                        <input  type="hidden" name="student_id" value="{{$receipt->student->id}}" class="form-control">
+                                        <input  type="hidden" name="id"  value="{{$receipt->id}}" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>البيان : <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3">{{$receipt_student->description}}</textarea>
+                                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3">{{$receipt->description}}</textarea>
                                     </div>
                                 </div>
 

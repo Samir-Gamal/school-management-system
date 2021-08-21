@@ -12,6 +12,28 @@
 
 namespace App\Models{
 /**
+ * App\Models\ParentAttachment
+ *
+ * @property int $id
+ * @property string|null $file_name
+ * @property int $parent_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereFileName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class Attachment extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Attendance
  *
  * @property int $id
@@ -38,6 +60,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereTeacherId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereDay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Attendance whereStatus($value)
+ * @method static \Database\Factories\AttendanceFactory factory(...$parameters)
  */
 	class Attendance extends \Eloquent {}
 }
@@ -58,6 +83,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|BloodType whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BloodType whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\BloodTypeFactory factory(...$parameters)
  */
 	class BloodType extends \Eloquent {}
 }
@@ -82,6 +108,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\ClassroomFactory factory(...$parameters)
  */
 	class Classroom extends \Eloquent {}
 }
@@ -107,6 +134,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Exam whereTerm($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Exam whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\ExamFactory factory(...$parameters)
  */
 	class Exam extends \Eloquent {}
 }
@@ -143,6 +171,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Fee whereYear($value)
  * @mixin \Eloquent
  * @property-read \App\Models\Grade $grade
+ * @property-read mixed $type_name
+ * @method static \Database\Factories\FeeFactory factory(...$parameters)
  */
 	class Fee extends \Eloquent {}
 }
@@ -194,6 +224,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Gender whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Gender whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\GenderFactory factory(...$parameters)
  */
 	class Gender extends \Eloquent {}
 }
@@ -221,6 +252,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Grade whereNotes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Grade whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\GradeFactory factory(...$parameters)
  */
 	class Grade extends \Eloquent {}
 }
@@ -280,6 +312,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Guardian wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\GuardianFactory factory(...$parameters)
  */
 	class Guardian extends \Eloquent {}
 }
@@ -342,6 +375,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereStudentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Invoice whereInvoiceAt($value)
+ * @property-read \App\Models\Fee $fee
  */
 	class Invoice extends \Eloquent {}
 }
@@ -363,30 +398,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Nationality whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Nationality whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\NationalityFactory factory(...$parameters)
  */
 	class Nationality extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * App\Models\ParentAttachment
- *
- * @property int $id
- * @property string|null $file_name
- * @property int $parent_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment query()
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereFileName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereParentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereUpdatedAt($value)
- * @mixin \Eloquent
- */
-	class ParentAttachment extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -510,7 +524,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ReceiptStudent whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-	class ReceiptStudent extends \Eloquent {}
+	class Receipt extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -530,6 +544,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Religion whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Religion whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\ReligionFactory factory(...$parameters)
  */
 	class Religion extends \Eloquent {}
 }
@@ -560,6 +575,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Section whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Section whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\SectionFactory factory(...$parameters)
  */
 	class Section extends \Eloquent {}
 }
@@ -580,8 +596,80 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization whereUpdatedAt($value)
+ * @mixin \Eloquent
+ * @method static \Database\Factories\SpecializationFactory factory(...$parameters)
  */
 	class Specialization extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Student
+ *
+ * @property int $id
+ * @property array $name
+ * @property string $email
+ * @property string $password
+ * @property int $gender_id
+ * @property int $nationalitie_id
+ * @property int $blood_id
+ * @property string $birthday
+ * @property int $grade_id
+ * @property int $classroom_id
+ * @property int $section_id
+ * @property int $parent_id
+ * @property string $academic_year
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Nationality $Nationality
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Attendance[] $attendance
+ * @property-read int|null $attendance_count
+ * @property-read \App\Models\Classroom $classroom
+ * @property-read \App\Models\Gender $gender
+ * @property-read array $translations
+ * @property-read \App\Models\Grade $grade
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Image[] $images
+ * @property-read int|null $images_count
+ * @property-read \App\Models\Guardian $myparent
+ * @property-read \App\Models\Section $section
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\StudentAccount[] $student_account
+ * @property-read int|null $student_account_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Student newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Student onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereAcademicYear($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereBloodId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereClassroomId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereDateBirth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereGenderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereGradeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationalityId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereSectionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|Student withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Student withoutTrashed()
+ * @mixin \Eloquent
+ * @property string $nationalise_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Student graduated()
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereNationaliseId($value)
+ * @property string $nationality_id
+ * @property string $guardian_id
+ * @method static \Database\Factories\StudentFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereBirthday($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereGuardianId($value)
+ * @property-read \App\Models\Guardian $guardian
+ * @property-read \App\Models\Nationality $nationality
+ */
+	class Student extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -618,6 +706,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereInvoiceId($value)
  */
 	class StudentAccount extends \Eloquent {}
 }
@@ -648,6 +737,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Subject whereTeacherId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Subject whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\SubjectFactory factory(...$parameters)
  */
 	class Subject extends \Eloquent {}
 }
@@ -685,6 +775,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereSpecializationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereJoiningAt($value)
+ * @method static \Database\Factories\TeacherFactory factory(...$parameters)
  */
 	class Teacher extends \Eloquent {}
 }
@@ -715,6 +807,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\UserFactory factory(...$parameters)
  */
 	class User extends \Eloquent {}
 }

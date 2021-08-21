@@ -21,7 +21,7 @@
 
                     @include('layouts.error_alert')
 
-                        <form method="post"  action="{{ route('receipt-students.store') }}" autocomplete="off">
+                        <form method="post"  action="{{ route('receipts.store') }}" autocomplete="off">
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
