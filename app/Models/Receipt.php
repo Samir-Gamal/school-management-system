@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -28,21 +29,26 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ReceiptStudent whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class ReceiptStudent extends Model
+class Receipt extends Model
 {
-    use Uuids;
+    use HasFactory, Uuids;
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'receipt_students';
+    protected $table = 'receipts';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'date',
+        'student_id',
+        'debit',
+        'description',
+    ];
     /**
      * Indicates if the IDs are auto-incrementing.
      *
