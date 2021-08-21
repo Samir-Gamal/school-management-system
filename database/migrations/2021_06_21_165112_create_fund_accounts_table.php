@@ -17,7 +17,7 @@ class CreateFundAccountsTable extends Migration
             $table->uuid('id');
             $table->primary('id');
             $table->date('date');
-            $table->foreignUuid('receipt_id')->nullable()->references('id')->on('receipt_students')->onDelete('cascade');
+            $table->foreignUuid('receipt_id')->nullable()->references('id')->on('receipts')->onDelete('cascade');
             $table->foreignUuid('payment_id')->nullable()->references('id')->on('payments')->onDelete('cascade');
             $table->decimal('debit',8,2)->nullable();
             $table->decimal('credit',8,2)->nullable();

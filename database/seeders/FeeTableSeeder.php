@@ -3,12 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Fee;
-use App\Models\Gender;
 use App\Models\Grade;
-use App\Models\Specialization;
-use App\Models\Teacher;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Log;
 
 class FeeTableSeeder extends Seeder
 {
@@ -29,7 +25,7 @@ class FeeTableSeeder extends Seeder
                 $fee = Fee::factory()->make([
                     'grade_id' => $grad->id,
                     'classroom_id' => $classroom->id,
-                    'type' => 'رسوم دراسية',
+                    'type' => 1,
                 ])->
                 toArray();
                 $fee['title'] = json_encode($fee['title']);
@@ -38,7 +34,7 @@ class FeeTableSeeder extends Seeder
                 $fee = Fee::factory()->make([
                     'grade_id' => $grad->id,
                     'classroom_id' => $classroom->id,
-                    'type' => 'رسوم الباص',
+                    'type' =>2,
                 ])->
                 toArray();
                 $fee['title'] = json_encode($fee['title']);
@@ -50,7 +46,6 @@ class FeeTableSeeder extends Seeder
 
         }
 
-        Log::alert($fees);
         Fee::insert($fees);
     }
 }
