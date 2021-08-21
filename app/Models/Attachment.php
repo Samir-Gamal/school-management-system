@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ParentAttachment whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class ParentAttachment extends Model
+class Attachment extends Model
 {
     use Uuids;
     /**
@@ -31,7 +31,7 @@ class ParentAttachment extends Model
      *
      * @var string
      */
-    protected $table = 'parent_attachments';
+    protected $table = 'attachments';
     /**
      * The attributes that are mass assignable.
      *
