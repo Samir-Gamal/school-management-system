@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReceiptStudentsTable extends Migration
+class CreateAttachmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateReceiptStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('receipt_students', function (Blueprint $table) {
+        Schema::create('attachments', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->date('date');
-            $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->decimal('debit',8,2)->nullable();
-            $table->string('description');
+            $table->string('file_name')->nullable();
+            $table->foreignUuid('parent_id')->references('id')->on('guardians');
             $table->timestamps();
+
         });
     }
 
@@ -31,6 +30,6 @@ class CreateReceiptStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('receipt_students');
+        Schema::dropIfExists('attachments');
     }
 }

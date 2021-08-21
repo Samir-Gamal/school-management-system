@@ -1,12 +1,15 @@
 <?php
 
+use Database\Seeders\AttendanceTableSeeder;
 use Database\Seeders\BloodTableSeeder;
 use Database\Seeders\ClassroomTableSeeder;
+use Database\Seeders\ExamTableSeeder;
 use Database\Seeders\FeeTableSeeder;
 use Database\Seeders\GenderTableSeeder;
 use Database\Seeders\GradeSeeder;
 use Database\Seeders\GuardianTableSeeder;
 use Database\Seeders\NationalityTableSeeder;
+use Database\Seeders\ReceiptTableSeeder;
 use Database\Seeders\ReligionTableSeeder;
 use Database\Seeders\SectionTableSeeder;
 use Database\Seeders\SpecializationTableSeeder;
@@ -39,5 +42,8 @@ class DatabaseSeeder extends Seeder
         $this->call(GuardianTableSeeder::class);
         $this->call(StudentTableSeeder::class);
         $this->call(FeeTableSeeder::class);
+        $this->call(ExamTableSeeder::class);
+        $this->call(AttendanceTableSeeder::class);
+        $this->call(ReceiptTableSeeder::class);
     }
 }
