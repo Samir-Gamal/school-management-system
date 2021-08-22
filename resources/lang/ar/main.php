@@ -49,4 +49,5 @@ return [
     'test_account'=>'حساب تجريبي',
     'school_fee'=>'رسوم دراسية',
     'bus_fee'=>'رسوم باص',
+    'coming_soon'=>'قريباً',
 ];

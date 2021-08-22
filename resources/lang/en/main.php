@@ -49,4 +49,5 @@ return [
     'test_account'=>'Test Account',
     'school_fee'=>'School Fee',
     'bus_fee'=>'Bus Fee',
+    'coming_soon'=>'Coming Soon',
 ];
