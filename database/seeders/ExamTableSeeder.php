@@ -22,7 +22,7 @@ class ExamTableSeeder extends Seeder
             $exam = Exam::factory()->make([])->
             toArray();
             $exam['name'] = json_encode($exam['name']);
-
+            gc_collect_cycles();
             $exams[] = $exam;
             $exam = null;
         }

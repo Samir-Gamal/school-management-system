@@ -31,7 +31,7 @@ class SubjectTableSeeder extends Seeder
             ])->
             toArray();
             $subject['name'] = json_encode($subject['name']);
-
+            gc_collect_cycles();
             $subjects[] = $subject;
             $subject = null;
         }
