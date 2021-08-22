@@ -60,9 +60,9 @@
                                 <div class="form-group">
                                     <label for="gender">{{__('student.gender')}} : <span class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="gender_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($Genders as $Gender)
-                                            <option  value="{{ $Gender->id }}">{{ $Gender->name }}</option>
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($genders as $gender)
+                                            <option  value="{{ $gender->id }}">{{ $gender->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -71,10 +71,10 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="nal_id">{{__('student.nationality')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="nationalitie_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($nationals as $nal)
-                                            <option  value="{{ $nal->id }}">{{ $nal->name }}</option>
+                                    <select class="custom-select mr-sm-2" name="nationality_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($nationalities as $nationality)
+                                            <option  value="{{ $nationality->id }}">{{ $nationality->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -83,10 +83,10 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="bg_id">{{__('student.blood_type')}} : </label>
-                                    <select class="custom-select mr-sm-2" name="blood_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($bloods as $bg)
-                                            <option value="{{ $bg->id }}">{{ $bg->name }}</option>
+                                    <select class="custom-select mr-sm-2" name="blood_type_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($blood_types as $blood_type)
+                                            <option value="{{ $blood_type->id }}">{{ $blood_type->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -94,8 +94,8 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>{{__('student.date_of_birth')}}  :</label>
-                                    <input class="form-control" type="text"  id="datepicker-action" name="Date_Birth" data-date-format="yyyy-mm-dd">
+                                    <label>{{__('student.birthday')}}  :</label>
+                                    <input class="form-control" type="text"  id="datepicker-action" name="birthday" data-date-format="yyyy-mm-dd">
                                 </div>
                             </div>
 
@@ -105,11 +105,11 @@
                     <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="Grade_id">{{__('student.grade')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="Grade_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($my_classes as $c)
-                                            <option  value="{{ $c->id }}">{{ $c->name }}</option>
+                                    <label for="grade_id">{{__('student.grade')}} : <span class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="grade_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($grades  as $grade)
+                                            <option  value="{{ $grade->id }}">{{ $grade->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -117,9 +117,12 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="Classroom_id">{{__('student.classrooms')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="Classroom_id">
-
+                                    <label for="classroom_id">{{__('student.classrooms')}} : <span class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="classroom_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($classrooms  as $classroom)
+                                            <option  value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -128,18 +131,21 @@
                                 <div class="form-group">
                                     <label for="section_id">{{__('student.section')}} : </label>
                                     <select class="custom-select mr-sm-2" name="section_id">
-
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($sections  as $section)
+                                            <option  value="{{ $section->id }}">{{ $section->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="parent_id">{{__('student.parent')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="parent_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                       @foreach($parents as $parent)
-                                            <option value="{{ $parent->id }}">{{ $parent->name_father }}</option>
+                                    <label for="parent_id">{{__('student.guardian')}} : <span class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="guardian_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                       @foreach($guardians as $guardian)
+                                            <option value="{{ $guardian->id }}">{{ $guardian->father_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -149,7 +155,7 @@
                             <div class="form-group">
                                 <label for="academic_year">{{__('student.academic_year')}} : <span class="text-danger">*</span></label>
                                 <select class="custom-select mr-sm-2" name="academic_year">
-                                    <option selected disabled>{{__('parent.choose')}}...</option>
+                                    <option selected disabled>{{__('main.choose')}}...</option>
                                     @php
                                         $current_year = date("Y");
                                     @endphp

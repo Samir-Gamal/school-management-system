@@ -60,7 +60,7 @@
                                         </tr>
 
                                         <tr>
-                                            <th scope="row">{{__('student.parent')}}</th>
+                                            <th scope="row">{{__('student.guardian')}}</th>
                                             <td>{{ $student->guardian->father_name}}</td>
                                             <th scope="row">{{__('student.academic_year')}}</th>
                                             <td>{{ $student->academic_year }}</td>

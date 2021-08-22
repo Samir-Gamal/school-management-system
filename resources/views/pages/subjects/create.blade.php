@@ -49,7 +49,7 @@
                                     <div class="form-group col">
                                         <label for="inputState">المرحلة الدراسية</label>
                                         <select class="custom-select my-1 mr-sm-2" name="grade_id">
-                                            <option selected disabled>{{__('parent.choose')}}...</option>
+                                            <option selected disabled>{{__('main.choose')}}...</option>
                                             @foreach($grades as $grade)
                                                 <option value="{{$grade->id}}">{{$grade->name}}</option>
                                             @endforeach
@@ -59,7 +59,7 @@
                                     <div class="form-group col">
                                         <label for="inputState">الصف الدراسي</label>
                                         <select class="custom-select my-1 mr-sm-2" name="classroom_id">
-                                            <option selected disabled>{{__('parent.choose')}}...</option>
+                                            <option selected disabled>{{__('main.choose')}}...</option>
                                             @foreach($classrooms as $classroom)
                                                 <option value="{{$classroom->id}}">{{$classroom->name}}</option>
                                             @endforeach
@@ -70,7 +70,7 @@
                                     <div class="form-group col">
                                         <label for="inputState">اسم المعلم</label>
                                         <select class="custom-select my-1 mr-sm-2" name="teacher_id">
-                                            <option selected disabled>{{__('parent.choose')}}...</option>
+                                            <option selected disabled>{{__('main.choose')}}...</option>
                                             @foreach($teachers as $teacher)
                                                 <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                             @endforeach
