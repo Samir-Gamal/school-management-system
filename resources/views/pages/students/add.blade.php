@@ -170,7 +170,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="academic_year">{{__('student.attachments')}} : <span class="text-danger">*</span></label>
-                            <input type="file" accept="image/*" name="photos[]" multiple>
+                            <input type="file"  enctype="multipart/form-data" accept="image/*" name="attachments[]" multiple required>
                         </div>
                     </div>
 
