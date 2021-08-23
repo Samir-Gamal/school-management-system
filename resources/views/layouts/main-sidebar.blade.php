@@ -165,6 +165,7 @@
                         </a>
                         <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{route('Quizzes.index')}}">قائمة الاختبارات</a> </li>
+                            <li> <a href="{{route('questions.index')}}">قائمة الاسئلة</a> </li>
                         </ul>
                     </li>
 
