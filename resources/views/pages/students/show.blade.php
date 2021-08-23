@@ -8,7 +8,7 @@
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    {{__('student.Student_details')}}
+    {{__('student.student_details')}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -114,8 +114,8 @@
                                                     <td>{{$attachment->created_at->diffForHumans()}}</td>
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
-                                                           href="{{$attachment->file_url}}"
-                                                           role="button"><i class="fas fa-download"></i>&nbsp; {{__('student.Download')}}</a>
+                                                           href="{{$attachment->file_url}}" target="_blank"
+                                                           role="button"><i class="fas fa-download"></i>&nbsp; {{__('student.download')}}</a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
                                                                 data-toggle="modal"
