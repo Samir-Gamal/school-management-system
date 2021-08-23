@@ -14,16 +14,15 @@ class CreateTeachersTable extends Migration
     public function up()
     {
         Schema::create('teachers', function (Blueprint $table) {
-            $table->id();
-            $table->string('Email')->unique();
-            $table->string('Password');
-            $table->string('Name');
-            $table->bigInteger('Specialization_id')->unsigned();
-            $table->foreign('Specialization_id')->references('id')->on('specializations')->onDelete('cascade');
-            $table->bigInteger('Gender_id')->unsigned();
-            $table->foreign('Gender_id')->references('id')->on('genders')->onDelete('cascade');
-            $table->date('Joining_Date');
-            $table->text('Address');
+            $table->uuid('id');
+            $table->primary('id');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('name');
+            $table->foreignUuid('specialization_id')->references('id')->on('specializations')->onDelete('cascade');
+            $table->foreignUuid('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->date('joining_at');
+            $table->text('address');
             $table->timestamps();
         });
     }

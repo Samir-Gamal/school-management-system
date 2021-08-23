@@ -39,7 +39,7 @@ return [
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
-    'email' => 'The :attribute must be a valid email address.',
+    'email' => 'The :attribute يجب أن يكون عنوان بريد إلكتروني صالح',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
     'exists' => 'The selected :attribute is invalid.',
     'file' => 'The :attribute must be a file.',
@@ -79,7 +79,7 @@ return [
     'max' => [
         'numeric' => 'The :attribute may not be greater than :max.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' => 'The :attribute قد لا يكون أكبر من :max characters.',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -87,7 +87,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'The :attribute لا بد أن يكون على الأقل :min characters.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -95,8 +95,8 @@ return [
     'numeric' => 'The :attribute must be a number.',
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
-    'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'regex' => 'The :attribute التنسيق غير صالح.',
+    'required' => 'The :attribute هذا الحقل مطلوب.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -113,7 +113,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'The :attribute هذا الحقل موجود',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -146,6 +146,22 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => 'Email',
+        'password' => 'Password',
+        'remember_me' => 'Remember me',
+        'classrooms' => 'Classrooms',
+        'name_ar' => 'Arabic Name',
+        'name_en' => 'English Name',
+        'classrooms.*.name_ar' =>  'Classrooms Arabic Name',
+        'classrooms.*.name_en' =>  'Classrooms English Name',
+        'term' =>  'Term',
+        'academic_year' =>  'Academic Year',
+        'classroom_id' =>  'Classroom ID',
+        'grade_id' =>  'Grade ID',
+        'teacher_id' =>  'Teacher ID',
+        'nationality_id' =>  'Nationality ID',
+
+    ],
 
 ];

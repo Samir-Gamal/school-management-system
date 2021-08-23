@@ -16,4 +16,5 @@ class AuthRouteAPIController extends Controller
         return view('auth.login');
     }
 
+
 }
