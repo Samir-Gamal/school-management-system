@@ -18,6 +18,7 @@ use App\Repository\StudentRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
@@ -45,12 +46,22 @@ class StudentController extends Controller
         $student = Student::findorfail($request->id);
         $input = $request->only((new Student())->getFillable());
         $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
-        if ($request->has('password')){
-            $input['password'] = Hash::make($request->password);}
+        if ($request->has('password')) {
+            $input['password'] = Hash::make($request->password);
+        }
+
+        if ($request->has('attachments')) {
+            foreach (request()->file('attachments') as $file) {
+                $attachments_input[]['filename'] = $file->store('attachments/students/' . $student->id);
+            }
+            $student->images()->createMany($attachments_input);
+        }
+
 
         $student->update($input);
-        toastr()->success(__('messages.update'));
-        return redirect()->route('students.index');
+        toastr()->success(__('messages.success'));
+        return redirect()->route('students.show', $request->id);
+
 
     }
 
@@ -129,26 +140,17 @@ class StudentController extends Controller
         return redirect()->route('students.index');
     }
 
-    public function Upload_attachment($request)
+    public function uploadAttachment(Request $request)
     {
-        foreach ($request->file('photos') as $file) {
-            $name = $file->getClientOriginalName();
-            $file->storeAs('attachments/students/' . $request->student_name, $file->getClientOriginalName(), 'upload_attachments');
 
-            // insert in image_table
-            $images = new image();
-            $images->filename = $name;
-            $images->imageable_id = $request->student_id;
-            $images->imageable_type = 'App\Models\Student';
-            $images->save();
-        }
         toastr()->success(__('messages.success'));
         return redirect()->route('students.show', $request->student_id);
     }
 
-    public function Download_attachment($studentsname, $filename)
+    public function Download_attachment(Request $request ,$student,$attachment)
     {
-        return response()->download(public_path('attachments/students/' . $studentsname . '/' . $filename));
+
+        return response()->date->storeUrl($filename);
     }
 
     public function Delete_attachment($request)

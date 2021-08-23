@@ -84,6 +84,7 @@ class StudentRequest extends FormRequest
             'section_id' => ['uuid', 'exists:sections,id'],
             'guardian_id' => ['uuid', 'exists:guardians,id'],
             'academic_year' => ['digits:4', 'integer', 'min:2000'],
+            'attachments.*' => ['mimes:jpg,jpeg,png,bmp','max:20000'],
         ];
 
         return $key ? $update_rules[$key] : $update_rules;

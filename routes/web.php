@@ -99,8 +99,7 @@ Route::group(
         Route::resource('attendances', AttendanceController::class);
         Route::get('get-classrooms/{id}', [StudentController::class, 'get-classrooms']);
         Route::get('sections/{id}', [StudentController::class, 'Get_Sections']);
-        Route::post('upload-attachments', [StudentController::class, 'Upload_attachment'])->name('upload-attachments');
-        Route::get('download-attachments/{studentsname}/{filename}', [StudentController::class, 'Download_attachment'])->name('download-attachments');
+        Route::get('students/{student}/attachments/{attachment}', [StudentController::class, 'Download_attachment'])->name('download-attachments');
         Route::post('delete-attachments', [StudentController::class, 'Delete_attachment'])->name('delete-attachments');
 
 

@@ -77,16 +77,16 @@
                                      aria-labelledby="profile-02-tab">
                                     <div class="card card-statistics">
                                         <div class="card-body">
-                                            <form method="post" action="{{route('upload-attachments')}}" enctype="multipart/form-data">
-                                                {{ csrf_field() }}
+                                            <form action="{{route('students.update',['student'=>$student->id])}}" enctype="multipart/form-data" method="post" autocomplete="off">
+                                                @method('PUT')
+                                                @csrf
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label
                                                             for="academic_year">{{__('student.attachments')}}
                                                             : <span class="text-danger">*</span></label>
-                                                        <input type="file" accept="image/*" name="photos[]" multiple required>
-                                                        <input type="hidden" name="student_name" value="{{$student->name}}">
-                                                        <input type="hidden" name="student_id" value="{{$student->id}}">
+                                                        <input type="file"  enctype="multipart/form-data" accept="image/*" name="attachments[]" multiple required>
+                                                        <input type="hidden" name="id" value="{{$student->id}}">
                                                     </div>
                                                 </div>
                                                 <br><br>
@@ -114,7 +114,7 @@
                                                     <td>{{$attachment->created_at->diffForHumans()}}</td>
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
-                                                           href="{{url('download-attachments')}}/{{ $attachment->imageable->name }}/{{$attachment->filename}}"
+                                                           href="{{$attachment->file_url}}"
                                                            role="button"><i class="fas fa-download"></i>&nbsp; {{__('student.Download')}}</a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
