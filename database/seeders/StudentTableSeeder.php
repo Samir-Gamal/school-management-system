@@ -34,7 +34,7 @@ class StudentTableSeeder extends Seeder
                 'password' => $password,
                 'gender_id' => $genders->random()->id,
                 'nationality_id' =>  $nationalities->random()->id,
-                'blood_id' => $blood_types->random()->id,
+                'blood_type_id' => $blood_types->random()->id,
                 'grade_id' => $grades->random()->id,
                 'classroom_id' => $classrooms->random()->id,
                 'section_id' => $sections->random()->id,

@@ -74,7 +74,7 @@
                                 <div class="form-group col">
                                     <label for="inputCity">{{__('teacher.specialization')}}</label>
                                     <select class="custom-select my-1 mr-sm-2" name="Specialization_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
+                                        <option selected disabled>{{__('main.choose')}}...</option>
                                         @foreach($specializations as $specialization)
                                             <option value="{{$specialization->id}}">{{$specialization->name}}</option>
                                         @endforeach
@@ -86,7 +86,7 @@
                                 <div class="form-group col">
                                     <label for="inputState">{{__('teacher.gender')}}</label>
                                     <select class="custom-select my-1 mr-sm-2" name="Gender_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
+                                        <option selected disabled>{{__('main.choose')}}...</option>
                                         @foreach($genders as $gender)
                                             <option value="{{$gender->id}}">{{$gender->name}}</option>
                                         @endforeach

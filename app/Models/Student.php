@@ -92,7 +92,7 @@ class Student extends Model
         'password',
         'gender_id',
         'nationality_id',
-        'blood_id',
+        'blood_type_id',
         'birthday',
         'grade_id',
         'classroom_id',

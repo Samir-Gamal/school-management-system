@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('password');
             $table->foreignUuid('gender_id')->references('id')->on('genders')->onDelete('cascade');
             $table->foreignUuid('nationality_id')->references('id')->on('nationalities')->onDelete('cascade');
-            $table->foreignUuid('blood_id')->references('id')->on('blood_types')->onDelete('cascade');
+            $table->foreignUuid('blood_type_id')->references('id')->on('blood_types')->onDelete('cascade');
             $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');

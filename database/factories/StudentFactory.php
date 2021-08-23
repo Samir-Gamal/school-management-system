@@ -34,7 +34,7 @@ class StudentFactory extends Factory
             'password' => null,
             'gender_id' => null,
             'nationality_id' => null,
-            'blood_id' => null,
+            'blood_type_id' => null,
             'grade_id' => null,
             'classroom_id' => null,
             'section_id' => null,
