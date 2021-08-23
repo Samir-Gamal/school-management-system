@@ -45,7 +45,9 @@ return [
     'privacy_policy'=>'سياسة الخصوصية',
     'classroom'=>'الصف الدراسي',
     'crate'=>'اضافة',
+    'choose' => 'اختيار من القائمة',
     'test_account'=>'حساب تجريبي',
     'school_fee'=>'رسوم دراسية',
     'bus_fee'=>'رسوم باص',
+    'coming_soon'=>'قريباً',
 ];

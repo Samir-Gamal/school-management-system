@@ -35,7 +35,7 @@
                             <div class="form-group col">
                                 <label for="inputState">{{__('student.grade')}}</label>
                                 <select class="custom-select mr-sm-2" name="grade_id" required>
-                                    <option selected disabled>{{__('parent.choose')}}...</option>
+                                    <option selected disabled>{{__('main.choose')}}...</option>
                                     @foreach($grades as $grade)
                                         <option value="{{$grade->id}}">{{$grade->name}}</option>
                                     @endforeach

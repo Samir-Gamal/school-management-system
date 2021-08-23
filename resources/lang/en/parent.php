@@ -30,7 +30,7 @@ return [
     'next' => 'Next',
     'back' => 'Back',
     'finish' => 'Finish',
-    'choose' => 'Choose',
+
     'attachments' => 'Attachments',
     'processes' => 'processes',
 ];

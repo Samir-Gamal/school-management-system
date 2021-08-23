@@ -160,6 +160,7 @@ return [
         'classroom_id' =>  'Classroom ID',
         'grade_id' =>  'Grade ID',
         'teacher_id' =>  'Teacher ID',
+        'nationality_id' =>  'Nationality ID',
 
     ],
 

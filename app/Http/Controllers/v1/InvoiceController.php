@@ -17,8 +17,9 @@ class InvoiceController extends Controller
 
     public function index()
     {
-        $invoices = Invoice::all();
+        $invoices = Invoice::with('student')->get();
         $grades = Grade::all();
+        \Log::alert($invoices);
         return view('pages.invoices.index',compact('invoices','grades'));
     }
 

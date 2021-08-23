@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * App\Models\Image
@@ -70,4 +71,11 @@ class Image extends Model
     {
         return $this->morphTo();
     }
+    public function getFileUrlAttribute($value)
+    {
+        return Storage::url($this->attributes['filename']);
+
+    }
+
+
 }

@@ -29,15 +29,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{__('student.name_ar')}} : <span class="text-danger">*</span></label>
-                                    <input value="{{$Students->getTranslation('name','ar')}}" type="text" name="name_ar"  class="form-control">
-                                    <input type="hidden" name="id" value="{{$Students->id}}">
+                                    <input value="{{$student->getTranslation('name','ar')}}" type="text" name="name_ar"  class="form-control">
+                                    <input type="hidden" name="id" value="{{$student->id}}">
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{__('student.name_en')}} : <span class="text-danger">*</span></label>
-                                    <input value="{{$Students->getTranslation('name','en')}}" class="form-control" name="name_en" type="text" >
+                                    <input value="{{$student->getTranslation('name','en')}}" class="form-control" name="name_en" type="text" >
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{__('student.email')}} : </label>
-                                    <input type="email" value="{{ $Students->email }}" name="email" class="form-control" >
+                                    <input type="email" value="{{ $student->email }}" name="email" class="form-control" >
                                 </div>
                             </div>
 
@@ -54,7 +54,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{__('student.password')}} :</label>
-                                    <input value="{{ $Students->password }}" type="password" name="password" class="form-control" >
+                                    <input value="" type="password" name="password" class="form-control" >
                                 </div>
                             </div>
 
@@ -62,9 +62,9 @@
                                 <div class="form-group">
                                     <label for="gender">{{__('student.gender')}} : <span class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="gender_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($Genders as $Gender)
-                                            <option value="{{$Gender->id}}" {{$Gender->id == $Students->gender_id ? 'selected' : ""}}>{{ $Gender->name }}</option>
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($genders as $gender)
+                                            <option value="{{$gender->id}}" {{$gender->id == $student->gender_id ? 'selected' : ""}}>{{ $gender->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -73,10 +73,10 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="nal_id">{{__('student.nationality')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="nationalitie_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($nationals as $nal)
-                                            <option value="{{ $nal->id }}" {{$nal->id == $Students->nationalitie_id ? 'selected' : ""}}>{{ $nal->name }}</option>
+                                    <select class="custom-select mr-sm-2" name="nationality_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($nationalities as $nationality)
+                                            <option value="{{ $nationality->id }}" {{$nationality->id == $student->nationality_id ? 'selected' : ""}}>{{ $nationality->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -86,9 +86,9 @@
                                 <div class="form-group">
                                     <label for="bg_id">{{__('student.blood_type')}} : </label>
                                     <select class="custom-select mr-sm-2" name="blood_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($bloods as $bg)
-                                            <option value="{{ $bg->id }}" {{$bg->id == $Students->blood_id ? 'selected' : ""}}>{{ $bg->name }}</option>
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($blood_types as $blood_type)
+                                            <option value="{{ $blood_type->id }}" {{$blood_type->id == $student->blood_type_id ? 'selected' : ""}}>{{ $blood_type->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -96,8 +96,8 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>{{__('student.date_of_birth')}}  :</label>
-                                    <input class="form-control" type="text" value="{{$Students->birthday}}" id="datepicker-action" name="Date_Birth" data-date-format="yyyy-mm-dd">
+                                    <label>{{__('student.birthday')}}  :</label>
+                                    <input class="form-control" type="text" value="{{$student->birthday}}" id="datepicker-action" name="birthday" data-date-format="yyyy-mm-dd">
                                 </div>
                             </div>
 
@@ -108,10 +108,10 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="Grade_id">{{__('student.grade')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="Grade_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                        @foreach($Grades as $Grade)
-                                            <option value="{{ $Grade->id }}" {{$Grade->id == $Students->grade_id ? 'selected' : ""}}>{{ $Grade->name }}</option>
+                                    <select class="custom-select mr-sm-2" name="grade_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                        @foreach($grades as $grade)
+                                            <option value="{{ $grade->id }}" {{$grade->id == $student->grade_id ? 'selected' : ""}}>{{ $grade->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -120,8 +120,8 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="Classroom_id">{{__('student.classrooms')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="Classroom_id">
-                                        <option value="{{$Students->classroom_id}}">{{$Students->classroom->name}}</option>
+                                    <select class="custom-select mr-sm-2" name="classroom_id">
+                                        <option value="{{$student->classroom_id}}">{{$student->classroom->name}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -130,18 +130,18 @@
                                 <div class="form-group">
                                     <label for="section_id">{{__('student.section')}} : </label>
                                     <select class="custom-select mr-sm-2" name="section_id">
-                                        <option value="{{$Students->section_id}}"> {{$Students->section->name}}</option>
+                                        <option value="{{$student->section_id}}"> {{$student->section->name}}</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="parent_id">{{__('student.parent')}} : <span class="text-danger">*</span></label>
-                                    <select class="custom-select mr-sm-2" name="parent_id">
-                                        <option selected disabled>{{__('parent.choose')}}...</option>
-                                       @foreach($parents as $parent)
-                                            <option value="{{ $parent->id }}" {{ $parent->id == $Students->parent_id ? 'selected' : ""}}>{{ $parent->name_father }}</option>
+                                    <label for="parent_id">{{__('student.guardian')}} : <span class="text-danger">*</span></label>
+                                    <select class="custom-select mr-sm-2" name="guardian_id">
+                                        <option selected disabled>{{__('main.choose')}}...</option>
+                                       @foreach($guardians as $guardian)
+                                            <option value="{{ $guardian->id }}" {{ $guardian->id == $student->guardian_id ? 'selected' : ""}}>{{ $guardian->father_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -151,12 +151,12 @@
                             <div class="form-group">
                                 <label for="academic_year">{{__('student.academic_year')}} : <span class="text-danger">*</span></label>
                                 <select class="custom-select mr-sm-2" name="academic_year">
-                                    <option selected disabled>{{__('parent.choose')}}...</option>
+                                    <option selected disabled>{{__('main.choose')}}...</option>
                                     @php
                                         $current_year = date("Y");
                                     @endphp
                                     @for($year=$current_year; $year<=$current_year +1 ;$year++)
-                                        <option value="{{ $year}}" {{$year == $Students->academic_year ? 'selected' : ' '}}>{{ $year }}</option>
+                                        <option value="{{ $year}}" {{$year == $student->academic_year ? 'selected' : ' '}}>{{ $year }}</option>
                                     @endfor
                                 </select>
                             </div>
@@ -184,10 +184,10 @@
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
-                            $('select[name="Classroom_id"]').empty();
+                            $('select[name="classroom_id"]').empty();
                             $.each(data, function (key, value) {
-                                $('select[name="Classroom_id"]').append('<option selected disabled >{{__('parent.choose')}}...</option>');
-                                $('select[name="Classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
+                                $('select[name="classroom_id"]').append('<option selected disabled >{{__('main.choose')}}...</option>');
+                                $('select[name="classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
                             });
 
                         },
@@ -204,7 +204,7 @@
 
     <script>
         $(document).ready(function () {
-            $('select[name="Classroom_id"]').on('change', function () {
+            $('select[name="classroom_id"]').on('change', function () {
                 var Classroom_id = $(this).val();
                 if (Classroom_id) {
                     $.ajax({

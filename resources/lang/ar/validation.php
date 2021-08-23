@@ -157,6 +157,13 @@ return [
         'classroom_id' =>  'معرف الصف الدراسي',
         'grade_id' =>  'معرف المرحلة الدراسية',
         'teacher_id' =>  'معرف المدرس',
+        'nationality_id' =>  'معرف المدرس',
+        'gender_id' =>  'معرف الجنس',
+        'blood_type_id' =>  'معرف فصيلة الدم',
+        'section_id' =>  'معرف القسم',
+        'guardian_id' =>  'معرف ولي الأمر',
+        'birthday' =>  'تاريخ الميلاد',
+
     ],
 
 ];
