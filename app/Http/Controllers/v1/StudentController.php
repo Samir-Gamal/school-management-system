@@ -16,10 +16,7 @@ use App\Models\Section;
 use App\Models\Student;
 use App\Repository\StudentRepositoryInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
@@ -51,10 +48,11 @@ class StudentController extends Controller
         }
 
         if ($request->has('attachments')) {
-            foreach (request()->file('attachments') as $file) {
-                $attachments_input[]['filename'] = $file->store('attachments/students/' . $student->id);
-            }
-            $student->images()->createMany($attachments_input);
+
+            $student->addMultipleMediaFromRequest(['attachments'])
+                ->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection('attachments');
+                });
         }
 
 
@@ -138,30 +136,6 @@ class StudentController extends Controller
         Student::destroy($request->id);
         toastr()->error(__('messages.delete'));
         return redirect()->route('students.index');
-    }
-
-    public function uploadAttachment(Request $request)
-    {
-
-        toastr()->success(__('messages.success'));
-        return redirect()->route('students.show', $request->student_id);
-    }
-
-    public function Download_attachment(Request $request ,$student,$attachment)
-    {
-
-        return response()->date->storeUrl($filename);
-    }
-
-    public function Delete_attachment($request)
-    {
-        // Delete img in server disk
-        Storage::disk('upload_attachments')->delete('attachments/students/' . $request->student_name . '/' . $request->filename);
-
-        // Delete in data
-        image::where('id', $request->id)->where('filename', $request->filename)->delete();
-        toastr()->error(__('messages.delete'));
-        return redirect()->route('students.show', $request->student_id);
     }
 
 }

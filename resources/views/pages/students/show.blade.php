@@ -107,14 +107,14 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($student->images as $attachment)
+                                            @foreach($student->getMedia('attachments')  as $attachment)
                                                 <tr style='text-align:center;vertical-align:middle'>
                                                     <td>{{$loop->iteration}}</td>
-                                                    <td>{{$attachment->filename}}</td>
+                                                    <td>{{$attachment->name}}</td>
                                                     <td>{{$attachment->created_at->diffForHumans()}}</td>
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
-                                                           href="{{$attachment->file_url}}" target="_blank"
+                                                           href="{{$attachment->original_url}}" target="_blank"
                                                            role="button"><i class="fas fa-download"></i>&nbsp; {{__('student.download')}}</a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
