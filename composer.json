@@ -19,6 +19,7 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "livewire/livewire": "^2.3",
         "mcamara/laravel-localization": "^1.6",
+        "spatie/image-optimizer": "^1.4",
         "spatie/laravel-translatable": "^4.6",
         "yoeunes/toastr": "^1.2"
     },
