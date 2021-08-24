@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -15,28 +18,35 @@ use Spatie\Translatable\HasTranslations;
  * @property int $grade_id
  * @property int $classroom_id
  * @property int $teacher_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Classroom $classroom
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Classroom $classroom
  * @property-read array $translations
- * @property-read \App\Models\Grade $grade
- * @property-read \App\Models\Teacher $teacher
- * @method static \Illuminate\Database\Eloquent\Builder|Subject newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Subject newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Subject query()
- * @method static \Illuminate\Database\Eloquent\Builder|Subject whereClassroomId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Subject whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Subject whereGradeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Subject whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Subject whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Subject whereTeacherId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Subject whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property-read Grade $grade
+ * @property-read Teacher $teacher
+ * @method static Builder|Subject newModelQuery()
+ * @method static Builder|Subject newQuery()
+ * @method static Builder|Subject query()
+ * @method static Builder|Subject whereClassroomId($value)
+ * @method static Builder|Subject whereCreatedAt($value)
+ * @method static Builder|Subject whereGradeId($value)
+ * @method static Builder|Subject whereId($value)
+ * @method static Builder|Subject whereName($value)
+ * @method static Builder|Subject whereTeacherId($value)
+ * @method static Builder|Subject whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Subject extends Model
 {
-    use HasFactory, HasTranslations,Uuids;
+    use HasFactory, HasTranslations, Uuids;
 
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    public $translatable = ['name'];
     /**
      * The database table used by the model.
      *
@@ -55,13 +65,6 @@ class Subject extends Model
         'teacher_id'
     ];
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * The database primary key value.
      *
      * @var string
@@ -73,8 +76,6 @@ class Subject extends Model
      * @var array
      */
     protected $hidden = [];
-
-    public $translatable = ['name'];
 
     // جلب اسم المراحل الدراسية
 

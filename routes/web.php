@@ -89,7 +89,7 @@ Route::group(
 
         //==============================Students============================
         Route::resource('students', StudentController::class);
-        Route::post('students/{id}/restore', [GraduatedController::class,'restore']);
+        Route::post('students/{id}/restore', [GraduatedController::class, 'restore']);
         Route::resource('graduates', GraduatedController::class);
         Route::resource('promotions', PromotionController::class);
         Route::resource('invoices', InvoiceController::class);

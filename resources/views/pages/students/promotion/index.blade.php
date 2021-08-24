@@ -29,7 +29,7 @@
                         </div>
                     @endif
 
-                        <h6 style="color: red;font-family: Cairo">المرحلة الدراسية القديمة</h6><br>
+                    <h6 style="color: red;font-family: Cairo">المرحلة الدراسية القديمة</h6><br>
 
                     <form method="post" action="{{ route('promotions.store') }}">
                         @csrf
@@ -60,11 +60,12 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="academic_year">{{__('student.academic_year')}} : <span class="text-danger">*</span></label>
+                                    <label for="academic_year">{{__('student.academic_year')}} : <span
+                                            class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="academic_year">
                                         <option selected disabled>{{__('main.choose')}}...</option>
                                         @php
-                                            $current_year = date("Y");
+                                            $current_year = date("Y")
                                         @endphp
                                         @for($year=$current_year; $year<=$current_year +1 ;$year++)
                                             <option value="{{ $year}}">{{ $year }}</option>
@@ -74,14 +75,13 @@
                             </div>
 
 
-
                         </div>
                         <br><h6 style="color: red;font-family: Cairo">المرحلة الدراسية الجديدة</h6><br>
 
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="inputState">{{__('student.grade')}}</label>
-                                <select class="custom-select mr-sm-2" name="Grade_id_new" >
+                                <select class="custom-select mr-sm-2" name="Grade_id_new">
                                     <option selected disabled>{{__('main.choose')}}...</option>
                                     @foreach($Grades as $Grade)
                                         <option value="{{$Grade->id}}">{{$Grade->name}}</option>
@@ -91,24 +91,25 @@
                             <div class="form-group col">
                                 <label for="Classroom_id">{{__('student.classrooms')}}: <span
                                         class="text-danger">*</span></label>
-                                <select class="custom-select mr-sm-2" name="Classroom_id_new" >
+                                <select class="custom-select mr-sm-2" name="Classroom_id_new">
 
                                 </select>
                             </div>
                             <div class="form-group col">
                                 <label for="section_id">:{{__('student.section')}} </label>
-                                <select class="custom-select mr-sm-2" name="section_id_new" >
+                                <select class="custom-select mr-sm-2" name="section_id_new">
 
                                 </select>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="academic_year">{{__('student.academic_year')}} : <span class="text-danger">*</span></label>
+                                    <label for="academic_year">{{__('student.academic_year')}} : <span
+                                            class="text-danger">*</span></label>
                                     <select class="custom-select mr-sm-2" name="academic_year_new">
                                         <option selected disabled>{{__('main.choose')}}...</option>
                                         @php
-                                            $current_year = date("Y");
+                                            $current_year = date("Y")
                                         @endphp
                                         @for($year=$current_year; $year<=$current_year +1 ;$year++)
                                             <option value="{{ $year}}">{{ $year }}</option>

@@ -19,10 +19,10 @@ class SubjectTableSeeder extends Seeder
     {
 
         $classrooms = Classroom::all();
-        $grades = Grade::all();;
+        $grades = Grade::all();
         $teachers = Teacher::all();
 
-        $subjects=[];
+        $subjects = [];
         for ($i = 0; $i < 30; $i++) {
             $subject = Subject::factory()->make([
                 'grade_id' => $grades->random()->id,
@@ -35,6 +35,6 @@ class SubjectTableSeeder extends Seeder
             $subjects[] = $subject;
             $subject = null;
         }
-       Subject::insert($subjects);
+        Subject::insert($subjects);
     }
 }

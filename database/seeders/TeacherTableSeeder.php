@@ -21,7 +21,7 @@ class TeacherTableSeeder extends Seeder
         $specializations = Specialization::all();
         $genders = Gender::all();
 
-        $teachers=[];
+        $teachers = [];
         for ($i = 0; $i < 100; $i++) {
             $teacher = Teacher::factory()->make([
                 'password' => $password,
@@ -34,6 +34,6 @@ class TeacherTableSeeder extends Seeder
             $teachers[] = $teacher;
             $teacher = null;
         }
-       Teacher::insert($teachers);
+        Teacher::insert($teachers);
     }
 }

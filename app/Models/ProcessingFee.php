@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\ProcessingFee
@@ -13,24 +16,31 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $student_id
  * @property string|null $amount
  * @property string $description
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Student $student
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee query()
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee whereAmount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee whereDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee whereStudentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ProcessingFee whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Student $student
+ * @method static Builder|ProcessingFee newModelQuery()
+ * @method static Builder|ProcessingFee newQuery()
+ * @method static Builder|ProcessingFee query()
+ * @method static Builder|ProcessingFee whereAmount($value)
+ * @method static Builder|ProcessingFee whereCreatedAt($value)
+ * @method static Builder|ProcessingFee whereDate($value)
+ * @method static Builder|ProcessingFee whereDescription($value)
+ * @method static Builder|ProcessingFee whereId($value)
+ * @method static Builder|ProcessingFee whereStudentId($value)
+ * @method static Builder|ProcessingFee whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class ProcessingFee extends Model
 {
     use Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
     /**
      * The database table used by the model.
      *
@@ -43,13 +53,6 @@ class ProcessingFee extends Model
      * @var array
      */
     protected $fillable = [];
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     /**
      * The database primary key value.
      *

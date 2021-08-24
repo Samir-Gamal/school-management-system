@@ -40,14 +40,16 @@
 
                     <div class="col">
                         <label for="mother_national_id">{{__('parent.mother_national_id')}}</label>
-                        <input type="number" name="mother_national_id" wire:model="mother_national_id" class="form-control">
+                        <input type="number" name="mother_national_id" wire:model="mother_national_id"
+                               class="form-control">
                         @error('mother_national_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col">
                         <label for="mother_passport_id">{{__('parent.mother_passport_id')}}</label>
-                        <input type="number" name="mother_passport_id" wire:model="mother_passport_id" class="form-control">
+                        <input type="number" name="mother_passport_id" wire:model="mother_passport_id"
+                               class="form-control">
                         @error('mother_passport_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

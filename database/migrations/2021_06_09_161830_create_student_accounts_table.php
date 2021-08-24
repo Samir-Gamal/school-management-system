@@ -23,8 +23,8 @@ class CreateStudentAccountsTable extends Migration
             $table->foreignUuid('processing_id')->nullable()->references('id')->on('processing_fees')->onDelete('cascade');
             $table->foreignUuid('payment_id')->nullable()->references('id')->on('payments')->onDelete('cascade');
             $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->decimal('debit',8,2)->nullable();
-            $table->decimal('credit',8,2)->nullable();
+            $table->decimal('debit', 8, 2)->nullable();
+            $table->decimal('credit', 8, 2)->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
         });

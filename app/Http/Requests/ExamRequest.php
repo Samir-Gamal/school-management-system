@@ -49,8 +49,8 @@ class ExamRequest extends FormRequest
     public static function creationRules($key = null)
     {
         $creation_rules = [
-            'name_ar' => ['required', 'string','min:2'],
-            'name_en' => ['required', 'string','min:2'],
+            'name_ar' => ['required', 'string', 'min:2'],
+            'name_en' => ['required', 'string', 'min:2'],
             'term' => ['required', 'integer', 'max:2', 'min:1'],
             'academic_year' => ['required', 'digits:4', 'integer', 'min:2000'],
         ];
@@ -62,9 +62,9 @@ class ExamRequest extends FormRequest
     public static function updateRules($key = null, $user_id = null)
     {
         $update_rules = [
-            'name_ar' => ['string','min:2'],
-            'name_en' => ['string','min:2'],
-            'term' => [ 'integer', 'max:2', 'min:1'],
+            'name_ar' => ['string', 'min:2'],
+            'name_en' => ['string', 'min:2'],
+            'term' => ['integer', 'max:2', 'min:1'],
             'academic_year' => ['digits:4', 'integer', 'min:2000'],
         ];
 

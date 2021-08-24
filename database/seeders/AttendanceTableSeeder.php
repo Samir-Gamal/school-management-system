@@ -18,10 +18,10 @@ class AttendanceTableSeeder extends Seeder
     public function run()
     {
         $students = Student::select('id', 'section_id')->get();
-       //attendance period
+        //attendance period
         $from = Carbon::now()->subDays(30)->toString();
         $to = Carbon::now()->toString();
-        $attendance_period = CarbonPeriod::create($from,$to);
+        $attendance_period = CarbonPeriod::create($from, $to);
 
         $attendances = [];
         foreach ($attendance_period as $day) {

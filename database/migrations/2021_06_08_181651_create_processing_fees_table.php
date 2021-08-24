@@ -18,7 +18,7 @@ class CreateProcessingFeesTable extends Migration
             $table->primary('id');
             $table->date('date');
             $table->foreignUuid('student_id')->references('id')->on('students')->onDelete('cascade');
-            $table->decimal('amount',8,2)->nullable();
+            $table->decimal('amount', 8, 2)->nullable();
             $table->string('description');
             $table->timestamps();
         });

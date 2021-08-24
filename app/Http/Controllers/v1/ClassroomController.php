@@ -39,7 +39,7 @@ class ClassroomController extends Controller
     {
         foreach ($request->classrooms as $classroom) {
             $input[] = [
-                'id'=>(string) Str::uuid(),
+                'id' => (string)Str::uuid(),
                 'name' => json_encode(['en' => $classroom['name_en'], 'ar' => $classroom['name_ar']]),
                 'grade_id' => $classroom['grade_id']
             ];

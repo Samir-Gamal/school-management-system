@@ -88,7 +88,8 @@
 
                         <div class="form-group">
                             <label for="inputAddress">ملاحظات</label>
-                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="4"></textarea>
+                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
+                                      rows="4"></textarea>
                         </div>
                         <br>
 

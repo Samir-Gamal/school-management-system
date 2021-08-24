@@ -8,7 +8,7 @@
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-  معالجات الرسوم الدراسية
+    معالجات الرسوم الدراسية
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -37,13 +37,18 @@
                                         <tbody>
                                         @foreach($processing_fees as $processing_fee)
                                             <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{$processing_fee->student->name}}</td>
-                                            <td>{{ number_format($processing_fee->amount, 2) }}</td>
-                                            <td>{{$processing_fee->description}}</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{$processing_fee->student->name}}</td>
+                                                <td>{{ number_format($processing_fee->amount, 2) }}</td>
+                                                <td>{{$processing_fee->description}}</td>
                                                 <td>
-                                                    <a href="{{route('processing-fees.edit',$processing_fee->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$processing_fee->id}}" ><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('processing-fees.edit',$processing_fee->id)}}"
+                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                            class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#Delete_receipt{{$processing_fee->id}}"><i
+                                                            class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
                                         @include('pages.processing_fees.delete')

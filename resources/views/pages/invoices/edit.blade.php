@@ -27,7 +27,8 @@
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="inputEmail4">اسم الطالب</label>
-                                <input type="text" value="{{$invoice->student->name}}" readonly name="title_ar" class="form-control">
+                                <input type="text" value="{{$invoice->student->name}}" readonly name="title_ar"
+                                       class="form-control">
                                 <input type="hidden" value="{{$invoice->id}}" name="id" class="form-control">
                             </div>
 
@@ -46,7 +47,8 @@
                                 <label for="inputZip">نوع الرسوم</label>
                                 <select class="custom-select mr-sm-2" name="fee_id">
                                     @foreach($fees as $fee)
-                                        <option value="{{$fee->id}}" {{$fee->id == $invoice->fee_id ? 'selected':"" }}>{{$fee->title}}</option>
+                                        <option
+                                            value="{{$fee->id}}" {{$fee->id == $invoice->fee_id ? 'selected':"" }}>{{$fee->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -55,7 +57,8 @@
 
                         <div class="form-group">
                             <label for="inputAddress">ملاحظات</label>
-                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="4">{{$invoice->description}}</textarea>
+                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1"
+                                      rows="4">{{$invoice->description}}</textarea>
                         </div>
                         <br>
 

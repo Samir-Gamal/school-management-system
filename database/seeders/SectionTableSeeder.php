@@ -1,5 +1,7 @@
 <?php
+
 namespace Database\Seeders;
+
 use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Section;
@@ -22,8 +24,8 @@ class SectionTableSeeder extends Seeder
             ['en' => 'c', 'ar' => 'ت'],
         ];
         $sections_data_seed = [];
-        $grades=Grade::all();
-        $classrooms=Classroom::all();
+        $grades = Grade::all();
+        $classrooms = Classroom::all();
         foreach ($sections as $section) {
 
             $fake_section = Section::factory()->make([

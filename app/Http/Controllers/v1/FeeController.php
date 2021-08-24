@@ -64,9 +64,9 @@ class FeeController extends Controller
 
     public function destroy(Request $request)
     {
-            Fee::destroy($request->id);
-            toastr()->error(__('messages.delete'));
-            return redirect()->back();
+        Fee::destroy($request->id);
+        toastr()->error(__('messages.delete'));
+        return redirect()->back();
 
     }
 }

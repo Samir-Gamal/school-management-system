@@ -34,7 +34,7 @@ class FeeTableSeeder extends Seeder
                 $fee = Fee::factory()->make([
                     'grade_id' => $grad->id,
                     'classroom_id' => $classroom->id,
-                    'type' =>2,
+                    'type' => 2,
                 ])->
                 toArray();
                 $fee['title'] = json_encode($fee['title']);

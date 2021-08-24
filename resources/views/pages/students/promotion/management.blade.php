@@ -22,8 +22,9 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
 
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete_all">
-                                   تراجع الكل
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#Delete_all">
+                                    تراجع الكل
                                 </button>
                                 <br><br>
 
@@ -62,8 +63,13 @@
                                                 <td>{{$promotion->t_section->name}}</td>
                                                 <td>
 
-                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#Delete_one{{$promotion->id}}">ارجاع الطالب</button>
-                                                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#">تخرج الطالب</button>
+                                                    <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="modal"
+                                                            data-target="#Delete_one{{$promotion->id}}">ارجاع الطالب
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-success"
+                                                            data-toggle="modal" data-target="#">تخرج الطالب
+                                                    </button>
                                                 </td>
                                             </tr>
                                         @include('pages.students.promotion.delete_all')

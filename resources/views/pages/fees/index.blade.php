@@ -50,9 +50,15 @@
                                                 <td>{{$fee->year}}</td>
                                                 <td>{{$fee->type_name}}</td>
                                                 <td>
-                                                    <a href="{{route('fees.edit',$fee->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Fee{{ $fee->id }}" title="{{ trans('Grades_trans.Delete') }}"><i class="fa fa-trash"></i></button>
-                                                    <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></a>
+                                                    <a href="{{route('fees.edit',$fee->id)}}"
+                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                            class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal" data-target="#Delete_Fee{{ $fee->id }}"
+                                                            title="{{ trans('Grades_trans.Delete') }}"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <a href="#" class="btn btn-warning btn-sm" role="button"
+                                                       aria-pressed="true"><i class="far fa-eye"></i></a>
 
                                                 </td>
                                             </tr>

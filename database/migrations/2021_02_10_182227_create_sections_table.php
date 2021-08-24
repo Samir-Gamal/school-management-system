@@ -19,9 +19,9 @@ class CreateSectionsTable extends Migration
             $table->string('name');
             $table->integer('status');
             $table->foreignUuid('grade_id')->references('id')->on('grades')
-                ->onDelete('cascade');;
+                ->onDelete('cascade');
             $table->foreignUuid('classroom_id')->references('id')->on('classrooms')
-                ->onDelete('cascade');;
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

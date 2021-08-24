@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Fee;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FeeFactory extends Factory
@@ -19,7 +20,7 @@ class FeeFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function definition()
     {
@@ -29,12 +30,12 @@ class FeeFactory extends Factory
 
         return [
             'id' => $this->faker->uuid,
-            'title' => ['en' => $this->faker->realText(20),  'ar'=>$faker_ar->realText(20)],
-            'amount' => $this->faker->numberBetween(10000,300000),
+            'title' => ['en' => $this->faker->realText(20), 'ar' => $faker_ar->realText(20)],
+            'amount' => $this->faker->numberBetween(10000, 300000),
             'classroom_id' => null,
             'grade_id' => null,
             'description' => $this->faker->sentence(12),
-            'year' =>Carbon::now()->year,
+            'year' => Carbon::now()->year,
             'type' => null,
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date)

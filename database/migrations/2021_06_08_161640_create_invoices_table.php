@@ -21,7 +21,7 @@ class CreateInvoicesTable extends Migration
             $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignUuid('fee_id')->references('id')->on('fees')->onDelete('cascade');
-            $table->decimal('amount',8,2);
+            $table->decimal('amount', 8, 2);
             $table->string('description')->nullable();
             $table->timestamps();
         });

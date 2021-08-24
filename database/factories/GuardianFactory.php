@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Guardian;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GuardianFactory extends Factory
@@ -19,7 +20,7 @@ class GuardianFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function definition()
     {

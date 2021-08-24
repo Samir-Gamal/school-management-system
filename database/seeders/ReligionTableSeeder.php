@@ -1,5 +1,7 @@
 <?php
+
 namespace Database\Seeders;
+
 use App\Models\Religion;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,16 +19,16 @@ class ReligionTableSeeder extends Seeder
         $religions = [
 
             [
-                'en'=> 'Muslim',
-                'ar'=> 'مسلم'
+                'en' => 'Muslim',
+                'ar' => 'مسلم'
             ],
             [
-                'en'=> 'Christian',
-                'ar'=> 'مسيحي'
+                'en' => 'Christian',
+                'ar' => 'مسيحي'
             ],
             [
-                'en'=> 'Other',
-                'ar'=> 'غيرذلك'
+                'en' => 'Other',
+                'ar' => 'غيرذلك'
             ],
 
         ];

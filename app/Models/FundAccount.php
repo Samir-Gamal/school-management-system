@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\FundAccount
@@ -15,25 +18,32 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $debit
  * @property string|null $credit
  * @property string $description
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount query()
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereCredit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereDebit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount wherePaymentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereReceiptId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|FundAccount whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static Builder|FundAccount newModelQuery()
+ * @method static Builder|FundAccount newQuery()
+ * @method static Builder|FundAccount query()
+ * @method static Builder|FundAccount whereCreatedAt($value)
+ * @method static Builder|FundAccount whereCredit($value)
+ * @method static Builder|FundAccount whereDate($value)
+ * @method static Builder|FundAccount whereDebit($value)
+ * @method static Builder|FundAccount whereDescription($value)
+ * @method static Builder|FundAccount whereId($value)
+ * @method static Builder|FundAccount wherePaymentId($value)
+ * @method static Builder|FundAccount whereReceiptId($value)
+ * @method static Builder|FundAccount whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class FundAccount extends Model
 {
     use Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
     /**
      * The database table used by the model.
      *
@@ -46,13 +56,6 @@ class FundAccount extends Model
      * @var array
      */
     protected $fillable = [];
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     /**
      * The database primary key value.
      *

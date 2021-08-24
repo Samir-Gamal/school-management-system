@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Attendance;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AttendanceFactory extends Factory
@@ -19,7 +20,7 @@ class AttendanceFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function definition()
     {
@@ -27,10 +28,10 @@ class AttendanceFactory extends Factory
         $date = Carbon::now()->subDays(random_int(1, 90));
         return [
             'id' => $this->faker->uuid,
-            'student_id' =>null,
-            'section_id' =>null,
-            'day' =>null,
-            'status' =>$this->faker->boolean(90),
+            'student_id' => null,
+            'section_id' => null,
+            'day' => null,
+            'status' => $this->faker->boolean(90),
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date)
         ];

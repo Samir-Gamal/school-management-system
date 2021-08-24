@@ -7,6 +7,7 @@ use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\Teacher;
+use Exception;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -23,20 +24,20 @@ class SubjectController extends Controller
         $grades = Grade::get();
         $teachers = Teacher::get();
         $classrooms = Classroom::get();
-        return view('pages.subjects.create', compact('grades', 'teachers','classrooms'));
+        return view('pages.subjects.create', compact('grades', 'teachers', 'classrooms'));
     }
 
 
     public function store(Request $request)
     {
-            $subjects = new Subject();
-            $subjects->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
-            $subjects->grade_id = $request->grade_id;
-            $subjects->classroom_id = $request->classroom_id;
-            $subjects->teacher_id = $request->teacher_id;
-            $subjects->save();
-            toastr()->success(__('messages.success'));
-            return redirect()->route('subjects.create');
+        $subjects = new Subject();
+        $subjects->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
+        $subjects->grade_id = $request->grade_id;
+        $subjects->classroom_id = $request->classroom_id;
+        $subjects->teacher_id = $request->teacher_id;
+        $subjects->save();
+        toastr()->success(__('messages.success'));
+        return redirect()->route('subjects.create');
     }
 
 
@@ -61,7 +62,7 @@ class SubjectController extends Controller
             $subjects->save();
             toastr()->success(__('messages.update'));
             return redirect()->route('subjects.create');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
@@ -72,7 +73,7 @@ class SubjectController extends Controller
             Subject::destroy($request->id);
             toastr()->error(__('messages.delete'));
             return redirect()->back();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

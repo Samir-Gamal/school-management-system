@@ -15,9 +15,10 @@ trait Uuids
         parent::boot();
 
         static::creating(function ($model) {
-            $model->{$model->getKeyName()} = (string) Str::uuid();
+            $model->{$model->getKeyName()} = (string)Str::uuid();
         });
     }
+
     /**
      * Get the value indicating whether the IDs are incrementing.
      *

@@ -42,26 +42,53 @@
                                         <tbody>
                                         @foreach($students as $student)
                                             <tr>
-                                            <td>{{ $loop->index+1 }}</td>
-                                            <td>{{$student->name}}</td>
-                                            <td>{{$student->email}}</td>
-                                            <td>{{$student->gender->name}}</td>
-                                            <td>{{$student->grade->name}}</td>
-                                            <td>{{$student->classroom->name}}</td>
-                                            <td>{{$student->section->name}}</td>
+                                                <td>{{ $loop->index+1 }}</td>
+                                                <td>{{$student->name}}</td>
+                                                <td>{{$student->email}}</td>
+                                                <td>{{$student->gender->name}}</td>
+                                                <td>{{$student->grade->name}}</td>
+                                                <td>{{$student->classroom->name}}</td>
+                                                <td>{{$student->section->name}}</td>
                                                 <td>
                                                     <div class="dropdown show">
-                                                        <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <a class="btn btn-success btn-sm dropdown-toggle" href="#"
+                                                           role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                                           aria-haspopup="true" aria-expanded="false">
                                                             العمليات
                                                         </a>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                            <a class="dropdown-item" href="{{route('students.show',$student->id)}}"><i style="color: #ffc107" class="far fa-eye "></i>&nbsp;  عرض بيانات الطالب</a>
-                                                            <a class="dropdown-item" href="{{route('students.edit',$student->id)}}"><i style="color:green" class="fa fa-edit"></i>&nbsp;  تعديل بيانات الطالب</a>
-                                                            <a class="dropdown-item" href="{{route('invoices.show',$student->id)}}"><i style="color: #0000cc" class="fa fa-edit"></i>&nbsp;اضافة فاتورة رسوم&nbsp;</a>
-                                                            <a class="dropdown-item" href="{{route('receipts.show',$student->id)}}"><i style="color: #9dc8e2" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;سند قبض</a>
-                                                            <a class="dropdown-item" href="{{route('processing-fees.show',$student->id)}}"><i style="color: #9dc8e2" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp; استبعاد رسوم</a>
-                                                            <a class="dropdown-item" href="{{route('payments.show',$student->id)}}"><i style="color:goldenrod" class="fas fa-donate"></i>&nbsp; &nbsp;سند صرف</a>
-                                                            <a class="dropdown-item" data-target="#Delete_Student{{ $student->id }}" data-toggle="modal" href="##Delete_Student{{ $student->id }}"><i style="color: red" class="fa fa-trash"></i>&nbsp;  حذف بيانات الطالب</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{route('students.show',$student->id)}}"><i
+                                                                    style="color: #ffc107" class="far fa-eye "></i>&nbsp;
+                                                                عرض بيانات الطالب</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{route('students.edit',$student->id)}}"><i
+                                                                    style="color:green" class="fa fa-edit"></i>&nbsp;
+                                                                تعديل بيانات الطالب</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{route('invoices.show',$student->id)}}"><i
+                                                                    style="color: #0000cc" class="fa fa-edit"></i>&nbsp;اضافة
+                                                                فاتورة رسوم&nbsp;</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{route('receipts.show',$student->id)}}"><i
+                                                                    style="color: #9dc8e2"
+                                                                    class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;سند
+                                                                قبض</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{route('processing-fees.show',$student->id)}}"><i
+                                                                    style="color: #9dc8e2"
+                                                                    class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;
+                                                                استبعاد رسوم</a>
+                                                            <a class="dropdown-item"
+                                                               href="{{route('payments.show',$student->id)}}"><i
+                                                                    style="color:goldenrod" class="fas fa-donate"></i>&nbsp;
+                                                                &nbsp;سند صرف</a>
+                                                            <a class="dropdown-item"
+                                                               data-target="#Delete_Student{{ $student->id }}"
+                                                               data-toggle="modal"
+                                                               href="##Delete_Student{{ $student->id }}"><i
+                                                                    style="color: red" class="fa fa-trash"></i>&nbsp;
+                                                                حذف بيانات الطالب</a>
                                                         </div>
                                                     </div>
                                                 </td>

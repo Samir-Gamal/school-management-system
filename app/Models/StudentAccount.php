@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\StudentAccount
@@ -19,30 +22,37 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $debit
  * @property string|null $credit
  * @property string|null $description
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount query()
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereCredit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereDebit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereFeeInvoiceId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount wherePaymentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereProcessingId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereReceiptId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereStudentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereUpdatedAt($value)
- * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|StudentAccount whereInvoiceId($value)
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @method static Builder|StudentAccount newModelQuery()
+ * @method static Builder|StudentAccount newQuery()
+ * @method static Builder|StudentAccount query()
+ * @method static Builder|StudentAccount whereCreatedAt($value)
+ * @method static Builder|StudentAccount whereCredit($value)
+ * @method static Builder|StudentAccount whereDate($value)
+ * @method static Builder|StudentAccount whereDebit($value)
+ * @method static Builder|StudentAccount whereDescription($value)
+ * @method static Builder|StudentAccount whereFeeInvoiceId($value)
+ * @method static Builder|StudentAccount whereId($value)
+ * @method static Builder|StudentAccount wherePaymentId($value)
+ * @method static Builder|StudentAccount whereProcessingId($value)
+ * @method static Builder|StudentAccount whereReceiptId($value)
+ * @method static Builder|StudentAccount whereStudentId($value)
+ * @method static Builder|StudentAccount whereType($value)
+ * @method static Builder|StudentAccount whereUpdatedAt($value)
+ * @mixin Eloquent
+ * @method static Builder|StudentAccount whereInvoiceId($value)
  */
 class StudentAccount extends Model
 {
     use Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
     /**
      * The database table used by the model.
      *
@@ -55,13 +65,6 @@ class StudentAccount extends Model
      * @var array
      */
     protected $fillable = [];
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     /**
      * The database primary key value.
      *

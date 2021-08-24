@@ -9,6 +9,7 @@ use App\Models\Receipt;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Repository\ReceiptStudentsRepositoryInterface;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,20 +18,20 @@ class ReceiptController extends Controller
     public function index()
     {
         $receipts = Receipt::all();
-        return view('pages.receipts.index',compact('receipts'));
+        return view('pages.receipts.index', compact('receipts'));
 
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.receipts.add',compact('student'));
+        return view('pages.receipts.add', compact('student'));
     }
 
     public function edit($id)
     {
         $receipt = Receipt::findorfail($id);
-        return view('pages.receipts.edit',compact('receipt'));
+        return view('pages.receipts.edit', compact('receipt'));
     }
 
     public function store(Request $request)
@@ -71,9 +72,7 @@ class ReceiptController extends Controller
             toastr()->success(__('messages.success'));
             return redirect()->route('receipts.index');
 
-        }
-
-        catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -93,7 +92,7 @@ class ReceiptController extends Controller
             $receipt->save();
 
             // تعديل البيانات في جدول الصندوق
-            $fund_accounts = FundAccount::where('receipt_id',$request->id)->first();
+            $fund_accounts = FundAccount::where('receipt_id', $request->id)->first();
             $fund_accounts->date = date('Y-m-d');
             $fund_accounts->receipt_id = $receipt->id;
             $fund_accounts->debit = $request->Debit;
@@ -103,7 +102,7 @@ class ReceiptController extends Controller
 
             // تعديل البيانات في جدول الصندوق
 
-            $fund_accounts = StudentAccount::where('receipt_id',$request->id)->first();
+            $fund_accounts = StudentAccount::where('receipt_id', $request->id)->first();
             $fund_accounts->date = date('Y-m-d');
             $fund_accounts->type = 'receipts';
             $fund_accounts->student_id = $request->student_id;
@@ -117,7 +116,7 @@ class ReceiptController extends Controller
             DB::commit();
             toastr()->success(__('messages.update'));
             return redirect()->route('receipts.index');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -129,9 +128,7 @@ class ReceiptController extends Controller
             Receipt::destroy($request->id);
             toastr()->error(__('messages.delete'));
             return redirect()->back();
-        }
-
-        catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

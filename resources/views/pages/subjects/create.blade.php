@@ -77,7 +77,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ البيانات</button>
+                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
+                                    البيانات
+                                </button>
                             </form>
                         </div>
                     </div>

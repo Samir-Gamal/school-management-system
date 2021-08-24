@@ -76,7 +76,8 @@
                         @else
 
                             <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
-                                <input name="attendences[{{ $student->id }}]" class="leading-tight" type="radio" checked="checked"
+                                <input name="attendences[{{ $student->id }}]" class="leading-tight" type="radio"
+                                       checked="checked"
                                        value="presence">
                                 <span class="text-success">حضور</span>
                             </label>

@@ -28,7 +28,7 @@
                             </button>
                         </div>
                     @endif
-                        <form action="{{route('graduates.store')}}" method="post">
+                    <form action="{{route('graduates.store')}}" method="post">
                         @csrf
                         @csrf
                         <div class="form-row">

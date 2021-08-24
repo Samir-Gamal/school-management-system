@@ -205,18 +205,26 @@
                                                                                                     class="form-check-label"
                                                                                                     for="exampleCheck1">{{ __('section.status') }}</label><br>
 
-                                                                                                    <div class="col">
-                                                                                                        <label for="inputName" class="control-label">{{ __('section.name_teacher') }}</label>
-                                                                                                        <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
-                                                                                                            @foreach($section->teachers as $teacher)
-                                                                                                                <option selected value="{{$teacher['id']}}">{{$teacher['name']}}</option>
-                                                                                                            @endforeach
+                                                                                                <div class="col">
+                                                                                                    <label
+                                                                                                        for="inputName"
+                                                                                                        class="control-label">{{ __('section.name_teacher') }}</label>
+                                                                                                    <select multiple
+                                                                                                            name="teacher_id[]"
+                                                                                                            class="form-control"
+                                                                                                            id="exampleFormControlSelect2">
+                                                                                                        @foreach($section->teachers as $teacher)
+                                                                                                            <option
+                                                                                                                selected
+                                                                                                                value="{{$teacher['id']}}">{{$teacher['name']}}</option>
+                                                                                                        @endforeach
 
-                                                                                                            @foreach($teachers as $teacher)
-                                                                                                                <option value="{{$teacher->id}}">{{$teacher->name}}</option>
-                                                                                                            @endforeach
-                                                                                                        </select>
-                                                                                                    </div>
+                                                                                                        @foreach($teachers as $teacher)
+                                                                                                            <option
+                                                                                                                value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                </div>
                                                                                             </div>
                                                                                         </div>
 
@@ -355,10 +363,13 @@
                                                     <option value="{{$grade->id}}">{{$grade->name}}</option>
                                                 @endforeach
                                             </select>
-                                        </div><br>
+                                        </div>
+                                        <br>
                                         <div class="col">
-                                            <label for="inputName" class="control-label">{{ __('section.name_teacher') }}</label>
-                                            <select multiple name="teacher_ids[]" class="form-control" id="exampleFormControlSelect2">
+                                            <label for="inputName"
+                                                   class="control-label">{{ __('section.name_teacher') }}</label>
+                                            <select multiple name="teacher_ids[]" class="form-control"
+                                                    id="exampleFormControlSelect2">
                                                 @foreach($teachers as $teacher)
                                                     <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                                 @endforeach

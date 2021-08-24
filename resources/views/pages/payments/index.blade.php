@@ -8,7 +8,7 @@
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-   سندات الصرف
+    سندات الصرف
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -37,13 +37,18 @@
                                         <tbody>
                                         @foreach($payments as $payment)
                                             <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{$payment->student->name}}</td>
-                                            <td>{{ number_format($payment->amount, 2) }}</td>
-                                            <td>{{$payment->description}}</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{$payment->student->name}}</td>
+                                                <td>{{ number_format($payment->amount, 2) }}</td>
+                                                <td>{{$payment->description}}</td>
                                                 <td>
-                                                    <a href="{{route('Payment_students.edit',$payment->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$payment->id}}" ><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('Payment_students.edit',$payment->id)}}"
+                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                            class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#Delete_receipt{{$payment->id}}"><i
+                                                            class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
                                         @include('pages.payments.delete')

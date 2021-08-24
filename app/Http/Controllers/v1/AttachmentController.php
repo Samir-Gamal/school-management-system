@@ -12,7 +12,7 @@ class AttachmentController extends Controller
 
     public function destroy(Request $request)
     {
-        return$request->id;
+        return $request->id;
         $attachment = Attachment::findOrFail($request->id)->delete();
         toastr()->error(__('messages.delete'));
         return redirect()->route('sections.index');
