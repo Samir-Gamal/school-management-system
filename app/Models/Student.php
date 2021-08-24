@@ -6,6 +6,8 @@ use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -71,10 +73,16 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Database\Factories\StudentFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereBirthday($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Student whereGuardianId($value)
+ * @property string $blood_type_id
+ * @property-read \App\Models\Guardian $guardian
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|\App\Models\Media[] $media
+ * @property-read int|null $media_count
+ * @property-read \App\Models\Nationality $nationality
+ * @method static \Illuminate\Database\Eloquent\Builder|Student whereBloodTypeId($value)
  */
-class Student extends Model
+class Student extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes,HasTranslations,Uuids;
+    use HasFactory, SoftDeletes,HasTranslations,Uuids,InteractsWithMedia;
     /**
      * The database table used by the model.
      *
