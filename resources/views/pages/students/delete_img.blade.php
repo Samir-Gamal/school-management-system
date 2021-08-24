@@ -9,16 +9,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('delete-attachments')}}" method="post">
+                <form action="{{route('attachments.destroy','test')}}" method="post">
                     @csrf
+                    @method('DELETE')
                     <input type="hidden" name="id" value="{{$attachment->id}}">
 
-                    <input type="hidden" name="student_name" value="{{$attachment->imageable->name}}">
-                    <input type="hidden" name="student_id" value="{{$attachment->imageable->id}}">
-
                     <h5 style="font-family: 'Cairo', sans-serif;">{{__('student.delete_attachment_title')}}</h5>
-                    <input type="text" name="filename" readonly value="{{$attachment->filename}}" class="form-control">
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('student.close')}}</button>
                         <button  class="btn btn-danger">{{__('student.submit')}}</button>

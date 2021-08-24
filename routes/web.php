@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthRouteAPIController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\v1\AttachmentController;
 use App\Http\Controllers\v1\AttendanceController;
 use App\Http\Controllers\v1\ClassroomController;
 use App\Http\Controllers\v1\ExamController;
@@ -99,9 +100,7 @@ Route::group(
         Route::resource('attendances', AttendanceController::class);
         Route::get('get-classrooms/{id}', [StudentController::class, 'get-classrooms']);
         Route::get('sections/{id}', [StudentController::class, 'Get_Sections']);
-        Route::get('students/{student}/attachments/{attachment}', [StudentController::class, 'Download_attachment'])->name('download-attachments');
-        Route::post('delete-attachments', [StudentController::class, 'Delete_attachment'])->name('delete-attachments');
-
+        Route::resource('attachments', AttachmentController::class);
 
         //==============================subjects============================
         Route::resource('subjects', SubjectController::class);
