@@ -6,10 +6,8 @@ use App\Models\BloodType;
 use App\Models\Guardian;
 use App\Models\Nationality;
 use App\Models\Religion;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Log;
 
 class GuardianLivewire extends Component
 {
@@ -117,38 +115,14 @@ class GuardianLivewire extends Component
             'attachments.*' => 'required|image|max:1024',
         ]);
 
-
-        $guardian = new Guardian();
-
-        Log::alert(request()->serverMemo);
-        // Father_INPUTS
-        $guardian->email = $this->email;
-        $guardian->password = Hash::make($this->password);
-        $guardian->father_name = ['en' => $this->father_name_en, 'ar' => $this->father_name_ar];
-        $guardian->father_national_id = $this->father_national_id;
-        $guardian->father_passport_id = $this->father_passport_id;
-        $guardian->father_phone = $this->father_phone;
-        $guardian->father_job = ['en' => $this->father_job_en, 'ar' => $this->father_job_ar];
-        $guardian->father_passport_id = $this->father_passport_id;
-        $guardian->father_nationality_id = $this->father_nationality_id;
-        $guardian->father_blood_type_id = $this->father_blood_type_id;
-        $guardian->father_religion_id = $this->father_religion_id;
-        $guardian->father_address = $this->father_address;
-
-        // Mother_INPUTS
-
-        $guardian->mother_name = ['en' => $this->mother_name_en, 'ar' => $this->mother_name_ar];
-        $guardian->mother_national_id = $this->mother_national_id;
-        $guardian->mother_passport_id = $this->mother_passport_id;
-        $guardian->mother_phone = $this->mother_phone;
-        $guardian->mother_job = ['en' => $this->mother_job_en, 'ar' => $this->mother_job_ar];
-        $guardian->mother_passport_id = $this->mother_passport_id;
-        $guardian->mother_nationality_id = $this->mother_nationality_id;
-        $guardian->mother_blood_type_id = $this->mother_blood_type_id;
-        $guardian->mother_religion_id = $this->mother_religion_id;
-        $guardian->mother_address = $this->mother_address;
-        $guardian->save();
-
+        $request_data = collect(request()->serverMemo['data']);
+        $guardian_data = $request_data->only((new Guardian())->getFillable());
+        $guardian_data['father_name'] = ['en' => $request_data['father_name_en'], 'ar' => $request_data['father_name_ar']];
+        $guardian_data['father_job'] = ['en' => $request_data ['father_job_en'], 'ar' => $request_data['father_job_ar']];
+        $guardian_data['mother_name'] = ['en' => $request_data ['mother_name_en'], 'ar' => $request_data ['mother_name_ar']];
+        $guardian_data['mother_job'] = ['en' => $request_data ['mother_job_en'], 'ar' => $request_data ['mother_job_ar']];
+        $guardian_data['password'] = bcrypt($guardian_data['password']);
+        $guardian = Guardian::create($guardian_data->toArray());
 
         foreach ($this->attachments as $attachment) {
             $guardian->addMedia($attachment->getRealPath())->toMediaCollection('attachments');
@@ -243,8 +217,8 @@ class GuardianLivewire extends Component
     public function submitForm_edit()
     {
 
-        if ($this->Parent_id) {
-            $parent = Guardian::find($this->Parent_id);
+        if ($this->guardian_id) {
+            $parent = Guardian::find($this->guardian_id);
             $parent->update([
                 'father_passport_id' => $this->father_passport_id,
                 'father_national_id' => $this->father_national_id,

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreStudentsRequest;
 use App\Http\Requests\StudentRequest;
 use App\Models\BloodType;
 use App\Models\Classroom;
@@ -13,9 +12,7 @@ use App\Models\Guardian;
 use App\Models\Nationality;
 use App\Models\Section;
 use App\Models\Student;
-use App\Repository\StudentRepositoryInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -43,7 +40,7 @@ class StudentController extends Controller
         $input = $request->only((new Student())->getFillable());
         $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
         if ($request->has('password')) {
-            $input['password'] = Hash::make($request->password);
+            $input['password'] = bcrypt($request->password);
         }
 
         if ($request->has('attachments')) {
@@ -87,7 +84,7 @@ class StudentController extends Controller
     {
         $input = $request->only((new Student())->getFillable());
         $input['name'] = ['en' => $request->name_en, 'ar' => $request->name_ar];
-        $input['password'] = Hash::make($request->password);
+        $input['password'] = bcrypt($request->password);
         $student = Student::create($input);
 
         if ($request->has('attachments')) {
