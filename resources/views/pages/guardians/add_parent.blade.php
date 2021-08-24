@@ -52,7 +52,7 @@
                         <div class="col-md-12"><br>
                             <label style="color: red">{{__('parent.attachments')}}</label>
                             <div class="form-group">
-                                <input type="file" wire:model="photos" accept="image/*" multiple>
+                                <input type="file"  enctype="multipart/form-data" accept="image/*"  wire:model="attachments" name="attachments[]" multiple required>
                             </div>
                             <br>
 

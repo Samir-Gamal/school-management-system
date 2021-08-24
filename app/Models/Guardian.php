@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -63,9 +65,9 @@ use Spatie\Translatable\HasTranslations;
  * @mixin \Eloquent
  * @method static \Database\Factories\GuardianFactory factory(...$parameters)
  */
-class Guardian extends Model
+class Guardian extends Model implements HasMedia
 {
-    use HasFactory,HasTranslations,Uuids;
+    use HasFactory,HasTranslations,Uuids,InteractsWithMedia;
 
     /**
      * The database table used by the model.

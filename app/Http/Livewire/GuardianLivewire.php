@@ -5,19 +5,18 @@ namespace App\Http\Livewire;
 use App\Models\BloodType;
 use App\Models\Guardian;
 use App\Models\Nationality;
-use App\Models\ParentAttachment;
 use App\Models\Religion;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class AddParent extends Component
+class GuardianLivewire extends Component
 {
     use WithFileUploads;
 
     public $successMessage = '';
-
-    public $catchError,$updateMode = false,$photos,$show_table = true,$guardian_id;
+    public $attachments = [];
+    public $catchError, $updateMode = false, $show_table = true, $guardian_id;
 
     public $currentStep = 1,
 
@@ -62,17 +61,17 @@ class AddParent extends Component
 
     }
 
-    public function showformadd(){
+    public function showformadd()
+    {
         $this->show_table = false;
     }
-
 
 
     //firstStepSubmit
     public function firstStepSubmit()
     {
-       $this->validate([
-            'email' => 'required|unique:guardians,email,'.$this->id,
+        $this->validate([
+            'email' => 'required|unique:guardians,email,' . $this->id,
             'password' => 'required',
             'father_name_ar' => 'required',
             'father_name_en' => 'required',
@@ -111,61 +110,60 @@ class AddParent extends Component
         $this->currentStep = 3;
     }
 
-    public function submitForm(){
+    public function submitForm()
+    {
+        $this->validate([
+            'attachments.*' => 'required|image|max:1024',
+        ]);
 
 
-            $guardian = new Guardian();
-            // Father_INPUTS
-            $guardian->email = $this->email;
-            $guardian->password = Hash::make($this->password);
-            $guardian->father_name = ['en' => $this->father_name_en, 'ar' => $this->father_name_ar];
-            $guardian->father_national_id = $this->father_national_id;
-            $guardian->father_passport_id = $this->father_passport_id;
-            $guardian->father_phone = $this->father_phone;
-            $guardian->father_job = ['en' => $this->father_job_en, 'ar' => $this->father_job_ar];
-            $guardian->father_passport_id = $this->father_passport_id;
-            $guardian->father_nationality_id = $this->father_nationality_id;
-            $guardian->father_blood_type_id = $this->father_blood_type_id;
-            $guardian->father_religion_id = $this->father_religion_id;
-            $guardian->father_address = $this->father_address;
+        $guardian = new Guardian();
 
-            // Mother_INPUTS
+        \Log::alert(request()->serverMemo);
+        // Father_INPUTS
+        $guardian->email = $this->email;
+        $guardian->password = Hash::make($this->password);
+        $guardian->father_name = ['en' => $this->father_name_en, 'ar' => $this->father_name_ar];
+        $guardian->father_national_id = $this->father_national_id;
+        $guardian->father_passport_id = $this->father_passport_id;
+        $guardian->father_phone = $this->father_phone;
+        $guardian->father_job = ['en' => $this->father_job_en, 'ar' => $this->father_job_ar];
+        $guardian->father_passport_id = $this->father_passport_id;
+        $guardian->father_nationality_id = $this->father_nationality_id;
+        $guardian->father_blood_type_id = $this->father_blood_type_id;
+        $guardian->father_religion_id = $this->father_religion_id;
+        $guardian->father_address = $this->father_address;
 
-            $guardian->mother_name = ['en' => $this->mother_name_en, 'ar' => $this->mother_name_ar];
-            $guardian->mother_national_id = $this->mother_national_id;
-            $guardian->mother_passport_id = $this->mother_passport_id;
-            $guardian->mother_phone = $this->mother_phone;
-            $guardian->mother_job = ['en' => $this->mother_job_en, 'ar' => $this->mother_job_ar];
-            $guardian->mother_passport_id = $this->mother_passport_id;
-            $guardian->mother_nationality_id = $this->mother_nationality_id;
-            $guardian->mother_blood_type_id = $this->mother_blood_type_id;
-            $guardian->mother_religion_id = $this->mother_religion_id;
-            $guardian->mother_address = $this->mother_address;
-            $guardian->save();
+        // Mother_INPUTS
 
-            if (!empty($this->photos)){
-                foreach ($this->photos as $photo) {
-                    $photo->storeAs($this->father_national_id, $photo->getClientOriginalName(), $disk = 'parent_attachments');
-                    ParentAttachment::create([
-                        'file_name' => $photo->getClientOriginalName(),
-                        'parent_id' => Guardian::latest()->first()->id,
-                    ]);
-                }
-            }
-            $this->successMessage = __('messages.success');
-            $this->clearForm();
-            $this->currentStep = 1;
+        $guardian->mother_name = ['en' => $this->mother_name_en, 'ar' => $this->mother_name_ar];
+        $guardian->mother_national_id = $this->mother_national_id;
+        $guardian->mother_passport_id = $this->mother_passport_id;
+        $guardian->mother_phone = $this->mother_phone;
+        $guardian->mother_job = ['en' => $this->mother_job_en, 'ar' => $this->mother_job_ar];
+        $guardian->mother_passport_id = $this->mother_passport_id;
+        $guardian->mother_nationality_id = $this->mother_nationality_id;
+        $guardian->mother_blood_type_id = $this->mother_blood_type_id;
+        $guardian->mother_religion_id = $this->mother_religion_id;
+        $guardian->mother_address = $this->mother_address;
+        $guardian->save();
+
+
+        foreach ($this->attachments as $attachment) {
+            $guardian->addMedia($attachment->getRealPath())->toMediaCollection('attachments');
         }
 
-
-
+        $this->successMessage = __('messages.success');
+        $this->clearForm();
+        $this->currentStep = 1;
+    }
 
 
     public function edit($id)
     {
         $this->show_table = false;
         $this->updateMode = true;
-        $guardian = Guardian::where('id',$id)->first();
+        $guardian = Guardian::where('id', $id)->first();
         $this->guardian_id = $id;
         $this->email = $guardian->Email;
         $this->password = $guardian->password;
@@ -173,25 +171,25 @@ class AddParent extends Component
         $this->father_name_en = $guardian->getTranslation('father_name', 'en');
         $this->father_job_ar = $guardian->getTranslation('job_father', 'ar');;
         $this->father_job_en = $guardian->getTranslation('job_father', 'en');
-        $this->father_national_id =$guardian->father_national_id;
+        $this->father_national_id = $guardian->father_national_id;
         $this->father_passport_id = $guardian->father_passport_id;
         $this->father_phone = $guardian->father_phone;
         $this->father_nationality_id = $guardian->father_nationality_id;
         $this->father_blood_type_id = $guardian->father_blood_type_id;
-        $this->father_address =$guardian->father_address;
-        $this->father_religion_id =$guardian->father_religion_id;
+        $this->father_address = $guardian->father_address;
+        $this->father_religion_id = $guardian->father_religion_id;
 
         $this->mother_name_ar = $guardian->getTranslation('mother_name', 'ar');
         $this->mother_name_en = $guardian->getTranslation('mother_name', 'en');
         $this->mother_job_ar = $guardian->getTranslation('mother_job', 'ar');;
         $this->mother_job_en = $guardian->getTranslation('mother_job', 'en');
-        $this->mother_national_id =$guardian->mother_national_id;
+        $this->mother_national_id = $guardian->mother_national_id;
         $this->mother_passport_id = $guardian->mother_passport_id;
         $this->mother_phone = $guardian->mother_phone;
         $this->mother_nationality_id = $guardian->mother_nationality_id;
         $this->mother_blood_type_id = $guardian->mother_blood_type_id;
-        $this->mother_address =$guardian->mother_address;
-        $this->mother_religion_id =$guardian->mother_religion_id;
+        $this->mother_address = $guardian->mother_address;
+        $this->mother_religion_id = $guardian->mother_religion_id;
     }
 
     //firstStepSubmit
@@ -210,9 +208,10 @@ class AddParent extends Component
 
     }
 
-    public function submitForm_edit(){
+    public function submitForm_edit()
+    {
 
-        if ($this->Parent_id){
+        if ($this->Parent_id) {
             $parent = Guardian::find($this->Parent_id);
             $parent->update([
                 'father_passport_id' => $this->father_passport_id,
@@ -224,7 +223,8 @@ class AddParent extends Component
         return redirect()->to('/guardians');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Guardian::findOrFail($id)->delete();
         return redirect()->to('/guardians');
     }
@@ -239,25 +239,25 @@ class AddParent extends Component
         $this->father_job_ar = '';
         $this->father_job_en = '';
         $this->father_name_en = '';
-        $this->father_national_id ='';
+        $this->father_national_id = '';
         $this->father_passport_id = '';
         $this->father_phone = '';
         $this->father_nationality_id = '';
         $this->father_blood_type_id = '';
-        $this->father_address ='';
-        $this->father_religion_id ='';
+        $this->father_address = '';
+        $this->father_religion_id = '';
 
         $this->mother_name_ar = '';
         $this->mother_name_en = '';
         $this->mother_job_ar = '';
         $this->mother_job_en = '';
-        $this->mother_national_id ='';
+        $this->mother_national_id = '';
         $this->mother_passport_id = '';
         $this->mother_phone = '';
         $this->mother_nationality_id = '';
         $this->mother_blood_type_id = '';
-        $this->mother_address ='';
-        $this->mother_religion_id ='';
+        $this->mother_address = '';
+        $this->mother_religion_id = '';
 
     }
 

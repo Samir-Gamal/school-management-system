@@ -18,7 +18,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <livewire:add-parent />
+                <livewire:guardian-livewire />
             </div>
         </div>
     </div>
