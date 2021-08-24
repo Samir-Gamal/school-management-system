@@ -1,5 +1,6 @@
 <!-- Deleted inFormation Student -->
-<div class="modal fade" id="Return_Student{{$student->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Return_Student{{$student->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,16 +10,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="students/{{$student->id}}/restore"  method="POST" autocomplete="off">
-{{--                    @method('PUT')--}}
+                <form action="students/{{$student->id}}/restore" method="POST" autocomplete="off">
+                    {{--                    @method('PUT')--}}
                     @csrf
 
                     <h5 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من الغاء عملية التخرج ؟</h5>
                     <input type="text" readonly value="{{$student->name}}" class="form-control">
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('student.close')}}</button>
-                        <button  class="btn btn-danger">{{__('student.submit')}}</button>
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">{{__('student.close')}}</button>
+                        <button class="btn btn-danger">{{__('student.submit')}}</button>
                     </div>
                 </form>
             </div>

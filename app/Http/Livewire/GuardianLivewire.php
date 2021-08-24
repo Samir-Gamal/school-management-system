@@ -9,6 +9,7 @@ use App\Models\Religion;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Log;
 
 class GuardianLivewire extends Component
 {
@@ -119,7 +120,7 @@ class GuardianLivewire extends Component
 
         $guardian = new Guardian();
 
-        \Log::alert(request()->serverMemo);
+        Log::alert(request()->serverMemo);
         // Father_INPUTS
         $guardian->email = $this->email;
         $guardian->password = Hash::make($this->password);
@@ -158,79 +159,6 @@ class GuardianLivewire extends Component
         $this->currentStep = 1;
     }
 
-
-    public function edit($id)
-    {
-        $this->show_table = false;
-        $this->updateMode = true;
-        $guardian = Guardian::where('id', $id)->first();
-        $this->guardian_id = $id;
-        $this->email = $guardian->Email;
-        $this->password = $guardian->password;
-        $this->father_name_ar = $guardian->getTranslation('father_name', 'ar');
-        $this->father_name_en = $guardian->getTranslation('father_name', 'en');
-        $this->father_job_ar = $guardian->getTranslation('job_father', 'ar');;
-        $this->father_job_en = $guardian->getTranslation('job_father', 'en');
-        $this->father_national_id = $guardian->father_national_id;
-        $this->father_passport_id = $guardian->father_passport_id;
-        $this->father_phone = $guardian->father_phone;
-        $this->father_nationality_id = $guardian->father_nationality_id;
-        $this->father_blood_type_id = $guardian->father_blood_type_id;
-        $this->father_address = $guardian->father_address;
-        $this->father_religion_id = $guardian->father_religion_id;
-
-        $this->mother_name_ar = $guardian->getTranslation('mother_name', 'ar');
-        $this->mother_name_en = $guardian->getTranslation('mother_name', 'en');
-        $this->mother_job_ar = $guardian->getTranslation('mother_job', 'ar');;
-        $this->mother_job_en = $guardian->getTranslation('mother_job', 'en');
-        $this->mother_national_id = $guardian->mother_national_id;
-        $this->mother_passport_id = $guardian->mother_passport_id;
-        $this->mother_phone = $guardian->mother_phone;
-        $this->mother_nationality_id = $guardian->mother_nationality_id;
-        $this->mother_blood_type_id = $guardian->mother_blood_type_id;
-        $this->mother_address = $guardian->mother_address;
-        $this->mother_religion_id = $guardian->mother_religion_id;
-    }
-
-    //firstStepSubmit
-    public function firstStepSubmit_edit()
-    {
-        $this->updateMode = true;
-        $this->currentStep = 2;
-
-    }
-
-    //secondStepSubmit_edit
-    public function secondStepSubmit_edit()
-    {
-        $this->updateMode = true;
-        $this->currentStep = 3;
-
-    }
-
-    public function submitForm_edit()
-    {
-
-        if ($this->Parent_id) {
-            $parent = Guardian::find($this->Parent_id);
-            $parent->update([
-                'father_passport_id' => $this->father_passport_id,
-                'father_national_id' => $this->father_national_id,
-            ]);
-
-        }
-
-        return redirect()->to('/guardians');
-    }
-
-    public function delete($id)
-    {
-        Guardian::findOrFail($id)->delete();
-        return redirect()->to('/guardians');
-    }
-
-
-    //clearForm
     public function clearForm()
     {
         $this->email = '';
@@ -261,8 +189,84 @@ class GuardianLivewire extends Component
 
     }
 
+    //firstStepSubmit
+
+    public function edit($id)
+    {
+        $this->show_table = false;
+        $this->updateMode = true;
+        $guardian = Guardian::where('id', $id)->first();
+        $this->guardian_id = $id;
+        $this->email = $guardian->Email;
+        $this->password = $guardian->password;
+        $this->father_name_ar = $guardian->getTranslation('father_name', 'ar');
+        $this->father_name_en = $guardian->getTranslation('father_name', 'en');
+        $this->father_job_ar = $guardian->getTranslation('job_father', 'ar');
+        $this->father_job_en = $guardian->getTranslation('job_father', 'en');
+        $this->father_national_id = $guardian->father_national_id;
+        $this->father_passport_id = $guardian->father_passport_id;
+        $this->father_phone = $guardian->father_phone;
+        $this->father_nationality_id = $guardian->father_nationality_id;
+        $this->father_blood_type_id = $guardian->father_blood_type_id;
+        $this->father_address = $guardian->father_address;
+        $this->father_religion_id = $guardian->father_religion_id;
+
+        $this->mother_name_ar = $guardian->getTranslation('mother_name', 'ar');
+        $this->mother_name_en = $guardian->getTranslation('mother_name', 'en');
+        $this->mother_job_ar = $guardian->getTranslation('mother_job', 'ar');
+        $this->mother_job_en = $guardian->getTranslation('mother_job', 'en');
+        $this->mother_national_id = $guardian->mother_national_id;
+        $this->mother_passport_id = $guardian->mother_passport_id;
+        $this->mother_phone = $guardian->mother_phone;
+        $this->mother_nationality_id = $guardian->mother_nationality_id;
+        $this->mother_blood_type_id = $guardian->mother_blood_type_id;
+        $this->mother_address = $guardian->mother_address;
+        $this->mother_religion_id = $guardian->mother_religion_id;
+    }
+
+    //secondStepSubmit_edit
+
+    public function firstStepSubmit_edit()
+    {
+        $this->updateMode = true;
+        $this->currentStep = 2;
+
+    }
+
+    public function secondStepSubmit_edit()
+    {
+        $this->updateMode = true;
+        $this->currentStep = 3;
+
+    }
+
+    public function submitForm_edit()
+    {
+
+        if ($this->Parent_id) {
+            $parent = Guardian::find($this->Parent_id);
+            $parent->update([
+                'father_passport_id' => $this->father_passport_id,
+                'father_national_id' => $this->father_national_id,
+            ]);
+
+        }
+
+        return redirect()->to('/guardians');
+    }
+
+
+    //clearForm
+
+    public function delete($id)
+    {
+        Guardian::findOrFail($id)->delete();
+        return redirect()->to('/guardians');
+    }
+
 
     //back
+
     public function back($step)
     {
         $this->currentStep = $step;

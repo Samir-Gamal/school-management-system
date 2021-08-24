@@ -1,5 +1,7 @@
 <?php
+
 namespace Database\Seeders;
+
 use App\Models\Specialization;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -14,10 +16,10 @@ class SpecializationTableSeeder extends Seeder
     public function run()
     {
         $specializations = [
-            ['en'=> 'Arabic', 'ar'=> 'عربي'],
-            ['en'=> 'Sciences', 'ar'=> 'علوم'],
-            ['en'=> 'Computer', 'ar'=> 'حاسب الي'],
-            ['en'=> 'English', 'ar'=> 'انجليزي'],
+            ['en' => 'Arabic', 'ar' => 'عربي'],
+            ['en' => 'Sciences', 'ar' => 'علوم'],
+            ['en' => 'Computer', 'ar' => 'حاسب الي'],
+            ['en' => 'English', 'ar' => 'انجليزي'],
         ];
         $specializations_data_seed = [];
         foreach ($specializations as $specialization) {

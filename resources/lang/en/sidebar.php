@@ -6,6 +6,4 @@ return [
     'logoff' => 'Logoff',
 
 
-
-
 ];

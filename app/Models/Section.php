@@ -3,8 +3,13 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Database\Factories\SectionFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -15,29 +20,42 @@ use Spatie\Translatable\HasTranslations;
  * @property int $status
  * @property int $grade_id
  * @property int $classroom_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Classroom $classroom
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Classroom $classroom
  * @property-read array $translations
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Teacher[] $teachers
+ * @property-read Collection|Teacher[] $teachers
  * @property-read int|null $teachers_count
- * @method static \Illuminate\Database\Eloquent\Builder|Section newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Section newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Section query()
- * @method static \Illuminate\Database\Eloquent\Builder|Section whereClassroomId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Section whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Section whereGradeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Section whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Section whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Section whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Section whereUpdatedAt($value)
- * @mixin \Eloquent
- * @method static \Database\Factories\SectionFactory factory(...$parameters)
+ * @method static Builder|Section newModelQuery()
+ * @method static Builder|Section newQuery()
+ * @method static Builder|Section query()
+ * @method static Builder|Section whereClassroomId($value)
+ * @method static Builder|Section whereCreatedAt($value)
+ * @method static Builder|Section whereGradeId($value)
+ * @method static Builder|Section whereId($value)
+ * @method static Builder|Section whereName($value)
+ * @method static Builder|Section whereStatus($value)
+ * @method static Builder|Section whereUpdatedAt($value)
+ * @mixin Eloquent
+ * @method static SectionFactory factory(...$parameters)
  */
 class Section extends Model
 {
-    use HasFactory, HasTranslations,Uuids;
+    use HasFactory, HasTranslations, Uuids;
 
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    public $translatable = ['name'];
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
     /**
      * The database table used by the model.
      *
@@ -55,13 +73,6 @@ class Section extends Model
         'classroom_id'
     ];
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * The database primary key value.
      *
      * @var string
@@ -74,13 +85,6 @@ class Section extends Model
      */
     protected $hidden = [];
 
-    public $translatable = ['name'];
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = true;
     // علاقة بين الاقسام والصفوف لجلب اسم الصف في جدول الاقسام
 
     public function classroom()
@@ -91,7 +95,7 @@ class Section extends Model
     // علاقة الاقسام مع المعلمين
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class,'section_teacher');
+        return $this->belongsToMany(Teacher::class, 'section_teacher');
     }
 
 }

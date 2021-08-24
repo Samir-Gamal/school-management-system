@@ -28,13 +28,15 @@
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="inputEmail4">الاسم باللغة العربية</label>
-                                <input type="text" value="{{$fee->getTranslation('title','ar')}}" name="title_ar" class="form-control">
+                                <input type="text" value="{{$fee->getTranslation('title','ar')}}" name="title_ar"
+                                       class="form-control">
                                 <input type="hidden" value="{{$fee->id}}" name="id" class="form-control">
                             </div>
 
                             <div class="form-group col">
                                 <label for="inputEmail4">الاسم باللغة الانجليزية</label>
-                                <input type="text" value="{{$fee->getTranslation('title','en')}}" name="title_en" class="form-control">
+                                <input type="text" value="{{$fee->getTranslation('title','en')}}" name="title_en"
+                                       class="form-control">
                             </div>
 
 
@@ -52,7 +54,8 @@
                                 <label for="inputState">المرحلة الدراسية</label>
                                 <select class="custom-select mr-sm-2" name="grade_id">
                                     @foreach($grades as $grade)
-                                        <option value="{{ $grade->id }}" {{$grade->id == $fee->grade_id ? 'selected' : ""}}>{{ $grade->name }}</option>
+                                        <option
+                                            value="{{ $grade->id }}" {{$grade->id == $fee->grade_id ? 'selected' : ""}}>{{ $grade->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -70,7 +73,8 @@
                                         $current_year = date("Y")
                                     @endphp
                                     @for($year=$current_year; $year<=$current_year +1 ;$year++)
-                                        <option value="{{ $year}}" {{$year == $fee->year ? 'selected' : ' '}}>{{ $year }}</option>
+                                        <option
+                                            value="{{ $year}}" {{$year == $fee->year ? 'selected' : ' '}}>{{ $year }}</option>
                                     @endfor
                                 </select>
                             </div>

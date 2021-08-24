@@ -19,7 +19,7 @@ class ClassroomTableSeeder extends Seeder
         ];
 
         $classrooms_data_seed = [];
-        $grades=Grade::all();
+        $grades = Grade::all();
         foreach ($classrooms as $classroom) {
 
             $fake_classroom = Classroom::factory()->make([

@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 class AuthRouteAPIController extends Controller
 {
-    public function authRouteAPI(Request $request){
+    public function authRouteAPI(Request $request)
+    {
         return $request->user();
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         return view('auth.login');
     }
 

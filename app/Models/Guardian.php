@@ -3,8 +3,12 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Database\Factories\GuardianFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
@@ -33,42 +37,54 @@ use Spatie\Translatable\HasTranslations;
  * @property int $mother_blood_type_id
  * @property int $mother_religion_id
  * @property string $mother_address
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property-read array $translations
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian query()
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherBloodTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherJob($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherNationalId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherNationalityId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherPassportId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherPhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereFatherReligionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherBloodTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherJob($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherNationalId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherNationalityId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherPassportId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherPhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereMotherReligionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Guardian whereUpdatedAt($value)
- * @mixin \Eloquent
- * @method static \Database\Factories\GuardianFactory factory(...$parameters)
+ * @method static Builder|Guardian newModelQuery()
+ * @method static Builder|Guardian newQuery()
+ * @method static Builder|Guardian query()
+ * @method static Builder|Guardian whereCreatedAt($value)
+ * @method static Builder|Guardian whereEmail($value)
+ * @method static Builder|Guardian whereFatherAddress($value)
+ * @method static Builder|Guardian whereFatherBloodTypeId($value)
+ * @method static Builder|Guardian whereFatherJob($value)
+ * @method static Builder|Guardian whereFatherName($value)
+ * @method static Builder|Guardian whereFatherNationalId($value)
+ * @method static Builder|Guardian whereFatherNationalityId($value)
+ * @method static Builder|Guardian whereFatherPassportId($value)
+ * @method static Builder|Guardian whereFatherPhone($value)
+ * @method static Builder|Guardian whereFatherReligionId($value)
+ * @method static Builder|Guardian whereId($value)
+ * @method static Builder|Guardian whereMotherAddress($value)
+ * @method static Builder|Guardian whereMotherBloodTypeId($value)
+ * @method static Builder|Guardian whereMotherJob($value)
+ * @method static Builder|Guardian whereMotherName($value)
+ * @method static Builder|Guardian whereMotherNationalId($value)
+ * @method static Builder|Guardian whereMotherNationalityId($value)
+ * @method static Builder|Guardian whereMotherPassportId($value)
+ * @method static Builder|Guardian whereMotherPhone($value)
+ * @method static Builder|Guardian whereMotherReligionId($value)
+ * @method static Builder|Guardian wherePassword($value)
+ * @method static Builder|Guardian whereUpdatedAt($value)
+ * @mixin Eloquent
+ * @method static GuardianFactory factory(...$parameters)
  */
 class Guardian extends Model implements HasMedia
 {
-    use HasFactory,HasTranslations,Uuids,InteractsWithMedia;
+    use HasFactory, HasTranslations, Uuids, InteractsWithMedia;
 
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    public $translatable = [
+        'father_name',
+        'father_job',
+        'mother_name',
+        'mother_job'
+    ];
     /**
      * The database table used by the model.
      *
@@ -103,13 +119,6 @@ class Guardian extends Model implements HasMedia
         'mother_address',
     ];
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * The database primary key value.
      *
      * @var string
@@ -121,12 +130,5 @@ class Guardian extends Model implements HasMedia
      * @var array
      */
     protected $hidden = [];
-
-    public $translatable = [
-        'father_name',
-        'father_job',
-        'mother_name',
-        'mother_job'
-    ];
 
 }

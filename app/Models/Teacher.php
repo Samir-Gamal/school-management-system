@@ -3,8 +3,12 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -18,33 +22,40 @@ use Spatie\Translatable\HasTranslations;
  * @property int $gender_id
  * @property string $joining_at
  * @property string $address
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Gender $genders
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Gender $genders
  * @property-read array $translations
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Section[] $sections
+ * @property-read Collection|Section[] $sections
  * @property-read int|null $sections_count
- * @property-read \App\Models\Specialization $specializations
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher query()
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereGenderId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereJoiningDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereSpecializationId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereUpdatedAt($value)
- * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereJoiningAt($value)
+ * @property-read Specialization $specializations
+ * @method static Builder|Teacher newModelQuery()
+ * @method static Builder|Teacher newQuery()
+ * @method static Builder|Teacher query()
+ * @method static Builder|Teacher whereAddress($value)
+ * @method static Builder|Teacher whereCreatedAt($value)
+ * @method static Builder|Teacher whereEmail($value)
+ * @method static Builder|Teacher whereGenderId($value)
+ * @method static Builder|Teacher whereId($value)
+ * @method static Builder|Teacher whereJoiningDate($value)
+ * @method static Builder|Teacher whereName($value)
+ * @method static Builder|Teacher wherePassword($value)
+ * @method static Builder|Teacher whereSpecializationId($value)
+ * @method static Builder|Teacher whereUpdatedAt($value)
+ * @mixin Eloquent
+ * @method static Builder|Teacher whereJoiningAt($value)
  */
 class Teacher extends Model
 {
     use HasFactory, HasTranslations, Uuids;
 
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    public $translatable = ['name'];
     /**
      * The database table used by the model.
      *
@@ -67,13 +78,6 @@ class Teacher extends Model
         'address',
     ];
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * The database primary key value.
      *
      * @var string
@@ -86,9 +90,8 @@ class Teacher extends Model
      */
     protected $hidden = [];
 
-    public $translatable = ['name'];
-
     // علاقة بين المعلمين والتخصصات لجلب اسم التخصص
+
     public function specializations()
     {
         return $this->belongsTo(Specialization::class, 'specialization_id');

@@ -74,11 +74,15 @@
                                                                         <td>{{ $section->name }}</td>
                                                                         <td>{{ $section->classroom->name }}</td>
                                                                         <td>
-                                                                            <label class="badge badge-{{$section->status == 1 ? 'success':'danger'}}">{{$section->status == 1 ? 'نشط':'غير نشط'}}</label>
+                                                                            <label
+                                                                                class="badge badge-{{$section->status == 1 ? 'success':'danger'}}">{{$section->status == 1 ? 'نشط':'غير نشط'}}</label>
                                                                         </td>
 
                                                                         <td>
-                                                                            <a href="{{route('attendances.show',$section->id)}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">قائمة الطلاب</a>
+                                                                            <a href="{{route('attendances.show',$section->id)}}"
+                                                                               class="btn btn-warning btn-sm"
+                                                                               role="button" aria-pressed="true">قائمة
+                                                                                الطلاب</a>
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach

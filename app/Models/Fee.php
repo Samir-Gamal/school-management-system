@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -18,30 +21,43 @@ use Spatie\Translatable\HasTranslations;
  * @property string|null $description
  * @property string $year
  * @property int $type
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Classroom $classroom
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Classroom $classroom
  * @property-read array $translations
- * @property-read \App\Models\Gender $grades
- * @method static \Illuminate\Database\Eloquent\Builder|Fee newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Fee newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Fee query()
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereAmount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereClassroomId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereGradeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereYear($value)
- * @mixin \Eloquent
- * @property-read \App\Models\Grade $grade
+ * @property-read Gender $grades
+ * @method static Builder|Fee newModelQuery()
+ * @method static Builder|Fee newQuery()
+ * @method static Builder|Fee query()
+ * @method static Builder|Fee whereAmount($value)
+ * @method static Builder|Fee whereClassroomId($value)
+ * @method static Builder|Fee whereCreatedAt($value)
+ * @method static Builder|Fee whereDescription($value)
+ * @method static Builder|Fee whereGradeId($value)
+ * @method static Builder|Fee whereId($value)
+ * @method static Builder|Fee whereTitle($value)
+ * @method static Builder|Fee whereType($value)
+ * @method static Builder|Fee whereUpdatedAt($value)
+ * @method static Builder|Fee whereYear($value)
+ * @mixin Eloquent
+ * @property-read Grade $grade
  */
 class Fee extends Model
 {
-    use HasFactory, HasTranslations,Uuids;
+    use HasFactory, HasTranslations, Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    public $translatable = ['title'];
+    public $type_map = [
+        1 => 'school_fee',
+        2 => 'bus_fee',
+
+    ];
     /**
      * The database table used by the model.
      *
@@ -63,13 +79,6 @@ class Fee extends Model
         'type'
     ];
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * The database primary key value.
      *
      * @var string
@@ -82,17 +91,9 @@ class Fee extends Model
      */
     protected $hidden = [];
 
-    public $translatable = ['title'];
-
-    public $type_map=[
-        1=>'school_fee',
-        2=>'bus_fee',
-
-    ];
-
     public function getTypeNameAttribute()
     {
-        return __('main.'.$this->type_map[$this->type]) ;
+        return __('main.' . $this->type_map[$this->type]);
     }
 
     // علاقة بين الرسوم الدراسية والمراحل الدراسية لجب اسم المرحلة

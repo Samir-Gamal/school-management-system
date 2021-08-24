@@ -10,7 +10,9 @@ use App\Models\Invoice;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Repository\FeeInvoicesRepositoryInterface;
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Log;
 
 class InvoiceController extends Controller
 {
@@ -19,27 +21,29 @@ class InvoiceController extends Controller
     {
         $invoices = Invoice::with('student')->get();
         $grades = Grade::all();
-        \Log::alert($invoices);
-        return view('pages.invoices.index',compact('invoices','grades'));
+        Log::alert($invoices);
+        return view('pages.invoices.index', compact('invoices', 'grades'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        $fees = Fee::where('classroom_id',$student->classroom_id)->get();
-        return view('pages.invoices.add',compact('student','fees'));
+        $fees = Fee::where('classroom_id', $student->classroom_id)->get();
+        return view('pages.invoices.add', compact('student', 'fees'));
     }
+
     public function create()
     {
         $fees = Fee::all();
-        $students= Student::all();
-        return view('pages.invoices.add',compact('fees','students'));
+        $students = Student::all();
+        return view('pages.invoices.add', compact('fees', 'students'));
     }
+
     public function edit($id)
     {
         $invoice = Invoice::findorfail($id);
-        $fees = Fee::where('classroom_id',$invoice->classroom_id)->get();
-        return view('pages.invoices.edit',compact('invoice','fees'));
+        $fees = Fee::where('classroom_id', $invoice->classroom_id)->get();
+        return view('pages.invoices.edit', compact('invoice', 'fees'));
     }
 
     public function store(InvoiceRequest $request)
@@ -48,34 +52,34 @@ class InvoiceController extends Controller
 
         DB::beginTransaction();
 
-            foreach ($fees as $fee) {
-                // حفظ البيانات في جدول فواتير الرسوم الدراسية
-                $create_fee = new Invoice();
-                $create_fee->invoice_at = date('Y-m-d');
-                $create_fee->student_id = $fee['student_id'];
-                $create_fee->grade_id = $request->grade_id;
-                $create_fee->classroom_id = $request->classroom_id;;
-                $create_fee->fee_id = $fee['fee_id'];
-                $create_fee->amount = $fee['amount'];
-                $create_fee->description = $fee['description'];
-                $create_fee->save();
+        foreach ($fees as $fee) {
+            // حفظ البيانات في جدول فواتير الرسوم الدراسية
+            $create_fee = new Invoice();
+            $create_fee->invoice_at = date('Y-m-d');
+            $create_fee->student_id = $fee['student_id'];
+            $create_fee->grade_id = $request->grade_id;
+            $create_fee->classroom_id = $request->classroom_id;
+            $create_fee->fee_id = $fee['fee_id'];
+            $create_fee->amount = $fee['amount'];
+            $create_fee->description = $fee['description'];
+            $create_fee->save();
 
-                // حفظ البيانات في جدول حسابات الطلاب
-                $StudentAccount = new StudentAccount();
-                $StudentAccount->date = date('Y-m-d');
-                $StudentAccount->type = 'invoice';
-                $StudentAccount->invoice_id = $create_fee->id;
-                $StudentAccount->student_id = $fee['student_id'];
-                $StudentAccount->debit = $fee['amount'];
-                $StudentAccount->credit = 0.00;
-                $StudentAccount->description = $fee['description'];
-                $StudentAccount->save();
-            }
+            // حفظ البيانات في جدول حسابات الطلاب
+            $StudentAccount = new StudentAccount();
+            $StudentAccount->date = date('Y-m-d');
+            $StudentAccount->type = 'invoice';
+            $StudentAccount->invoice_id = $create_fee->id;
+            $StudentAccount->student_id = $fee['student_id'];
+            $StudentAccount->debit = $fee['amount'];
+            $StudentAccount->credit = 0.00;
+            $StudentAccount->description = $fee['description'];
+            $StudentAccount->save();
+        }
 
-            DB::commit();
+        DB::commit();
 
-            toastr()->success(__('messages.success'));
-            return redirect()->route('invoices.index');
+        toastr()->success(__('messages.success'));
+        return redirect()->route('invoices.index');
 
     }
 
@@ -91,7 +95,7 @@ class InvoiceController extends Controller
             $Fees->save();
 
             // تعديل البيانات في جدول حسابات الطلاب
-            $StudentAccount = StudentAccount::where('invoice_id',$request->id)->first();
+            $StudentAccount = StudentAccount::where('invoice_id', $request->id)->first();
             $StudentAccount->debit = $request->amount;
             $StudentAccount->description = $request->description;
             $StudentAccount->save();
@@ -99,7 +103,7 @@ class InvoiceController extends Controller
 
             toastr()->success(__('messages.update'));
             return redirect()->route('invoices.index');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -108,9 +112,9 @@ class InvoiceController extends Controller
     public function destroy($request)
     {
 
-            Invoice::destroy($request->id);
-            toastr()->error(__('messages.delete'));
-            return redirect()->back();
+        Invoice::destroy($request->id);
+        toastr()->error(__('messages.delete'));
+        return redirect()->back();
 
     }
 

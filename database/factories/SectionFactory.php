@@ -1,8 +1,10 @@
 <?php
+
 namespace Database\Factories;
 
 use App\Models\Section;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SectionFactory extends Factory
@@ -18,21 +20,21 @@ class SectionFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function definition()
     {
 
-        $date = Carbon::now()->subDays(random_int(1,90));
+        $date = Carbon::now()->subDays(random_int(1, 90));
 
         return [
-            'id'=>$this->faker->uuid,
+            'id' => $this->faker->uuid,
             'name' => $this->faker->name,
             'status' => 1,
             'grade_id' => null,
             'classroom_id' => null,
-            'created_at' =>$date,
-            'updated_at' =>$this->faker->dateTimeBetween($date)
+            'created_at' => $date,
+            'updated_at' => $this->faker->dateTimeBetween($date)
         ];
     }
 

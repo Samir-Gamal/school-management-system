@@ -40,16 +40,24 @@
                                         <tbody>
                                         @foreach($students as $student)
                                             <tr>
-                                            <td>{{ $loop->index+1 }}</td>
-                                            <td>{{$student->name}}</td>
-                                            <td>{{$student->email}}</td>
-                                            <td>{{$student->gender->name}}</td>
-                                            <td>{{$student->grade->name}}</td>
-                                            <td>{{$student->classroom->name}}</td>
-                                            <td>{{$student->section->name}}</td>
+                                                <td>{{ $loop->index+1 }}</td>
+                                                <td>{{$student->name}}</td>
+                                                <td>{{$student->email}}</td>
+                                                <td>{{$student->gender->name}}</td>
+                                                <td>{{$student->grade->name}}</td>
+                                                <td>{{$student->classroom->name}}</td>
+                                                <td>{{$student->section->name}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Return_Student{{ $student->id }}" title="{{ __('grade.delete') }}">ارجاع الطالب</button>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Student{{ $student->id }}" title="{{ __('grade.delete') }}">حذف الطالب</button>
+                                                    <button type="button" class="btn btn-success btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#Return_Student{{ $student->id }}"
+                                                            title="{{ __('grade.delete') }}">ارجاع الطالب
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#Delete_Student{{ $student->id }}"
+                                                            title="{{ __('grade.delete') }}">حذف الطالب
+                                                    </button>
 
                                                 </td>
                                             </tr>

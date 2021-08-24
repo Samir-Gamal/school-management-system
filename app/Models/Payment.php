@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Payment
@@ -13,24 +16,31 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $student_id
  * @property string|null $amount
  * @property string $description
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Student $student
- * @method static \Illuminate\Database\Eloquent\Builder|Payment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Payment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Payment query()
- * @method static \Illuminate\Database\Eloquent\Builder|Payment whereAmount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Payment whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Payment whereDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Payment whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Payment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Payment whereStudentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Payment whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Student $student
+ * @method static Builder|Payment newModelQuery()
+ * @method static Builder|Payment newQuery()
+ * @method static Builder|Payment query()
+ * @method static Builder|Payment whereAmount($value)
+ * @method static Builder|Payment whereCreatedAt($value)
+ * @method static Builder|Payment whereDate($value)
+ * @method static Builder|Payment whereDescription($value)
+ * @method static Builder|Payment whereId($value)
+ * @method static Builder|Payment whereStudentId($value)
+ * @method static Builder|Payment whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Payment extends Model
 {
     use Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
     /**
      * The database table used by the model.
      *
@@ -43,13 +53,6 @@ class Payment extends Model
      * @var array
      */
     protected $fillable = [];
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     /**
      * The database primary key value.
      *

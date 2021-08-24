@@ -29,9 +29,9 @@
 
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#datatable').DataTable();
-    } );
+    });
 </script>
 
 
@@ -82,9 +82,7 @@
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });
@@ -109,17 +107,12 @@
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });
     });
 </script>
-
-
-
 
 
 <script>
@@ -140,9 +133,7 @@
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });
@@ -167,9 +158,7 @@
 
                     },
                 });
-            }
-
-            else {
+            } else {
                 console.log('AJAX load did not work');
             }
         });

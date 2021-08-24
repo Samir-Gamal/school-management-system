@@ -77,7 +77,8 @@
                                      aria-labelledby="profile-02-tab">
                                     <div class="card card-statistics">
                                         <div class="card-body">
-                                            <form action="{{route('students.update',['student'=>$student->id])}}" enctype="multipart/form-data" method="post" autocomplete="off">
+                                            <form action="{{route('students.update',['student'=>$student->id])}}"
+                                                  enctype="multipart/form-data" method="post" autocomplete="off">
                                                 @method('PUT')
                                                 @csrf
                                                 <div class="col-md-3">
@@ -85,13 +86,14 @@
                                                         <label
                                                             for="academic_year">{{__('student.attachments')}}
                                                             : <span class="text-danger">*</span></label>
-                                                        <input type="file"  enctype="multipart/form-data" accept="image/*" name="attachments[]" multiple required>
+                                                        <input type="file" enctype="multipart/form-data"
+                                                               accept="image/*" name="attachments[]" multiple required>
                                                         <input type="hidden" name="id" value="{{$student->id}}">
                                                     </div>
                                                 </div>
                                                 <br><br>
                                                 <button type="submit" class="button button-border x-small">
-                                                       {{__('student.submit')}}
+                                                    {{__('student.submit')}}
                                                 </button>
                                             </form>
                                         </div>
@@ -115,7 +117,9 @@
                                                     <td colspan="2">
                                                         <a class="btn btn-outline-info btn-sm"
                                                            href="{{$attachment->getFullUrl()}}" target="_blank"
-                                                           role="button"><i class="fas fa-download"></i>&nbsp; {{__('student.download')}}</a>
+                                                           role="button"><i
+                                                                class="fas fa-download"></i>&nbsp; {{__('student.download')}}
+                                                        </a>
 
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
                                                                 data-toggle="modal"
@@ -139,8 +143,8 @@
             </div>
 
             <!-- row closed -->
-@endsection
-@section('js')
-@toastr_js
-@toastr_render
+            @endsection
+            @section('js')
+                @toastr_js
+                @toastr_render
 @endsection

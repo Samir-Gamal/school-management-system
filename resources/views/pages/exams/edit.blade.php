@@ -22,20 +22,22 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                                <form action="{{route('exams.update','test')}}" method="post">
-                                    {{ method_field('patch') }}
+                            <form action="{{route('exams.update','test')}}" method="post">
+                                {{ method_field('patch') }}
                                 @csrf
                                 <div class="form-row">
 
                                     <div class="col">
                                         <label for="title">اسم الامتحان باللغة العربية</label>
-                                        <input type="text" name="Name_ar" value="{{ $exam->getTranslation('name', 'ar') }}" class="form-control">
+                                        <input type="text" name="Name_ar"
+                                               value="{{ $exam->getTranslation('name', 'ar') }}" class="form-control">
                                         <input type="hidden" name="id" value="{{$exam->id}}">
                                     </div>
 
                                     <div class="col">
                                         <label for="title">اسم الامتحان باللغة الانجليزية</label>
-                                        <input type="text" name="Name_en" value="{{ $exam->getTranslation('name', 'en') }}" class="form-control">
+                                        <input type="text" name="Name_en"
+                                               value="{{ $exam->getTranslation('name', 'en') }}" class="form-control">
                                     </div>
 
                                     <div class="col">
@@ -48,20 +50,24 @@
 
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label for="academic_year">{{__('student.academic_year')}} : <span class="text-danger">*</span></label>
+                                        <label for="academic_year">{{__('student.academic_year')}} : <span
+                                                class="text-danger">*</span></label>
                                         <select class="custom-select mr-sm-2" name="academic_year">
                                             <option selected disabled>{{__('main.choose')}}...</option>
                                             @php
-                                                $current_year = date("Y");
+                                                $current_year = date("Y")
                                             @endphp
                                             @for($year=$current_year; $year<=$current_year +1 ;$year++)
-                                                <option value="{{$year}}" {{$year == $exam->academic_year ?'selected':''}}>{{ $year }}</option>
+                                                <option
+                                                    value="{{$year}}" {{$year == $exam->academic_year ?'selected':''}}>{{ $year }}</option>
                                             @endfor
                                         </select>
                                     </div>
 
                                 </div>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ البيانات</button>
+                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
+                                    البيانات
+                                </button>
                             </form>
                         </div>
                     </div>

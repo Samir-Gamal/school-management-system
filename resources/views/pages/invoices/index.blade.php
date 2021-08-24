@@ -8,7 +8,7 @@
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-   الفواتير الدراسية
+    الفواتير الدراسية
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -42,16 +42,21 @@
                                         <tbody>
                                         @foreach($invoices as $invoice)
                                             <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{$invoice->student->name}}</td>
-                                            <td>{{$invoice->fee->title}}</td>
-                                            <td>{{ number_format($invoice->amount, 2) }}</td>
-                                            <td>{{$invoice->grade->name}}</td>
-                                            <td>{{$invoice->classroom->name}}</td>
-                                            <td>{{$invoice->description}}</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{$invoice->student->name}}</td>
+                                                <td>{{$invoice->fee->title}}</td>
+                                                <td>{{ number_format($invoice->amount, 2) }}</td>
+                                                <td>{{$invoice->grade->name}}</td>
+                                                <td>{{$invoice->classroom->name}}</td>
+                                                <td>{{$invoice->description}}</td>
                                                 <td>
-                                                    <a href="{{route('invoices.edit',$invoice->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_Fee_invoice{{$invoice->id}}" ><i class="fa fa-trash"></i></button>
+                                                    <a href="{{route('invoices.edit',$invoice->id)}}"
+                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                            class="fa fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                            data-toggle="modal"
+                                                            data-target="#Delete_Fee_invoice{{$invoice->id}}"><i
+                                                            class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
                                         @include('pages.invoices.delete')

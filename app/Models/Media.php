@@ -3,6 +3,11 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Spatie\MediaLibrary\MediaCollections\Models\Media as BaseMedia;
 
 /**
@@ -16,26 +21,26 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as BaseMedia;
  * @property string|null $description
  * @property string $year
  * @property int $type
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Classroom $classroom
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Classroom $classroom
  * @property-read array $translations
- * @property-read \App\Models\Gender $grades
- * @method static \Illuminate\Database\Eloquent\Builder|Fee newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Fee newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Fee query()
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereAmount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereClassroomId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereGradeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Fee whereYear($value)
- * @mixin \Eloquent
- * @property-read \App\Models\Grade $grade
+ * @property-read Gender $grades
+ * @method static Builder|Fee newModelQuery()
+ * @method static Builder|Fee newQuery()
+ * @method static Builder|Fee query()
+ * @method static Builder|Fee whereAmount($value)
+ * @method static Builder|Fee whereClassroomId($value)
+ * @method static Builder|Fee whereCreatedAt($value)
+ * @method static Builder|Fee whereDescription($value)
+ * @method static Builder|Fee whereGradeId($value)
+ * @method static Builder|Fee whereId($value)
+ * @method static Builder|Fee whereTitle($value)
+ * @method static Builder|Fee whereType($value)
+ * @method static Builder|Fee whereUpdatedAt($value)
+ * @method static Builder|Fee whereYear($value)
+ * @mixin Eloquent
+ * @property-read Grade $grade
  * @property string $model_type
  * @property string $model_id
  * @property string|null $uuid
@@ -53,25 +58,25 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as BaseMedia;
  * @property int|null $order_column
  * @property-read string $extension
  * @property-read string $human_readable_size
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $model
- * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|static[] all($columns = ['*'])
- * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|static[] get($columns = ['*'])
+ * @property-read Model|Eloquent $model
+ * @method static MediaCollection|static[] all($columns = ['*'])
+ * @method static MediaCollection|static[] get($columns = ['*'])
  * @method static Builder|Media ordered()
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereCollectionName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereConversionsDisk($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereCustomProperties($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereDisk($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereFileName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereGeneratedConversions($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereManipulations($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereMimeType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereModelId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereModelType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereOrderColumn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereResponsiveImages($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereSize($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Media whereUuid($value)
+ * @method static Builder|Media whereCollectionName($value)
+ * @method static Builder|Media whereConversionsDisk($value)
+ * @method static Builder|Media whereCustomProperties($value)
+ * @method static Builder|Media whereDisk($value)
+ * @method static Builder|Media whereFileName($value)
+ * @method static Builder|Media whereGeneratedConversions($value)
+ * @method static Builder|Media whereManipulations($value)
+ * @method static Builder|Media whereMimeType($value)
+ * @method static Builder|Media whereModelId($value)
+ * @method static Builder|Media whereModelType($value)
+ * @method static Builder|Media whereName($value)
+ * @method static Builder|Media whereOrderColumn($value)
+ * @method static Builder|Media whereResponsiveImages($value)
+ * @method static Builder|Media whereSize($value)
+ * @method static Builder|Media whereUuid($value)
  */
 class Media extends BaseMedia
 {

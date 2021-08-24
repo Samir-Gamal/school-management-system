@@ -7,6 +7,7 @@ use App\Models\ProcessingFee;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Repository\ProcessingFeeRepositoryInterface;
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 class ProcessingFeeController extends Controller
@@ -15,19 +16,19 @@ class ProcessingFeeController extends Controller
     public function index()
     {
         $processing_fees = ProcessingFee::all();
-        return view('pages.processing_fees.index',compact('processing_fees'));
+        return view('pages.processing_fees.index', compact('processing_fees'));
     }
 
     public function show($id)
     {
         $student = Student::findorfail($id);
-        return view('pages.processing_fees.add',compact('student'));
+        return view('pages.processing_fees.add', compact('student'));
     }
 
     public function edit($id)
     {
         $processing_fee = ProcessingFee::findorfail($id);
-        return view('pages.processing_fees.edit',compact('processing_fee'));
+        return view('pages.processing_fees.edit', compact('processing_fee'));
     }
 
     public function store($request)
@@ -59,7 +60,7 @@ class ProcessingFeeController extends Controller
             DB::commit();
             toastr()->success(__('messages.success'));
             return redirect()->route('processing-fees.index');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -71,7 +72,7 @@ class ProcessingFeeController extends Controller
 
         try {
             // تعديل البيانات في جدول معالجة الرسوم
-            $ProcessingFee = ProcessingFee::findorfail($request->id);;
+            $ProcessingFee = ProcessingFee::findorfail($request->id);
             $ProcessingFee->date = date('Y-m-d');
             $ProcessingFee->student_id = $request->student_id;
             $ProcessingFee->amount = $request->Debit;
@@ -79,7 +80,7 @@ class ProcessingFeeController extends Controller
             $ProcessingFee->save();
 
             // تعديل البيانات في جدول حساب الطلاب
-            $students_accounts = StudentAccount::where('processing_id',$request->id)->first();;
+            $students_accounts = StudentAccount::where('processing_id', $request->id)->first();
             $students_accounts->date = date('Y-m-d');
             $students_accounts->type = 'ProcessingFee';
             $students_accounts->student_id = $request->student_id;
@@ -93,7 +94,7 @@ class ProcessingFeeController extends Controller
             DB::commit();
             toastr()->success(__('messages.update'));
             return redirect()->route('processing-fee.index');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -102,9 +103,9 @@ class ProcessingFeeController extends Controller
     public function destroy($request)
     {
 
-            ProcessingFee::destroy($request->id);
-            toastr()->error(__('messages.delete'));
-            return redirect()->back();
+        ProcessingFee::destroy($request->id);
+        toastr()->error(__('messages.delete'));
+        return redirect()->back();
 
     }
 }

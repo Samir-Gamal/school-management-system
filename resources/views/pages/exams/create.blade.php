@@ -47,11 +47,12 @@
 
                                 <div class="form-row">
                                     <div class="form-group col">
-                                        <label for="academic_year">{{__('validation.attributes.academic_year')}} : <span class="text-danger">*</span></label>
+                                        <label for="academic_year">{{__('validation.attributes.academic_year')}} : <span
+                                                class="text-danger">*</span></label>
                                         <select class="custom-select mr-sm-2" name="academic_year">
                                             <option selected disabled>{{__('main.choose')}}...</option>
                                             @php
-                                                $current_year = date("Y");
+                                                $current_year = date("Y")
                                             @endphp
                                             @for($year=$current_year; $year<=$current_year +1 ;$year++)
                                                 <option value="{{ $year}}">{{ $year }}</option>
@@ -60,7 +61,9 @@
                                     </div>
 
                                 </div>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ البيانات</button>
+                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
+                                    البيانات
+                                </button>
                             </form>
                         </div>
                     </div>

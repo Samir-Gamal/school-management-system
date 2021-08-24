@@ -16,8 +16,7 @@ class ExamTableSeeder extends Seeder
     {
 
 
-
-        $exams=[];
+        $exams = [];
         for ($i = 0; $i < 30; $i++) {
             $exam = Exam::factory()->make([])->
             toArray();

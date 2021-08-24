@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Student;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class StudentFactory extends Factory
@@ -19,7 +20,7 @@ class StudentFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function definition()
     {
@@ -29,7 +30,7 @@ class StudentFactory extends Factory
 
         return [
             'id' => $this->faker->uuid,
-            'name' =>  ['en' => $this->faker->name(), 'ar' => $faker_ar->name()],
+            'name' => ['en' => $this->faker->name(), 'ar' => $faker_ar->name()],
             'email' => $this->faker->unique()->email,
             'password' => null,
             'gender_id' => null,

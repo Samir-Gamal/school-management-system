@@ -3,8 +3,12 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Database\Factories\ReligionFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -12,22 +16,30 @@ use Spatie\Translatable\HasTranslations;
  *
  * @property int $id
  * @property array $name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property-read array $translations
- * @method static \Illuminate\Database\Eloquent\Builder|Religion newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Religion newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Religion query()
- * @method static \Illuminate\Database\Eloquent\Builder|Religion whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Religion whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Religion whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Religion whereUpdatedAt($value)
- * @mixin \Eloquent
- * @method static \Database\Factories\ReligionFactory factory(...$parameters)
+ * @method static Builder|Religion newModelQuery()
+ * @method static Builder|Religion newQuery()
+ * @method static Builder|Religion query()
+ * @method static Builder|Religion whereCreatedAt($value)
+ * @method static Builder|Religion whereId($value)
+ * @method static Builder|Religion whereName($value)
+ * @method static Builder|Religion whereUpdatedAt($value)
+ * @mixin Eloquent
+ * @method static ReligionFactory factory(...$parameters)
  */
 class Religion extends Model
 {
-    use HasFactory,HasTranslations,Uuids;
+    use HasFactory, HasTranslations, Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    public $translatable = ['name'];
     /**
      * The database table used by the model.
      *
@@ -41,13 +53,6 @@ class Religion extends Model
      */
     protected $fillable = ['name'];
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * The database primary key value.
      *
      * @var string
@@ -59,6 +64,4 @@ class Religion extends Model
      * @var array
      */
     protected $hidden = [];
-
-    public $translatable = ['name'];
 }

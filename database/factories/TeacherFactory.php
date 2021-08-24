@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Teacher;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TeacherFactory extends Factory
@@ -19,7 +20,7 @@ class TeacherFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function definition()
     {

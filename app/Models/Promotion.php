@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Promotion
@@ -18,35 +21,42 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $to_section
  * @property string $academic_year
  * @property string $academic_year_new
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Classroom $f_classroom
- * @property-read \App\Models\Grade $f_grade
- * @property-read \App\Models\Section $f_section
- * @property-read \App\Models\Student $student
- * @property-read \App\Models\Classroom $t_classroom
- * @property-read \App\Models\Grade $t_grade
- * @property-read \App\Models\Section $t_section
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion query()
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereAcademicYear($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereAcademicYearNew($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereFromClassroom($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereFromGrade($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereFromSection($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereStudentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereToClassroom($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereToGrade($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereToSection($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Promotion whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property-read Classroom $f_classroom
+ * @property-read Grade $f_grade
+ * @property-read Section $f_section
+ * @property-read Student $student
+ * @property-read Classroom $t_classroom
+ * @property-read Grade $t_grade
+ * @property-read Section $t_section
+ * @method static Builder|Promotion newModelQuery()
+ * @method static Builder|Promotion newQuery()
+ * @method static Builder|Promotion query()
+ * @method static Builder|Promotion whereAcademicYear($value)
+ * @method static Builder|Promotion whereAcademicYearNew($value)
+ * @method static Builder|Promotion whereCreatedAt($value)
+ * @method static Builder|Promotion whereFromClassroom($value)
+ * @method static Builder|Promotion whereFromGrade($value)
+ * @method static Builder|Promotion whereFromSection($value)
+ * @method static Builder|Promotion whereId($value)
+ * @method static Builder|Promotion whereStudentId($value)
+ * @method static Builder|Promotion whereToClassroom($value)
+ * @method static Builder|Promotion whereToGrade($value)
+ * @method static Builder|Promotion whereToSection($value)
+ * @method static Builder|Promotion whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Promotion extends Model
 {
     use Uuids;
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
     /**
      * The database table used by the model.
      *
@@ -70,13 +80,6 @@ class Promotion extends Model
         'academic_year',
         'academic_year_new',
     ];
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
     /**
      * The database primary key value.
      *
@@ -139,21 +142,6 @@ class Promotion extends Model
     {
         return $this->belongsTo(Section::class, 'to_section');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

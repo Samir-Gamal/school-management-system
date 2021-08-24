@@ -8,6 +8,7 @@ use App\Models\Payment;
 use App\Models\Student;
 use App\Models\StudentAccount;
 use App\Repository\PaymentRepositoryInterface;
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
@@ -69,7 +70,7 @@ class PaymentController extends Controller
             DB::commit();
             toastr()->success(__('messages.success'));
             return redirect()->route('payments.index');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -113,7 +114,7 @@ class PaymentController extends Controller
             DB::commit();
             toastr()->success(__('messages.update'));
             return redirect()->route('payments.index');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -122,8 +123,8 @@ class PaymentController extends Controller
     public function destroy($request)
     {
 
-            Payment::destroy($request->id);
-            toastr()->error(__('messages.delete'));
-            return redirect()->back();
+        Payment::destroy($request->id);
+        toastr()->error(__('messages.delete'));
+        return redirect()->back();
     }
 }

@@ -22,7 +22,7 @@ class GuardianTableSeeder extends Seeder
         $nationalities = Nationality::all();
         $blood_types = BloodType::all();
         $religions = Religion::all();
-        $guardians=[];
+        $guardians = [];
         for ($i = 0; $i < 100; $i++) {
             $nationality_id = $nationalities->random()->id;
             $guardian = Guardian::factory()->make([
@@ -43,6 +43,6 @@ class GuardianTableSeeder extends Seeder
             $guardians[] = $guardian;
             $guardian = null;
         }
-       Guardian::insert($guardians);
+        Guardian::insert($guardians);
     }
 }

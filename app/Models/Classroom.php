@@ -3,8 +3,12 @@
 namespace App\Models;
 
 use App\Traits\Uuids;
+use Database\Factories\ClassroomFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -13,26 +17,39 @@ use Spatie\Translatable\HasTranslations;
  * @property int $id
  * @property array $name
  * @property int $grade_id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property-read array $translations
- * @property-read \App\Models\Grade $grade
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom query()
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereGradeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Classroom whereUpdatedAt($value)
- * @mixin \Eloquent
- * @method static \Database\Factories\ClassroomFactory factory(...$parameters)
+ * @property-read Grade $grade
+ * @method static Builder|Classroom newModelQuery()
+ * @method static Builder|Classroom newQuery()
+ * @method static Builder|Classroom query()
+ * @method static Builder|Classroom whereCreatedAt($value)
+ * @method static Builder|Classroom whereGradeId($value)
+ * @method static Builder|Classroom whereId($value)
+ * @method static Builder|Classroom whereName($value)
+ * @method static Builder|Classroom whereUpdatedAt($value)
+ * @mixin Eloquent
+ * @method static ClassroomFactory factory(...$parameters)
  */
 class Classroom extends Model
 {
 
-    use HasFactory, HasTranslations ,Uuids;
+    use HasFactory, HasTranslations, Uuids;
 
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    public $translatable = ['name'];
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
     /**
      * The database table used by the model.
      *
@@ -49,13 +66,6 @@ class Classroom extends Model
         'grade_id'
     ];
     /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * The database primary key value.
      *
      * @var string
@@ -67,14 +77,6 @@ class Classroom extends Model
      * @var array
      */
     protected $hidden = [];
-
-    public $translatable = ['name'];
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = true;
 
 
     // علاقة بين الصفوف المراحل الدراسية لجلب اسم المرحلة في جدول الصفوف

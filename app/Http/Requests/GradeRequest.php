@@ -63,8 +63,8 @@ class GradeRequest extends FormRequest
     {
         $update_rules = [
 
-            'name_ar' => 'required|unique:grades,name->ar,'.request()->id,
-            'name_en' => 'required|unique:grades,name->en,'.request()->id,
+            'name_ar' => 'required|unique:grades,name->ar,' . request()->id,
+            'name_en' => 'required|unique:grades,name->en,' . request()->id,
 
         ];
 

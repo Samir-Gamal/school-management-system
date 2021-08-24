@@ -1,5 +1,7 @@
 <?php
+
 namespace Database\Seeders;
+
 use App\Models\BloodType;
 use App\Models\Classroom;
 use App\Models\Gender;
@@ -28,12 +30,12 @@ class StudentTableSeeder extends Seeder
         $classrooms = Classroom::all();
         $sections = Section::all();
         $guardians = Guardian::all();
-        $students=[];
+        $students = [];
         for ($i = 0; $i < 100; $i++) {
             $student = Student::factory()->make([
                 'password' => $password,
                 'gender_id' => $genders->random()->id,
-                'nationality_id' =>  $nationalities->random()->id,
+                'nationality_id' => $nationalities->random()->id,
                 'blood_type_id' => $blood_types->random()->id,
                 'grade_id' => $grades->random()->id,
                 'classroom_id' => $classrooms->random()->id,

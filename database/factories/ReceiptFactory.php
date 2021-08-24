@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Receipt;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReceiptFactory extends Factory
@@ -19,7 +20,7 @@ class ReceiptFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function definition()
     {
@@ -28,10 +29,10 @@ class ReceiptFactory extends Factory
 
         return [
             'id' => $this->faker->uuid,
-            'date' =>$date,
-            'student_id' =>null,
-            'debit' =>$this->faker->numberBetween(5,150)*1000,
-            'description' =>$this->faker->sentence(),
+            'date' => $date,
+            'student_id' => null,
+            'debit' => $this->faker->numberBetween(5, 150) * 1000,
+            'description' => $this->faker->sentence(),
             'created_at' => $date,
             'updated_at' => $this->faker->dateTimeBetween($date)
         ];
