@@ -58,7 +58,7 @@
                                                 </td>
                                             </tr>
 
-                                        @include('pages.Questions.destroy')
+                                        @include('pages.questions.destroy')
                                         @endforeach
                                     </table>
                                 </div>
