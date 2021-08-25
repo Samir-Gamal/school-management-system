@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Questions;
+namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Repository\QuestionRepositoryInterface;

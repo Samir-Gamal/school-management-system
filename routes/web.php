@@ -15,6 +15,8 @@ use App\Http\Controllers\v1\InvoiceController;
 use App\Http\Controllers\v1\PaymentController;
 use App\Http\Controllers\v1\ProcessingFeeController;
 use App\Http\Controllers\v1\PromotionController;
+use App\Http\Controllers\v1\QuestionController;
+use App\Http\Controllers\v1\QuizController;
 use App\Http\Controllers\v1\ReceiptController;
 use App\Http\Controllers\v1\SectionController;
 use App\Http\Controllers\v1\StudentController;
@@ -83,20 +85,43 @@ Route::group(
 
         //==============================guardians============================
         Route::resource('guardians', GuardianController::class);
+        //==============================Teachers============================
+        Route::resource('teachers', TeacherController::class);
 
-    //==============================Quizzes============================
-    Route::group(['namespace' => 'Quizzes'], function () {
-        Route::resource('Quizzes', 'QuizzController');
+        //==============================Students============================
+        Route::resource('students', StudentController::class);
+        Route::post('students/{id}/restore', [GraduatedController::class, 'restore']);
+        Route::resource('graduates', GraduatedController::class);
+        Route::resource('promotions', PromotionController::class);
+        Route::resource('invoices', InvoiceController::class);
+        Route::resource('fees', FeeController::class);
+        Route::resource('receipts', ReceiptController::class);
+        Route::resource('processing-fees', ProcessingFeeController::class);
+        Route::resource('payments', PaymentController::class);
+        Route::resource('attendances', AttendanceController::class);
+        Route::get('get-classrooms/{id}', [StudentController::class, 'get-classrooms']);
+        Route::get('sections/{id}', [StudentController::class, 'Get_Sections']);
+        Route::resource('attachments', AttachmentController::class);
+
+        //==============================subjects============================
+        Route::resource('subjects', SubjectController::class);
+
+
+        //==============================Exams============================
+        Route::resource('exams', ExamController::class);
+
+        //==============================Quizzes============================
+            Route::resource('Quizzes', QuizController::class);
+
+
+        //==============================questions============================
+            Route::resource('questions', QuestionController::class);
+
     });
 
-    //==============================questions============================
-    Route::group(['namespace' => 'questions'], function () {
-        Route::resource('questions', 'QuestionController');
-    });
 });
-
-
 if (App::environment('local')) {
 
     Route::get('test', [TestController::class, 'test']);
 }
+

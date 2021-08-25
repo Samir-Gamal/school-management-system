@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Quizzes;
+namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Repository\QuizzRepositoryInterface;
 use Illuminate\Http\Request;
 
-class QuizzController extends Controller
+class QuizController extends Controller
 {
 
     protected $Quizz;
