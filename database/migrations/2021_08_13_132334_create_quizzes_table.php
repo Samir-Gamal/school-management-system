@@ -14,13 +14,13 @@ class CreateQuizzesTable extends Migration
     public function up()
     {
         Schema::create('quizzes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('subject_id')->references('id')->on('subjects')->onDelete('cascade');
-            $table->foreignId('grade_id')->references('id')->on('Grades')->onDelete('cascade');
-            $table->foreignId('classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
-            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreignId('teacher_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            $table->uuid('id');
+            $table->primary('id');
+            $table->foreignUuid('subject_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
+            $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignUuid('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->timestamps();
         });
     }
