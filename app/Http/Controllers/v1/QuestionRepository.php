@@ -11,13 +11,13 @@ class QuestionRepository implements QuestionRepositoryInterface
     public function index()
     {
         $questions = Question::get();
-        return view('pages.Questions.index', compact('questions'));
+        return view('pages.questions.index', compact('questions'));
     }
 
     public function create()
     {
         $quizzes = Quizze::get();
-        return view('pages.Questions.create',compact('quizzes'));
+        return view('pages.questions.create',compact('quizzes'));
     }
 
     public function store($request)
@@ -41,7 +41,7 @@ class QuestionRepository implements QuestionRepositoryInterface
     {
         $question = Question::findorfail($id);
         $quizzes = Quizze::get();
-        return view('pages.Questions.edit',compact('question','quizzes'));
+        return view('pages.questions.edit',compact('question','quizzes'));
     }
 
     public function update($request)
