@@ -110,8 +110,8 @@ Route::group(
         //==============================Exams============================
         Route::resource('exams', ExamController::class);
 
-        //==============================Quizzes============================
-            Route::resource('Quizzes', QuizController::class);
+        //==============================quizzes============================
+            Route::resource('quizzes', QuizController::class);
 
 
         //==============================questions============================
