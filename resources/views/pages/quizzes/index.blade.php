@@ -39,26 +39,27 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($quizzes as $quizze)
+                                        @foreach($quizzes as $quiz)
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
-                                                <td>{{$quizze->name}}</td>
-                                                <td>{{$quizze->teacher->Name}}</td>
-                                                <td>{{$quizze->grade->Name}}</td>
-                                                <td>{{$quizze->classroom->Name_Class}}</td>
-                                                <td>{{$quizze->section->Name_Section}}</td>
+                                                <td>{{$quiz->name}}</td>
+                                                <td>{{$quiz->teacher->name}}</td>
+                                                <td>{{$quiz->grade->name}}</td>
+                                                <td>{{$quiz->classroom->name}}</td>
+                                                <td>{{$quiz->section->name}}</td>
                                                 <td>
-                                                    <a href="{{route('quizzes.edit',$quizze->id)}}"
+
+                                                    <a href="{{route('quizzes.edit',$quiz->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
-                                                            data-target="#delete_exam{{ $quizze->id }}" title="حذف"><i
+                                                            data-target="#delete_exam{{ $quiz->id }}" title="حذف"><i
                                                             class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
 
-                                            <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"
+                                            <div class="modal fade" id="delete_exam{{$quiz->id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <form action="{{route('quizzes.destroy','test')}}" method="post">
@@ -74,8 +75,8 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p> {{ trans('My_Classes_trans.Warning_Grade') }} {{$quizze->name}}</p>
-                                                                <input type="hidden" name="id" value="{{$quizze->id}}">
+                                                                <p> {{ trans('My_Classes_trans.Warning_Grade') }} {{$quiz->name}}</p>
+                                                                <input type="hidden" name="id" value="{{$quiz->id}}">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <div class="modal-footer">

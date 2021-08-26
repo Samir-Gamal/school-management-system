@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    تعديل اختبار {{$quizz->name}}
+    تعديل اختبار {{$quiz->name}}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-    تعديل اختبار {{$quizz->name}}
+    تعديل اختبار {{$quiz->name}}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -37,13 +37,13 @@
 
                                     <div class="col">
                                         <label for="title">اسم الاختبار باللغة العربية</label>
-                                        <input type="text" name="Name_ar" value="{{$quizz->getTranslation('name','ar')}}" class="form-control">
-                                        <input type="hidden" name="id" value="{{$quizz->id}}">
+                                        <input type="text" name="name_ar" value="{{$quiz->getTranslation('name','ar')}}" class="form-control">
+                                        <input type="hidden" name="id" value="{{$quiz->id}}">
                                     </div>
 
                                     <div class="col">
                                         <label for="title">اسم الاختبار باللغة الانجليزية</label>
-                                        <input type="text" name="Name_en" value="{{$quizz->getTranslation('name','en')}}" class="form-control">
+                                        <input type="text" name="name_en" value="{{$quiz->getTranslation('name','en')}}" class="form-control">
                                     </div>
                                 </div>
                                 <br>
@@ -55,7 +55,7 @@
                                             <label for="Grade_id">المادة الدراسية : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="subject_id">
                                                 @foreach($subjects as $subject)
-                                                    <option value="{{ $subject->id }}" {{$subject->id == $quizz->subject_id ? "selected":""}}>{{ $subject->name }}</option>
+                                                    <option value="{{ $subject->id }}" {{$subject->id == $quiz->subject_id ? "selected":""}}>{{ $subject->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -66,7 +66,7 @@
                                             <label for="Grade_id">اسم المعلم : <span class="text-danger">*</span></label>
                                             <select class="custom-select mr-sm-2" name="teacher_id">
                                                 @foreach($teachers as $teacher)
-                                                    <option  value="{{ $teacher->id }}" {{$teacher->id == $quizz->teacher_id ? "selected":""}}>{{ $teacher->Name }}</option>
+                                                    <option  value="{{ $teacher->id }}" {{$teacher->id == $quiz->teacher_id ? "selected":""}}>{{ $teacher->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -79,9 +79,9 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="Grade_id">{{trans('Students_trans.Grade')}} : <span class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="Grade_id">
+                                            <select class="custom-select mr-sm-2" name="grade_id">
                                                 @foreach($grades as $grade)
-                                                    <option  value="{{ $grade->id }}" {{$grade->id == $quizz->grade_id ? "selected":""}}>{{ $grade->Name }}</option>
+                                                    <option  value="{{ $grade->id }}" {{$grade->id == $quiz->grade_id ? "selected":""}}>{{ $grade->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -90,8 +90,8 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="Classroom_id">{{trans('Students_trans.classrooms')}} : <span class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="Classroom_id">
-                                                <option value="{{$quizz->classroom_id}}">{{$quizz->classroom->Name_Class}}</option>                                            </select>
+                                            <select class="custom-select mr-sm-2" name="classroom_id">
+                                                <option value="{{$quiz->classroom_id}}">{{$quiz->classroom->name}}</option>                                            </select>
                                         </div>
                                     </div>
 
@@ -99,7 +99,7 @@
                                         <div class="form-group">
                                             <label for="section_id">{{trans('Students_trans.section')}} : </label>
                                             <select class="custom-select mr-sm-2" name="section_id">
-                                                <option value="{{$quizz->section_id}}">{{$quizz->section->Name_Section}}</option>
+                                                <option value="{{$quiz->section_id}}">{{$quiz->section->name}}</option>
                                             </select>
                                         </div>
                                     </div>

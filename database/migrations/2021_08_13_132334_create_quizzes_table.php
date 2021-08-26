@@ -16,7 +16,8 @@ class CreateQuizzesTable extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
-            $table->foreignUuid('subject_id')->references('id')->on('students')->onDelete('cascade');
+            $table->string('name');
+            $table->foreignUuid('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->foreignUuid('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreignUuid('classroom_id')->references('id')->on('classrooms')->onDelete('cascade');
             $table->foreignUuid('section_id')->references('id')->on('sections')->onDelete('cascade');
