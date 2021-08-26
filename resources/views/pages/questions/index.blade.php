@@ -46,7 +46,7 @@
                                                 <td>{{$question->answers}}</td>
                                                 <td>{{$question->right_answer}}</td>
                                                 <td>{{$question->score}}</td>
-                                                <td>{{$question->quizze->name}}</td>
+                                                <td>{{$question->quiz->name}}</td>
                                                 <td>
                                                     <a href="{{route('questions.edit',$question->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i

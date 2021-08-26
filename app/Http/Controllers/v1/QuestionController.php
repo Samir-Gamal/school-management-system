@@ -21,21 +21,15 @@ class QuestionController extends Controller
     public function create()
     {
         $quizzes = Quiz::get();
-        return view('pages.questions.create',compact('quizzes'));
+        return view('pages.questions.create', compact('quizzes'));
     }
 
     public function store(Request $request)
     {
-
-            $question = new Question();
-            $question->title = $request->title;
-            $question->answers = $request->answers;
-            $question->right_answer = $request->right_answer;
-            $question->score = $request->score;
-            $question->quizze_id = $request->quizze_id;
-            $question->save();
-            toastr()->success(trans('messages.success'));
-            return redirect()->route('questions.create');
+        $input = $request->only((new Question())->getFillable());
+        $question = Question::create($input);
+        toastr()->success(trans('messages.success'));
+        return redirect()->route('questions.create');
 
     }
 
@@ -43,27 +37,23 @@ class QuestionController extends Controller
     {
         $question = Question::findorfail($id);
         $quizzes = Quiz::get();
-        return view('pages.questions.edit',compact('question','quizzes'));
+        return view('pages.questions.edit', compact('question', 'quizzes'));
     }
 
     public function update(Request $request)
     {
-            $question = Question::findorfail($request->id);
-            $question->title = $request->title;
-            $question->answers = $request->answers;
-            $question->right_answer = $request->right_answer;
-            $question->score = $request->score;
-            $question->quizze_id = $request->quizze_id;
-            $question->save();
-            toastr()->success(trans('messages.Update'));
-            return redirect()->route('questions.index');
+        $question = Question::findorfail($request->id);
+        $input = $request->only((new Question())->getFillable());
+        $question->update($input);
+        toastr()->success(trans('messages.update'));
+        return redirect()->route('questions.index');
 
     }
 
     public function destroy(Request $request)
     {
-            Question::destroy($request->id);
-            toastr()->error(trans('messages.Delete'));
-            return redirect()->back();
+        Question::destroy($request->id);
+        toastr()->error(trans('messages.delete'));
+        return redirect()->back();
     }
 }

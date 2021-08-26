@@ -65,10 +65,10 @@
                                         <div class="form-group">
                                             <label for="Grade_id">اسم الاختبار : <span
                                                     class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="quizze_id">
+                                            <select class="custom-select mr-sm-2" name="quiz_id">
                                                 <option selected disabled>حدد اسم الاختبار...</option>
-                                                @foreach($quizzes as $quizze)
-                                                    <option value="{{ $quizze->id }}" {{$quizze->id == $question->quizze_id ? 'selected':'' }} >{{ $quizze->name }}</option>
+                                                @foreach($quizzes as $quiz)
+                                                    <option value="{{ $quiz->id }}" {{$quiz->id == $question->quiz_id ? 'selected':'' }} >{{ $quiz->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
