@@ -15,6 +15,8 @@ use App\Http\Controllers\v1\InvoiceController;
 use App\Http\Controllers\v1\PaymentController;
 use App\Http\Controllers\v1\ProcessingFeeController;
 use App\Http\Controllers\v1\PromotionController;
+use App\Http\Controllers\v1\QuestionController;
+use App\Http\Controllers\v1\QuizController;
 use App\Http\Controllers\v1\ReceiptController;
 use App\Http\Controllers\v1\SectionController;
 use App\Http\Controllers\v1\StudentController;
@@ -83,7 +85,6 @@ Route::group(
 
         //==============================guardians============================
         Route::resource('guardians', GuardianController::class);
-
         //==============================Teachers============================
         Route::resource('teachers', TeacherController::class);
 
@@ -109,11 +110,18 @@ Route::group(
         //==============================Exams============================
         Route::resource('exams', ExamController::class);
 
+        //==============================quizzes============================
+            Route::resource('quizzes', QuizController::class);
+
+
+        //==============================questions============================
+            Route::resource('questions', QuestionController::class);
+
     });
+
 });
-
-
 if (App::environment('local')) {
 
     Route::get('test', [TestController::class, 'test']);
 }
+
