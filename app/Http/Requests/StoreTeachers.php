@@ -24,7 +24,7 @@ class StoreTeachers extends FormRequest
     public function rules()
     {
         return [
-            'Email' => 'required|unique:teachers,Email,'.$this->id,
+            'Email' => 'required|unique:teachers,Email,' . $this->id,
             'Password' => 'required',
             'Name_ar' => 'required',
             'Name_en' => 'required',
@@ -38,15 +38,15 @@ class StoreTeachers extends FormRequest
     public function messages()
     {
         return [
-            'Email.required' => trans('validation.required'),
-            'Email.unique' => trans('validation.unique'),
-            'Password.required' => trans('validation.required'),
-            'Name_ar.required' => trans('validation.required'),
-            'Name_en.required' => trans('validation.required'),
-            'Specialization_id.required' => trans('validation.required'),
-            'Gender_id.required' => trans('validation.required'),
-            'Joining_Date.required' => trans('validation.required'),
-            'Address.required' => trans('validation.required'),
+            'Email.required' => __('validation.required'),
+            'Email.unique' => __('validation.unique'),
+            'Password.required' => __('validation.required'),
+            'Name_ar.required' => __('validation.required'),
+            'Name_en.required' => __('validation.required'),
+            'Specialization_id.required' => __('validation.required'),
+            'Gender_id.required' => __('validation.required'),
+            'Joining_Date.required' => __('validation.required'),
+            'Address.required' => __('validation.required'),
         ];
     }
 }

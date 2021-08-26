@@ -1,61 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
+<div dir="rtl">
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="#"><img src="https://i.ibb.co/r203QFc/school-management-erp-1558416373-4916185.png" alt="school-management-erp-1558416373-4916185" border="0" /></a>
 </p>
+    
+# عن نظام إدارات المدارس
+   
+نظام إدارة المدارس المتكامل، يهتم بالنظام الإداري من حيث إدارة المعلمين والصفوف والطلاب والرسوم والمكتبة و الامتحانات وغيرها من العمليات.
 
-## About Laravel
+# نسخة لتجربة
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[من هذا الرباط](https://fh32000.com/sms).يمكنك الاطلاع على نسخه من النظام
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- معلومات الدخول على النسخة التجريبية
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| نوع الحساب  | الايميل | كلمة المرور |
+| ------------- |  ----- | -------- |
+| ادمن | admin@admin.com | 123456789 |
 
-## Learning Laravel
+### من بناء هذا النظام
+تم بناء هذا المشروع بواسطة الاستاذ @Samir-Gamal
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+وله قناه على اليوتيوب يشرح فيه إنشاء واستخدام هذا المشروع
+شكرا على مجهوده الطيب وبارك الله في عمله
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- [@youtube](https://www.youtube.com/watch?v=zKVIM-lnauo&list=PLftLUHfDSiZ7-RAsH8NskS7AYofykW_WN).
 
-## Laravel Sponsors
+## طريقة تشغيل المشروع للمطورين
+1. Clone the repo تحميل المستودع
+```sh
+ git clone git@github.com:fh32000/school-management-system.git
+```
+2. Install dependencies  تنصيب الارتباطات
+```sh
+ composer install
+```
+3.  App Settings in dotenv file  اعدادات التطبيق
+```sh
+ قم بنسخ ملف محتوى ملف .env.example
+الى ملف جديد باسم env.
+مع تغيير الإعدادات الخاصة بك من الاتصال بقواعد البيانات الخ
+```
+4. Migrate and seed Database انشاء جداول قواعد البيانات واضافة بيانات لتجربة البرنامج
+```sh
+ php artisan migrate:refresh --force --seed
+```
+5. تشغيل المشروع
+```sh
+ php artisan serve
+```
+## تم فتح هذا التشعب بواسطة
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- [@fh32000](https://fb.com/fh32000).
+- [@whatsapp: +967737060801](https://wa.me/+967737060801
+).
 
-### Premium Partners
+## الغرض من هذا التشعب Fork
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+إجراء بعض التحسين على مستوى تنظيم الكود وتحسين جودة المخرجات وزيادة الكفاءة واستخدام أفضل الأساليب
 
-## Contributing
+سابقي هذا الفرع محدث بالأشياء الجديد من الفرع الاصلي من الاخوه
+Samir-Gamal
+و
+John Doe
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## ما الجديد في هذا التشعب Fork
 
-## Code of Conduct
+### حل المشاكل
+- حل مشكلة دعم بي اش بي 8 عن طريق سماح لمكتبة لارفيل يو أي بتحديث متوافق مع الاصدار الجديد
+[ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/798db7d49dffeac3c4c1cb7a33b57b588c39f272
+)
+- [ بسبب عدم حساسيته للاحرف](https://stackoverflow.com/questions/26560376/base-table-or-view-not-found-error-in-web-hosting-pdo-mysql
+)حل مشكة المايقريشن والسيد لا تعمل في سيرفر الينكس ولكن تعمل بشكل جيد في سيرفر المحلي
+- إصلاح مشكلة عدم التمكن من تنفيذ أمر الميجريشن ريفرش و الميجريشن رول باك
+```sh
+php artisan migrate:refresh --force --seed
+or
+php artisan migrate:rollback
+```
+[ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/d6cec40ce2db6aa2ce3d67c1239dc7aa658cc4e7
+)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### تعديلات
+- تم تعديل حساب الادمن في seed
+- تم تعديل ايقونة الموقع
+- تم حذف الملفات غير المستخدمة
+### إضافة مميزات جديدة
+- امكانية عمل كاش لجميع الراوتر باستخدام الأمر التالي
+```sh
+    php artisan route:trans:cache
+```
+- تنصيب مكتبة telescope
+- استخدم uuid  لتخزين بيانات id في قواعد البيانات
+- اضافة وتفعيل ميزة laravel-ide-helper
 
-## Security Vulnerabilities
+[ مرجع التعديل](https://github.com/fh32000/school-management-system/commit/69102432adcf0b6f526a7e8076d68839d7cc4875)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ [لماذا نحتاج عمل كاش الراوتر خصوصا في البرودكشن ؟](https://voltagead.com/laravel-route-caching-for-improved-performance/)
 
-## License
+###  اتباع نظام Laravel Naming Conventions
+تم عمل تحديث كامل لكل اسماء الكلاسات و المجلدات و الملفات بما يتوافق مع نظام التسميات في لارافيل
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+###  اتباع أفضل التطبيقات Best Practices
+- استخدام Form Request validation
+- استخدام factory's كل في عملية seed
+
+###  تحسين تنظيمي واتباع نظام solid
+
+### تحسين السرعة والأداء
+- تحديث الفريم ورك لارافيل الى الاصدار v8.55.0
+- دعم الاصدار الاخير من php 8
+- تحسين سرعة الميجريشن
+- تحسين سرعة seed مع زيادة البيانات
+
+
+## تعلم كيف تطور وتعدل على المشروع
+يمكنك متابعة قناة الاستاذ على اليوتيوب
+- [@youtube](https://www.youtube.com/watch?v=zKVIM-lnauo&list=PLftLUHfDSiZ7-RAsH8NskS7AYofykW_WN).
+
+## الاقتراحات و التعاون
+
+ارحب بكل الاقتراحات عن طريق فتح issues في المشروع وسيتم مناقشتها وجدولتها للعمل
+كما أرحب بجميع المطورين لي حابين يضيفوا او يعدلوا أو يحذفوا بما يخدم المجتمع التعاوني وتحسين مخرجات المشروع مفتوح المصدر قوي ومحدث
+
+
+##  الترخيص MIT
+
+يدرج هذا المشروع ضمن رخصة مفتوح المصدر ضمن رخصة أم أي تي
+حسب طرح الأستاذ Samir-Gamal للمشروع مفتوح المصدر على github
+
+تعتبر رخصة ام اي تي رخصة متساهلة، بمعنى أنها تسمح باستخدامها مع البرمجيات الاحتكارية بشرط أن تكون الرخصة موزعة معها، وهي أيضاً متكاملة مع رخصة جنو العمومية، بمعنى أن رخصة جنو العمومية تسمح بجمعها ونشرها مع البرمجيات التي تستخدم رخصة أم أي تي.
+
+[ كل شئ عن الترخيص مفتوح المصدر MIT](https://opensource.org/licenses/MIT).
+</div>

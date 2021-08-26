@@ -7,7 +7,7 @@
   viewBox="0 0 38 38"
   preserveAspectRatio="xMinYMin meet"
   >
-   <text x="12" y="21" font-family="arial" font-size="3px" style="letter-spacing:0.6" fill="#323232">MoraSoft...
+   <text x="12" y="21" font-family="arial" font-size="3px" style="letter-spacing:0.6" fill="#323232">Loading...
      <animate
        attributeName="opacity"
        values="0;1;0" dur="1.8s"
