@@ -19,14 +19,7 @@
             <div class="card card-statistics h-100">
                 <div class="card-body">
 
-                    @if(session()->has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>{{ session()->get('error') }}</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
+                    @include('layouts.error_alert')
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
@@ -44,8 +37,8 @@
 
                                 <div class="form-row">
                                     <div class="col">
-                                        <label for="title">الاجابات</label>
-                                        <textarea name="answers" class="form-control" id="exampleFormControlTextarea1"
+                                        <label for="title">الخيارات</label>
+                                        <textarea name="options" class="form-control" id="exampleFormControlTextarea1"
                                                   rows="4"></textarea>
                                     </div>
                                 </div>
@@ -87,7 +80,9 @@
                                     </div>
                                 </div>
                                 <br>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ البيانات</button>
+                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
+                                    البيانات
+                                </button>
                             </form>
                         </div>
                     </div>

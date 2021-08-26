@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QuestionRequest;
 use App\Models\Question;
 use App\Models\Quiz;
 use App\Repository\QuestionRepositoryInterface;
@@ -24,7 +25,7 @@ class QuestionController extends Controller
         return view('pages.questions.create', compact('quizzes'));
     }
 
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
         $input = $request->only((new Question())->getFillable());
         $question = Question::create($input);
@@ -40,7 +41,7 @@ class QuestionController extends Controller
         return view('pages.questions.edit', compact('question', 'quizzes'));
     }
 
-    public function update(Request $request)
+    public function update(QuestionRequest $request)
     {
         $question = Question::findorfail($request->id);
         $input = $request->only((new Question())->getFillable());

@@ -29,7 +29,7 @@ class Question extends Model
 
     protected $fillable = [
         'title',
-        'answers',
+        'options',
         'right_answer',
         'score',
         'quiz_id',

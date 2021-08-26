@@ -46,8 +46,8 @@
 
                                 <div class="form-row">
                                     <div class="col">
-                                        <label for="title">الاجابات</label>
-                                        <textarea name="answers" class="form-control" id="exampleFormControlTextarea1" rows="4">{{$question->answers}}</textarea>
+                                        <label for="title">الخيارات</label>
+                                        <textarea name="options" class="form-control" id="exampleFormControlTextarea1" rows="4">{{$question->options}}</textarea>
                                     </div>
                                 </div>
                                 <br>

@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->uuid('id');
             $table->primary('id');
             $table->string('title',500);
-            $table->string('answers',500);
+            $table->string('options',500);
             $table->string('right_answer',500);
             $table->integer('score');
             $table->foreignUuid('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');

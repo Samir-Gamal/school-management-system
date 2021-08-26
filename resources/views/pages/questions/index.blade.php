@@ -31,7 +31,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">السؤال</th>
-                                            <th scope="col">الاجابات</th>
+                                            <th scope="col">الخيارات</th>
                                             <th scope="col">الاجابة الصحيحة</th>
                                             <th scope="col">الدرجة</th>
                                             <th scope="col">اسم الاختبار</th>
@@ -43,7 +43,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
                                                 <td>{{$question->title}}</td>
-                                                <td>{{$question->answers}}</td>
+                                                <td>{{$question->options}}</td>
                                                 <td>{{$question->right_answer}}</td>
                                                 <td>{{$question->score}}</td>
                                                 <td>{{$question->quiz->name}}</td>

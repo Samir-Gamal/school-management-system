@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QuizRequest;
 use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Quiz;
@@ -32,7 +33,7 @@ class QuizController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(QuizRequest $request)
     {
         $input = $request->only((new Quiz())->getFillable());
         $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
@@ -57,7 +58,7 @@ class QuizController extends Controller
         return view('pages.quizzes.edit', $data, compact('quiz'));
     }
 
-    public function update(Request $request)
+    public function update(QuizRequest $request)
     {
         $quiz = Quiz::findorFail($request->id);
         $input = $request->only((new Quiz())->getFillable());
