@@ -117,6 +117,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codezero/laravel-unique-translation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/livewire/livewire" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/macsidigital/laravel-oauth2-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/macsidigital/laravel-api-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/macsidigital/laravel-zoom" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth2-client" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

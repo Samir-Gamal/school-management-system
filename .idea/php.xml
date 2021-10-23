@@ -112,6 +112,12 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/codezero/laravel-unique-translation" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/macsidigital/laravel-oauth2-client" />
+      <path value="$PROJECT_DIR$/vendor/macsidigital/laravel-api-client" />
+      <path value="$PROJECT_DIR$/vendor/macsidigital/laravel-zoom" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
