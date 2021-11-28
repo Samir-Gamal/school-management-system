@@ -24,6 +24,8 @@ Route::get('/login/{type}','LoginController@loginForm')->middleware('guest')->na
 
 Route::post('/login','LoginController@login')->name('login');
 
+Route::get('/logout/{type}', 'LoginController@logout')->name('logout');
+
 
 });
  //==============================Translate all pages============================
@@ -34,7 +36,7 @@ Route::group(
     ], function () {
 
      //==============================dashboard============================
-    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
    //==============================dashboard============================
     Route::group(['namespace' => 'Grades'], function () {
