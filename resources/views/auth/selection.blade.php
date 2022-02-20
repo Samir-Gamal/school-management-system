@@ -20,9 +20,6 @@
     <!-- css -->
     <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
 
-
-
-
 </head>
 
 <body>

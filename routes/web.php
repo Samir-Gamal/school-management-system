@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('selection');
 
-
 Route::group(['namespace' => 'Auth'], function () {
 
 Route::get('/login/{type}','LoginController@loginForm')->middleware('guest')->name('login.show');
