@@ -36,4 +36,10 @@ Route::group(
         return view('pages.Teachers.dashboard.dashboard',$data);
     });
 
+    Route::group(['namespace' => 'Teachers\dashboard'], function () {
+        //==============================students============================
+     Route::get('student','StudentController@index')->name('student.index');
+
+    });
+
 });
