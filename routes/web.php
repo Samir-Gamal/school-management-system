@@ -19,25 +19,23 @@ Route::get('/', 'HomeController@index')->name('selection');
 
 Route::group(['namespace' => 'Auth'], function () {
 
-Route::get('/login/{type}','LoginController@loginForm')->middleware('guest')->name('login.show');
-
-Route::post('/login','LoginController@login')->name('login');
-
-Route::get('/logout/{type}', 'LoginController@logout')->name('logout');
+    Route::get('/login/{type}', 'LoginController@loginForm')->middleware('guest')->name('login.show');
+    Route::post('/login', 'LoginController@login')->name('login');
+    Route::get('/logout/{type}', 'LoginController@logout')->name('logout');
 
 
 });
- //==============================Translate all pages============================
+//==============================Translate all pages============================
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ], function () {
 
-     //==============================dashboard============================
+    //==============================dashboard============================
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
-   //==============================dashboard============================
+    //==============================dashboard============================
     Route::group(['namespace' => 'Grades'], function () {
         Route::resource('Grades', 'GradeController');
     });
@@ -64,7 +62,7 @@ Route::group(
 
     //==============================parents============================
 
-         Route::view('add_parent','livewire.show_Form')->name('add_parent');
+    Route::view('add_parent', 'livewire.show_Form')->name('add_parent');
 
     //==============================Teachers============================
     Route::group(['namespace' => 'Teachers'], function () {
