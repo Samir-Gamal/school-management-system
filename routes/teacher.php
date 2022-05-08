@@ -47,6 +47,7 @@ Route::group(
      Route::resource('quizzes', 'QuizzController');
      Route::get('/Get_classrooms/{id}', 'QuizzController@getClassrooms');
      Route::get('/Get_Sections/{id}', 'QuizzController@Get_Sections');
+     Route::resource('questions', 'QuestionController');
 
     });
 
