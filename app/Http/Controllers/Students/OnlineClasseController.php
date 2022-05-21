@@ -55,7 +55,7 @@ class OnlineClasseController extends Controller
             toastr()->success(trans('messages.success'));
             return redirect()->route('online_classes.index');
         } catch (\Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
 
     }
