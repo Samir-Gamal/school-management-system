@@ -65,6 +65,14 @@ login-->
                         @else
                             <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول ادمن</h3>
                         @endif
+
+                            @if (\Session::has('message'))
+                                <div class="alert alert-danger">
+                                 <li>{!! \Session::get('message') !!}</li>
+                                </div>
+                            @endif
+
+
                         <form method="POST" action="{{route('login')}}">
                             @csrf
 

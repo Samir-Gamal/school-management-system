@@ -29,7 +29,7 @@
                     </div>
                 @endif
 
-                <form method="post" action="{{ route('indirect.store.admin') }}" autocomplete="off">
+                <form method="post" action="{{ route('indirect.teacher.store') }}" autocomplete="off">
                     @csrf
                     <div class="row">
                         <div class="col-md-4">

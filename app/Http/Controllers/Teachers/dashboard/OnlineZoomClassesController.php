@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Students;
+namespace App\Http\Controllers\Teachers\dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\MeetingZoomTrait;
@@ -9,27 +9,28 @@ use App\Models\online_classe;
 use Illuminate\Http\Request;
 use MacsiDigital\Zoom\Facades\Zoom;
 
-class OnlineClasseController extends Controller
+class OnlineZoomClassesController extends Controller
 {
     use MeetingZoomTrait;
     public function index()
     {
         $online_classes = online_classe::where('created_by',auth()->user()->email)->get();
-        return view('pages.online_classes.index', compact('online_classes'));
+        return view('pages.Teachers.dashboard.online_classes.index', compact('online_classes'));
     }
 
 
     public function create()
     {
         $Grades = Grade::all();
-        return view('pages.online_classes.add', compact('Grades'));
+        return view('pages.Teachers.dashboard.online_classes.add', compact('Grades'));
     }
 
     public function indirectCreate()
     {
         $Grades = Grade::all();
-        return view('pages.online_classes.indirect', compact('Grades'));
+        return view('pages.Teachers.dashboard.online_classes.indirect', compact('Grades'));
     }
+
 
 
     public function store(Request $request)
@@ -53,13 +54,11 @@ class OnlineClasseController extends Controller
                 'join_url' => $meeting->join_url,
             ]);
             toastr()->success(trans('messages.success'));
-            return redirect()->route('online_classes.index');
+            return redirect()->route('online_zoom_classes.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-
     }
-
 
     public function storeIndirect(Request $request)
     {
@@ -79,55 +78,34 @@ class OnlineClasseController extends Controller
                 'join_url' => $request->join_url,
             ]);
             toastr()->success(trans('messages.success'));
-            return redirect()->route('online_classes.index');
+            return redirect()->route('online_zoom_classes.index');
         } catch (\Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
 
     }
 
 
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy(Request $request)
+    public function destroy(Request $request,$id)
     {
         try {
 
-            $info = online_classe::find($request->id);
+            $info = online_classe::find($id);
 
             if($info->integration == true){
                 $meeting = Zoom::meeting()->find($request->meeting_id);
                 $meeting->delete();
-               // online_classe::where('meeting_id', $request->id)->delete();
-                online_classe::destroy($request->id);
+                online_classe::destroy($id);
             }
             else{
-               // online_classe::where('meeting_id', $request->id)->delete();
-                online_classe::destroy($request->id);
+
+                online_classe::destroy($id);
             }
 
             toastr()->success(trans('messages.Delete'));
-            return redirect()->route('online_classes.index');
+            return redirect()->route('online_zoom_classes.index');
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
-
     }
 }
