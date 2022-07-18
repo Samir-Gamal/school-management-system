@@ -24,10 +24,11 @@ Route::group(
     //==============================dashboard============================
     Route::get('/student/dashboard', function () {
         return view('pages.Students.dashboard');
-    });
+    })->name('dashboard.Students');
 
     Route::group(['namespace' => 'Students\dashboard'], function () {
         Route::resource('student_exams', 'ExamsController');
+        Route::resource('profile-student', 'ProfileController');
     });
 
 });
