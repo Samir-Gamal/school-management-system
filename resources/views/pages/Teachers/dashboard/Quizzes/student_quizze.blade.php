@@ -1,16 +1,16 @@
 @extends('layouts.master')
 @section('css')
     @toastr_css
-@section('title')
-    قائمة الاختبارات
-@stop
+    @section('title')
+        قائمة الطلاب المختبره
+    @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
-@section('PageTitle')
-    قائمة الاختبارات
-@stop
-<!-- breadcrumb -->
+    @section('PageTitle')
+        قائمة الطلاب المختبره
+    @stop
+    <!-- breadcrumb -->
 @endsection
 @section('content')
     <!-- row -->
@@ -21,8 +21,6 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('quizzes.create')}}" class="btn btn-success btn-sm" role="button"
-                                   aria-pressed="true">اضافة اختبار جديد</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -30,69 +28,61 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>اسم الاختبار</th>
-                                            <th>اسم المعلم</th>
-                                            <th>المرحلة الدراسية</th>
-                                            <th>الصف الدراسي</th>
-                                            <th>القسم</th>
+                                            <th>اسم الطالب</th>
+                                            <th>اخر سؤال</th>
+                                            <th>الدرجة</th>
+                                            <th>تلاعب</th>
+                                            <th>تاريخ اجراء الاختبار</th>
                                             <th>العمليات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($quizzes as $quizze)
+                                        @foreach($degrees as $degree)
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
-                                                <td>{{$quizze->name}}</td>
-                                                <td>{{$quizze->teacher->Name}}</td>
-                                                <td>{{$quizze->grade->Name}}</td>
-                                                <td>{{$quizze->classroom->Name_Class}}</td>
-                                                <td>{{$quizze->section->Name_Section}}</td>
+                                                <td>{{$degree->student->name}}</td>
+                                                <td>{{$degree->question_id}}</td>
+                                                <td>{{$degree->score}}</td>
+                                                @if($degree->abuse == 0)
+                                                    <td style="color: green">لا يوجد تلاعب</td>
+                                                @else
+                                                    <td style="color: red"> يوجد تلاعب</td>
+                                                @endif
+                                                <td>{{$degree->date}}</td>
                                                 <td>
-                                                    <a href="{{route('quizzes.edit',$quizze->id)}}"
-                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
-                                                            class="fa fa-edit"></i></a>
-                                                    <button type="button" class="btn btn-danger btn-sm"
+                                                    <button type="button" class="btn btn-info btn-sm"
                                                             data-toggle="modal"
-                                                            data-target="#delete_exam{{ $quizze->id }}" title="حذف"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <a href="{{route('quizzes.show',$quizze->id)}}"
-                                                       class="btn btn-warning btn-sm" title="عرض الاسئلة" role="button" aria-pressed="true"><i
-                                                            class="fa fa-binoculars"></i></a>
-
-                                                    <a href="{{route('student.quizze',$quizze->id)}}"
-                                                       class="btn btn-primary btn-sm" title="عرض الطلاب المختبرين" role="button" aria-pressed="true"><i
-                                                            class="fa fa-street-view"></i></a>
-
-
-
+                                                            data-target="#repeat_quizze{{ $degree->quizze_id }}" title="إعادة">
+                                                        <i class="fas fa-repeat"></i></button>
                                                 </td>
                                             </tr>
 
-                                            <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"
+                                            <div class="modal fade" id="repeat_quizze{{$degree->quizze_id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('quizzes.destroy',$quizze->id)}}" method="post">
-                                                        {{method_field('delete')}}
+                                                    <form action="{{route('repeat.quizze', $degree->quizze_id)}}" method="post">
+                                                        {{method_field('post')}}
                                                         {{csrf_field()}}
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 style="font-family: 'Cairo', sans-serif;"
-                                                                    class="modal-title" id="exampleModalLabel">حذف اختبار</h5>
+                                                                    class="modal-title" id="exampleModalLabel">فتح إعادة الاختبار للطالب</h5>
                                                                 <button type="button" class="close" data-dismiss="modal"
                                                                         aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p> {{ trans('My_Classes_trans.Warning_Grade') }} {{$quizze->name}}</p>
-                                                                <input type="hidden" name="id" value="{{$quizze->id}}">
+                                                                <h6>{{$degree->student->name}}</h6>
+                                                                <input type="hidden" name="student_id" value="{{$degree->student_id}}">
+                                                                <input type="hidden" name="quizze_id" value="{{$degree->quizze_id}}">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                             data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
                                                                     <button type="submit"
-                                                                            class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
+                                                                            class="btn btn-info">{{ trans('My_Classes_trans.submit') }}</button>
                                                                 </div>
                                                             </div>
                                                         </div>

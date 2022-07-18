@@ -51,6 +51,10 @@ Route::group(
      Route::post('/indirect', 'OnlineZoomClassesController@storeIndirect')->name('indirect.teacher.store');
      Route::get('profile', 'ProfileController@index')->name('profile.show');
      Route::post('profile/{id}', 'ProfileController@update')->name('profile.update');
+     Route::get('student_quizze/{id}','QuizzController@student_quizze')->name('student.quizze');
+     Route::post('repeat_quizze', 'QuizzController@repeat_quizze')->name('repeat.quizze');
+
+
     });
 
 });
