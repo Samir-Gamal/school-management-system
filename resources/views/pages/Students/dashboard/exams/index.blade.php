@@ -41,10 +41,14 @@
                                                 <td>{{$quizze->subject->name}}</td>
                                                 <td>{{$quizze->name}}</td>
                                                 <td>
+                                                    @if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
+                                                        {{$quizze->degree[0]->score}}
+                                                    @else
                                                         <a href="{{route('student_exams.show',$quizze->id)}}"
                                                            class="btn btn-outline-success btn-sm" role="button"
                                                            aria-pressed="true" onclick="alertAbuse()">
                                                             <i class="fas fa-person-booth"></i></a>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -63,10 +67,10 @@
     @toastr_js
     @toastr_render
 
-    {{--    <script>--}}
-    {{--        function alertAbuse() {--}}
-    {{--            alert("برجاء عدم إعادة تحميل الصفحة بعد دخول الاختبار - في حال تم تنفيذ ذلك سيتم الغاء الاختبار بشكل اوتوماتيك ");--}}
-    {{--        }--}}
-    {{--    </script>--}}
+        <script>
+            function alertAbuse() {
+                alert("برجاء عدم إعادة تحميل الصفحة بعد دخول الاختبار - في حال تم تنفيذ ذلك سيتم الغاء الاختبار بشكل اوتوماتيك ");
+            }
+        </script>
 
 @endsection
