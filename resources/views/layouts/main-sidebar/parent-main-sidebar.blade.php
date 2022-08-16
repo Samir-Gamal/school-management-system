@@ -2,7 +2,7 @@
     <ul class="nav navbar-nav side-menu" id="sidebarnav">
         <!-- menu item Dashboard-->
         <li>
-            <a href="{{ route('dashboard.Students') }}">
+            <a href="{{ route('dashboard.parents') }}">
                 <div class="pull-left"><i class="ti-home"></i><span
                         class="right-nav-text">{{trans('main_trans.Dashboard')}}</span>
                 </div>
@@ -34,7 +34,7 @@
 
         <!-- Settings-->
         <li>
-            <a href="{{route('profile-student.index')}}"><i class="fas fa-id-card-alt"></i><span
+            <a href="{{route('profile.show.parent')}}"><i class="fas fa-id-card-alt"></i><span
                     class="right-nav-text">الملف الشخصي</span></a>
         </li>
 

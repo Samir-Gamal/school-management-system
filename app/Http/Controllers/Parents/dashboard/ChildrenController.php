@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\Degree;
 use App\Models\Fee_invoice;
+use App\Models\My_Parent;
 use App\Models\ReceiptStudent;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ChildrenController extends Controller
 {
@@ -97,6 +99,32 @@ class ChildrenController extends Controller
             return redirect()->route('sons.fees');
         }
         return view('pages.parents.Receipt.index', compact('receipt_students'));
+
+    }
+
+
+    public function profile()
+    {
+        $information = My_Parent::findorFail(auth()->user()->id);
+        return view('pages.parents.profile', compact('information'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $information = My_Parent::findorFail($id);
+
+        if (!empty($request->password)) {
+            $information->Name_Father = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $information->password = Hash::make($request->password);
+            $information->save();
+        } else {
+            $information->Name_Father = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $information->save();
+        }
+        toastr()->success(trans('messages.Update'));
+        return redirect()->back();
+
 
     }
 

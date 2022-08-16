@@ -11,10 +11,8 @@ class ProfileController extends Controller
 {
     public function index()
     {
-
         $information = Teacher::findorFail(auth()->user()->id);
         return view('pages.Teachers.dashboard.profile', compact('information'));
-
     }
 
     public function update(Request $request, $id)
